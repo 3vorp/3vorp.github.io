@@ -12,7 +12,7 @@ const config = {
         }),
         paths: {
             // change below to your repo name
-            base: '',
+            base: dev ? '/Personal-Site' : '',
         },
     }
 };
