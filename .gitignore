@@ -26,3 +26,12 @@ ehthumbs_vista.db
 .directory
 .Trash-*
 .nfs*
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+.vercel
+.output
