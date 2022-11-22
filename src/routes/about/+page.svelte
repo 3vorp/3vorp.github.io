@@ -4,6 +4,6 @@
 
 <div>
     <h1>About</h1>
-    <p>testing</p>
+    <li>testing</li>
 </div>
 
