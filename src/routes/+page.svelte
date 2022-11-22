@@ -1,6 +1,5 @@
 <script>
-    import { component_subscribe } from "svelte/internal";
-import "../css/app.scss";
+    import "../css/app.scss";
 </script>
 
 <div>
