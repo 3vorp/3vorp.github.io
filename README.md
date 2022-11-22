@@ -1,38 +1,106 @@
-# create-svelte
+# sveltekit-gh-pages
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+> Minimal [SvelteKit](https://kit.svelte.dev/) set-up made deployable to [GitHub Pages](https://metonym.github.io/sveltekit-gh-pages/).
 
-## Creating a project
+## 1) Use the static adapter
 
-If you're seeing this, you've probably already done this step. Congrats!
+Install the [SvelteKit static adapter](https://github.com/sveltejs/kit/tree/master/packages/adapter-static) to prerender the app.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+**package.json**
 
-# create a new project in my-app
-npm create svelte@latest my-app
+```diff
+  "devDependencies": {
++   "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
+    "gh-pages": "^4.0.0",
+    "svelte": "^3.52.0",
+    "vite": "^3.2.2"
+  }
 ```
 
-## Developing
+**svelte.config.js**
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```diff
+import adapter from "@sveltejs/adapter-static";
 
-```bash
-npm run dev
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+  kit: {
++   adapter: adapter(),
+  },
+};
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+export default config;
+
 ```
 
-## Building
+Ensure your top-level `+layout.js` exports `prerender = true`.
 
-To create a production version of your app:
-
-```bash
-npm run build
+```js
+// src/routes/+layout.js
+export const prerender = true;
 ```
 
-You can preview the production build with `npm run preview`.
+## 2) Modify `paths.base` in the config
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- `kit.paths.base` should be your repo URL subpath (see the [Vite docs](https://vitejs.dev/guide/static-deploy.html#github-pages))
+
+```diff
+import adapter from "@sveltejs/adapter-static";
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+  kit: {
+    adapter: adapter(),
++   paths: {
++     base: process.env.NODE_ENV === "production" ? "/sveltekit-gh-pages" : "",
++   },
+  },
+};
+
+export default config;
+
+```
+
+**Note:** You will also need to prepend relative paths with the [SvelteKit `base` path](https://kit.svelte.dev/docs/modules#$app-paths) so that your app can build successfully for production.
+
+```svelte
+<script>
+  import { base } from "$app/paths";
+</script>
+
+<a href="{base}/about">About</a>
+```
+
+## 3) Add a `.nojekyll` file to the build
+
+The last step is to add a `.nojekyll` file to the build folder to [bypass Jekyll on GitHub Pages](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/).
+
+**package.json**
+
+```json
+{
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "deploy": "touch build/.nojekyll && gh-pages -d build -t true"
+  }
+}
+```
+
+---
+
+## Quick start
+
+Use [degit](https://github.com/Rich-Harris/degit) to quickly scaffold a new project:
+
+```sh
+npx degit metonym/sveltekit-gh-pages my-app
+cd my-app && yarn install
+```
+
+## Deploying to GitHub Pages
+
+First, build the app by running `yarn build`.
+
+Then, run `yarn deploy` to deploy the app to GitHub Pages.
