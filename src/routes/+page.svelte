@@ -1,5 +1,4 @@
 <script>
-    import { base } from "$app/paths";
     import "../css/app.scss";
 </script>
 
@@ -8,4 +7,4 @@
     trolling<br>
     very gaming
 </div>
-<a href="{base}/about">About</a>
+<a href="/about">About</a>
