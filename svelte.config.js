@@ -5,7 +5,7 @@ const config = {
   kit: {
     adapter: adapter(),
     paths: {
-      base: process.env.NODE_ENV === "production" ? "/Personal-Site" : "",
+      base: process.env.NODE_ENV === "production" ? "" : "",
     },
   },
 };
