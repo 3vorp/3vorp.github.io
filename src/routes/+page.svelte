@@ -1,10 +1,11 @@
 <script>
-  import { base } from "$app/paths";
+    import { base } from "$app/paths";
+    import "../css/app.scss";
 </script>
 
-<h1>sveltekit-gh-pages</h1>
-<p>Deployed to GitHub Pages</p>
-<p>
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<div>
+    <h1>hello</h1>
+    trolling<br>
+    very gaming
+</div>
 <a href="{base}/about">About</a>
