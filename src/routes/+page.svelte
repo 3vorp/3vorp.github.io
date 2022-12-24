@@ -2,20 +2,36 @@
     import "../css/main.scss";
 </script>
 
-<div>
-    <h1>idk what to put here so here's some stuff I've done and currently do</h1>
-    <ul>
-        <li>made a <a href = 'https://github.com/3vorp/Spunch-Bot'>discord bot</a> in <a href = 'https://discordpy.readthedocs.io/en/stable/'>discord.py</a></li>
-        <li>co-manage the <a href = 'https://faithfulpack.net'>Faithful Project</a></li>
-        <li>do commissions for pixel art (e.g minecraft skins — usually between 5-10 USD)</li>
-    </ul>
+<svelte:head>
+    <title>Evorp's Website</title>
+</svelte:head>
 
-    <h2>my other media (mostly active on discord at Evorp#5819)</h2>
-    <ul>
-        <li><a href = 'https://twitter.com/3vorp'>Twitter</a></li>
-        <li><a href = 'https://reddit.com/u/3vorp'>Reddit</a></li>
-        <li><a href = 'https://youtube.com/@Evorp'>YouTube</a></li>
-    </ul>
-    <p>i also founded a cult as an april fools joke once</p>
-    <h1>more coming soon&trade;</h1>
+<div>
+    <h1>What I do:</h1>
+
+    <h2>I work on the Faithful Project as a co-owner/manager...</h2>
+    Our main site is at <a href="https://faithfulpack.net">https://faithfulpack.net</a> and our discord at <a href="https://discord.gg/sN9YRQbBv7">https://discord.gg/sN9YRQbBv7</a>.
+
+    <h2>I made a discord bot in discord.py and it only slightly sucks...</h2>
+    You can check it out at <a href="https://github.com/3vorp/Spunch-Bot">https://github.com/3vorp/Spunch-Bot</a>.
+
+    <h2>I do commissions for pixel art...</h2>
+    I mostly do basic small-scale art like Minecraft skins — usually costs between 5-10 USD depending on complexity.
+
 </div>
+
+<br><hr>
+
+<div>
+    <h1>Contact me:</h1>
+
+    <h2>The best way to contact me is via Discord at <code>Evorp#5819</code>. I should get back to you within a few hours depending on the time.</h2>
+
+    Alternatively you can find me at:
+    <br><br>
+    <a href="https://twitter.com/3vorp">Twitter</a> • <a href="https://reddit.com/u/3vorp">Reddit</a> • <a href="https://www.youtube.com/@evorp">YouTube</a> • <a href="https://steamcommunity.com/id/3vorp/">Steam</a>
+</div>
+
+<br><hr>
+
+<h2>More coming soon...</h2>
