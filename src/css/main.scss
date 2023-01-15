@@ -29,15 +29,14 @@ html {
     }
 
     .padding_div {
-        padding-left: 12em;
-        padding-right: 12em;
+        padding-left: 15vw;
+        padding-right: 15vw;
     }
 
     .banner_img {
         background-position: center;
         background-repeat: no-repeat;
         width: 100%;
-        color: red;
         -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
         from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     }
