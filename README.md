@@ -1,3 +1,5 @@
-personal site I made using sveltekit
+# https://3vorp.github.io
 
-idk either maybe more stuff coming soon
+## Currently just a mirror of my GitHub readme with some css, however more is planned soon™.
+
+### Made using SvelteKit ~~even though it's literally just one static webpage currently~~.
