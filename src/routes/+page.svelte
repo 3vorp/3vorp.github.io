@@ -7,7 +7,7 @@
 </svelte:head>
 
 <div>
-    <img src="banner.png" alt="evorp banner" class="banner_img">
+    <img src="banner.jpg" alt="evorp banner" class="banner_img">
 </div>
 
 <div class="padding_div">
