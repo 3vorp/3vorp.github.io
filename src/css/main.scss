@@ -11,10 +11,13 @@ html {
         'Open Sans',
         'Helvetica Neue',
         sans-serif;
-    color: #ffffff;
-    background-color: #2f3136;
+    color: #dedede;
+    background-color: #2a2a2e;
     font-weight: lighter;
-    font-size: 24px;
+
+    p {
+        font-size: 24px;
+    }
 
     body {
         margin: 0;
