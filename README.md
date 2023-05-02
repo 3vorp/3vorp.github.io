@@ -1,5 +1,7 @@
 # https://3vorp.github.io
 
-## Currently just a mirror of my GitHub readme with some css, however more is planned soon™.
+## random site that mostly serves as a nicer looking mirror of my github readme
 
-### Made using SvelteKit ~~even though it's literally just one static webpage currently~~.
+- made using sveltekit
+- now featuring: gambling simulator
+- more coming soon™
