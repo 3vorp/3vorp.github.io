@@ -1,11 +1,11 @@
 {
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "_app/immutable/start-49998b8f.js",
+    "file": "_app/immutable/start-67150b99.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_index-489db150.js",
-      "_singletons-e779eae9.js"
+      "_singletons-176873f5.js"
     ],
     "dynamicImports": [
       ".svelte-kit/generated/nodes/0.js",
@@ -23,12 +23,12 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "_app/immutable/components/error.svelte-9e1b92d7.js",
+    "file": "_app/immutable/components/error.svelte-55ed4922.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-489db150.js",
-      "_singletons-e779eae9.js"
+      "_singletons-176873f5.js"
     ]
   },
   "src/routes/+page.svelte": {
@@ -43,14 +43,14 @@
     ]
   },
   "src/routes/gamble/+page.svelte": {
-    "file": "_app/immutable/components/pages/gamble/_page.svelte-b7d515dc.js",
+    "file": "_app/immutable/components/pages/gamble/_page.svelte-68d09510.js",
     "src": "src/routes/gamble/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-489db150.js"
     ],
     "css": [
-      "_app/immutable/assets/_page-5187b99c.css",
+      "_app/immutable/assets/_page-43d01e62.css",
       "_app/immutable/assets/main-3f4a3253.css"
     ]
   },
@@ -62,8 +62,8 @@
       "__layout-8d2a742b.js"
     ]
   },
-  "_singletons-e779eae9.js": {
-    "file": "_app/immutable/chunks/singletons-e779eae9.js",
+  "_singletons-176873f5.js": {
+    "file": "_app/immutable/chunks/singletons-176873f5.js",
     "imports": [
       "_index-489db150.js"
     ]
@@ -84,7 +84,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "_app/immutable/chunks/1-5fb704a8.js",
+    "file": "_app/immutable/chunks/1-01b51407.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -100,7 +100,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "_app/immutable/chunks/3-2ac6af7d.js",
+    "file": "_app/immutable/chunks/3-a474255e.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -108,7 +108,7 @@
     ]
   },
   "src/routes/gamble/+page.css": {
-    "file": "_app/immutable/assets/_page-5187b99c.css",
+    "file": "_app/immutable/assets/_page-43d01e62.css",
     "src": "src/routes/gamble/+page.css"
   },
   "main.css": {
