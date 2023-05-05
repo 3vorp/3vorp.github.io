@@ -3,9 +3,56 @@
     const randint = (start, stop) =>
         start + Math.floor(Math.random() * (stop - start));
 
-    let integer = 69; // nice
+    const choice = (arr) => arr[randint(0, arr.length - 1)];
+
+    let selection = "numbers";
+    let currentOption = "pick a random number";
+
+    let cards = [];
+    let tmp;
+    const suits = ["clubs", "spades", "hearts", "diamonds"];
+
+    for (let j of suits) {
+        for (let i = 1; i < 13; i++) {
+            switch (i) {
+                case 1:
+                    tmp = "ace";
+                    break;
+                case 11:
+                    tmp = "jack";
+                    break;
+                case 12:
+                    tmp = "queen";
+                    break;
+                case 13:
+                    tmp = "king";
+                    break;
+                default:
+                    tmp = i.toString();
+                    break;
+            }
+            cards.push(`${tmp} of ${j}`);
+        }
+    }
+
+    let cardChoice = choice(cards);
+    let integer = randint(0, 100);
+
     function generateRandomNumber() {
         integer = randint(0, 100);
+    }
+
+    function generateCard() {
+        cardChoice = choice(cards);
+    }
+
+    function switchFormat() {
+        selection = selection == "cards" ? "numbers" : "cards";
+
+        currentOption =
+            currentOption == "pick a random number"
+                ? "pick a random card"
+                : "pick a random number";
     }
 </script>
 
@@ -18,23 +65,32 @@
     this page.
 </p>
 <div id="wrapper">
-    <h1>Gambling Simulator</h1>
-    <button on:click={generateRandomNumber}>
-        Definitely random number: {integer}
+    <button id="switcher" on:click={switchFormat}>
+        Switch to {selection}
     </button>
+    <br /><br />
+    <h1>Gambling Simulator</h1>
+    {#if selection == "cards"}
+        <button id="invisible" on:click={generateRandomNumber}>
+            Definitely random number: {integer}
+        </button>
+    {:else}
+        <button id="invisible" on:click={generateCard}>
+            You drew a {cardChoice}
+        </button>
+    {/if}
     <h2>
-        Press the above text to generate a new number and fund your gambling
-        addiction!
+        Press the above text to {currentOption} and fund your gambling addiction!
     </h2>
 </div>
 <div id="home">
-    <hr>
+    <hr />
     <h3>
         <a href="/">Return to Home Page</a>
     </h3>
 </div>
 
-<style>
+<style lang="scss">
     * {
         text-align: center;
     }
@@ -58,11 +114,20 @@
         font-size: 1.5em;
     }
 
-    button {
+    #invisible {
         font-size: 2.5em;
+        border: none;
         background: transparent;
         border: none;
         color: #dedede;
+    }
+
+    #switcher {
+        color: #dedede;
+        background-color: #4a4a5e;
+        border-radius: 10px;
+        font-size: 1.75em;
+        border: none;
     }
 
     p {
