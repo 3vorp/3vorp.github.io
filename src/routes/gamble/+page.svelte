@@ -6,7 +6,7 @@
     const choice = (arr) => arr[randint(0, arr.length - 1)];
 
     let selection = "numbers";
-    let currentOption = "pick a random number";
+    let currentOption = "pick a random card";
 
     let cards = [];
     let tmp;
