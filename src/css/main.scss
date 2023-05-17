@@ -54,14 +54,17 @@ html {
     }
 
     .hoverable {
-        transition: all 0.25s ease;
+        filter: drop-shadow(5px 5px 10px #000000aa);
+
+        transition: all 0.5s ease;
+
         &:hover {
             transform: scale(1.1);
-
         }
     }
 
-    .right-align, .left-align {
+    .right-align,
+    .left-align {
         @media screen and (max-width: 1450px) {
             float: none;
             display: block;
@@ -82,6 +85,6 @@ html {
         -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
                 from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
         mask-image: gradient(linear, left top, left bottom,
-        from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+                from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
     }
 }
