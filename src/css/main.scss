@@ -11,9 +11,9 @@ html {
         'Open Sans',
         'Helvetica Neue',
         sans-serif;
-    color: #dedede;
+    color: #cdcdcd;
     background-color: #2a2a2e;
-    font-weight: lighter;
+    font-weight: 300;
 
     p {
         font-size: 24px;
@@ -34,12 +34,40 @@ html {
     }
 
     h1 {
-        font-size: 50px;
+        font-size: 2.5rem;
+        color: #fff;
+        font-family: "menlo", "consolas", monospace;
     }
 
     h2 {
-        font-size: 30px;
-        font-weight: normal;
+        font-size: 2.5rem;
+        color: #dedede;
+        clear: both;
+    }
+
+    .left-align {
+        float: left;
+    }
+
+    .right-align {
+        float: right;
+    }
+
+    .hoverable {
+        transition: all 0.25s ease;
+        &:hover {
+            transform: scale(1.1);
+
+        }
+    }
+
+    .right-align, .left-align {
+        @media screen and (max-width: 1450px) {
+            float: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     .padding_div {
@@ -53,5 +81,7 @@ html {
         width: 100%;
         -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
                 from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+        mask-image: gradient(linear, left top, left bottom,
+        from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
     }
 }
