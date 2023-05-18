@@ -10,8 +10,11 @@
     <meta property="og:title" content="Evorp's Website" />
     <meta property="og:description" content="idk at this point either" />
     <meta property="og:image" content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg" />
-
 </svelte:head>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:description" content="idk at this point either" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg" />
 
 <div class="fix-footer">
     <Navbar />
