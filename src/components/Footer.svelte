@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
     import Fa from "svelte-fa/src/fa.svelte";
     import { faGithub, faTwitter, faReddit, faYoutube, faSteam } from '@fortawesome/free-brands-svg-icons';
 
-    const categories = [
+    const categories: Url[] = [
         { title: "GitHub", url: "https://github.com/3vorp", icon: faGithub },
         { title: "Twitter", url: "https://twitter.com/3vorp", icon: faTwitter },
         { title: "Reddit", url: "https://reddit.com/u/3vorp", icon: faReddit },

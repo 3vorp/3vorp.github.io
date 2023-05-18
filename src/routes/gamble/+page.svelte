@@ -1,15 +1,15 @@
-<script>
+<script lang="ts">
     import "../../css/main.scss";
-    const randint = (start, stop) =>
+    const randint = (start: number, stop: number) =>
         start + Math.floor(Math.random() * (stop - start));
 
-    const choice = (arr) => arr[randint(0, arr.length - 1)];
+    const choice = (arr: any[]) => arr[randint(0, arr.length - 1)];
 
     let selection = "numbers";
     let currentOption = "pick a random card";
 
-    let cards = [];
-    let tmp;
+    let cards: string[] = [];
+    let tmp: string;
     const suits = ["clubs", "spades", "hearts", "diamonds"];
 
     for (let j of suits) {

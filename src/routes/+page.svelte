@@ -1,6 +1,4 @@
-<div>
-    <img src="banner.jpg" alt="evorp banner" class="banner_img">
-</div>
+<img src="banner.jpg" alt="evorp banner" class="banner_img">
 
 <div class="padding_div">
     <h1>Welcome to my website!</h1>
