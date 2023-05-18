@@ -1,11 +1,3 @@
-<script>
-    import "../css/main.scss";
-</script>
-
-<svelte:head>
-    <title>Evorp's Website</title>
-</svelte:head>
-
 <div>
     <img src="banner.jpg" alt="evorp banner" class="banner_img">
 </div>
@@ -82,6 +74,4 @@
     <hr>
 
     <p><em>Please contact me via Discord if you have any additional questions. You can use my other socials above but your response times may vary.</em></p>
-
-    <p align="center"><a href="/gamble">Gamble your savings away until I add more stuff to this site!</a></p>
 </div>

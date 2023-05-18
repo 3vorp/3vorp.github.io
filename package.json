@@ -7,6 +7,8 @@
     "deploy": "vite build && touch build/.nojekyll && gh-pages -d build -t true"
   },
   "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@sveltejs/adapter-static": "^1.0.0-next.48",
     "@sveltejs/kit": "1.0.0-next.535",
     "gh-pages": "^4.0.0",
@@ -14,6 +16,7 @@
     "vite": "^3.2.2"
   },
   "dependencies": {
-    "sass": "^1.56.1"
+    "sass": "^1.62.1",
+    "svelte-fa": "^3.0.3"
   }
 }
