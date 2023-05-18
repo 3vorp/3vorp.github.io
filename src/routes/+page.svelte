@@ -17,7 +17,7 @@
     <h1>What I do:</h1>
 
     <h2 align="center">The Faithful Project</h2>
-    <a href="https://faithfulpack.net">
+    <a href="/faithful">
     <img
         src="https://github.com/Faithful-Resource-Pack/Branding/blob/main/logos/transparent/512/plain_logo.png?raw=true"
         alt="faithful logo"
@@ -31,11 +31,11 @@
     <br><br>
     I'm a co-owner and manager of the project, and have been involved for over two years in its development. I help with <a href="https://github.com/Faithful-Resource-Pack/Website">website</a> development, <a href="https://github.com/Faithful-Resource-Pack/Discord-Bot">Discord bot</a> development, <a href="https://docs.faithfulpack.net/pages/textures/contributor-handbook">texture making</a>, and much more.
     <br><br>
-    You can join our <a href="https://discord.gg/sN9YRQbBv7">Discord server</a> to help us contribute to the project, give feedback, or just generally chat with us, or click the image on the left to view our website.
+    Click the image on the left to see more information about Faithful as a whole, and join our <a href="https://discord.gg/sN9YRQbBv7">Discord server</a> to help us contribute to the project, give feedback, or just generally chat with us!
     </p>
 
     <h2 align="center">spunch bot</h2>
-    <a href="https://github.com/3vorp/spunch-bot">
+    <a href="/spunch-bot">
     <img
         src="https://github.com/3vorp/Spunch-Bot/blob/main/assets/bot_pfp.png?raw=true"
         alt="spunch bot pfp"
@@ -49,13 +49,13 @@
     <br><br>
     Started in October 2022 as a hobby project of my own using the <a href="https://discordpy.readthedocs.io/">discord.py</a> framework, mostly as a joke, anyone can now run it by simply forking the repository and following the instructions in the README.
     <br><br>
-    You can click the image on the right to get started with cloning and installing the bot anywhere.
+    Click the image on the right to see more information about running, using, and modifying this bot!
     </p>
 
     <br>
     <h2 align="center">Commissions</h2>
 
-    <p><a href="https://discord.com/users/360249987927638016">
+    <p><a href="/commissions">
     <img
         src="https://cdn.discordapp.com/attachments/931741283179954187/1108194846499414076/zarrinHead.png"
         alt="commission example"
@@ -68,7 +68,7 @@
     <br><br>
     I have well over two years of pixel art and graphic design experience under my belt, and have been doing commission work for nearly one and a half years. I prioritize client feedback above all and ensure maximum transparency throughout the designing process.
     <br><br>
-    If you are interested in commissioning me, please let me know via Discord by clicking the link on the left and sending a friend request. We can then proceed in direct messages.
+    If you are interested in commissioning me, click the image on the left for more information.
     </p>
 
     <hr>
