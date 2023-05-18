@@ -9,7 +9,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Evorp's Website" />
     <meta property="og:description" content="idk at this point either" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/banner_1080p.jpg" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg" />
 
 </svelte:head>
 
