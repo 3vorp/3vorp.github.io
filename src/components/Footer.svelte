@@ -28,7 +28,7 @@
         margin-top: 50px;
     }
 
-    @media screen and (min-width: 900px) {
+    @media screen and (min-width: 901px) {
         .footer-bar {
             display: flex;
             flex-flow: row nowrap;

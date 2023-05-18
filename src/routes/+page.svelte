@@ -73,5 +73,5 @@
 
     <hr>
 
-    <p><em>Please contact me via Discord if you have any additional questions. You can use my other socials above but your response times may vary.</em></p>
+    <p><em>Please contact me via Discord if you have any additional questions. You can use my other socials too, but my response times may vary.</em></p>
 </div>

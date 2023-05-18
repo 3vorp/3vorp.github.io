@@ -41,7 +41,7 @@
         z-index: 10;
     }
 
-    @media screen and (min-width: 900px) {
+    @media screen and (min-width: 901px) {
         .navbar {
             display: flex;
             flex-flow: row nowrap;
@@ -64,10 +64,15 @@
             background-color: #000;
             border-radius: 7px;
             color: inherit;
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
             border: 1.5px solid #dedede;
-            font-size: 24px;
+            font-size: 26px;
+            margin: 12px 12px 12px 12px;
+        }
+        .toggle:hover {
+            border: 1.5px solid #4baeee;
+            color: #4baeee;
         }
         .navbar a {
             margin-bottom: 15px;
