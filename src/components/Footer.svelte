@@ -14,7 +14,7 @@
 <footer>
     <div class="footer-bar">
         {#each categories as obj}
-            <a href={obj.url}>
+            <a class="info-text" href={obj.url}>
                 <Fa icon={obj.icon} /> {obj.title}
             </a>
         {/each}
@@ -50,12 +50,6 @@
     }
 
     .footer-bar a {
-        font-family: 'menlo', 'consolas', monospace;
         font-size: 18px;
-        color: #dedede;
-    }
-
-    .footer-bar a:hover {
-        color: #4baeee;
     }
 </style>

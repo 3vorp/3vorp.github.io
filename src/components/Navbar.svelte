@@ -1,6 +1,6 @@
 <script>
     import Fa from "svelte-fa/src/fa.svelte";
-    import { faX, faBars } from '@fortawesome/free-solid-svg-icons';
+    import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
     let innerWidth = 0;
     let isOpen = false;
@@ -16,18 +16,18 @@
 
     function toggleOpen() {
         isOpen = isOpen ? false : true;
-        state = state == faX? faBars: faX;
+        state = state == faX ? faBars : faX;
     }
 </script>
 
 <svelte:window bind:innerWidth />
 
 <nav>
-    <button class="toggle" on:click={toggleOpen}><Fa icon={state}></Fa></button>
+    <button class="toggle" on:click={toggleOpen}><Fa icon={state} /></button>
     {#if isOpen || innerWidth > 900}
         <div class="navbar">
             {#each categories as obj}
-                <a href={obj.url}>{obj.title}</a>
+                <a class="info-text" href={obj.url}>{obj.title}</a>
             {/each}
         </div>
     {/if}
@@ -36,6 +36,7 @@
 <style>
     nav {
         background-color: #000;
+        filter: drop-shadow(5px 5px 10px #00000077);
         position: sticky;
         top: 0;
         z-index: 10;
@@ -80,12 +81,7 @@
     }
 
     .navbar a {
-        font-family: "menlo", "consolas", monospace;
         font-size: 24px;
-        color: #dedede;
     }
 
-    .navbar a:hover {
-        color: #4baeee;
-    }
 </style>
