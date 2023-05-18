@@ -63,16 +63,14 @@
         }
         .toggle {
             background-color: #000;
-            border-radius: 7px;
             color: inherit;
             height: 40px;
             width: 40px;
-            border: 1.5px solid #dedede;
+            border: none;
             font-size: 26px;
             margin: 12px 12px 12px 12px;
         }
         .toggle:hover {
-            border: 1.5px solid #4baeee;
             color: #4baeee;
         }
         .navbar a {
