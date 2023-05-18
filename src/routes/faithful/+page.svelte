@@ -1,3 +1,3 @@
 <h1 align="center">
-    coming soon™;
+    coming soon™
 </h1>
