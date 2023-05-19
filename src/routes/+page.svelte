@@ -1,6 +1,6 @@
-<img src="banner.jpg" alt="evorp banner" class="banner_img">
+<img src="banner.jpg" alt="evorp banner" class="banner-img">
 
-<div class="padding_div">
+<div class="padding-div">
     <h1>Welcome to my website!</h1>
 
     <p>I'm a pixel artist and programmer with experience in Python, JavaScript/TypeScript in Node, web development, and more recently Java and the SvelteKit website framework.</p>
@@ -72,4 +72,6 @@
     <hr>
 
     <p><em>Please contact me via Discord if you have any additional questions. You can use my other socials too, but my response times may vary.</em></p>
+    <br>
+    <p align="center"><a href="/gamble">Gamble your savings away until I add more stuff to this site!</a></p>
 </div>

@@ -11,7 +11,7 @@
         { title: "Faithful", url: "/faithful" },
         { title: "spunch bot", url: "/spunch-bot" },
         { title: "Commissions", url: "/commissions" },
-        { title: "Gamble", url: "/gamble" },
+        { title: "About", url: "/about" },
     ];
 
     function toggleOpen() {
@@ -22,7 +22,7 @@
 
 <svelte:window bind:innerWidth />
 
-<nav>
+<nav class="edges">
     {#if innerWidth <= 900}
         <div class="mobile-navbar">
             <a class="info-text" href="/">Evorp's Website</a>
@@ -45,6 +45,13 @@
         position: sticky;
         top: 0;
         z-index: 10;
+    }
+
+    @media screen and (min-width: 1200px) {
+        .edges {
+            padding-left: calc(20vw - 80px);
+            padding-right: calc(20vw - 80px);
+        }
     }
 
     @media screen and (min-width: 901px) {
@@ -92,5 +99,4 @@
     a {
         font-size: 24px;
     }
-
 </style>
