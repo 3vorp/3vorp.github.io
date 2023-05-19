@@ -1,5 +1,4 @@
 <script lang="ts">
-    import "../../css/main.scss";
     const randint = (start: number, stop: number) =>
         start + Math.floor(Math.random() * (stop - start));
 

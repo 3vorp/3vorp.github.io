@@ -23,7 +23,12 @@
 <svelte:window bind:innerWidth />
 
 <nav>
-    <button class="toggle" on:click={toggleOpen}><Fa icon={state} /></button>
+    {#if innerWidth <= 900}
+        <div class="mobile-navbar">
+            <a class="info-text" href="/">Evorp's Website</a>
+            <button class="toggle info-text" on:click={toggleOpen}><Fa icon={state} /></button>
+        </div>
+    {/if}
     {#if isOpen || innerWidth > 900}
         <div class="navbar">
             {#each categories as obj}
@@ -49,7 +54,8 @@
             justify-content: space-between;
             padding: 20px 10%;
         }
-        .toggle {
+
+        .toggle, .mobile-navbar {
             display: none;
         }
     }
@@ -61,24 +67,29 @@
             align-items: center;
             padding: 20px 10%;
         }
+
         .toggle {
-            background-color: #000;
+            background-color: transparent;
             color: inherit;
-            height: 40px;
-            width: 40px;
             border: none;
-            font-size: 26px;
-            margin: 12px 12px 12px 12px;
+            float: right;
+            font-size: 24px;
         }
-        .toggle:hover {
-            color: #4baeee;
+
+        .mobile-navbar {
+            display: flex;
+            flex-flow: row nowrap;
+            padding: 20px 10%;
+            justify-content: space-between;
         }
+
         .navbar a {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            height: 40px;
         }
     }
 
-    .navbar a {
+    a {
         font-size: 24px;
     }
 
