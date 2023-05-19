@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
     import Fa from "svelte-fa/src/fa.svelte";
     import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
-    let innerWidth = 0;
+    let innerWidth: number;
     let isOpen = false;
     let state = faBars;
 
-    const categories = [
+    const categories: Url[] = [
         { title: "Home", url: "/" },
         { title: "Faithful", url: "/faithful" },
         { title: "spunch bot", url: "/spunch-bot" },

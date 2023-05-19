@@ -2,7 +2,7 @@
 
 ## random site that mostly serves as a nicer looking mirror of my github readme with some additional info
 
-- made using sveltekit
+- made using sveltekit (and yarn/typescript)
 
 - now featuring:
     - gambling simulator
