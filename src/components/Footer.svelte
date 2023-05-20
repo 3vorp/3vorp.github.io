@@ -23,7 +23,7 @@
     </div>
     <div class="bottom">
         <p class="info-text">
-            This website was made using the <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer">SvelteKit</a> framework. View the source <a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer">here!</a>
+            This website was made using the <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer">SvelteKit</a> framework. View the source <a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer">here</a>!
         </p>
     </div>
 </footer>
@@ -42,15 +42,14 @@
         padding: 20px 10%;
     }
 
-    @media screen and (max-width: 900px) {
-        .footer-bar {
+    .footer-bar {
+        @media screen and (max-width: 900px) {
             display: grid;
             grid-template-columns: 1fr 1fr;
             text-align: center;
         }
-    }
-    @media screen and (max-width: 600px) {
-        .footer-bar {
+
+        @media screen and (max-width: 600px) {
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
@@ -62,9 +61,6 @@
         text-align: center;
         margin-bottom: 15px;
         transition: inherit;
-        p {
-
-        }
     }
 
     a, p {

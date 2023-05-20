@@ -38,7 +38,7 @@
     {/if}
 </nav>
 
-<style>
+<style lang="scss">
     nav {
         background-color: #000;
         filter: drop-shadow(5px 5px 10px #00000077);
@@ -80,17 +80,17 @@
             flex-flow: column nowrap;
             align-items: center;
             padding: 20px 10%;
+
+            a {
+                margin-bottom: 10px;
+                height: 40px;
+            }
         }
 
         .toggle {
             background-color: transparent;
             border: none;
             float: right;
-        }
-
-        .navbar a {
-            margin-bottom: 10px;
-            height: 40px;
         }
     }
 

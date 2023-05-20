@@ -22,7 +22,7 @@
     <Footer />
 </div>
 
-<style>
+<style lang="scss">
     .fix-footer {
         display: flex;
         min-height: 100vh;
