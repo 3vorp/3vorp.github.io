@@ -47,6 +47,13 @@
         z-index: 10;
     }
 
+    .mobile-navbar {
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 20px 10%;
+        justify-content: space-between;
+    }
+
     @media screen and (min-width: 1200px) {
         .edges {
             padding-left: calc(20vw - 80px);
@@ -77,17 +84,8 @@
 
         .toggle {
             background-color: transparent;
-            color: inherit;
             border: none;
             float: right;
-            font-size: 24px;
-        }
-
-        .mobile-navbar {
-            display: flex;
-            flex-flow: row nowrap;
-            padding: 20px 10%;
-            justify-content: space-between;
         }
 
         .navbar a {
@@ -96,7 +94,7 @@
         }
     }
 
-    a {
+    a, .toggle {
         font-size: 24px;
     }
 </style>
