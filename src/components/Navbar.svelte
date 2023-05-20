@@ -25,14 +25,14 @@
 <nav class="edges">
     {#if innerWidth <= 900}
         <div class="mobile-navbar">
-            <a class="info-text" href="/">Evorp's Website</a>
-            <button class="toggle info-text" on:click={toggleOpen}><Fa icon={state} /></button>
+            <a class="info-text link-hover" href="/">Evorp's Website</a>
+            <button class="toggle info-text link-hover" on:click={toggleOpen}><Fa icon={state} /></button>
         </div>
     {/if}
     {#if isOpen || innerWidth > 900}
         <div class="navbar">
             {#each categories as obj}
-                <a class="info-text" href={obj.url}>{obj.title}</a>
+                <a class="info-text link-hover" href={obj.url}>{obj.title}</a>
             {/each}
         </div>
     {/if}

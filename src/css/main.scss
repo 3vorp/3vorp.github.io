@@ -44,15 +44,18 @@ html {
         clear: both; // breaks past the images
     }
 
-    .info-text {
-        font-family: "menlo", "consolas", monospace;
-        color: #dedede;
+    .link-hover {
         transition: all 0.25s ease;
 
         &:hover {
             color: #4baeee;
             transform: scale(0.9);
         }
+    }
+
+    .info-text {
+        font-family: "menlo", "consolas", monospace;
+        color: #dedede;
     }
 
     hr {

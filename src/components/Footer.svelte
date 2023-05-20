@@ -15,15 +15,20 @@
 <footer>
     <div class="footer-bar">
         {#each categories as obj}
-            <a class="info-text" href={obj.url}>
+            <a class="info-text link-hover" href={obj.url}>
                 <Fa icon={obj.icon} />
                 {obj.title}
             </a>
         {/each}
     </div>
+    <div class="bottom">
+        <p class="info-text">
+            This website was made using the <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer">SvelteKit</a> framework. View the source <a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer">here!</a>
+        </p>
+    </div>
 </footer>
 
-<style>
+<style lang="scss">
     footer {
         background-color: #000;
         z-index: 10;
@@ -43,9 +48,6 @@
             grid-template-columns: 1fr 1fr;
             text-align: center;
         }
-        .footer-bar a {
-            margin-bottom: 15px;
-        }
     }
     @media screen and (max-width: 600px) {
         .footer-bar {
@@ -54,10 +56,19 @@
             align-items: center;
             padding: 20px 10%;
         }
-
     }
 
-    .footer-bar a {
+    .bottom {
+        text-align: center;
+        margin-bottom: 15px;
+        transition: inherit;
+        p {
+
+        }
+    }
+
+    a, p {
         font-size: 18px;
+        margin-bottom: 15px;
     }
 </style>

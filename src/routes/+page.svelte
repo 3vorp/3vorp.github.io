@@ -6,7 +6,7 @@
     <p>
         I'm a pixel artist and programmer with experience in Python, JavaScript/TypeScript in Node, web development, and more recently Java and the SvelteKit website framework.
         <br><br>
-        The best way to contact me is via Discord at <code>Evorp#5819</code>, but you can also find me at the links in the footer too.
+        Read more about my skills, experience, and contact information on my <a href="/about">about page</a>.
     </p>
 
     <h1>What I do:</h1>
