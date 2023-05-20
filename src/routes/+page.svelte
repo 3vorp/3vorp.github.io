@@ -1,4 +1,4 @@
-<img src="banner.jpg" alt="evorp banner" class="banner-img">
+<img src="banner/main.jpg" alt="evorp banner" class="banner-img">
 
 <div class="padding-div">
     <h1>Welcome to my website!</h1>
@@ -14,7 +14,7 @@
     <h2 align="center">The Faithful Project</h2>
     <a href="/faithful">
     <img
-        src="https://github.com/Faithful-Resource-Pack/Branding/blob/main/logos/transparent/512/plain_logo.png?raw=true"
+        src="logo/faithful.png"
         alt="faithful logo"
         height="320"
         class="left-align hoverable"
@@ -32,8 +32,8 @@
     <h2 align="center">spunch bot</h2>
     <a href="/spunch-bot">
     <img
-        src="https://github.com/3vorp/Spunch-Bot/blob/main/assets/bot_pfp.png?raw=true"
-        alt="spunch bot pfp"
+        src="logo/spunch-bot.png"
+        alt="spunch bot logo"
         height="320"
         class="right-align hoverable"
     />
@@ -52,8 +52,8 @@
 
     <a href="/commissions">
     <img
-        src="https://cdn.discordapp.com/attachments/931741283179954187/1108194846499414076/zarrinHead.png"
-        alt="commission example"
+        src="logo/commissions.png"
+        alt="commissions logo"
         height="320"
         class="left-align hoverable"
     />

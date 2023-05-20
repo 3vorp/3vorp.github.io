@@ -1,4 +1,4 @@
-<img src="faithful_banner.jpg" alt="faithful banner" class="banner-img" />
+<img src="banner/faithful.jpg" alt="faithful banner" class="banner-img" />
 
 <div class="padding-div">
     <h1>coming soon™</h1>

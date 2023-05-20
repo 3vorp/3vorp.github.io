@@ -1,4 +1,4 @@
-<img src="spunch_bot_banner.jpg" alt="faithful banner" class="banner-img" />
+<img src="banner/spunch-bot.jpg" alt="faithful banner" class="banner-img" />
 
 <div class="padding-div">
     <h1>coming soon™</h1>
