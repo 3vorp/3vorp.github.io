@@ -31,7 +31,6 @@
 <style lang="scss">
     footer {
         background-color: #000;
-        z-index: 10;
         margin-top: 50px;
     }
 
@@ -40,13 +39,20 @@
         flex-flow: row nowrap;
         justify-content: space-around;
         padding: 20px 10%;
+        a {
+            font-size: 18px;
+        }
     }
 
     .footer-bar {
         @media screen and (max-width: 900px) {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr; // two columns
             text-align: center;
+
+            a {
+                margin-top: 15px;
+            }
         }
 
         @media screen and (max-width: 600px) {
@@ -59,12 +65,10 @@
 
     .bottom {
         text-align: center;
-        margin-bottom: 15px;
-        transition: inherit;
-    }
+        transition: inherit; // cancels out the link hover
 
-    a, p {
-        font-size: 18px;
-        margin-bottom: 15px;
+        a, p {
+            font-size: 14px;
+        }
     }
 </style>
