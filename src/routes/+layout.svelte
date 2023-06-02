@@ -29,4 +29,7 @@
         flex-direction: column;
         justify-content: space-between;
     }
+    :root {
+        color-scheme: dark;
+    }
 </style>
