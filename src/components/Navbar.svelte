@@ -8,8 +8,8 @@
 
     const categories: Url[] = [
         { title: "Home", url: "/" },
-        { title: "Faithful", url: "/faithful" },
-        { title: "spunch bot", url: "/spunch-bot" },
+        { title: "Projects", url: "/projects" },
+        { title: "Programming", url: "/programming" },
         { title: "Commissions", url: "/commissions" },
         { title: "About", url: "/about" },
     ];
