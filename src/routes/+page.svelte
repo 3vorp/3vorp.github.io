@@ -12,7 +12,7 @@
     <h1>What I do:</h1>
 
     <h2 align="center">The Faithful Project</h2>
-    <a href="/faithful">
+    <a href="/projects">
     <img
         src="logo/faithful.png"
         alt="faithful logo"
@@ -30,7 +30,7 @@
     </p>
 
     <h2 align="center">spunch bot</h2>
-    <a href="/spunch-bot">
+    <a href="/programming">
     <img
         src="logo/spunch-bot.png"
         alt="spunch bot logo"
