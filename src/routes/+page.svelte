@@ -64,7 +64,7 @@
         <br><br>
         I have well over two years of pixel art and graphic design experience under my belt, and have been doing commission work for nearly one and a half years. I prioritize client feedback above all and ensure maximum transparency throughout the designing process.
         <br><br>
-        If you are interested in commissioning me, click the image on the left for more information.
+        If you are interested in commissioning me, click the image on the left for more information!
     </p>
 
     <hr>
