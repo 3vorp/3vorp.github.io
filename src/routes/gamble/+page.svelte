@@ -60,11 +60,6 @@
     this page.
 </p>
 <br />
-<button id="switcher" on:click={switchFormat}>
-    Switch to {selection}
-</button>
-
-<br /><br />
 
 <h1>Gambling Simulator</h1>
 
@@ -81,6 +76,10 @@
 <h2>
     Press the above text to {currentOption} and fund your gambling addiction!
 </h2>
+
+<button class="general-button" on:click={switchFormat}>
+    Switch to {selection}
+</button>
 
 <style lang="scss">
     * {
@@ -99,7 +98,7 @@
 
     h2 {
         margin-top: 50px;
-        margin-bottom: 0px;
+        margin-bottom: 50px;
         font-size: 1.5em;
         font-weight: normal;
     }
@@ -114,14 +113,6 @@
         background: transparent;
         border: none;
         color: #dedede;
-    }
-
-    #switcher {
-        color: #dedede;
-        background-color: #4a4a5e;
-        border-radius: 10px;
-        font-size: 1.75em;
-        border: none;
     }
 
     p {

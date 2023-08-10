@@ -72,6 +72,6 @@
     <p><em>
         Please contact me via <a href="https://discord.com/users/360249987927638016" target="_blank" rel="noopener noreferrer">Discord</a> if you have any additional questions. You can use my other socials too, but my response times may vary.
     </em></p>
-    <br>
+    <br />
     <a href="/gamble" align="center">Gamble your savings away until I add more stuff to this site!</a>
 </div>
