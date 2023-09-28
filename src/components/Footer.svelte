@@ -15,7 +15,7 @@
 <footer>
     <div class="footer-bar">
         {#each categories as obj}
-            <a class="info-text link-hover" href={obj.url}>
+            <a class="info-text link-hover" target="_blank" rel="noopener noreferrer" href={obj.url}>
                 <Fa icon={obj.icon} />
                 {obj.title}
             </a>
