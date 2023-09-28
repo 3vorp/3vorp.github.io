@@ -1,4 +1,4 @@
-import{s as o,n as t}from"../chunks/scheduler.46401592.js";import{S as u,i as a,g as l,h as n,C as p,k as c,a as b,f as h}from"../chunks/index.e4925500.js";function d(m){let r,e=`<h1>coming soon™</h1> <p>lorum ipsum<br/>
+import{s as o,n as t}from"../chunks/scheduler.46401592.js";import{S as u,i as a,g as l,h as n,C as p,k as c,a as b,f as h}from"../chunks/index.949a1359.js";function d(m){let r,e=`<h1>coming soon™</h1> <p>lorum ipsum<br/>
         lorum ipsum<br/>
         lorum ipsum<br/>
         lorum ipsum<br/>
