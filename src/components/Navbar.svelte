@@ -9,7 +9,6 @@
     const categories: Url[] = [
         { title: "Home", url: "/" },
         { title: "Projects", url: "/projects" },
-        { title: "Programming", url: "/programming" },
         { title: "Commissions", url: "/commissions" },
         { title: "About", url: "/about" },
     ];
