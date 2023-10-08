@@ -30,7 +30,7 @@
     </p>
 
     <h2 align="center">Discord Bots</h2>
-    <a href="/projects#bots">
+    <a href="/projects">
     <img
         src="logo/discord.png"
         alt="discord logo"
@@ -48,7 +48,7 @@
     </p>
 
     <h2 align="center">Faithful</h2>
-    <a href="/projects#faithful">
+    <a href="/projects">
     <img
         src="logo/faithful.png"
         alt="faithful logo"
