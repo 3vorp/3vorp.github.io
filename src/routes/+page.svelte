@@ -22,7 +22,7 @@
     </a>
 
     <p>
-        I do commissions for small-scale pixel art work, such as Minecraft skins, textures, and profile pictures. They'll generally cost between 5-10 USD, depending on complexity and time required.
+        I do commissions for pixel art work, such as Minecraft skins, textures, and profile pictures. The price will vary a lot depending on how much time and detail is needed but it usually falls between 20-50 USD.
         <br><br>
         I have well over two years of pixel art and graphic design experience under my belt, and have been doing commission work for nearly one and a half years. I prioritize client feedback above all and ensure maximum transparency throughout the designing process.
         <br><br>
