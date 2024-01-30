@@ -3,7 +3,7 @@
 <div class="padding-div">
     <h1>Welcome to my website!</h1>
     <p>
-        I'm a pixel artist and programmer with experience in Python, Node.js, TypeScript, Svelte, Jekyll, and more recently Java, Vue.js, and Express.
+        I'm an artist and programmer with experience in Python, Node.js, TypeScript, Svelte, Vue.js, and more recently Java, Rust, and C/C++.
         <br><br>
         <em>This site is currently under construction and may feature placeholder text and images! If you want additional information, contact me directly.</em>
     </p>
@@ -14,7 +14,7 @@
 
     <a href="/commissions">
     <img
-        src="logo/commissions.png"
+        src="logo/cooking.gif"
         alt="commissions logo"
         height="320"
         class="left-align hoverable"
@@ -22,11 +22,11 @@
     </a>
 
     <p>
-        I do commissions for pixel art work, such as Minecraft skins, textures, and profile pictures. The price will vary a lot depending on how much time and detail is needed but it usually falls between 20-50 USD.
+        I specialize in pixel art media, such as profile pictures, video game textures, or short animations.
         <br><br>
-        I have well over two years of pixel art and graphic design experience under my belt, and have been doing commission work for nearly one and a half years. I prioritize client feedback above all and ensure maximum transparency throughout the designing process.
+        I have over three years of pixel art and graphic design experience, and have been doing commission work for over two of those. Client feedback and transparency is central to my services, and I only charge what you can pay.
         <br><br>
-        If you are interested in commissioning me, click the image on the left for more information!
+        If you are interested in commissioning me, please let me know via Discord by clicking the link on the left and sending a friend request. We can then proceed in direct messages.
     </p>
 
     <h2 align="center">Discord Bots</h2>
@@ -47,7 +47,7 @@
         To see these bots in action, click the image on the right!
     </p>
 
-    <h2 align="center">Faithful</h2>
+    <h2 align="center">The Faithful Project</h2>
     <a href="/projects">
     <img
         src="logo/faithful.png"
