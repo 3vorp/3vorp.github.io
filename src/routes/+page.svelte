@@ -29,7 +29,7 @@
         If you are interested in commissioning me, please let me know via Discord by clicking the link on the left and sending a friend request. We can then proceed in direct messages.
     </p>
 
-    <h2 align="center">Discord Bots</h2>
+    <h2 align="center">Developing</h2>
     <a href="/projects">
     <img
         src="logo/discord.png"
@@ -40,33 +40,12 @@
     </a>
 
     <p>
-        I've worked on multiple different Discord bots before, serving a wide variety of purposes from an automated texture pushing system for Minecraft resource packs to a fully functioning Wordle command.
+        I've worked on everything from Discord bots to entire RESTful APIs, serving a wide array of purposes.
         <br><br>
-        I've been familiar with the Discord API and both Discord.js and Discord.py for over a year, and built multiple bots with it in JavaScript, TypeScript, and Python.
+        I'm familiar with both the backend and frontend landscape, having worked on projects with the stress-test of thousands of users for over two years, using a variety of popular languages and frameworks.
         <br><br>
-        To see these bots in action, click the image on the right!
+        To see my work, click the link on the right.
     </p>
-
-    <h2 align="center">The Faithful Project</h2>
-    <a href="/projects">
-    <img
-        src="logo/faithful.png"
-        alt="faithful logo"
-        height="320"
-        class="left-align hoverable"
-    />
-    </a>
-
-    <p>
-        Faithful is a collection of open source and community-driven Minecraft resource packs, aiming to provide a higher-resolution version of the default Minecraft textures while staying true to the originals.
-        <br><br>
-        I'm a co-owner and manager of the project, and have been involved for over two years in its development. I help with <a href="https://github.com/Faithful-Resource-Pack/Website" target="_blank" rel="noopener noreferrer">website</a> development, <a href="https://github.com/Faithful-Resource-Pack/CompliBot" target="_blank" rel="noopener noreferrer">Discord bot</a> development, <a href="https://docs.faithfulpack.net/pages/textures/contributor-handbook" target="_blank" rel="noopener noreferrer">texture making</a>, and much more.
-        <br><br>
-        Click the image on the left to see more information about Faithful as a whole, and join our <a href="https://discord.gg/sN9YRQbBv7" target="_blank" rel="noopener noreferrer">Discord server</a> to help us contribute to the project, give feedback, or just generally chat with us!
-
-    </p>
-
-    <hr>
 
     <p><em>
         Please contact me via <a href="https://discord.com/users/360249987927638016" target="_blank" rel="noopener noreferrer">Discord</a> if you have any additional questions. You can use my other socials too, but my response times may vary.

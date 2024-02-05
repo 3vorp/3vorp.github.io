@@ -1,15 +1,6 @@
 <script lang="ts">
     import Fa from "svelte-fa/src/fa.svelte";
-    import { faGithub, faTwitter, faReddit, faTumblr, faYoutube, faSteam } from "@fortawesome/free-brands-svg-icons";
-
-    const categories: Url[] = [
-        { title: "GitHub", url: "https://github.com/3vorp", icon: faGithub },
-        { title: "Twitter", url: "https://twitter.com/3vorp", icon: faTwitter },
-        { title: "Reddit", url: "https://reddit.com/u/3vorp", icon: faReddit },
-        { title: "Tumblr", url: "https://tumblr.com/evorp", icon: faTumblr },
-        { title: "YouTube", url: "https://www.youtube.com/@evorp", icon: faYoutube },
-        { title: "Steam", url: "https://steamcommunity.com/id/3vorp/", icon: faSteam },
-    ];
+    export let categories: Url[] = [];
 </script>
 
 <footer>

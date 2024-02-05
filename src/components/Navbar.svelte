@@ -6,12 +6,7 @@
     let isOpen = false;
     let state = faBars;
 
-    const categories: Url[] = [
-        { title: "Home", url: "/" },
-        { title: "Projects", url: "/projects" },
-        { title: "Commissions", url: "/commissions" },
-        { title: "About", url: "/about" },
-    ];
+    export let categories: Url[] = [];
 
     function toggleOpen() {
         isOpen = isOpen ? false : true;
