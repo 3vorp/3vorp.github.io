@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Fa from "svelte-fa/src/fa.svelte";
+    import Fa from "svelte-fa";
     import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
     let innerWidth: number;
