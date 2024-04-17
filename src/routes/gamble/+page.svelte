@@ -4,41 +4,41 @@
 
 	const choice = (arr: any[]) => arr[randint(0, arr.length - 1)];
 
-	let selection = "numbers";
-	let currentOption = "pick a random card";
-
-	let cards: string[] = [];
-	let tmp: string;
-	const suits = ["clubs", "spades", "hearts", "diamonds"];
-
-	for (let j of suits) {
-		for (let i = 1; i < 13; i++) {
-			switch (i) {
-				case 1:
-					tmp = "ace";
-					break;
-				case 11:
-					tmp = "jack";
-					break;
-				case 12:
-					tmp = "queen";
-					break;
-				case 13:
-					tmp = "king";
-					break;
-				default:
-					tmp = i.toString();
-					break;
+	const cards = ["clubs", "spades", "hearts", "diamonds"].reduce(
+		(acc, suit) => {
+			for (let i = 1; i <= 13; i++) {
+				let tmp = i.toString();
+				switch (i) {
+					case 1:
+						tmp = "ace";
+						break;
+					case 11:
+						tmp = "jack";
+						break;
+					case 12:
+						tmp = "queen";
+						break;
+					case 13:
+						tmp = "king";
+						break;
+				}
+				acc.push(`${tmp} of ${suit}`);
 			}
-			cards.push(`${tmp} of ${j}`);
-		}
-	}
+			return acc;
+		},
+		// not included in suits
+		["joker", "joker"],
+	);
+
+	console.log(cards);
 
 	let cardChoice = choice(cards);
-	let integer = randint(0, 100);
+	let rand = randint(0, 100);
+	let selection = "numbers";
+	let explanationText = "pick a random card";
 
 	function generateRandomNumber() {
-		integer = randint(0, 100);
+		rand = randint(0, 100);
 	}
 
 	function generateCard() {
@@ -46,10 +46,8 @@
 	}
 
 	function switchFormat() {
+		explanationText = selection == "cards" ? "pick a random card" : "pick a random number";
 		selection = selection == "cards" ? "numbers" : "cards";
-
-		currentOption =
-			currentOption == "pick a random number" ? "pick a random card" : "pick a random number";
 	}
 </script>
 
@@ -60,7 +58,7 @@
 
 {#if selection == "cards"}
 	<button id="invisible" on:click={generateRandomNumber}>
-		Definitely random number: {integer}
+		Random number: {rand}
 	</button>
 {:else}
 	<button id="invisible" on:click={generateCard}>
@@ -69,7 +67,7 @@
 {/if}
 
 <h2>
-	Press the above text to {currentOption} and fund your gambling addiction!
+	Press the above text to {explanationText} and fund your gambling addiction!
 </h2>
 
 <button class="general-button" on:click={switchFormat}>

@@ -1,4 +1,4 @@
-html {
+:root {
 	font-family:
 		system-ui,
 		-apple-system,
@@ -13,106 +13,105 @@ html {
 		sans-serif;
 	color: #cdcdcd;
 	background-color: #2a2a2e;
+}
 
-	p,
-	a {
-		font-size: 20px;
+p,
+a {
+	font-size: 20px;
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #4baeee;
+	transition: all 0.25s ease;
+
+	&:hover {
+		color: #1c87cc;
 	}
+}
 
-	body {
-		margin: 0;
-	}
+h1 {
+	font-size: 2.5rem;
+	color: #fff;
+	font-family: "menlo", "consolas", monospace;
+}
 
-	a {
-		text-decoration: none;
+h2 {
+	font-size: 2.5rem;
+	color: #dedede;
+	clear: both; // breaks past the images
+}
+
+.link-hover {
+	transition: all 0.25s ease;
+
+	&:hover {
 		color: #4baeee;
-		transition: all 0.25s ease;
-
-		&:hover {
-			color: #1c87cc;
-		}
+		transform: scale(0.9);
 	}
+}
 
-	h1 {
-		font-size: 2.5rem;
-		color: #fff;
-		font-family: "menlo", "consolas", monospace;
+.info-text {
+	font-family: "menlo", "consolas", monospace;
+	color: #dedede;
+}
+
+hr {
+	clear: both;
+}
+
+.left-align {
+	float: left;
+}
+
+.right-align {
+	float: right;
+}
+
+.hoverable {
+	filter: drop-shadow(5px 5px 10px #000000aa);
+	transition: all 0.5s ease;
+	&:hover {
+		transform: scale(1.1);
 	}
+}
 
-	h2 {
-		font-size: 2.5rem;
-		color: #dedede;
-		clear: both; // breaks past the images
+.right-align,
+.left-align {
+	@media screen and (max-width: 1200px) {
+		float: none;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
+}
 
-	.link-hover {
-		transition: all 0.25s ease;
+.padding-div {
+	padding-left: calc(20vw - 60px);
+	padding-right: calc(20vw - 60px);
+}
 
-		&:hover {
-			color: #4baeee;
-			transform: scale(0.9);
-		}
+.banner-img {
+	filter: drop-shadow(0px 10px 10px #00000077);
+	margin-bottom: 50px;
+	margin-top: 0;
+}
+
+.general-button {
+	color: #fff;
+	background-color: #aaaaff33;
+	border-radius: 10px;
+	font-size: 1.25em;
+	padding: 1em;
+	border: none;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	&:hover {
+		cursor: pointer;
 	}
-
-	.info-text {
-		font-family: "menlo", "consolas", monospace;
-		color: #dedede;
-	}
-
-	hr {
-		clear: both;
-	}
-
-	.left-align {
-		float: left;
-	}
-
-	.right-align {
-		float: right;
-	}
-
-	.hoverable {
-		filter: drop-shadow(5px 5px 10px #000000aa);
-		transition: all 0.5s ease;
-
-		&:hover {
-			transform: scale(1.1);
-		}
-	}
-
-	.right-align,
-	.left-align {
-		@media screen and (max-width: 1200px) {
-			float: none;
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-		}
-	}
-
-	.padding-div {
-		padding-left: calc(20vw - 60px);
-		padding-right: calc(20vw - 60px);
-	}
-
-	.banner-img {
-		filter: drop-shadow(0px 10px 10px #00000077);
-		margin-bottom: 50px;
-		margin-top: 0;
-	}
-
-	.general-button {
-		color: #fff;
-		background-color: #aaaaff33;
-		border-radius: 10px;
-		font-size: 1.25em;
-		padding: 1em;
-		border: none;
-		text-transform: uppercase;
-		letter-spacing: 0.2rem;
-		&:hover {
-			cursor: pointer;
-		}
-		filter: drop-shadow(0 15px 10px #000000);
-	}
+	filter: drop-shadow(0 15px 10px #000000);
 }
