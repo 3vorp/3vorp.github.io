@@ -30,8 +30,6 @@
 		["joker", "joker"],
 	);
 
-	console.log(cards);
-
 	let cardChoice = choice(cards);
 	let rand = randint(0, 100);
 	let selection = "numbers";
