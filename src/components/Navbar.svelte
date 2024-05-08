@@ -9,8 +9,8 @@
 	export let categories: Url[] = [];
 
 	function toggleOpen() {
-		isOpen = isOpen ? false : true;
-		state = state == faX ? faBars : faX;
+		isOpen = !isOpen;
+		state = state === faX ? faBars : faX;
 	}
 </script>
 
