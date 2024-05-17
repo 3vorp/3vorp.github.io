@@ -3,13 +3,13 @@
 <div class="padding-div">
 	<h1>Welcome to my website!</h1>
 	<p>
-		I'm an artist and programmer with experience in Python, Node.js, TypeScript, Svelte, Vue.js, and
-		more recently Java, Rust, and C/C++.
+		I'm an artist and programmer with experience in Python, Node.js, TypeScript, PHP, Vue.js, and
+		some Java and C.
 		<br /><br />
-		<em
-			>This site is currently under construction and may feature placeholder text and images! If you
-			want additional information, contact me directly.</em
-		>
+		<em>
+			This site is currently under construction and may feature placeholder text and images! If you
+			want additional information, contact me directly.
+		</em>
 	</p>
 
 	<h1>What I do:</h1>

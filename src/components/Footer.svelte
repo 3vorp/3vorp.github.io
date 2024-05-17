@@ -5,10 +5,10 @@
 
 <footer>
 	<div class="footer-bar">
-		{#each categories as obj}
-			<a class="info-text link-hover" target="_blank" rel="noopener noreferrer" href={obj.url}>
-				<Fa icon={obj.icon} />
-				{obj.title}
+		{#each categories as category}
+			<a class="info-text link-hover" target="_blank" rel="noopener noreferrer" href={category.url}>
+				<Fa icon={category.icon} />
+				{category.title}
 			</a>
 		{/each}
 	</div>
@@ -17,12 +17,14 @@
 			This website was made using the <a
 				href="https://kit.svelte.dev/"
 				target="_blank"
-				rel="noopener noreferrer">SvelteKit</a
+				rel="noopener noreferrer"
 			>
+				SvelteKit
+			</a>
 			framework. View the source
-			<a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer"
-				>here</a
-			>!
+			<a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer">
+				here
+			</a>!
 		</p>
 	</div>
 </footer>
@@ -38,6 +40,7 @@
 		flex-flow: row nowrap;
 		justify-content: space-around;
 		padding: 20px 10%;
+
 		a {
 			font-size: 18px;
 		}

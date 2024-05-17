@@ -2,27 +2,27 @@
 	const randint = (start: number, stop: number) =>
 		start + Math.floor(Math.random() * (stop - start));
 
-	const choice = (arr: any[]) => arr[randint(0, arr.length - 1)];
+	const choice = <T,>(arr: T[]): T => arr[randint(0, arr.length - 1)];
 
 	const cards = ["clubs", "spades", "hearts", "diamonds"].reduce(
 		(acc, suit) => {
 			for (let i = 1; i <= 13; i++) {
-				let tmp = i.toString();
+				let num = i.toString();
 				switch (i) {
 					case 1:
-						tmp = "ace";
+						num = "ace";
 						break;
 					case 11:
-						tmp = "jack";
+						num = "jack";
 						break;
 					case 12:
-						tmp = "queen";
+						num = "queen";
 						break;
 					case 13:
-						tmp = "king";
+						num = "king";
 						break;
 				}
-				acc.push(`${tmp} of ${suit}`);
+				acc.push(`${num} of ${suit}`);
 			}
 			return acc;
 		},
@@ -30,22 +30,27 @@
 		["joker", "joker"],
 	);
 
+	const modes = ["numbers", "cards"];
+	let currentIndex = 0;
+
+	// iterate through types and looping back on complete
+	$: currentMode = modes[currentIndex % modes.length];
+	$: nextMode = modes[(currentIndex + 1) % modes.length];
+	$: explanationText = currentMode === "cards" ? "pick a random card" : "pack a random number";
+
 	let cardChoice = choice(cards);
-	let rand = randint(0, 100);
-	let selection = "numbers";
-	let explanationText = "pick a random card";
+	let numberChoice = randint(0, 100);
 
 	function generateRandomNumber() {
-		rand = randint(0, 100);
+		numberChoice = randint(0, 100);
 	}
 
 	function generateCard() {
 		cardChoice = choice(cards);
 	}
 
-	function switchFormat() {
-		explanationText = selection == "cards" ? "pick a random card" : "pick a random number";
-		selection = selection == "cards" ? "numbers" : "cards";
+	function nextFormat() {
+		++currentIndex;
 	}
 </script>
 
@@ -54,11 +59,11 @@
 
 <h1>Gambling Simulator</h1>
 
-{#if selection == "cards"}
+{#if currentMode === "numbers"}
 	<button id="invisible" on:click={generateRandomNumber}>
-		Random number: {rand}
+		Random number: {numberChoice}
 	</button>
-{:else}
+{:else if currentMode === "cards"}
 	<button id="invisible" on:click={generateCard}>
 		You drew a {cardChoice}
 	</button>
@@ -68,8 +73,8 @@
 	Press the above text to {explanationText} and fund your gambling addiction!
 </h2>
 
-<button class="general-button" on:click={switchFormat}>
-	Switch to {selection}
+<button class="general-button" on:click={nextFormat}>
+	Switch to {nextMode}
 </button>
 
 <style lang="scss">

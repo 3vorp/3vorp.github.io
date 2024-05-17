@@ -2,31 +2,34 @@
 	import Fa from "svelte-fa";
 	import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
+	export let categories: Url[] = [];
+
 	let innerWidth: number;
 	let isOpen = false;
-	let state = faBars;
-
-	export let categories: Url[] = [];
+	$: iconState = isOpen ? faX : faBars;
+	$: isMobile = innerWidth <= 900;
 
 	function toggleOpen() {
 		isOpen = !isOpen;
-		state = state === faX ? faBars : faX;
 	}
 </script>
 
 <svelte:window bind:innerWidth />
 
 <nav class="edges">
-	{#if innerWidth <= 900}
+	{#if isMobile}
 		<div class="mobile-navbar">
 			<a class="info-text link-hover" href="/">Evorp's Website</a>
-			<button class="toggle info-text link-hover" on:click={toggleOpen}><Fa icon={state} /></button>
+			<button class="toggle info-text link-hover" on:click={toggleOpen}>
+				<Fa icon={iconState} />
+			</button>
 		</div>
 	{/if}
-	{#if isOpen || innerWidth > 900}
+	<!-- always show if desktop layout -->
+	{#if isOpen || !isMobile}
 		<div class="navbar">
-			{#each categories as obj}
-				<a class="info-text link-hover" href={obj.url}>{obj.title}</a>
+			{#each categories as category}
+				<a class="info-text link-hover" href={category.url}>{category.title}</a>
 			{/each}
 		</div>
 	{/if}

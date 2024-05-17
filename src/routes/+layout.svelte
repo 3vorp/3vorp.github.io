@@ -13,8 +13,8 @@
 
 	const navbarCategories = [
 		{ title: "Home", url: "/" },
-		{ title: "Projects", url: "/projects" },
 		{ title: "Commissions", url: "/commissions" },
+		{ title: "Projects", url: "/projects" },
 		{ title: "About", url: "/about" },
 	];
 
@@ -46,19 +46,22 @@
 	content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg"
 />
 
-<div class="fix-footer">
+<div class="site-container">
 	<Navbar categories={navbarCategories} />
 	<slot />
 	<Footer categories={footerCategories} />
 </div>
 
 <style lang="scss">
-	.fix-footer {
+	// make sure the entire screen is 100% height
+	.site-container {
 		display: flex;
 		min-height: 100vh;
 		flex-direction: column;
 		justify-content: space-between;
 	}
+
+	// dark scrollbar hack
 	:root {
 		color-scheme: dark;
 	}
