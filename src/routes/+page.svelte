@@ -8,7 +8,7 @@
 		<br /><br />
 		<em>
 			This site is currently under construction and may feature placeholder text and images! If you
-			want additional information, contact me directly.
+			want more information about anything I offer, contact me directly.
 		</em>
 	</p>
 
