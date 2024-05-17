@@ -6,10 +6,10 @@
 		I'm an artist and programmer with experience in Python, Node.js, TypeScript, PHP, Vue.js, and
 		some Java and C.
 		<br /><br />
-		<em>
+		<i>
 			This site is currently under construction and may feature placeholder text and images! If you
 			want more information about anything I offer, contact me directly.
-		</em>
+		</i>
 	</p>
 
 	<h1>What I do:</h1>
@@ -48,14 +48,14 @@
 	</p>
 
 	<p>
-		<em>
+		<i>
 			Please contact me via <a
 				href="https://discord.com/users/360249987927638016"
 				target="_blank"
 				rel="noopener noreferrer">Discord</a
 			> if you have any additional questions. You can use my other socials too, but my response times
 			may vary.
-		</em>
+		</i>
 	</p>
 	<br />
 	<a href="/gamble" align="center">Gamble your savings away until I add more stuff to this site!</a>
