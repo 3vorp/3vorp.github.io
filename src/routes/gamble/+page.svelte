@@ -36,7 +36,7 @@
 	// iterate through types and looping back on complete
 	$: currentMode = modes[currentIndex % modes.length];
 	$: nextMode = modes[(currentIndex + 1) % modes.length];
-	$: explanationText = currentMode === "cards" ? "pick a random card" : "pack a random number";
+	$: explanationText = currentMode === "cards" ? "pick a random card" : "pick a random number";
 
 	let cardChoice = choice(cards);
 	let numberChoice = randint(0, 100);
@@ -60,11 +60,11 @@
 <h1>Gambling Simulator</h1>
 
 {#if currentMode === "numbers"}
-	<button id="invisible" on:click={generateRandomNumber}>
+	<button class="invisible" on:click={generateRandomNumber}>
 		Random number: {numberChoice}
 	</button>
 {:else if currentMode === "cards"}
-	<button id="invisible" on:click={generateCard}>
+	<button class="invisible" on:click={generateCard}>
 		You drew a {cardChoice}
 	</button>
 {/if}
@@ -103,7 +103,7 @@
 		margin: 0 auto;
 	}
 
-	#invisible {
+	.invisible {
 		font-size: 2.5em;
 		border: none;
 		background: transparent;
