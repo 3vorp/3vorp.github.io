@@ -11,14 +11,14 @@
 	} from "@fortawesome/free-brands-svg-icons";
 	import "../css/main.scss";
 
-	const navbarCategories = [
+	const navItems = [
 		{ title: "Home", url: "/" },
 		{ title: "Commissions", url: "/commissions" },
 		{ title: "Projects", url: "/projects" },
 		{ title: "About", url: "/about" },
 	];
 
-	const footerCategories = [
+	const footerItems = [
 		{ title: "GitHub", url: "https://github.com/3vorp", icon: faGithub },
 		{ title: "Twitter", url: "https://twitter.com/3vorp", icon: faTwitter },
 		{ title: "Reddit", url: "https://reddit.com/u/3vorp", icon: faReddit },
@@ -47,9 +47,9 @@
 />
 
 <div class="site-container">
-	<Navbar categories={navbarCategories} />
+	<Navbar items={navItems} />
 	<slot />
-	<Footer categories={footerCategories} />
+	<Footer items={footerItems} />
 </div>
 
 <style lang="scss">

@@ -2,7 +2,7 @@
 	import Fa from "svelte-fa";
 	import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
-	export let categories: Url[] = [];
+	export let items: Url[] = [];
 
 	let innerWidth: number;
 	let isOpen = false;
@@ -28,8 +28,8 @@
 	<!-- always show if desktop layout -->
 	{#if isOpen || !isMobile}
 		<div class="navbar">
-			{#each categories as category}
-				<a class="info-text link-hover" href={category.url}>{category.title}</a>
+			{#each items as item}
+				<a class="info-text link-hover" href={item.url}>{item.title}</a>
 			{/each}
 		</div>
 	{/if}

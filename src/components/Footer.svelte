@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Fa from "svelte-fa";
-	export let categories: Url[] = [];
+	export let items: Url[] = [];
 </script>
 
 <footer>
 	<div class="footer-bar">
-		{#each categories as category}
-			<a class="info-text link-hover" target="_blank" rel="noopener noreferrer" href={category.url}>
-				<Fa icon={category.icon} />
-				{category.title}
+		{#each items as item}
+			<a class="info-text link-hover" target="_blank" rel="noopener noreferrer" href={item.url}>
+				<Fa icon={item.icon} />
+				{item.title}
 			</a>
 		{/each}
 	</div>
