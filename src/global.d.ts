@@ -1,7 +1,9 @@
-/// <reference types="@sveltejs/kit" />
+import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
-interface Url {
-	title: string;
-	url: string;
-	icon?: IconDefinition;
+declare global {
+	interface Url {
+		title: string;
+		href: string;
+		icon?: IconDefinition;
+	}
 }

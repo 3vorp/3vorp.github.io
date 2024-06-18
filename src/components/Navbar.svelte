@@ -6,12 +6,8 @@
 
 	let innerWidth: number;
 	let isOpen = false;
-	$: iconState = isOpen ? faX : faBars;
+	$: icon = isOpen ? faX : faBars;
 	$: isMobile = innerWidth <= 900;
-
-	function toggleOpen() {
-		isOpen = !isOpen;
-	}
 </script>
 
 <svelte:window bind:innerWidth />
@@ -20,16 +16,16 @@
 	{#if isMobile}
 		<div class="mobile-navbar">
 			<a class="info-text link-hover" href="/">Evorp's Website</a>
-			<button class="toggle info-text link-hover" on:click={toggleOpen}>
-				<Fa icon={iconState} />
+			<button class="toggle info-text link-hover" on:click={() => (isOpen = !isOpen)}>
+				<Fa {icon} />
 			</button>
 		</div>
 	{/if}
 	<!-- always show if desktop layout -->
 	{#if isOpen || !isMobile}
 		<div class="navbar">
-			{#each items as item}
-				<a class="info-text link-hover" href={item.url}>{item.title}</a>
+			{#each items as { href, title }}
+				<a class="info-text link-hover" {href}>{title}</a>
 			{/each}
 		</div>
 	{/if}
@@ -42,6 +38,11 @@
 		position: sticky;
 		top: 0;
 		z-index: 10;
+	}
+
+	a,
+	.toggle {
+		font-size: 24px;
 	}
 
 	.mobile-navbar {
@@ -90,10 +91,5 @@
 			border: none;
 			float: right;
 		}
-	}
-
-	a,
-	.toggle {
-		font-size: 24px;
 	}
 </style>

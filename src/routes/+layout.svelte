@@ -11,20 +11,20 @@
 	} from "@fortawesome/free-brands-svg-icons";
 	import "../css/main.scss";
 
-	const navItems = [
-		{ title: "Home", url: "/" },
-		{ title: "Commissions", url: "/commissions" },
-		{ title: "Projects", url: "/projects" },
-		{ title: "About", url: "/about" },
+	const navItems: Url[] = [
+		{ title: "Home", href: "/" },
+		{ title: "Commissions", href: "/commissions" },
+		{ title: "Projects", href: "/projects" },
+		{ title: "About", href: "/about" },
 	];
 
-	const footerItems = [
-		{ title: "GitHub", url: "https://github.com/3vorp", icon: faGithub },
-		{ title: "Twitter", url: "https://twitter.com/3vorp", icon: faTwitter },
-		{ title: "Reddit", url: "https://reddit.com/u/3vorp", icon: faReddit },
-		{ title: "Tumblr", url: "https://tumblr.com/evorp", icon: faTumblr },
-		{ title: "YouTube", url: "https://www.youtube.com/@evorp", icon: faYoutube },
-		{ title: "Steam", url: "https://steamcommunity.com/id/3vorp/", icon: faSteam },
+	const footerItems: Required<Url>[] = [
+		{ title: "GitHub", href: "https://github.com/3vorp", icon: faGithub },
+		{ title: "Twitter", href: "https://twitter.com/3vorp", icon: faTwitter },
+		{ title: "Reddit", href: "https://reddit.com/u/3vorp", icon: faReddit },
+		{ title: "Tumblr", href: "https://tumblr.com/evorp", icon: faTumblr },
+		{ title: "YouTube", href: "https://www.youtube.com/@evorp", icon: faYoutube },
+		{ title: "Steam", href: "https://steamcommunity.com/id/3vorp/", icon: faSteam },
 	];
 </script>
 
