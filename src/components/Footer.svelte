@@ -22,9 +22,9 @@
 				SvelteKit
 			</a>
 			framework. View the source
-			<a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer">
-				here
-			</a>!
+			<a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer"
+				>here</a
+			>!
 		</p>
 	</div>
 </footer>
