@@ -54,44 +54,34 @@
 	}
 </script>
 
-<p>I do not take responsibility for any losses you may suffer as a result of this page.</p>
-<br />
+<div class="container all-center">
+	<p class="tiny">
+		I do not take responsibility for any losses you may suffer as a result of this page.
+	</p>
+	<br />
 
-<h1>Gambling Simulator</h1>
+	<h1 class="headline">Gambling Simulator</h1>
 
-{#if currentMode === "numbers"}
-	<button class="invisible" on:click={generateRandomNumber}>
-		Random number: {numberChoice}
+	{#if currentMode === "numbers"}
+		<button class="invisible" on:click={generateRandomNumber}>
+			Random number: {numberChoice}
+		</button>
+	{:else if currentMode === "cards"}
+		<button class="invisible" on:click={generateCard}>
+			You drew a {cardChoice}
+		</button>
+	{/if}
+
+	<h2>
+		Press the above text to {explanationText} and fund your gambling addiction!
+	</h2>
+
+	<button class="general-button" on:click={nextFormat}>
+		Switch to {nextMode}
 	</button>
-{:else if currentMode === "cards"}
-	<button class="invisible" on:click={generateCard}>
-		You drew a {cardChoice}
-	</button>
-{/if}
-
-<h2>
-	Press the above text to {explanationText} and fund your gambling addiction!
-</h2>
-
-<button class="general-button" on:click={nextFormat}>
-	Switch to {nextMode}
-</button>
+</div>
 
 <style lang="scss">
-	* {
-		display: flex;
-		justify-content: center;
-		text-align: center;
-		flex-flow: column nowrap;
-	}
-
-	h1 {
-		margin-top: 0px;
-		margin-bottom: 50px;
-		font-size: 4.5em;
-		font-weight: bold;
-	}
-
 	h2 {
 		margin-top: 50px;
 		margin-bottom: 50px;
@@ -109,10 +99,5 @@
 		background: transparent;
 		border: none;
 		color: #dedede;
-	}
-
-	p {
-		font-size: 0.75em;
-		position: relative;
 	}
 </style>
