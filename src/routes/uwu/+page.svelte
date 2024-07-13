@@ -8,6 +8,7 @@
 
 	let input = "";
 	$: output = input
+		.toLocaleLowerCase()
 		.replace(/l|r/g, "w")
 		.replace(/(?<=n|m)(a|e|i|o|u)/g, (char) => `y${char}`) // ny and my
 		.replace(/th/g, "d")
