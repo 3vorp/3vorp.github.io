@@ -1,4 +1,4 @@
-import{s as g,a as f,n}from"../chunks/scheduler.Dw93JyHj.js";import{S as u,i as b,e as h,s as v,c as d,a as y,g as w,b as r,d as o,f as c}from"../chunks/index.B9ABB2nn.js";function k(p){let e,l,s,t,m=`<h1>Welcome to my website!</h1> <p>I&#39;m an artist and programmer with experience in Python, Node.js, TypeScript, PHP, Vue.js, and
+import{s as g,a as f,n}from"../chunks/scheduler.Dw93JyHj.js";import{S as u,i as b,e as h,s as v,c as d,a as y,g as w,b as r,d as o,f as c}from"../chunks/index.DNoybo92.js";function k(p){let e,l,s,t,m=`<h1>Welcome to my website!</h1> <p>I&#39;m an artist and programmer with experience in Python, Node.js, TypeScript, PHP, Vue.js, and
 		some Java and C.
 		<br/><br/> <i>This site is currently under construction and may feature placeholder text and images! If you
 			want more information about anything I offer, contact me directly.</i></p> <h1>What I do:</h1> <h2 align="center">Commissions</h2> <a href="/commissions"><img src="logo/cooking.gif" alt="commissions logo" height="320" class="left-align hoverable"/></a> <p>I specialize in pixel art media, such as profile pictures, video game textures, or short
