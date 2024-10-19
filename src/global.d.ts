@@ -6,4 +6,9 @@ declare global {
 		href: string;
 		icon?: IconDefinition;
 	}
+
+	interface CommissionImage {
+		src: string;
+		alt?: string;
+	}
 }
