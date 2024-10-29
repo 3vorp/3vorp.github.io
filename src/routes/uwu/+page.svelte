@@ -6,18 +6,20 @@
 		"?": ["?~", "?~ >w<", "? *:･ﾟ✧(ꈍᴗꈍ)✧･ﾟ:*"],
 	};
 
-	let input = "";
-	$: output = input
-		.toLocaleLowerCase()
-		.replace(/l|r/g, "w")
-		.replace(/(?<=n|m)(a|e|i|o|u)/g, (char) => `y${char}`) // ny and my
-		.replace(/th/g, "d")
-		// stutter
-		.replace(/(?<=\s)\D/g, (char) =>
-			Math.floor(Math.random() * 5) == 0 ? `${char}-${char}` : char,
-		)
-		// punctuation
-		.replace(/\,|\.|\!|\?/g, (char) => punctuation[char][Math.floor(Math.random() * 5)] ?? char);
+	let input = $state("");
+	const output = $derived(
+		input
+			.toLocaleLowerCase()
+			.replace(/l|r/g, "w")
+			.replace(/(?<=n|m)(a|e|i|o|u)/g, (char) => `y${char}`) // ny and my
+			.replace(/th/g, "d")
+			// stutter
+			.replace(/(?<=\s)\D/g, (char) =>
+				Math.floor(Math.random() * 5) == 0 ? `${char}-${char}` : char,
+			)
+			// punctuation
+			.replace(/\,|\.|\!|\?/g, (char) => punctuation[char][Math.floor(Math.random() * 5)] ?? char),
+	);
 </script>
 
 <div class="container all-center">

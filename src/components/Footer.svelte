@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Fa from "svelte-fa";
-	export let items: Required<Url>[] = [];
+	const { items }: { items: Required<Url>[] } = $props();
 </script>
 
 <footer>
@@ -15,7 +15,7 @@
 	<div class="bottom">
 		<p class="info-text">
 			This website was made using the <a
-				href="https://kit.svelte.dev/"
+				href="https://svelte.dev/"
 				target="_blank"
 				rel="noopener noreferrer"
 			>

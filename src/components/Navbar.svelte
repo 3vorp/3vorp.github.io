@@ -2,12 +2,11 @@
 	import Fa from "svelte-fa";
 	import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
-	export let items: Url[] = [];
-
-	let innerWidth: number;
-	let isOpen = false;
-	$: icon = isOpen ? faX : faBars;
-	$: isMobile = innerWidth <= 900;
+	const { items }: { items: Url[] } = $props();
+	let innerWidth = $state(0);
+	let isOpen = $state(false);
+	const icon = $derived(isOpen ? faX : faBars);
+	const isMobile = $derived(innerWidth <= 900);
 </script>
 
 <svelte:window bind:innerWidth />
@@ -16,7 +15,7 @@
 	{#if isMobile}
 		<div class="mobile-navbar">
 			<a class="info-text link-hover" href="/">Evorp's Website</a>
-			<button class="toggle info-text link-hover" on:click={() => (isOpen = !isOpen)}>
+			<button class="toggle info-text link-hover" onclick={() => (isOpen = !isOpen)}>
 				<Fa {icon} />
 			</button>
 		</div>

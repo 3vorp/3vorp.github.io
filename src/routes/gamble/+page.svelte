@@ -31,15 +31,17 @@
 	);
 
 	const modes = ["numbers", "cards"];
-	let currentIndex = 0;
+	let currentIndex = $state(0);
 
 	// iterate through types and looping back on complete
-	$: currentMode = modes[currentIndex % modes.length];
-	$: nextMode = modes[(currentIndex + 1) % modes.length];
-	$: explanationText = currentMode === "cards" ? "pick a random card" : "pick a random number";
+	const currentMode = $derived(modes[currentIndex % modes.length]);
+	const nextMode = $derived(modes[(currentIndex + 1) % modes.length]);
+	const explanationText = $derived(
+		currentMode === "cards" ? "pick a random card" : "pick a random number",
+	);
 
-	let cardChoice = choice(cards);
-	let numberChoice = randint(0, 100);
+	let cardChoice = $state(choice(cards));
+	let numberChoice = $state(randint(0, 100));
 
 	function generateRandomNumber() {
 		numberChoice = randint(0, 100);
@@ -63,11 +65,11 @@
 	<h1 class="headline">Gambling Simulator</h1>
 
 	{#if currentMode === "numbers"}
-		<button class="invisible" on:click={generateRandomNumber}>
+		<button class="invisible" onclick={generateRandomNumber}>
 			Random number: {numberChoice}
 		</button>
 	{:else if currentMode === "cards"}
-		<button class="invisible" on:click={generateCard}>
+		<button class="invisible" onclick={generateCard}>
 			You drew a {cardChoice}
 		</button>
 	{/if}
@@ -76,7 +78,7 @@
 		Press the above text to {explanationText} and fund your gambling addiction!
 	</h2>
 
-	<button class="general-button" on:click={nextFormat}>
+	<button class="general-button" onclick={nextFormat}>
 		Switch to {nextMode}
 	</button>
 </div>

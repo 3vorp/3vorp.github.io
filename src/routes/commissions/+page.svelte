@@ -11,7 +11,7 @@
 <img src="banner/commissions.jpg" alt="commission banner" class="banner-img" />
 
 <div class="padding-div">
-	<h1 align="center">Past Commissions</h1>
+	<h1 class="center">Past Commissions</h1>
 	<div class="img-container">
 		{#each images as image}
 			<img
