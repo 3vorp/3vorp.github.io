@@ -1,59 +1,25 @@
 <script lang="ts">
-	const randint = (start: number, stop: number) =>
-		start + Math.floor(Math.random() * (stop - start));
-
-	const choice = <T,>(arr: T[]): T => arr[randint(0, arr.length - 1)];
-
-	const cards = ["clubs", "spades", "hearts", "diamonds"].reduce(
-		(acc, suit) => {
-			for (let i = 1; i <= 13; i++) {
-				let num = i.toString();
-				switch (i) {
-					case 1:
-						num = "ace";
-						break;
-					case 11:
-						num = "jack";
-						break;
-					case 12:
-						num = "queen";
-						break;
-					case 13:
-						num = "king";
-						break;
-				}
-				acc.push(`${num} of ${suit}`);
-			}
-			return acc;
-		},
-		// not included in suits
-		["joker", "joker"],
-	);
+	import { cards } from "./cards";
+	import { randint, choice } from "../../helpers/random";
 
 	const modes = ["numbers", "cards"];
-	let currentIndex = $state(0);
+	let rawIndex = $state(0);
 
 	// iterate through types and looping back on complete
-	const currentMode = $derived(modes[currentIndex % modes.length]);
-	const nextMode = $derived(modes[(currentIndex + 1) % modes.length]);
-	const explanationText = $derived(
-		currentMode === "cards" ? "pick a random card" : "pick a random number",
-	);
+	const currentIndex = $derived(rawIndex % modes.length);
+	const nextIndex = $derived((rawIndex + 1) % modes.length);
 
 	let cardChoice = $state(choice(cards));
 	let numberChoice = $state(randint(0, 100));
 
-	function generateRandomNumber() {
-		numberChoice = randint(0, 100);
-	}
+	const currentMode = $derived(modes[currentIndex]);
+	const nextMode = $derived(modes[nextIndex]);
+	const explanationText = $derived(
+		currentMode === "cards" ? "pick a random card" : "pick a random number",
+	);
 
-	function generateCard() {
-		cardChoice = choice(cards);
-	}
-
-	function nextFormat() {
-		++currentIndex;
-	}
+	const generateRandomNumber = () => (numberChoice = randint(0, 100));
+	const generateCard = () => (cardChoice = choice(cards));
 </script>
 
 <div class="container all-center">
@@ -78,7 +44,7 @@
 		Press the above text to {explanationText} and fund your gambling addiction!
 	</h2>
 
-	<button class="general-button" onclick={nextFormat}>
+	<button class="general-button" onclick={() => void ++rawIndex}>
 		Switch to {nextMode}
 	</button>
 </div>

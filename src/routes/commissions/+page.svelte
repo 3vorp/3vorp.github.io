@@ -14,11 +14,7 @@
 	<h1 class="center">Past Commissions</h1>
 	<div class="img-container">
 		{#each images as image}
-			<img
-				class="comm-img"
-				src={`commission/${image.src}`}
-				alt={image.alt || "commission image"}
-			/>
+			<img class="comm-img" src={`commission/${image.src}`} alt={image.alt || "commission image"} />
 		{/each}
 	</div>
 </div>
