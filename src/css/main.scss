@@ -12,7 +12,7 @@
 		"Helvetica Neue",
 		sans-serif;
 	color: #cdcdcd;
-	background-color: #24292d;
+	background-color: #2f3639;
 }
 
 .container {
@@ -66,7 +66,7 @@ a {
 	transition: all 0.25s ease;
 
 	&:hover {
-		color: #1c87cc;
+		color: #2789f0;
 	}
 }
 
@@ -131,6 +131,27 @@ hr {
 	padding-right: calc(20vw - 60px);
 }
 
+.main-banner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-x: hidden;
+	img {
+		max-width: 100%;
+		max-height: 50vw;
+		-webkit-user-drag: none;
+		-khtml-user-drag: none;
+		-moz-user-drag: none;
+		-o-user-drag: none;
+		@media screen and (max-width: 1200px) {
+			max-width: 130%;
+		}
+		@media screen and (max-width: 800px) {
+			max-width: 160%;
+		}
+	}
+}
+
 .banner-img {
 	filter: drop-shadow(0px 10px 10px #00000077);
 	margin-bottom: 50px;
@@ -139,7 +160,7 @@ hr {
 
 .general-button {
 	color: #fff;
-	background-color: #aaaaff33;
+	background-color: #aabaff33;
 	border-radius: 10px;
 	font-size: 1.25em;
 	padding: 1em;

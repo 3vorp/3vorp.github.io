@@ -31,7 +31,7 @@
 
 <style lang="scss">
 	footer {
-		background-color: #000;
+		background-color: #131519;
 		margin-top: 50px;
 	}
 

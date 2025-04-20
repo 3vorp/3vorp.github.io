@@ -32,7 +32,7 @@
 
 <style lang="scss">
 	nav {
-		background-color: #000;
+		background-color: #131519;
 		filter: drop-shadow(5px 5px 10px #00000077);
 		position: sticky;
 		top: 0;
