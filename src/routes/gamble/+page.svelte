@@ -40,9 +40,9 @@
 		</button>
 	{/if}
 
-	<h2>
+	<p>
 		Press the above text to {explanationText} and fund your gambling addiction!
-	</h2>
+	</p>
 
 	<button class="general-button" onclick={() => void ++rawIndex}>
 		Switch to {nextMode}
@@ -50,7 +50,7 @@
 </div>
 
 <style lang="scss">
-	h2 {
+	p {
 		margin-top: 50px;
 		margin-bottom: 50px;
 		font-size: 1.5em;
@@ -59,6 +59,11 @@
 
 	button {
 		margin: 0 auto;
+	}
+
+	.tiny {
+		font-size: 0.75em;
+		position: relative;
 	}
 
 	.invisible {

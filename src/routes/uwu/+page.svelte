@@ -26,7 +26,7 @@
 	<p class="tiny">I apologize in advance.</p>
 	<br />
 	<h1 class="headline">The UwUificator</h1>
-	<input class="general-input" bind:value={input} />
+	<input class="general-input block" bind:value={input} />
 	<p class="scroll">{output}</p>
 </div>
 
