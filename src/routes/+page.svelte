@@ -135,7 +135,6 @@
 	Gamble your savings away until I add more stuff to this site!
 </a>
 
-
 <style lang="scss">
 	// override container class for flex content
 	.project-container {

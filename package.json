@@ -10,23 +10,23 @@
 	},
 	"devDependencies": {
 		"gh-pages": "^6.3.0",
-		"prettier": "^3.5.3",
+		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0"
 	},
 	"dependencies": {
 		"@fortawesome/free-brands-svg-icons": "^6.7.2",
 		"@fortawesome/free-solid-svg-icons": "^6.7.2",
 		"@sveltejs/adapter-static": "^3.0.8",
-		"@sveltejs/kit": "2.21.1",
-		"@sveltejs/vite-plugin-svelte": "^5.0.3",
-		"less": "^4.3.0",
-		"sass": "^1.89.0",
-		"svelte": "^5.32.1",
-		"svelte-check": "^4.2.1",
+		"@sveltejs/kit": "2.25.0",
+		"@sveltejs/vite-plugin-svelte": "^6.1.0",
+		"less": "^4.4.0",
+		"sass": "^1.89.2",
+		"svelte": "^5.36.7",
+		"svelte-check": "^4.3.0",
 		"svelte-fa": "^4.0.4",
 		"svelte-preprocess": "^6.0.3",
 		"typescript": "^5.8.3",
-		"vite": "^6.3.5"
+		"vite": "^7.0.5"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
