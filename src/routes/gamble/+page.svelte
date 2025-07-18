@@ -40,7 +40,7 @@
 		</button>
 	{/if}
 
-	<p>
+	<p class="explain">
 		Press the above text to {explanationText} and fund your gambling addiction!
 	</p>
 
@@ -51,7 +51,7 @@
 
 <style lang="scss">
 	@use "../../css/variables.scss" as *;
-	p {
+	.explain {
 		margin-top: 50px;
 		margin-bottom: 50px;
 		font-size: 1.5em;
@@ -67,5 +67,9 @@
 		background: transparent;
 		font-weight: normal;
 		color: $content-light;
+		&:hover {
+			cursor: pointer;
+			color: $accent-light;
+		}
 	}
 </style>

@@ -189,7 +189,7 @@
 
 	.project-image {
 		height: 256px;
-		filter: drop-shadow(0 10px 10px #00000077);
+		filter: drop-shadow($drop-shadow);
 	}
 
 	// technically the color is wrong but bg-dark is used everywhere so this is the next darkest thing
