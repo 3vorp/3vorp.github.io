@@ -66,9 +66,4 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
-
-	// dark scrollbar hack
-	:root {
-		color-scheme: dark;
-	}
 </style>

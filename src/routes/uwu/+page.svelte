@@ -25,13 +25,35 @@
 <div class="container all-center">
 	<p class="tiny">I apologize in advance.</p>
 	<br />
-	<h1 class="headline">The UwUificator</h1>
-	<input class="general-input block" bind:value={input} />
-	<p class="scroll">{output}</p>
+	<h1>The UwUificator</h1>
+	<textarea class="general-input wide" bind:value={input}></textarea>
+	<div class="card">
+		<p class="output">{output}</p>
+	</div>
 </div>
 
 <style lang="scss">
-	.scroll {
-		overflow: auto;
+	@use "../../css/variables.scss" as *;
+
+	.wide {
+		min-width: 75%;
+	}
+
+	.card {
+		background-color: $fg-light;
+		width: 75%;
+		min-height: 5rem;
+		margin-top: 2rem;
+		padding: 16px;
+		border-radius: 4px;
+		overflow-wrap: break-word;
+	}
+
+	.output {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		text-align: left;
+		// don't collapse newlines
+		white-space: pre;
 	}
 </style>

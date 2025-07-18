@@ -28,14 +28,14 @@
 	</p>
 	<br />
 
-	<h1 class="headline">Gambling Simulator</h1>
+	<h1>Gambling Simulator</h1>
 
 	{#if currentMode === "numbers"}
-		<button class="invisible" onclick={generateRandomNumber}>
+		<button class="invisible h2 link-hover" onclick={generateRandomNumber}>
 			Random number: {numberChoice}
 		</button>
 	{:else if currentMode === "cards"}
-		<button class="invisible" onclick={generateCard}>
+		<button class="invisible h2 link-hover" onclick={generateCard}>
 			You drew a {cardChoice}
 		</button>
 	{/if}
@@ -50,6 +50,7 @@
 </div>
 
 <style lang="scss">
+	@use "../../css/variables.scss" as *;
 	p {
 		margin-top: 50px;
 		margin-bottom: 50px;
@@ -61,16 +62,10 @@
 		margin: 0 auto;
 	}
 
-	.tiny {
-		font-size: 0.75em;
-		position: relative;
-	}
-
 	.invisible {
-		font-size: 2.5em;
 		border: none;
 		background: transparent;
-		border: none;
-		color: #dedede;
+		font-weight: normal;
+		color: $content-light;
 	}
 </style>

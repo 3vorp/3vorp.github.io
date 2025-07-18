@@ -1,3 +1,5 @@
+@use "./variables.scss" as *;
+
 @font-face {
 	font-family: "Bebas Neue";
 	font-style: normal;
@@ -12,8 +14,9 @@
 :root {
 	// I really don't care which font is displayed for body text as long as it's somewhat legible lol
 	font-family: sans-serif;
-	color: #e2e9eabf;
-	background-color: #2f3639;
+	color: rgba($content-light, 0.8);
+	background-color: $bg-dark;
+	color-scheme: dark;
 }
 
 // fix weird lip around edges
@@ -22,27 +25,54 @@ body {
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	color: $content-light;
+}
+
+h1,
 .h1 {
 	font-family: "Bebas Neue", sans-serif;
+	// bebas neue bold is absolutely disgusting
 	font-weight: normal;
-	font-size: 5rem !important;
-	color: #e2e9ea;
+	font-size: 5rem;
+	// closer to tracking of wordmark
 	letter-spacing: 0.2rem;
 	text-transform: uppercase;
+	text-align: center;
+	@media screen and (max-width: 760px) {
+		font-size: 4rem;
+	}
 }
 
 h2,
 .h2 {
 	font-family: "menlo", "consolas", monospace;
 	font-weight: bold;
-	font-size: 2rem !important;
-	color: #e2e9eaee;
+	font-size: 2rem;
 }
 
 p,
 a,
 li {
 	font-size: 20px;
+}
+
+ul,
+ol {
+	list-style-position: inside;
+	padding-inline-start: 20px;
+}
+
+textarea {
+	font-family: inherit;
+	overflow-wrap: anywhere;
+	resize: vertical;
 }
 
 .all-center {
@@ -58,62 +88,41 @@ li {
 	text-align: center;
 }
 
-.headline {
-	margin-top: 0px;
-	margin-bottom: 50px;
-	font-size: 4.5em;
+.block {
+	width: 100%;
+}
+
+.tiny {
+	font-size: 0.75em;
+	position: relative;
 }
 
 a {
-	text-decoration: none;
-	color: #4baeee;
+	color: $accent-light;
 	transition: all 0.25s ease;
-
+	text-decoration: none;
 	&:hover {
-		color: #2789f0;
+		color: $accent-dark;
 	}
 }
 
 .link-hover {
 	transition: all 0.25s ease;
-
 	&:hover {
-		color: #4baeee;
+		color: $accent-light;
 		transform: scale(0.9);
 	}
 }
 
 .info-text {
 	font-family: "menlo", "consolas", monospace;
-	color: #dedede;
-}
-
-hr {
-	clear: both;
-}
-
-.left-align {
-	float: left;
-}
-
-.right-align {
-	float: right;
+	color: $content-light;
 }
 
 .hoverable {
 	transition: all 0.5s ease;
 	&:hover {
 		transform: scale(1.1);
-	}
-}
-
-.right-align,
-.left-align {
-	@media screen and (max-width: 1200px) {
-		float: none;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
 	}
 }
 
@@ -138,27 +147,6 @@ hr {
 	}
 }
 
-.main-banner {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow-x: hidden;
-	img {
-		max-width: 100%;
-		max-height: 50vw;
-		-webkit-user-drag: none;
-		-khtml-user-drag: none;
-		-moz-user-drag: none;
-		-o-user-drag: none;
-		@media screen and (max-width: 1200px) {
-			max-width: 130%;
-		}
-		@media screen and (max-width: 800px) {
-			max-width: 160%;
-		}
-	}
-}
-
 .banner-img {
 	filter: drop-shadow(0px 10px 10px #00000077);
 	margin-bottom: 50px;
@@ -167,29 +155,38 @@ hr {
 
 .general-button {
 	color: #fff;
-	background-color: #aabaff33;
-	border-radius: 10px;
-	font-size: 1.25em;
-	padding: 1em;
+	background-color: $bg-light;
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 20px;
+	letter-spacing: 1.6px;
 	border: none;
 	text-transform: uppercase;
-	letter-spacing: 0.2rem;
+	box-shadow: $drop-shadow;
+
+	transition: all 0.25s ease;
 	&:hover {
+		background-color: $bg-mid;
 		cursor: pointer;
 	}
-	filter: drop-shadow(0 15px 10px #000000);
+	&:active {
+		background-color: $content-dark;
+	}
 }
 
 .general-input {
 	color: #fff;
-	background-color: #aaaaff33;
-	border-radius: 10px;
-	font-size: 20px;
-	padding: 0.5em;
+	background-color: $bg-light;
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 16px;
 	border: none;
-	filter: drop-shadow(0 5px 5px #000000);
-}
+	outline: none;
+	box-shadow: $drop-shadow;
+	text-align: left;
 
-.block {
-	width: 100%;
+	transition: all 0.25s ease;
+	&:focus {
+		background-color: $bg-mid;
+	}
 }

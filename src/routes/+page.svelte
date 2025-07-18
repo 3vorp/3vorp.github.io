@@ -106,25 +106,29 @@
 	<img src="banner/main.jpg" alt="evorp banner" />
 </div>
 
+<span style="height: 50px"></span>
+
 {#each Object.entries(categories) as [key, category]}
-	<h1 class="container text-center">{key}</h1>
-	{#each category as item, i}
+	<h1 class="container text-center" style="margin-top: 2rem;">{key}</h1>
+	{#each category as { title, description, href, image, langs, frameworks }, i}
 		<div class={i % 2 === 0 ? "" : "dark-background"}>
 			<div class="container project-container">
 				<div class="project-info">
-					<a class="h2" href={item.href}>{item.title}</a>
-					<p>{item.description}</p>
+					<a class="h2" {href} target="_blank" rel="noopener noreferrer">
+						{title}
+					</a>
+					<p>{description}</p>
 					<ul>
-						{#if item.langs}
-							<li>Languages: {item.langs.join(", ")}</li>
+						{#if langs}
+							<li>Languages: {langs.join(", ")}</li>
 						{/if}
-						{#if item.frameworks}
-							<li>Frameworks: {item.frameworks.join(", ")}</li>
+						{#if frameworks}
+							<li>Frameworks: {frameworks.join(", ")}</li>
 						{/if}
 					</ul>
 				</div>
-				<a href={item.href}>
-					<img class="project-image hoverable" src={item.image} alt="" />
+				<a {href} target="_blank" rel="noopener noreferrer">
+					<img class="project-image hoverable" src={image} alt={`${title} logo`} loading="lazy" />
 				</a>
 			</div>
 		</div>
@@ -136,6 +140,28 @@
 </a>
 
 <style lang="scss">
+	@use "../css/variables.scss" as *;
+
+	.main-banner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow-x: hidden;
+		img {
+			max-width: 100%;
+			max-height: 50vw;
+			-webkit-user-drag: none;
+			-khtml-user-drag: none;
+			-moz-user-drag: none;
+			-o-user-drag: none;
+			@media screen and (max-width: 1200px) {
+				max-width: 130%;
+			}
+			@media screen and (max-width: 800px) {
+				max-width: 160%;
+			}
+		}
+	}
 	// override container class for flex content
 	.project-container {
 		width: 100%;
@@ -150,6 +176,15 @@
 			// add a bit of padding between the button and text
 			padding-bottom: 1.25rem;
 		}
+
+		@media (max-width: 576px) {
+			// center content and display vertically on mobile
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			max-width: 95%;
+		}
 	}
 
 	.project-image {
@@ -157,7 +192,8 @@
 		filter: drop-shadow(0 10px 10px #00000077);
 	}
 
+	// technically the color is wrong but bg-dark is used everywhere so this is the next darkest thing
 	.dark-background {
-		background: #24292d;
+		background: $fg-light;
 	}
 </style>

@@ -31,8 +31,10 @@
 </nav>
 
 <style lang="scss">
+	@use "../css/variables.scss" as *;
+
 	nav {
-		background-color: #131519;
+		background-color: $fg-dark;
 		filter: drop-shadow(5px 5px 10px #00000077);
 		position: sticky;
 		top: 0;

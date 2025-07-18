@@ -30,8 +30,10 @@
 </footer>
 
 <style lang="scss">
+	@use "../css/variables.scss" as *;
+
 	footer {
-		background-color: #131519;
+		background-color: $fg-dark;
 		margin-top: 50px;
 	}
 
