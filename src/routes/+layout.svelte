@@ -30,6 +30,11 @@
 
 <svelte:head>
 	<title>Evorp's Website</title>
+
+	<!-- HTML Meta Tags -->
+	<meta name="description" content="idk at this point either" />
+
+	<!-- Open Graph Meta Tags -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Evorp's Website" />
 	<meta property="og:description" content="idk at this point either" />
@@ -37,14 +42,15 @@
 		property="og:image"
 		content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg"
 	/>
-</svelte:head>
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:description" content="idk at this point either" />
-<meta
-	property="twitter:image"
-	content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg"
-/>
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:description" content="idk at this point either" />
+	<meta
+		property="twitter:image"
+		content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg"
+	/>
+</svelte:head>
 
 <div class="site-container">
 	<Navbar items={navItems} />
