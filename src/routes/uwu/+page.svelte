@@ -54,6 +54,6 @@
 		margin-bottom: 0px;
 		text-align: left;
 		// don't collapse newlines
-		white-space: pre;
+		white-space: pre-wrap;
 	}
 </style>
