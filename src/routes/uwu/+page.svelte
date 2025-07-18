@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Fa from "svelte-fa";
+	import { faCopy } from "@fortawesome/free-solid-svg-icons";
+
 	const punctuation: Record<string, string[]> = {
 		",": [" 7w7,", " •w•,", " :3,"],
 		".": [" uwu~", " owo~", "☆..", "~", "~"],
@@ -20,6 +23,11 @@
 			// punctuation
 			.replace(/\,|\.|\!|\?/g, (char) => punctuation[char][Math.floor(Math.random() * 5)] ?? char),
 	);
+
+	function copyText() {
+		navigator.clipboard.writeText(output);
+		alert("Text copied!\n\n(I'm too lazy to add a proper tooltip for this)")
+	}
 </script>
 
 <div class="container all-center">
@@ -30,6 +38,10 @@
 	<div class="card">
 		<p class="output">{output}</p>
 	</div>
+	<br />
+	<button class="general-button" onclick={copyText}>
+		<Fa icon={faCopy} />&nbsp; Copy Text
+	</button>
 </div>
 
 <style lang="scss">
