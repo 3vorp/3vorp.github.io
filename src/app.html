@@ -1,10 +1,7 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
+	<!-- I prefer having all head data in the layout file -->
+	%sveltekit.head%
+	<!-- svelte requires an extra div here for some reason -->
 	<div>%sveltekit.body%</div>
 </html>

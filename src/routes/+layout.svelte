@@ -26,30 +26,34 @@
 		{ title: "YouTube", href: "https://www.youtube.com/@evorp", icon: faYoutube },
 		{ title: "Steam", href: "https://steamcommunity.com/id/3vorp/", icon: faSteam },
 	];
+
+	// shared meta tags
+	const title = "Evorp's Website";
+	const description = "idk at this point either";
+	const banner =
+		"https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg";
 </script>
 
 <svelte:head>
-	<title>Evorp's Website</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- HTML Meta Tags -->
-	<meta name="description" content="idk at this point either" />
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta name="theme-color" content="#a3bec7" />
+	<link rel="icon" href="/favicon.png" />
 
 	<!-- Open Graph Meta Tags -->
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Evorp's Website" />
-	<meta property="og:description" content="idk at this point either" />
-	<meta
-		property="og:image"
-		content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg"
-	/>
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={banner} />
 
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:description" content="idk at this point either" />
-	<meta
-		property="twitter:image"
-		content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg"
-	/>
+	<meta property="twitter:description" content={description} />
+	<meta property="twitter:image" content={banner} />
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 </svelte:head>
