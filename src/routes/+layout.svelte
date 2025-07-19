@@ -50,6 +50,8 @@
 		property="twitter:image"
 		content="https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg"
 	/>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 </svelte:head>
 
 <div class="site-container">
