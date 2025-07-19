@@ -11,11 +11,11 @@
 
 <svelte:window bind:innerWidth />
 
-<nav class="edges">
+<nav>
 	{#if isMobile}
 		<div class="mobile-navbar">
 			<a class="info-text link-hover" href="/">Evorp's Website</a>
-			<button class="toggle info-text link-hover" onclick={() => (isOpen = !isOpen)}>
+			<button class="mobile-navbar-toggle info-text link-hover" onclick={() => (isOpen = !isOpen)}>
 				<Fa {icon} />
 			</button>
 		</div>
@@ -33,51 +33,52 @@
 <style lang="scss">
 	@use "../css/variables.scss" as *;
 
+	// entire header must be sticky (otherwise the text moves without the background)
 	nav {
-		background-color: $fg-dark;
-		filter: drop-shadow(5px 5px 10px #00000077);
 		position: sticky;
+		background-color: $fg-dark;
 		top: 0;
 		z-index: 10;
+		filter: drop-shadow($drop-shadow);
 	}
 
-	a,
-	.toggle {
+	.info-text {
 		font-size: 24px;
 	}
 
-	.mobile-navbar {
+	.mobile-navbar-toggle {
+		background-color: transparent;
+		border: none;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.navbar {
 		display: flex;
 		flex-flow: row nowrap;
+		justify-content: space-evenly;
 		padding: 20px 10%;
-		justify-content: space-between;
 	}
 
-	@media screen and (min-width: 1200px) {
-		.edges {
-			padding-left: calc(20vw - 80px);
-			padding-right: calc(20vw - 80px);
-		}
-	}
-
-	@media screen and (min-width: 901px) {
-		.navbar {
-			display: flex;
-			flex-flow: row nowrap;
-			justify-content: space-between;
-			padding: 20px 10%;
-		}
-
-		.toggle,
-		.mobile-navbar {
-			display: none;
-		}
+	.mobile-navbar {
+		display: none;
 	}
 
 	@media screen and (max-width: 900px) {
+		// show mobile navbar
+		.mobile-navbar {
+			display: flex;
+			flex-flow: row nowrap;
+			padding: 20px 10%;
+			justify-content: space-between;
+		}
+
+		// main navbar becomes dropdown
 		.navbar {
 			display: flex;
 			flex-flow: column nowrap;
+			justify-content: center;
 			align-items: center;
 			padding: 20px 10%;
 
@@ -85,12 +86,6 @@
 				margin-bottom: 10px;
 				height: 40px;
 			}
-		}
-
-		.toggle {
-			background-color: transparent;
-			border: none;
-			float: right;
 		}
 	}
 </style>

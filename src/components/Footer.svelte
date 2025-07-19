@@ -12,21 +12,19 @@
 			</a>
 		{/each}
 	</div>
-	<div class="bottom">
-		<p class="info-text">
-			This website was made using the <a
-				href="https://svelte.dev/"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				SvelteKit
-			</a>
-			framework. View the source
-			<a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer"
-				>here</a
-			>!
-		</p>
-	</div>
+	<p class="info-text bottom">
+		This website was made using the <a
+			href="https://svelte.dev/"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			SvelteKit
+		</a>
+		framework. View the source
+		<a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer"
+			>here</a
+		>!
+	</p>
 </footer>
 
 <style lang="scss">
@@ -43,18 +41,16 @@
 		justify-content: space-around;
 		padding: 20px 10%;
 
-		a {
+		.info-text {
 			font-size: 18px;
 		}
-	}
 
-	.footer-bar {
 		@media screen and (max-width: 900px) {
 			display: grid;
-			grid-template-columns: 1fr 1fr; // two columns
+			grid-template-columns: repeat(1fr 2); // two columns
 			text-align: center;
 
-			a {
+			.info-text {
 				margin-top: 15px;
 			}
 		}
@@ -69,11 +65,10 @@
 
 	.bottom {
 		text-align: center;
-		transition: inherit; // cancels out the link hover
-
-		a,
-		p {
+		color: $content-mid;
+		&, & * {
 			font-size: 14px;
 		}
+
 	}
 </style>

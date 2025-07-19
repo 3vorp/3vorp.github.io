@@ -34,7 +34,7 @@
 					"Self hosted Firestore-like database with API endpoints based on micro bulk operations.",
 				href: "https://npmjs.com/package/firestorm-db",
 				image:
-					"https://raw.githubusercontent.com/TheRolfFR/firestorm-db/refs/heads/main/img/firestorm-128.png",
+					"https://raw.githubusercontent.com/TheRolfFR/firestorm-db/refs/heads/main/img/firestorm-512.png",
 				langs: ["JavaScript", "PHP"],
 			},
 		],
