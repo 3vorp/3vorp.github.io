@@ -66,9 +66,9 @@
 	.bottom {
 		text-align: center;
 		color: $content-mid;
-		&, & * {
+		&,
+		& * {
 			font-size: 14px;
 		}
-
 	}
 </style>

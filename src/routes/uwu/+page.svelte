@@ -26,7 +26,7 @@
 
 	function copyText() {
 		navigator.clipboard.writeText(output);
-		alert("Text copied!\n\n(I'm too lazy to add a proper tooltip for this)")
+		alert("Text copied!\n\n(I'm too lazy to add a proper tooltip for this)");
 	}
 </script>
 

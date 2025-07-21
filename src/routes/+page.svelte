@@ -117,7 +117,7 @@
 					<a class="h2" {href} target="_blank" rel="noopener noreferrer">
 						{title}
 					</a>
-					<p>{description}</p>
+					<p class="project-description">{description}</p>
 					<ul>
 						{#if langs}
 							<li>Languages: {langs.join(", ")}</li>
@@ -172,18 +172,18 @@
 		padding-bottom: 40px;
 		gap: 40px;
 
-		p {
-			// add a bit of padding between the button and text
-			padding-bottom: 1.25rem;
-		}
-
-		@media (max-width: 576px) {
+		@media screen and (max-width: 576px) {
 			// center content and display vertically on mobile
-			display: flex;
 			flex-direction: column;
-			align-items: center;
+			justify-content: center;
 			text-align: center;
-			max-width: 95%;
+		}
+	}
+
+	@media screen and (max-width: 576px) {
+		.project-description {
+			margin-left: 30px;
+			margin-right: 30px;
 		}
 	}
 
