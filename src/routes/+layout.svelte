@@ -56,6 +56,7 @@
 	<meta property="twitter:image" content={banner} />
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link href="https://fonts.cdnfonts.com/css/whitney-2" rel="stylesheet" />
 </svelte:head>
 
 <div class="site-container">

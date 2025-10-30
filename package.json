@@ -14,19 +14,19 @@
 		"prettier-plugin-svelte": "^3.4.0"
 	},
 	"dependencies": {
-		"@fortawesome/free-brands-svg-icons": "^7.0.1",
-		"@fortawesome/free-solid-svg-icons": "^7.0.1",
-		"@sveltejs/adapter-static": "^3.0.9",
-		"@sveltejs/kit": "2.39.1",
-		"@sveltejs/vite-plugin-svelte": "^6.2.0",
-		"less": "^4.4.1",
-		"sass": "^1.92.1",
-		"svelte": "^5.38.10",
-		"svelte-check": "^4.3.1",
+		"@fortawesome/free-brands-svg-icons": "^7.1.0",
+		"@fortawesome/free-solid-svg-icons": "^7.1.0",
+		"@sveltejs/adapter-static": "^3.0.10",
+		"@sveltejs/kit": "2.48.3",
+		"@sveltejs/vite-plugin-svelte": "^6.2.1",
+		"less": "^4.4.2",
+		"sass": "^1.93.2",
+		"svelte": "^5.43.1",
+		"svelte-check": "^4.3.3",
 		"svelte-fa": "^4.0.4",
 		"svelte-preprocess": "^6.0.3",
-		"typescript": "^5.9.2",
-		"vite": "^7.1.5"
+		"typescript": "^5.9.3",
+		"vite": "^7.1.12"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
