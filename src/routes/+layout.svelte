@@ -14,7 +14,7 @@
 	const navItems: Url[] = [
 		{ title: "Home", href: "/" },
 		{ title: "Commissions", href: "/commissions" },
-		{ title: "Projects", href: "/projects" },
+		{ title: "Skills", href: "/skills" },
 		{ title: "About", href: "/about" },
 	];
 
