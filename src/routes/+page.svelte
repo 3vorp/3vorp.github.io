@@ -89,10 +89,10 @@
 				frameworks: ["Discord.js", "Octokit"],
 			},
 			{
-				title: "CompliBot",
+				title: "CompliBot Commands",
 				description:
 					"Provides a Discord interface for the Faithful API using slash commands and buttons to make viewing textures and contributions easier for end users.",
-				href: "https://github.com/faithful-resource-pack/complibot",
+				href: "https://github.com/faithful-resource-pack/complibot-commands",
 				image:
 					"https://database.faithfulpack.net/images/branding/logos/transparent/hd/complibot_logo.png?w=128",
 				langs: ["TypeScript"],
