@@ -15,28 +15,10 @@
 <script lang="ts">
 import Fa from "svelte-fa";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
-
-const punctuation: Record<string, string[]> = {
-	",": [" 7w7,", " •w•,", " :3,"],
-	".": [" uwu~", " owo~", "☆..", "~", "~"],
-	"!": ["!!!", "!♡♡♡", "!! ^w^"],
-	"?": ["?~", "?~ >w<", "? *:･ﾟ✧(ꈍᴗꈍ)✧･ﾟ:*"],
-};
+import uwuify from "./uwuify";
 
 let input = $state("");
-const output = $derived(
-	input
-		.toLocaleLowerCase()
-		.replace(/l|r/g, "w")
-		.replace(/(?<=n|m)(a|e|i|o|u)/g, (char) => `y${char}`) // ny and my
-		.replace(/th/g, "d")
-		// stutter
-		.replace(/(?<=\s)\D/g, (char) =>
-			Math.floor(Math.random() * 5) == 0 ? `${char}-${char}` : char,
-		)
-		// punctuation
-		.replace(/\,|\.|\!|\?/g, (char) => punctuation[char][Math.floor(Math.random() * 5)] ?? char),
-);
+const output = $derived(uwuify(input));
 
 function copyText() {
 	navigator.clipboard.writeText(output);
