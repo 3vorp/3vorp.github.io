@@ -98,10 +98,6 @@ textarea {
 	width: 100%;
 }
 
-.tiny {
-	font-size: 0.75rem;
-}
-
 a {
 	color: $accent-light;
 	transition: all 0.25s ease;
@@ -157,18 +153,22 @@ a {
 	margin-top: 0;
 }
 
-.general-button {
+.form-widget {
 	color: #fff;
 	background-color: $bg-light;
 	border-radius: 4px;
 	font-size: 18px;
+	box-shadow: $drop-shadow;
+	border: none;
+	outline: none;
+	transition: all 0.25s ease;
+}
+
+.form-btn {
 	padding: 20px;
 	letter-spacing: 1.6px;
-	border: none;
 	text-transform: uppercase;
-	box-shadow: $drop-shadow;
 
-	transition: all 0.25s ease;
 	&:hover {
 		background-color: $bg-mid;
 		cursor: pointer;
@@ -178,14 +178,8 @@ a {
 	}
 }
 
-.general-input {
-	color: #fff;
-	background-color: $bg-light;
-	border-radius: 4px;
-	font-size: 18px;
+.form-textarea {
 	padding: 16px;
-	border: none;
-	outline: none;
 	box-shadow: $drop-shadow;
 	text-align: left;
 

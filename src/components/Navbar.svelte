@@ -1,14 +1,3 @@
-<script lang="ts">
-	import Fa from "svelte-fa";
-	import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
-
-	const { items }: { items: Url[] } = $props();
-	let innerWidth = $state(0);
-	let isOpen = $state(false);
-	const icon = $derived(isOpen ? faX : faBars);
-	const isMobile = $derived(innerWidth <= 900);
-</script>
-
 <svelte:window bind:innerWidth />
 
 <nav>
@@ -30,62 +19,73 @@
 	{/if}
 </nav>
 
+<script lang="ts">
+import Fa from "svelte-fa";
+import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
+
+const { items }: { items: Url[] } = $props();
+let innerWidth = $state(0);
+let isOpen = $state(false);
+const icon = $derived(isOpen ? faX : faBars);
+const isMobile = $derived(innerWidth <= 900);
+</script>
+
 <style lang="scss">
-	@use "../css/variables.scss" as *;
+@use "../css/variables.scss" as *;
 
-	// entire header must be sticky (otherwise the text moves without the background)
-	nav {
-		position: sticky;
-		background-color: $fg-dark;
-		top: 0;
-		z-index: 10;
-		filter: drop-shadow($drop-shadow);
+// entire header must be sticky (otherwise the text moves without the background)
+nav {
+	position: sticky;
+	background-color: $fg-dark;
+	top: 0;
+	z-index: 10;
+	filter: drop-shadow($drop-shadow);
+}
+
+.info-text {
+	font-size: 24px;
+}
+
+.mobile-navbar-toggle {
+	background-color: transparent;
+	border: none;
+	&:hover {
+		cursor: pointer;
 	}
+}
 
-	.info-text {
-		font-size: 24px;
-	}
+.navbar {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-evenly;
+	padding: 20px 10%;
+}
 
-	.mobile-navbar-toggle {
-		background-color: transparent;
-		border: none;
-		&:hover {
-			cursor: pointer;
-		}
-	}
+.mobile-navbar {
+	display: none;
+}
 
-	.navbar {
+@media screen and (max-width: 900px) {
+	// show mobile navbar
+	.mobile-navbar {
 		display: flex;
 		flex-flow: row nowrap;
-		justify-content: space-evenly;
 		padding: 20px 10%;
+		justify-content: space-between;
 	}
 
-	.mobile-navbar {
-		display: none;
-	}
+	// main navbar becomes dropdown
+	.navbar {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		padding: 20px 10%;
 
-	@media screen and (max-width: 900px) {
-		// show mobile navbar
-		.mobile-navbar {
-			display: flex;
-			flex-flow: row nowrap;
-			padding: 20px 10%;
-			justify-content: space-between;
-		}
-
-		// main navbar becomes dropdown
-		.navbar {
-			display: flex;
-			flex-flow: column nowrap;
-			justify-content: center;
-			align-items: center;
-			padding: 20px 10%;
-
-			a {
-				margin-bottom: 10px;
-				height: 40px;
-			}
+		a {
+			margin-bottom: 10px;
+			height: 40px;
 		}
 	}
+}
 </style>

@@ -1,71 +1,71 @@
-<script lang="ts">
-	import Fa from "svelte-fa";
-	import { faCopy } from "@fortawesome/free-solid-svg-icons";
-
-	const punctuation: Record<string, string[]> = {
-		",": [" 7w7,", " •w•,", " :3,"],
-		".": [" uwu~", " owo~", "☆..", "~", "~"],
-		"!": ["!!!", "!♡♡♡", "!! ^w^"],
-		"?": ["?~", "?~ >w<", "? *:･ﾟ✧(ꈍᴗꈍ)✧･ﾟ:*"],
-	};
-
-	let input = $state("");
-	const output = $derived(
-		input
-			.toLocaleLowerCase()
-			.replace(/l|r/g, "w")
-			.replace(/(?<=n|m)(a|e|i|o|u)/g, (char) => `y${char}`) // ny and my
-			.replace(/th/g, "d")
-			// stutter
-			.replace(/(?<=\s)\D/g, (char) =>
-				Math.floor(Math.random() * 5) == 0 ? `${char}-${char}` : char,
-			)
-			// punctuation
-			.replace(/\,|\.|\!|\?/g, (char) => punctuation[char][Math.floor(Math.random() * 5)] ?? char),
-	);
-
-	function copyText() {
-		navigator.clipboard.writeText(output);
-		alert("Text copied!\n\n(I'm too lazy to add a proper tooltip for this)");
-	}
-</script>
-
 <div class="container all-center">
-	<p class="tiny">I apologize in advance.</p>
+	<small>I apologize in advance.</small>
 	<br />
 	<h1>The UwUificator</h1>
-	<textarea class="general-input wide" bind:value={input}></textarea>
+	<textarea class="form-widget form-textarea wide" bind:value={input}></textarea>
 	<div class="card">
 		<p class="output">{output}</p>
 	</div>
 	<br />
-	<button class="general-button" onclick={copyText}>
+	<button class="form-widget form-btn" onclick={copyText}>
 		<Fa icon={faCopy} />&nbsp; Copy Text
 	</button>
 </div>
 
+<script lang="ts">
+import Fa from "svelte-fa";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
+
+const punctuation: Record<string, string[]> = {
+	",": [" 7w7,", " •w•,", " :3,"],
+	".": [" uwu~", " owo~", "☆..", "~", "~"],
+	"!": ["!!!", "!♡♡♡", "!! ^w^"],
+	"?": ["?~", "?~ >w<", "? *:･ﾟ✧(ꈍᴗꈍ)✧･ﾟ:*"],
+};
+
+let input = $state("");
+const output = $derived(
+	input
+		.toLocaleLowerCase()
+		.replace(/l|r/g, "w")
+		.replace(/(?<=n|m)(a|e|i|o|u)/g, (char) => `y${char}`) // ny and my
+		.replace(/th/g, "d")
+		// stutter
+		.replace(/(?<=\s)\D/g, (char) =>
+			Math.floor(Math.random() * 5) == 0 ? `${char}-${char}` : char,
+		)
+		// punctuation
+		.replace(/\,|\.|\!|\?/g, (char) => punctuation[char][Math.floor(Math.random() * 5)] ?? char),
+);
+
+function copyText() {
+	navigator.clipboard.writeText(output);
+	alert("Text copied!\n\n(I'm too lazy to add a proper tooltip for this)");
+}
+</script>
+
 <style lang="scss">
-	@use "../../css/variables.scss" as *;
+@use "../../css/variables.scss" as *;
 
-	.wide {
-		min-width: 75%;
-	}
+.wide {
+	min-width: 75%;
+}
 
-	.card {
-		background-color: $fg-light;
-		width: 75%;
-		min-height: 5rem;
-		margin-top: 2rem;
-		padding: 16px;
-		border-radius: 4px;
-		overflow-wrap: break-word;
-	}
+.card {
+	background-color: $fg-light;
+	width: 75%;
+	min-height: 5rem;
+	margin-top: 2rem;
+	padding: 16px;
+	border-radius: 4px;
+	overflow-wrap: break-word;
+}
 
-	.output {
-		margin-top: 0px;
-		margin-bottom: 0px;
-		text-align: left;
-		// don't collapse newlines
-		white-space: pre-wrap;
-	}
+.output {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-align: left;
+	// don't collapse newlines
+	white-space: pre-wrap;
+}
 </style>
