@@ -1,0 +1,31 @@
+@use "./variables.scss" as *;
+
+// taken from https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar#examples
+
+/* For browsers that support `scrollbar-*` properties */
+@supports (scrollbar-color: auto) {
+	html {
+		scrollbar-color: $content-dark $bg-dark;
+	}
+}
+
+/* Otherwise, use `::-webkit-scrollbar-*` pseudo-elements */
+@supports selector(::-webkit-scrollbar) {
+	html::-webkit-scrollbar,
+	html *::-webkit-scrollbar {
+		width: 14px;
+	}
+
+	html::-webkit-scrollbar-track,
+	html *::-webkit-scrollbar-track {
+		background: $bg-dark;
+	}
+
+	html::-webkit-scrollbar-thumb,
+	html *::-webkit-scrollbar-thumb {
+		background-color: $content-dark;
+		background-clip: content-box;
+		border-radius: 12px;
+		border: solid 3px transparent;
+	}
+}
