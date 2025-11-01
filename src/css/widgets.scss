@@ -1,0 +1,41 @@
+@use "./variables.scss" as *;
+
+// I didn't use a component library when first starting this site
+// and atp I'm too lazy to start lol
+// most of this is inspired by google design but not very well
+
+.widget {
+	color: #fff;
+	background-color: $bg-light;
+	border-radius: 4px;
+	font-size: 18px;
+	box-shadow: $drop-shadow;
+	border: none;
+	outline: none;
+	transition: all 0.25s ease;
+}
+
+.widget-btn {
+	padding: 20px;
+	letter-spacing: 1.6px;
+	text-transform: uppercase;
+
+	&:hover {
+		background-color: $bg-mid;
+		cursor: pointer;
+	}
+	&:active {
+		background-color: $content-dark;
+	}
+}
+
+.widget-textarea {
+	padding: 16px;
+	box-shadow: $drop-shadow;
+	text-align: left;
+
+	transition: all 0.25s ease;
+	&:focus {
+		background-color: $bg-mid;
+	}
+}

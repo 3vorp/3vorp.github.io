@@ -20,7 +20,7 @@
 		Press the above text to {explanationText} and fund your gambling addiction!
 	</p>
 
-	<button class="form-widget form-btn" onclick={cycler.cycle}>
+	<button class="widget widget-btn" onclick={cycler.cycle}>
 		Switch to {cycler.next}
 	</button>
 </div>
