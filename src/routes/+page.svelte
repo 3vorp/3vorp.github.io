@@ -7,7 +7,7 @@
 {#each Object.entries(categories) as [key, category]}
 	<h1 class="container text-center" style="margin-top: 2rem;">{key}</h1>
 	{#each category as { title, description, href, image, langs, frameworks }, i}
-		<div class={i % 2 === 0 ? "" : "dark-background"}>
+		<div class={i % 2 === 0 ? "" : "secondary-background"}>
 			<div class="container project-container">
 				<div class="project-info">
 					<a class="h2" {href} target="_blank" rel="noopener noreferrer">
@@ -74,10 +74,8 @@ const categories: Record<string, ProjectCategory[]> = {
 				"https://raw.githubusercontent.com/TheRolfFR/firestorm-db/refs/heads/main/img/firestorm-512.png",
 			langs: ["JavaScript", "PHP"],
 		},
-	],
-	"Faithful Resource Pack Projects": [
 		{
-			title: "Web Application",
+			title: "Faithful Web Application",
 			description:
 				"Official web application for the Faithful Resource Pack project. Features a Minecraft texture gallery with detailed information about contributions, texture uses, and more, add-on submission with an in-built review system and file hosting, and an administrator panel to safely edit the texture, user, and contribution databases directly.",
 			href: "https://webapp.faithfulpack.net",
@@ -87,7 +85,7 @@ const categories: Record<string, ProjectCategory[]> = {
 			frameworks: ["Vue 2", "Vuetify Components", "Vite"],
 		},
 		{
-			title: "API",
+			title: "Faithful API",
 			description:
 				"Public RESTful API for Faithful's texture database, add-on submission, and more. Uses the in-house developed firestorm-db project to power file uploading, bulk editing, and statistic aggregation, and the tsoa framework to generate REST endpoints with in-built Discord authentication.",
 			href: "https://api.faithfulpack.net/docs",
@@ -97,7 +95,7 @@ const categories: Record<string, ProjectCategory[]> = {
 			frameworks: ["firestorm-db", "tsoa", "Swagger UI"],
 		},
 		{
-			title: "Website",
+			title: "Faithful Website",
 			description:
 				"Content-centric main website for the resource packs themselves. Features add-on search and pages, news articles and posts, and download pages with rich metadata and server-side rendering.",
 			href: "https://faithfulpack.net",
@@ -107,7 +105,7 @@ const categories: Record<string, ProjectCategory[]> = {
 			frameworks: ["Nuxt 4", "Vue 3", "Vuetify Components", "Bootstrap CSS"],
 		},
 		{
-			title: "Docs",
+			title: "Faithful Docs",
 			description:
 				"Guides for texture making, submitting add-ons, and more. Powered by the VitePress framework, which converts markdown files into rendered HTML along with custom styling.",
 			href: "https://docs.faithfulpack.net",
@@ -192,8 +190,7 @@ const categories: Record<string, ProjectCategory[]> = {
 	filter: drop-shadow($drop-shadow);
 }
 
-// technically the color is wrong but bg-dark is used everywhere so this is the next darkest thing
-.dark-background {
-	background: $fg-light;
+.secondary-background {
+	background: $bg-mid;
 }
 </style>
