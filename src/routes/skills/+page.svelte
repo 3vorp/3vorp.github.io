@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Skills</h1>
-	<p class="center">Under Construction!</p>
+	<p class="text-center">Under Construction!</p>
 	<h2>Languages</h2>
 
 	<p>

@@ -2,10 +2,8 @@
 	<img src="banner/main.jpg" alt="evorp banner" />
 </div>
 
-<span style="height: 50px"></span>
-
 {#each Object.entries(categories) as [key, category]}
-	<h1 class="container text-center" style="margin-top: 2rem;">{key}</h1>
+	<h1 class="container text-center">{key}</h1>
 	{#each category as { title, description, href, image, langs, frameworks }, i}
 		<div class={i % 2 === 0 ? "" : "secondary-background"}>
 			<div class="container project-container">
@@ -24,14 +22,14 @@
 					</ul>
 				</div>
 				<a {href} target="_blank" rel="noopener noreferrer">
-					<img class="project-image hoverable" src={image} alt={`${title} logo`} loading="lazy" />
+					<img class="project-image" src={image} alt={`${title} logo`} loading="lazy" />
 				</a>
 			</div>
 		</div>
 	{/each}
 {/each}
 
-<a href="/gamble" class="center" style="margin-top: 50px;">
+<a href="/gamble" class="text-center mt-3">
 	Gamble your savings away until I add more stuff to this site!
 </a>
 
@@ -187,6 +185,10 @@ const categories: Record<string, ProjectCategory[]> = {
 
 .project-image {
 	height: 256px;
+	transition: all 0.5s ease;
+	&:hover {
+		transform: scale(1.1);
+	}
 	filter: drop-shadow($drop-shadow);
 }
 

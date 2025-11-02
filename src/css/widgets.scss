@@ -9,17 +9,18 @@
 	background-color: $bg-light;
 	border-radius: 4px;
 	font-size: 18px;
-	box-shadow: $drop-shadow;
+	filter: drop-shadow($drop-shadow);
 	border: none;
 	outline: none;
 	transition: all 0.25s ease;
 }
 
-.widget-btn {
-	padding: 20px;
-	letter-spacing: 1.6px;
+.btn {
+	padding: 0 16px;
+	height: 36px;
+	font-size: 0.875rem;
+	letter-spacing: 0.0892857143em;
 	text-transform: uppercase;
-
 	&:hover {
 		background-color: $bg-mid;
 		cursor: pointer;
@@ -29,9 +30,19 @@
 	}
 }
 
+.btn-primary {
+	background-color: $accent-dark;
+	&:hover {
+		background-color: $accent-light;
+	}
+	&:active {
+		background-color: $accent-dark;
+	}
+}
+
 .widget-textarea {
 	padding: 16px;
-	box-shadow: $drop-shadow;
+	filter: drop-shadow($drop-shadow);
 	text-align: left;
 
 	transition: all 0.25s ease;

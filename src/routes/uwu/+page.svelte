@@ -1,15 +1,14 @@
 <div class="container all-center">
-	<small>I apologize in advance.</small>
-	<br />
 	<h1>The UwUificator</h1>
 	<textarea class="widget widget-textarea wide" bind:value={input}></textarea>
 	<div class="card">
 		<p class="output">{output}</p>
 	</div>
 	<br />
-	<button class="widget widget-btn" onclick={copyText}>
+	<button class="widget btn my-3" onclick={copyText}>
 		<Fa icon={faCopy} />&nbsp; Copy Text
 	</button>
+	<small class="mt-3">I apologize in advance.</small>
 </div>
 
 <script lang="ts">

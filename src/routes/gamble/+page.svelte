@@ -1,71 +1,65 @@
 <div class="container all-center">
-	<small>
-		I do not take responsibility for any losses you may suffer as a result of this page.
-	</small>
-	<br />
-
 	<h1>Gambling Simulator</h1>
 
-	{#if cycler.current === "numbers"}
-		<button class="invisible h2 link-hover" onclick={generateRandomNumber}>
+	<h2>
+		{#if cycler.current === "numbers"}
 			Random number: {numberChoice}
-		</button>
-	{:else if cycler.current === "cards"}
-		<button class="invisible h2 link-hover" onclick={generateCard}>
+		{:else if cycler.current === "cards"}
 			You drew a {cardChoice}
+		{/if}
+	</h2>
+
+	<div class="button-row my-3">
+		<button bind:this={generateBtn} class="widget btn btn-primary" onclick={regenerate}>
+			<Fa icon={faRotateRight} />&nbsp; Try Again
 		</button>
-	{/if}
+		<button class="widget btn" onclick={cycler.cycle}>
+			<Fa icon={faRepeat} />&nbsp; Switch to {cycler.next}
+		</button>
+	</div>
 
-	<p class="explain">
-		Press the above text to {explanationText} and fund your gambling addiction!
-	</p>
-
-	<button class="widget widget-btn" onclick={cycler.cycle}>
-		Switch to {cycler.next}
-	</button>
+	<small class="mt-3">
+		I do not take responsibility for any losses you may suffer as a result of this page.
+	</small>
 </div>
 
 <script lang="ts">
-import { cards } from "./cards";
-import { randint, choice } from "../../helpers/random";
+import { onMount } from "svelte";
+import Fa from "svelte-fa";
+
+import { faRotateRight, faRepeat } from "@fortawesome/free-solid-svg-icons";
+
 import { makeCycler } from "./cycler.svelte";
+import cards from "./cards";
+import { randint, choice } from "../../helpers/random";
 
 const modes = ["numbers", "cards"];
 
 let cardChoice = $state(choice(cards));
 let numberChoice = $state(randint(0, 100));
 
-const generateRandomNumber = () => (numberChoice = randint(0, 100));
-const generateCard = () => (cardChoice = choice(cards));
-
 const cycler = makeCycler(modes);
+const regenerate = () => {
+	switch (cycler.current) {
+		case "cards":
+			cardChoice = choice(cards);
+			break;
+		case "numbers":
+			numberChoice = randint(0, 100);
+			break;
+	}
+};
 
-const explanationText = $derived(
-	cycler.current === "cards" ? "pick a random card" : "pick a random number",
-);
+let generateBtn: HTMLButtonElement;
+onMount(() => generateBtn.focus());
 </script>
 
 <style lang="scss">
 @use "../../css/variables.scss" as *;
-.explain {
-	margin-top: 50px;
-	margin-bottom: 50px;
-	font-size: 1.5em;
-	font-weight: normal;
-}
 
-button {
-	margin: 0 auto;
-}
-
-.invisible {
-	border: none;
-	background: transparent;
-	font-weight: normal;
-	color: $content-light;
-	&:hover {
-		cursor: pointer;
-		color: $accent-light;
-	}
+.button-row {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 1rem;
 }
 </style>

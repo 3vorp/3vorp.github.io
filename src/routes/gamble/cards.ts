@@ -1,25 +1,21 @@
-export const cards = ["clubs", "spades", "hearts", "diamonds"].reduce(
-	(acc, suit) => {
-		for (let i = 1; i <= 13; ++i) {
-			let num: number | string = i;
+export default [
+	"joker",
+	"joker",
+	...["clubs", "spades", "hearts", "diamonds"].flatMap((suit) =>
+		Array.from({ length: 13 }, (_, i) => {
+			// I really wish javascript had decent pattern matching lol
 			switch (i) {
-				case 1:
-					num = "ace";
-					break;
+				case 0:
+					return `ace of ${suit}`;
+				case 10:
+					return `jack of ${suit}`;
 				case 11:
-					num = "jack";
-					break;
+					return `queen of ${suit}`;
 				case 12:
-					num = "queen";
-					break;
-				case 13:
-					num = "king";
-					break;
+					return `king of ${suit}`;
+				default:
+					return `${i + 1} of ${suit}`;
 			}
-			acc.push(`${num} of ${suit}`);
-		}
-		return acc;
-	},
-	// not included in suits
-	["joker", "joker"],
-);
+		}),
+	),
+];

@@ -1,6 +1,7 @@
 @use "./variables.scss" as *;
 @use "./scrollbar.scss" as *;
 @use "./widgets.scss" as *;
+@use "./spacing.scss" as *;
 
 @font-face {
 	font-family: "Bebas Neue";
@@ -14,7 +15,7 @@
 }
 
 :root {
-	font-family: "Whitney Book", sans-serif;
+	font-family: $font-body;
 	color: rgba($content-light, 0.8);
 	// color: $content-mid; // bit too blue
 	background-color: $bg-dark;
@@ -35,14 +36,14 @@ body {
 h1,
 h2,
 h3 {
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	color: $content-light;
 }
 
 h1,
 .h1 {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: $font-title;
 	// bebas neue bold is absolutely disgusting
 	font-weight: normal;
 	font-size: 5rem;
@@ -57,7 +58,7 @@ h1,
 
 h2,
 .h2 {
-	font-family: "menlo", "consolas", monospace;
+	font-family: $font-subtitle;
 	font-weight: bold;
 	font-size: 2rem;
 }
@@ -85,12 +86,9 @@ textarea {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	* {
-		text-align: center;
-	}
 }
 
-.center {
+.text-center {
 	text-align: center;
 }
 
@@ -98,39 +96,24 @@ textarea {
 	width: 100%;
 }
 
-a {
+a,
+.text-link {
 	color: $accent-light;
-	transition: all 0.25s ease;
 	text-decoration: none;
-	&:hover {
-		color: $accent-dark;
-	}
-}
-
-.link-hover {
 	transition: all 0.25s ease;
-	&:hover {
-		color: $accent-light;
-		transform: scale(0.9);
-	}
 }
 
-.info-text {
-	font-family: "menlo", "consolas", monospace;
-	color: $content-light;
-}
-
-.hoverable {
-	transition: all 0.5s ease;
-	&:hover {
-		transform: scale(1.1);
-	}
+a:hover,
+.text-link:hover {
+	color: $accent-dark;
 }
 
 .container {
 	width: 100%;
 	flex-grow: 1;
 	padding: 50px 15px;
+	// footer already has padding
+	padding-bottom: 0px;
 	margin-right: auto;
 	margin-left: auto;
 	@media screen and (min-width: 576px) {
@@ -151,4 +134,17 @@ a {
 	filter: drop-shadow(0px 10px 10px #00000077);
 	margin-bottom: 50px;
 	margin-top: 0;
+}
+
+// generic class for both navbar and footer
+.navigation-link {
+	font-family: $font-subtitle;
+	color: $content-light;
+	font-size: 18px;
+	transition: all 0.25s ease;
+	&:hover {
+		color: $accent-light;
+		transform: scale(0.95);
+		cursor: pointer;
+	}
 }

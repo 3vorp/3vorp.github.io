@@ -1,7 +1,7 @@
 <img src="banner/commissions.jpg" alt="commission banner" class="banner-img" />
 
 <div class="container">
-	<h1 class="center">Past Commissions</h1>
+	<h1 class="text-center">Past Commissions</h1>
 	<div class="img-container">
 		{#each images as image}
 			<img class="comm-img" src={`commission/${image.src}`} alt={image.alt || "commission image"} />

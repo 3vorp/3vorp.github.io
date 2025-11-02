@@ -3,8 +3,8 @@
 <nav>
 	{#if isMobile}
 		<div class="mobile-navbar">
-			<a class="info-text link-hover" href="/">Evorp's Website</a>
-			<button class="mobile-navbar-toggle info-text link-hover" onclick={() => (isOpen = !isOpen)}>
+			<a class="navigation-link navbar-link" href="/">Evorp's Website</a>
+			<button class="mobile-navbar-toggle navigation-link" onclick={() => (isOpen = !isOpen)}>
 				<Fa {icon} />
 			</button>
 		</div>
@@ -13,7 +13,7 @@
 	{#if isOpen || !isMobile}
 		<div class="navbar">
 			{#each items as { href, title }}
-				<a class="info-text link-hover" {href}>{title}</a>
+				<a class="navigation-link navbar-link" {href}>{title}</a>
 			{/each}
 		</div>
 	{/if}
@@ -36,22 +36,10 @@ const isMobile = $derived(innerWidth <= 900);
 // entire header must be sticky (otherwise the text moves without the background)
 nav {
 	position: sticky;
-	background-color: $fg-dark;
 	top: 0;
-	z-index: 10;
+	z-index: 999;
+	background-color: $fg-dark;
 	filter: drop-shadow($drop-shadow);
-}
-
-.info-text {
-	font-size: 24px;
-}
-
-.mobile-navbar-toggle {
-	background-color: transparent;
-	border: none;
-	&:hover {
-		cursor: pointer;
-	}
 }
 
 .navbar {
@@ -63,6 +51,14 @@ nav {
 
 .mobile-navbar {
 	display: none;
+}
+
+.mobile-navbar-toggle {
+	background-color: transparent;
+	border: none;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 @media screen and (max-width: 900px) {
@@ -81,11 +77,11 @@ nav {
 		justify-content: center;
 		align-items: center;
 		padding: 20px 10%;
+	}
 
-		a {
-			margin-bottom: 10px;
-			height: 40px;
-		}
+	.navbar-link {
+		margin-bottom: 10px;
+		height: 40px;
 	}
 }
 </style>
