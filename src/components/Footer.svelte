@@ -45,7 +45,8 @@ footer {
 @media screen and (max-width: 900px) {
 	.footer-bar {
 		display: grid;
-		grid-template-columns: repeat(1fr 2); // two columns
+		// two columns
+		grid-template-columns: repeat(2, 1fr);
 		text-align: center;
 	}
 	.footer-link {

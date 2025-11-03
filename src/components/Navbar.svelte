@@ -4,14 +4,20 @@
 	{#if isMobile}
 		<div class="mobile-navbar">
 			<a class="navigation-link" href="/">Evorp's Website</a>
-			<button class="mobile-navbar-toggle navigation-link" onclick={() => (isOpen = !isOpen)}>
+
+			<button
+				class="mobile-navbar-toggle navigation-link"
+				type="button"
+				title={isOpen ? "Close Menu" : "Open Menu"}
+				onclick={() => (isOpen = !isOpen)}
+			>
 				<Fa {icon} />
 			</button>
 		</div>
 	{/if}
 	<!-- always show if desktop layout -->
 	{#if isOpen || !isMobile}
-		<div class="navbar">
+		<div class="navbar-container">
 			{#each items as { href, title }}
 				<a class="navigation-link navbar-link" {href}>{title}</a>
 			{/each}
@@ -42,7 +48,7 @@ nav {
 	filter: drop-shadow($drop-shadow);
 }
 
-.navbar {
+.navbar-container {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-evenly;
@@ -71,7 +77,7 @@ nav {
 	}
 
 	// main navbar becomes dropdown
-	.navbar {
+	.navbar-container {
 		display: flex;
 		flex-flow: column nowrap;
 		justify-content: center;
