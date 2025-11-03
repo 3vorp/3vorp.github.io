@@ -3,7 +3,7 @@
 <nav>
 	{#if isMobile}
 		<div class="mobile-navbar">
-			<a class="navigation-link navbar-link" href="/">Evorp's Website</a>
+			<a class="navigation-link" href="/">Evorp's Website</a>
 			<button class="mobile-navbar-toggle navigation-link" onclick={() => (isOpen = !isOpen)}>
 				<Fa {icon} />
 			</button>

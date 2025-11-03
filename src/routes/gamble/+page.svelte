@@ -60,6 +60,7 @@ onMount(() => generateBtn.focus());
 .button-row {
 	display: flex;
 	flex-flow: row wrap;
+	justify-content: center;
 	gap: 1rem;
 }
 </style>
