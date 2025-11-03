@@ -29,7 +29,7 @@ import Fa from "svelte-fa";
 
 import { faRotateRight, faRepeat } from "@fortawesome/free-solid-svg-icons";
 
-import { makeCycler } from "./cycler.svelte";
+import { makeCycler } from "../../helpers/cycler.svelte";
 import cards from "./cards";
 import { randint, choice } from "../../helpers/random";
 
@@ -41,11 +41,11 @@ let numberChoice = $state(randint(0, 100));
 const cycler = makeCycler(modes);
 const regenerate = () => {
 	switch (cycler.current) {
-		case "cards":
-			cardChoice = choice(cards);
-			break;
 		case "numbers":
 			numberChoice = randint(0, 100);
+			break;
+		case "cards":
+			cardChoice = choice(cards);
 			break;
 	}
 };
