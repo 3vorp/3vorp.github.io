@@ -1,6 +1,5 @@
 <div class="container all-center">
 	<h1>Gambling Simulator</h1>
-
 	<h2>
 		{#if cycler.current === "numbers"}
 			Random number: {numberChoice}
@@ -8,7 +7,6 @@
 			You drew a {cardChoice}
 		{/if}
 	</h2>
-
 	<div class="button-row my-3">
 		<button bind:this={generateBtn} class="widget btn btn-primary" onclick={regenerate}>
 			<Fa icon={faRotateRight} />&nbsp; Try Again
@@ -25,8 +23,8 @@
 
 <script lang="ts">
 import { onMount } from "svelte";
-import Fa from "svelte-fa";
 
+import Fa from "svelte-fa";
 import { faRotateRight, faRepeat } from "@fortawesome/free-solid-svg-icons";
 
 import { makeCycler } from "../../helpers/cycler.svelte";
@@ -39,7 +37,7 @@ let cardChoice = $state(choice(cards));
 let numberChoice = $state(randint(0, 100));
 
 const cycler = makeCycler(modes);
-const regenerate = () => {
+function regenerate() {
 	switch (cycler.current) {
 		case "numbers":
 			numberChoice = randint(0, 100);
@@ -48,7 +46,7 @@ const regenerate = () => {
 			cardChoice = choice(cards);
 			break;
 	}
-};
+}
 
 let generateBtn: HTMLButtonElement;
 onMount(() => generateBtn.focus());

@@ -46,7 +46,6 @@ const navItems: Url[] = [
 	{ title: "Home", href: "/" },
 	{ title: "Commissions", href: "/commissions" },
 	{ title: "Skills", href: "/skills" },
-	{ title: "About", href: "/about" },
 ];
 
 const footerItems: Required<Url>[] = [
