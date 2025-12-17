@@ -131,9 +131,9 @@ a:hover,
 }
 
 .banner-img {
-	filter: drop-shadow(0px 10px 10px #00000077);
-	margin-bottom: 50px;
+	filter: drop-shadow($drop-shadow);
 	margin-top: 0;
+	margin-bottom: 50px;
 }
 
 // generic class for both navbar and footer

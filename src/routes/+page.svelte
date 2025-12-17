@@ -29,9 +29,9 @@
 	{/each}
 {/each}
 
-<a href="/gamble" class="text-center mt-3">
-	Gamble your savings away until I add more stuff to this site!
-</a>
+<p class="text-center">
+	<a href="/gamble">Gamble your savings away until I add more stuff to this site!</a>
+</p>
 
 <script lang="ts">
 interface ProjectCategory {

@@ -69,7 +69,7 @@ const banner =
 .site-container {
 	display: flex;
 	min-height: 100vh;
-	flex-direction: column;
+	flex-flow: column nowrap;
 	justify-content: space-between;
 }
 </style>
