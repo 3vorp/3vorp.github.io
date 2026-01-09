@@ -27,9 +27,9 @@ import { onMount } from "svelte";
 import Fa from "svelte-fa";
 import { faRotateRight, faRepeat } from "@fortawesome/free-solid-svg-icons";
 
-import { makeCycler } from "../../helpers/cycler.svelte";
+import { randint, choice } from "~/helpers/random";
+import { makeCycler } from "~/helpers/cycler.svelte";
 import cards from "./cards";
-import { randint, choice } from "../../helpers/random";
 
 const modes = ["numbers", "cards"];
 
@@ -53,7 +53,7 @@ onMount(() => generateBtn.focus());
 </script>
 
 <style lang="scss">
-@use "../../css/variables.scss" as *;
+@use "~/css/variables.scss" as *;
 
 .button-row {
 	display: flex;

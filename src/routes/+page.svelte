@@ -136,7 +136,7 @@ const categories: Record<string, ProjectCategory[]> = {
 </script>
 
 <style lang="scss">
-@use "../css/variables.scss" as *;
+@use "~/css/variables.scss" as *;
 
 .main-banner {
 	display: flex;

@@ -30,8 +30,8 @@
 </div>
 
 <script lang="ts">
-import Navbar from "../components/Navbar.svelte";
-import Footer from "../components/Footer.svelte";
+import Navbar from "~/components/Navbar.svelte";
+import Footer from "~/components/Footer.svelte";
 import {
 	faGithub,
 	faTwitter,
@@ -40,7 +40,7 @@ import {
 	faYoutube,
 	faSteam,
 } from "@fortawesome/free-brands-svg-icons";
-import "../css/main.scss";
+import "~/css/main.scss";
 
 const navItems: Url[] = [
 	{ title: "Home", href: "/" },

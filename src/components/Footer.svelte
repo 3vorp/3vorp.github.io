@@ -28,7 +28,7 @@ const { items }: { items: Required<Url>[] } = $props();
 </script>
 
 <style lang="scss">
-@use "../css/variables.scss" as *;
+@use "~/css/variables.scss" as *;
 
 footer {
 	background-color: $fg-dark;

@@ -26,7 +26,7 @@ function copyText() {
 </script>
 
 <style lang="scss">
-@use "../../css/variables.scss" as *;
+@use "~/css/variables.scss" as *;
 
 .wide {
 	min-width: 75%;
