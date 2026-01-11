@@ -5,7 +5,7 @@
 // most of this is inspired by google design but not very well
 
 .widget {
-	color: #fff;
+	color: #fff !important;
 	background-color: $bg-light;
 	border-radius: 4px;
 	font-size: 18px;
@@ -16,6 +16,9 @@
 }
 
 .btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	padding: 0 20px;
 	height: 44px;
 	font-size: 16px;
@@ -38,6 +41,20 @@
 	&:active {
 		background-color: $accent-dark;
 	}
+}
+
+.disabled {
+	pointer-events: none;
+	transition: all 0.25s ease;
+}
+
+.btn:not(.btn-primary).disabled {
+	background-color: $bg-mid;
+	color: $content-dark !important;
+}
+
+.btn-primary.disabled {
+	filter: brightness(0.8) saturate(0.5);
 }
 
 .widget-textarea {

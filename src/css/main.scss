@@ -64,7 +64,6 @@ h2,
 }
 
 p,
-a,
 li {
 	font-size: 20px;
 	line-height: 1.5;
@@ -74,6 +73,10 @@ ul,
 ol {
 	list-style-position: inside;
 	padding-inline-start: 20px;
+}
+
+canvas {
+	image-rendering: pixelated;
 }
 
 textarea {
