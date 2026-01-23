@@ -38,7 +38,7 @@ let {
 
 .card {
 	max-width: 100%;
-	border-radius: 4px;
+	border-radius: $border-radius;
 	background: $bg-mid;
 	filter: drop-shadow($drop-shadow);
 }
@@ -59,7 +59,7 @@ let {
 	align-items: center;
 	justify-content: center;
 	background: $fg-light;
-	border-radius: 4px;
+	border-radius: $border-radius;
 	padding: 1rem;
 }
 

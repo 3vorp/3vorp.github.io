@@ -18,6 +18,8 @@ const isMobile = $derived(innerWidth <= 760);
 </script>
 
 <style lang="scss">
+@use "~/css/variables.scss" as *;
+
 .alert {
 	display: flex;
 	flex-flow: row nowrap;
@@ -26,6 +28,6 @@ const isMobile = $derived(innerWidth <= 760);
 	padding: 16px;
 	background-color: rgba(#f04747, 0.1);
 	color: #f04747;
-	border-radius: 4px;
+	border-radius: $border-radius;
 }
 </style>

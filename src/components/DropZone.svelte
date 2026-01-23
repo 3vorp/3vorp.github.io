@@ -102,6 +102,8 @@ function click() {
 </script>
 
 <style lang="scss">
+@use "~/css/variables.scss" as *;
+
 .drop-zone {
 	display: flex;
 	flex-grow: 1;
@@ -124,7 +126,7 @@ function click() {
 	bottom: 0;
 	border: 1px dashed currentColor;
 	z-index: 3;
-	border-radius: 4px;
+	border-radius: $border-radius;
 }
 
 .drop-zone.disabled {

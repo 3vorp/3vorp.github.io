@@ -7,7 +7,7 @@
 .widget {
 	color: #fff !important;
 	background-color: $bg-light;
-	border-radius: 4px;
+	border-radius: $border-radius;
 	font-size: 18px;
 	filter: drop-shadow($drop-shadow);
 	border: none;
