@@ -151,3 +151,31 @@ a:hover,
 		cursor: pointer;
 	}
 }
+
+.grid-3,
+.grid-2 {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.grid-3 {
+	// https://stackoverflow.com/a/61240964/20327257
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 960px) {
+	.grid-3 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.grid-3,
+	.grid-2 {
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+	}
+}

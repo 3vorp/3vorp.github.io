@@ -7,8 +7,10 @@ declare global {
 		icon?: IconDefinition;
 	}
 
-	interface CommissionImage {
+	interface Commission {
 		src: string;
 		alt?: string;
+		type: string;
+		date: Date;
 	}
 }

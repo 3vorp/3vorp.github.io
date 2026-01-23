@@ -1,5 +1,5 @@
 <div class="main-banner">
-	<img src="banner/main.jpg" alt="evorp banner" />
+	<img src="banner/hero.jpg" alt="Evorp's Website" />
 </div>
 
 {#each Object.entries(categories) as [key, category]}

@@ -61,7 +61,7 @@ const footerItems: Required<Url>[] = [
 const title = "Evorp's Website";
 const description = "idk at this point either";
 const banner =
-	"https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/embed_banner.jpg";
+	"https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/banner/embed.jpg";
 </script>
 
 <style lang="scss">
