@@ -21,6 +21,18 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link href="https://fonts.cdnfonts.com/css/whitney-2" rel="stylesheet" />
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4S0HBS7SEE"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag("js", new Date());
+
+	gtag("config", "G-4S0HBS7SEE");
+	</script>
 </svelte:head>
 
 <div class="site-container">
