@@ -18,8 +18,11 @@
 		<!-- always show if desktop layout -->
 		{#if isOpen || !isMobile}
 			<div class="navbar-item-container">
-				{#each items as { href, title }}
-					<a class="navigation-link navbar-link" {href}>{title}</a>
+				{#each items as { href, title, icon }}
+					<a class="navigation-link navbar-link" {href}>
+						<Fa {icon} class="mr-1" />
+						{title}
+					</a>
 				{/each}
 			</div>
 		{/if}

@@ -4,7 +4,7 @@ declare global {
 	interface Url {
 		title: string;
 		href: string;
-		icon?: IconDefinition;
+		icon: IconDefinition;
 	}
 
 	interface Commission {

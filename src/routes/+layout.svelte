@@ -53,14 +53,15 @@ import {
 	faSteam,
 } from "@fortawesome/free-brands-svg-icons";
 import "~/css/main.scss";
+import { faChartColumn, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
 
 const navItems: Url[] = [
-	{ title: "Home", href: "/" },
-	{ title: "Commissions", href: "/commissions" },
-	{ title: "Skills", href: "/skills" },
+	{ title: "Home", href: "/", icon: faHome },
+	{ title: "Commissions", href: "/commissions", icon: faPalette },
+	{ title: "Skills", href: "/skills", icon: faChartColumn },
 ];
 
-const footerItems: Required<Url>[] = [
+const footerItems: Url[] = [
 	{ title: "GitHub", href: "https://github.com/3vorp", icon: faGithub },
 	{ title: "Twitter", href: "https://twitter.com/3vorp", icon: faTwitter },
 	{ title: "Reddit", href: "https://reddit.com/u/3vorp", icon: faReddit },
