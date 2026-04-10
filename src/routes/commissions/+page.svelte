@@ -1,6 +1,5 @@
 <div class="container">
 	<h1>Commissions</h1>
-	<p class="text-center">Under Construction!</p>
 
 	<Alert>
 		<p class="my-0">
