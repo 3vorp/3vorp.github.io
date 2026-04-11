@@ -48,12 +48,7 @@
 	transition: all 0.25s ease;
 }
 
-.btn:not(.btn-primary).disabled {
-	background-color: $bg-mid;
-	color: $content-dark !important;
-}
-
-.btn-primary.disabled {
+.btn.disabled {
 	filter: brightness(0.8) saturate(0.5);
 }
 
