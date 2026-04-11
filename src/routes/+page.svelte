@@ -55,9 +55,10 @@ const categories: Record<string, ProjectCategory[]> = {
 		},
 		{
 			title: "autopull",
-			description: "A small tool to automatically pull GitHub repositories on a given interval using cron or Windows Task Scheduler. Uncommitted changes are preserved and merged as possible.",
+			description:
+				"A small tool to automatically pull GitHub repositories on a given interval using cron or Windows Task Scheduler. Uncommitted changes are preserved and merged as possible.",
 			href: "https://github.com/3vorp/autopull",
-			image: "https://github.com/user-attachments/assets/bf464a20-a530-422d-8dfb-923fa9225166",
+			image: "https://github.com/user-attachments/assets/6cfe0807-e425-4048-85c6-da6aee6eed36",
 			langs: ["JavaScript"],
 		},
 		{
