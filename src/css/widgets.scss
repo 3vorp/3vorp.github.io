@@ -25,11 +25,11 @@
 	letter-spacing: 0.0892857143em;
 	text-transform: uppercase;
 	&:hover {
-		background-color: $bg-mid;
+		background-color: $content-dark;
 		cursor: pointer;
 	}
 	&:active {
-		background-color: $content-dark;
+		background-color: $bg-light;
 	}
 }
 
