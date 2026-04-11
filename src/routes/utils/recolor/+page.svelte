@@ -84,12 +84,15 @@
 			<Fa icon={faDeleteLeft} />&nbsp; Remove Last Added Template
 		</button>
 	</div>
-	<div class="flex-row my-3">
-		<button class={["widget", "btn", "btn-primary", { disabled: !isValid }]} onclick={generate}>
+	<div class="my-3">
+		<button
+			class={["widget", "btn", "btn-primary", "block", { disabled: !isValid }]}
+			onclick={generate}
+		>
 			<Fa icon={loading ? faSpinner : faPalette} />&nbsp; Recolor Images
 		</button>
 	</div>
-	<div class="flex-row my-3">
+	<div class="my-3">
 		<a class={["widget", "btn", { disabled: !zipUrl }]} href={zipUrl} download={downloadName}>
 			<Fa icon={faAnglesDown} />&nbsp; Download Result
 		</a>
@@ -125,6 +128,12 @@ import {
 import DropZone from "~/components/DropZone.svelte";
 import batchRecolor from "~/helpers/batchRecolor";
 
+enum FileType {
+	Image,
+	Reference,
+	Template,
+}
+
 let image = $state<HTMLImageElement>();
 let reference = $state<HTMLImageElement>();
 const templates = $state<HTMLImageElement[]>([]);
@@ -138,24 +147,17 @@ const downloadName = $derived(
 
 async function generate() {
 	// can't use isValid due to typescript weirdness (death)
-	if (!image || !reference || !templates.length) return alert("something is missing");
+	if (!image || !reference || !templates.length)
+		return alert("At least one image is missing (how did you do this)");
+	loading = true;
 	try {
-		loading = true;
 		const blob = await batchRecolor({ reference, image, templates });
-		const a = document.createElement("a");
-		document.body.appendChild(a);
-		a.style.display = "none";
 		zipUrl = URL.createObjectURL(blob);
-	} catch {
-		alert("something went wrong");
+	} catch (err) {
+		alert(`Something went wrong when batch recoloring:\n${err}`);
 	} finally {
 		loading = false;
 	}
-}
-enum FileType {
-	Image,
-	Reference,
-	Template,
 }
 function onFileInput(fileType: FileType, file: File | File[]) {
 	if (Array.isArray(file)) return file.forEach((f) => onFileInput(fileType, f));
@@ -166,7 +168,6 @@ function onFileInput(fileType: FileType, file: File | File[]) {
 	img.alt = file.name;
 	img.onload = () => update(fileType, img);
 }
-
 function update(fileType: FileType, updated: HTMLImageElement) {
 	switch (fileType) {
 		case FileType.Image:
@@ -180,7 +181,6 @@ function update(fileType: FileType, updated: HTMLImageElement) {
 			break;
 	}
 }
-
 function clearImages() {
 	if (zipUrl) URL.revokeObjectURL(zipUrl);
 	// prevent massive memory leaks if the user doesn't close the tab
@@ -199,15 +199,13 @@ function clearImages() {
 <style lang="scss">
 .flex-row {
 	width: 100%;
-	display: flex;
-	flex-flow: row wrap;
-	* {
-		flex-grow: 1;
-	}
-	justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
+	@media screen and (max-width: 900px) {
+		grid-template-columns: 1fr;
+	}
 }
-
 .image-preview {
 	opacity: 1 !important;
 	image-rendering: pixelated;
