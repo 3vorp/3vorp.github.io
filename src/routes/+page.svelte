@@ -29,8 +29,8 @@
 	{/each}
 {/each}
 
-<p class="text-center">
-	<a href="/gamble">Gamble your savings away until I add more stuff to this site!</a>
+<p class="container text-center pt-0">
+	<a href="/gamble">Gamble your savings away until I add more content to this site!</a>
 </p>
 
 <script lang="ts">

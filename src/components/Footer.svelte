@@ -2,7 +2,7 @@
 	<div class="footer-bar">
 		{#each items as { href, icon, title }}
 			<a class="navigation-link footer-link" target="_blank" rel="noopener noreferrer" {href}>
-				<Fa {icon} />
+				<Fa {icon} class="mr-2" />
 				{title}
 			</a>
 		{/each}
@@ -39,37 +39,39 @@ footer {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-around;
-	padding: 20px 10%;
+	align-items: center;
+	padding: 0 10%;
+	height: 64px;
+}
+
+.footer-info-text {
+	text-align: center;
+	padding: 0 10% 20px 10%;
+	margin: 0;
+	color: $content-mid;
+	font-size: 16px;
 }
 
 @media screen and (max-width: 900px) {
 	.footer-bar {
 		display: grid;
 		// two columns
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		text-align: center;
+		height: auto;
+		padding: 10px 10%;
 	}
 	.footer-link {
-		margin-top: 15px;
+		margin-top: 16px;
+	}
+	.footer-info-text {
+		padding: 20px 10%;
 	}
 }
 
 @media screen and (max-width: 600px) {
 	.footer-bar {
-		display: flex;
-		flex-flow: column nowrap;
-		align-items: center;
-		padding: 20px 10%;
-	}
-}
-
-.footer-info-text {
-	font-family: $font-subtitle;
-	text-align: center;
-	color: $content-mid;
-	&,
-	& * {
-		font-size: 14px;
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 </style>

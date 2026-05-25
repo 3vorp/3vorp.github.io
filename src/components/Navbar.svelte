@@ -4,7 +4,7 @@
 	<nav>
 		{#if isMobile}
 			<div class="mobile-navbar">
-				<a class="navigation-link" href="/">Evorp's Website</a>
+				<a class="mobile-title navigation-link" href="/">Evorp's Website</a>
 				<button
 					class="mobile-navbar-toggle navigation-link"
 					type="button"
@@ -20,7 +20,7 @@
 			<div class="navbar-item-container">
 				{#each items as { href, title, icon }}
 					<a class="navigation-link navbar-link" {href}>
-						<Fa {icon} class="mr-1" />
+						<Fa {icon} class="mr-2" />
 						{title}
 					</a>
 				{/each}
@@ -56,7 +56,9 @@ header {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-evenly;
-	padding: 20px 10%;
+	align-items: center;
+	padding: 0 10%;
+	height: 64px;
 }
 
 .mobile-navbar {
@@ -71,13 +73,19 @@ header {
 	}
 }
 
+.mobile-title {
+	font-size: 24px;
+}
+
 @media screen and (max-width: 900px) {
 	// show mobile navbar
 	.mobile-navbar {
 		display: flex;
 		flex-flow: row nowrap;
-		padding: 20px 10%;
 		justify-content: space-between;
+		align-items: center;
+		height: 64px;
+		padding: 0 10%;
 	}
 
 	// main navbar becomes dropdown
@@ -85,13 +93,16 @@ header {
 		display: flex;
 		flex-flow: column nowrap;
 		justify-content: center;
-		align-items: center;
-		padding: 20px 10%;
+		align-items: start;
+		padding: 10px 10%;
+		height: auto;
 	}
 
 	.navbar-link {
-		margin-bottom: 10px;
-		height: 40px;
+		// now the page title (Evorp's Website) serves as the subtitle
+		font-family: $font-body;
+		color: $content-mid;
+		margin-bottom: 16px;
 	}
 }
 </style>
