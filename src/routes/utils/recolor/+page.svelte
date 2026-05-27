@@ -138,9 +138,12 @@ let zipUrl = $state<string>();
 let loading = $state(false);
 
 const isValid = $derived(image && reference && templates.length);
-const downloadName = $derived(
-	image?.alt ? `converted-${image.alt.split(".")[0]}.zip` : `converted.zip`,
-);
+const downloadName = $derived.by(() => {
+	// keep png extension (nice qol feature)
+	if (templates.length === 1 && image?.alt) return `converted_${image.alt}`;
+	if (image?.alt) return `converted_${image.alt.split(".")[0]}.zip`;
+	return "converted.zip";
+});
 
 async function generate() {
 	// can't use isValid due to typescript weirdness (death)

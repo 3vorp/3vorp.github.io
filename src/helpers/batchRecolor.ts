@@ -126,6 +126,9 @@ export default async function batchRecolor({
 		};
 	});
 
+	// nice qol feature to not create singleton zips (ugly)
+	if (recoloredImages.length === 1) return recoloredImages[0].image;
+
 	const zip = new JSZip();
 	for (const template of recoloredImages)
 		zip.file(template.alt || crypto.randomUUID(), template.image);
