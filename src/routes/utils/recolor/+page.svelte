@@ -22,7 +22,7 @@
 	</p>
 	<h2 class="mt-5">Upload Images</h2>
 	<div class="flex-row my-3">
-		<DropZone accept="image/png" onchange={(file) => onFileInput(FileType.Image, file)}>
+		<DropZone accept="image/png" onchange={(file) => onFileInput("image", file)}>
 			{#snippet children(isDragging)}
 				{#if image}
 					<img src={image.src} class="image-preview" alt={image.alt} />
@@ -36,7 +36,7 @@
 				{/if}
 			{/snippet}
 		</DropZone>
-		<DropZone accept="image/png" onchange={(file) => onFileInput(FileType.Reference, file)}>
+		<DropZone accept="image/png" onchange={(file) => onFileInput("reference", file)}>
 			{#snippet children(isDragging)}
 				{#if reference}
 					<img src={reference.src} class="image-preview" alt={reference.alt} />
@@ -55,7 +55,7 @@
 		<DropZone
 			accept="image/png, application/zip"
 			multiple
-			onchange={(file) => onFileInput(FileType.Template, file)}
+			onchange={(file) => onFileInput("template", file)}
 		>
 			{#snippet children(isDragging)}
 				{#each templates as template}
@@ -128,11 +128,8 @@ import {
 import DropZone from "~/components/DropZone.svelte";
 import batchRecolor from "~/helpers/batchRecolor";
 
-enum FileType {
-	Image,
-	Reference,
-	Template,
-}
+// svelte doesn't work with enums (why does anyone like this framework)
+type FileType = "image" | "reference" | "template";
 
 let image = $state<HTMLImageElement>();
 let reference = $state<HTMLImageElement>();
@@ -170,13 +167,13 @@ function onFileInput(fileType: FileType, file: File | File[]) {
 }
 function update(fileType: FileType, updated: HTMLImageElement) {
 	switch (fileType) {
-		case FileType.Image:
+		case "image":
 			image = updated;
 			break;
-		case FileType.Reference:
+		case "reference":
 			reference = updated;
 			break;
-		case FileType.Template:
+		case "template":
 			templates.push(updated);
 			break;
 	}

@@ -31,6 +31,12 @@ export function createGL(width: number, height: number): WebGL2RenderingContext 
 	return gl;
 }
 
+/**
+ * Load an image to a WebGL context without losing precision
+ * @param image - Image source
+ * @param gl - WebGL canvas context
+ * @returns Updated WebGL canvas context (for chaining with createGL)
+ */
 export function loadToGL(image: ImageSource, gl: WebGL2RenderingContext) {
 	gl.canvas.width = image.naturalWidth;
 	gl.canvas.height = image.naturalWidth;
@@ -47,22 +53,28 @@ export function loadToGL(image: ImageSource, gl: WebGL2RenderingContext) {
 	gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
 	gl.drawBuffers([gl.COLOR_ATTACHMENT0]);
 
-	// so it can be changed with createGL
 	return gl;
 }
 
+/**
+ * Read image data from a WebGL context without losing precision
+ * @param gl - WebGL canvas context
+ * @returns Image data as a regular ctx-like ImageData object
+ */
 export function getImageDataAccurate(gl: WebGL2RenderingContext): ImageData {
 	const data = new ImageData(gl.canvas.width, gl.canvas.height);
 	gl.readPixels(0, 0, gl.canvas.width, gl.canvas.height, gl.RGBA, gl.UNSIGNED_BYTE, data.data);
 	return data;
 }
 
-export function imageDataToPng(imageData: ImageData): Buffer {
-	const png = new PNG({
-		width: imageData.width,
-		height: imageData.height,
-	});
-	png.data = Buffer.from(imageData.data);
+/**
+ * Convert image data to a PNG buffer without losing precision
+ * @param imageData - Edited ImageData object
+ * @returns PNG buffer
+ */
+export function imageDataToPng({ width, height, data }: ImageData): Buffer {
+	const png = new PNG({ width, height });
+	png.data = Buffer.from(data);
 	png.pack();
 	return PNG.sync.write(png);
 }

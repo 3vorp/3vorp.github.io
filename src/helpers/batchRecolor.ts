@@ -95,9 +95,9 @@ function applyReplacementMap(replacementMap: ReplacementData[], png: WebGL2Rende
  * Batch recolor an image to match a series of provided templates
  * @author Evorp
  * @param params - Everything to use
- * @returns Data URLs of results
+ * @returns Promise to data URLs of results
  */
-export default function batchRecolor({
+export default async function batchRecolor({
 	image,
 	reference,
 	templates,
@@ -105,7 +105,7 @@ export default function batchRecolor({
 	image: HTMLImageElement;
 	reference: HTMLImageElement;
 	templates: HTMLImageElement[];
-}) {
+}): Promise<Blob> {
 	// todo: probably move this to a web worker
 	const imageGL = loadToGL(image, createGL(image.naturalWidth, image.naturalHeight));
 	const refGL = loadToGL(reference, createGL(reference.naturalWidth, image.naturalHeight));
@@ -113,19 +113,22 @@ export default function batchRecolor({
 	const pixelMap = generatePixelMap(imageGL, refGL);
 	console.log(`Successfully reduced pixel map to ${Object.keys(pixelMap).length} colors!`);
 
-	const zip = new JSZip();
 	const templateGL = createGL(reference.naturalWidth, reference.naturalHeight);
-	for (const template of templates) {
+	const recoloredImages = templates.map((template) => {
 		// reuse same gl context every time (browsers artificially cap the max)
 		loadToGL(template, templateGL);
 		const replacementMap = generateReplacementMap(pixelMap, templateGL);
 		const recoloredImage = applyReplacementMap(replacementMap, imageGL);
-		zip.file(
-			template.alt || crypto.randomUUID(),
-			// type shenanigans to get around browserify
-			new Blob([new Uint8Array(recoloredImage).buffer]),
-		);
-	}
+		return {
+			// clone the image data so the context can be reused
+			image: new Blob([new Uint8Array(recoloredImage).buffer]),
+			alt: template.alt || crypto.randomUUID(),
+		};
+	});
+
+	const zip = new JSZip();
+	for (const template of recoloredImages)
+		zip.file(template.alt || crypto.randomUUID(), template.image);
 
 	return zip.generateAsync({ type: "blob" });
 }
