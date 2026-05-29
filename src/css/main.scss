@@ -36,31 +36,37 @@ body {
 h1,
 h2,
 h3 {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin: 16px 0;
 	color: $content-light;
 }
 
 h1,
 .h1 {
 	font-family: $font-title;
-	// bebas neue bold is absolutely disgusting
+	// bebas neue bold is really ugly
 	font-weight: normal;
-	font-size: 5rem;
-	// closer to tracking of wordmark
+	font-size: 80px;
+	// more title-y tracking (also closer to wordmark)
 	letter-spacing: 0.2rem;
 	text-transform: uppercase;
 	text-align: center;
 	@media screen and (max-width: 760px) {
-		font-size: 4rem;
+		font-size: 64px;
 	}
 }
 
 h2,
 .h2 {
 	font-family: $font-subtitle;
-	font-weight: bold;
-	font-size: 2rem;
+	font-weight: 600;
+	font-size: 32px;
+}
+
+h3,
+.h3 {
+	font-family: $font-subtitle;
+	font-weight: 400;
+	font-size: 24px;
 }
 
 p,
@@ -75,8 +81,7 @@ li {
 
 ul,
 ol {
-	list-style-position: inside;
-	padding-inline-start: 20px;
+	padding-left: 40px;
 }
 
 canvas {
@@ -118,7 +123,7 @@ a:hover,
 .container {
 	width: 100%;
 	flex-grow: 1;
-	padding: 50px 15px;
+	padding: 48px 16px;
 	// footer already has padding
 	padding-bottom: 0px;
 	margin-right: auto;
@@ -137,17 +142,11 @@ a:hover,
 	}
 }
 
-.banner-img {
-	filter: drop-shadow($drop-shadow);
-	margin-top: 0;
-	margin-bottom: 50px;
-}
-
 // generic class for both navbar and footer
 .navigation-link {
 	font-family: $font-subtitle;
 	color: $content-light;
-	font-size: 18px;
+	font-size: 20px;
 	transition: all 0.25s ease;
 	&:hover {
 		color: $accent-light;

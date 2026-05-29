@@ -1,10 +1,8 @@
-<svelte:window bind:innerWidth />
-
 <div class="alert">
-	{#if !isMobile}
-		<Fa icon={faWarning} size="3x" />
-	{/if}
-	{@render children()}
+	<Fa icon={faWarning} size="1.5x" class="my-1" />
+	<div>
+		{@render children()}
+	</div>
 </div>
 
 <script lang="ts">
@@ -14,7 +12,6 @@ import Fa from "svelte-fa";
 
 let { children }: { children: Snippet } = $props();
 let innerWidth = $state(0);
-const isMobile = $derived(innerWidth <= 760);
 </script>
 
 <style lang="scss">
@@ -23,11 +20,17 @@ const isMobile = $derived(innerWidth <= 760);
 .alert {
 	display: flex;
 	flex-flow: row nowrap;
-	align-items: center;
 	gap: 16px;
 	padding: 16px;
-	background-color: rgba(#f04747, 0.1);
-	color: #f04747;
+	background-color: rgba($danger-dark, 0.1);
 	border-radius: $border-radius;
+}
+
+:global(.alert p) {
+	color: $danger-dark;
+}
+
+:global(.alert :not(p)) {
+	color: $danger-light;
 }
 </style>

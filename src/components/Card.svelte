@@ -6,7 +6,6 @@
 	{/if}
 	<div class="card-text">
 		{#if title}
-			<!-- add a tiny bit of right margin to cheat good looking margin -->
 			<h3 class="card-title mt-0 mb-1">{title}</h3>
 		{/if}
 		{#if children}
