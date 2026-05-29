@@ -62,7 +62,6 @@ async function onChange(rawFiles: FileList | File[] | null) {
 	}
 
 	if (multiple && rawFiles[0].type === "application/zip") {
-		console.log("gottem");
 		const jz = await JSZip.loadAsync(rawFiles[0]);
 		const files = await Promise.all(
 			Object.values(jz.files).map(async (f) => new File([await f.async("blob")], f.name)),

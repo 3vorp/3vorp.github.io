@@ -1,21 +1,19 @@
 <div class="container">
 	<h1>Batch Recolorer</h1>
-	<p class="text-center">Batch recolor an image to match a series of provided templates.</p>
+	<p class="caption text-center">Batch recolor an image to match a series of provided templates.</p>
 	<h2 class="mt-5">Instructions</h2>
-	<div>
-		<p>
-			Batch recoloring operates on three different image types: the base image, the reference image,
-			and a series of color templates.
-		</p>
-		<ul>
-			<li>The base image is simply the image that you want to recolor.</li>
-			<li>The reference image should share the colors of the base image.</li>
-			<li>
-				The color templates should be already-recolored versions of the reference image, which the
-				new colors will be based on.
-			</li>
-		</ul>
-	</div>
+	<p>
+		Batch recoloring operates on three different image types: the base image, the reference image,
+		and a series of color templates.
+	</p>
+	<ul>
+		<li>The base image is simply the image that you want to recolor.</li>
+		<li>The reference image should share the colors of the base image.</li>
+		<li>
+			The color templates should be already-recolored versions of the reference image, which the new
+			colors will be based on.
+		</li>
+	</ul>
 	<p>
 		Any colors that aren't shared between the reference and base images will be ignored, which is
 		handy if only part of an image needs recoloring.
@@ -89,13 +87,8 @@
 			class={["widget", "btn", "btn-primary", "block", { disabled: !isValid }]}
 			onclick={generate}
 		>
-			<Fa icon={loading ? faSpinner : faPalette} />&nbsp; Recolor Images
+			<Fa icon={loading ? faSpinner : faArrowUpFromBracket} />&nbsp; Recolor Images
 		</button>
-	</div>
-	<div class="my-3">
-		<a class={["widget", "btn", { disabled: !zipUrl }]} href={zipUrl} download={downloadName}>
-			<Fa icon={faAnglesDown} />&nbsp; Download Result
-		</a>
 	</div>
 	<span class="text-center all-center">
 		<small class="mt-3">
@@ -108,7 +101,7 @@
 				pretty much all browsers randomly change color values you just set
 			</a> due to premultiplied alpha rounding issues, so I had to use two third-party libraries to make
 			things work somewhat correctly (and there's still probably issues if you try hard enough to find
-			them)
+			them).
 		</small>
 	</span>
 </div>
@@ -116,10 +109,8 @@
 <script lang="ts">
 import Fa from "svelte-fa";
 import {
-	faAnglesDown,
 	faArrowUpFromBracket,
 	faDeleteLeft,
-	faPalette,
 	faPen,
 	faPlus,
 	faSpinner,
@@ -153,6 +144,10 @@ async function generate() {
 	try {
 		const blob = await batchRecolor({ reference, image, templates });
 		zipUrl = URL.createObjectURL(blob);
+		const download = document.createElement("a");
+		download.href = zipUrl;
+		download.download = downloadName;
+		download.click();
 	} catch (err) {
 		alert(`Something went wrong when batch recoloring:\n${err}`);
 	} finally {
