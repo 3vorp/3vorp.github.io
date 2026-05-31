@@ -44,7 +44,7 @@ interface ProjectCategory {
 }
 
 const categories: Record<string, ProjectCategory[]> = {
-	"My projects": [
+	"My Projects": [
 		{
 			title: "vdom-mini",
 			description:
@@ -52,6 +52,15 @@ const categories: Record<string, ProjectCategory[]> = {
 			href: "https://npmjs.com/package/vdom-mini",
 			image: "https://github.com/user-attachments/assets/996af12d-bbc6-44dc-a108-2712e4b38714",
 			langs: ["JavaScript"],
+		},
+		{
+			title: "Batch Recolorer",
+			description:
+				"Batch recolor an image to match a series of provided templates. Implemented entirely client-side using native browser APIs to analyze and manipulate pixel data.",
+			href: "/utils/recolor",
+			image: "https://github.com/user-attachments/assets/bd6e5fea-4f55-4945-9500-65317972f8a6",
+			langs: ["TypeScript"],
+			frameworks: ["SvelteKit", "WebGL"],
 		},
 		{
 			title: "autopull",
@@ -70,7 +79,7 @@ const categories: Record<string, ProjectCategory[]> = {
 			langs: ["JavaScript"],
 		},
 	],
-	"Projects I've contributed to": [
+	"My Contributed Work": [
 		{
 			title: "firestorm-db",
 			description:
@@ -87,7 +96,7 @@ const categories: Record<string, ProjectCategory[]> = {
 			href: "https://webapp.faithfulpack.net",
 			image:
 				"https://database.faithfulpack.net/images/branding/logos/transparent/hd/dev_logo.png?w=128",
-			langs: ["JavaScript", "HTML", "CSS"],
+			langs: ["JavaScript", "HTML", "SCSS"],
 			frameworks: ["Vue 2", "Vuetify Components", "Vite"],
 		},
 		{
@@ -107,7 +116,7 @@ const categories: Record<string, ProjectCategory[]> = {
 			href: "https://faithfulpack.net",
 			image:
 				"https://database.faithfulpack.net/images/branding/logos/transparent/hd/main_logo.png?w=128",
-			langs: ["TypeScript", "JavaScript", "HTML", "CSS"],
+			langs: ["TypeScript", "JavaScript", "HTML", "SCSS"],
 			frameworks: ["Nuxt 4", "Vue 3", "Vuetify Components", "Bootstrap CSS"],
 		},
 		{
@@ -116,7 +125,7 @@ const categories: Record<string, ProjectCategory[]> = {
 				"Guides for texture making, submitting add-ons, and more. Powered by the VitePress framework, which converts markdown files into rendered HTML along with custom styling.",
 			href: "https://docs.faithfulpack.net",
 			image: "https://github.com/user-attachments/assets/71700b2f-62ec-4e33-83cb-89bf44f8ea22",
-			langs: ["TypeScript", "Markdown"],
+			langs: ["TypeScript", "CSS", "Markdown"],
 			frameworks: ["VitePress", "Vue 3"],
 		},
 		{
@@ -138,6 +147,26 @@ const categories: Record<string, ProjectCategory[]> = {
 				"https://database.faithfulpack.net/images/branding/logos/transparent/hd/complibot_logo.png?w=128",
 			langs: ["TypeScript"],
 			frameworks: ["Discord.js", "Octokit"],
+		},
+	],
+	"Past Projects": [
+		{
+			title: "spunch bot",
+			description:
+				"General-purpose Discord bot, featuring per-server custom prefixes, a fully featured feedback ticket system, a customizable announcement system, and Wordle.",
+			href: "https://github.com/3vorp/spunch-bot",
+			image: "https://raw.githubusercontent.com/3vorp/Spunch-Bot/main/assets/bot_pfp.png",
+			langs: ["Python"],
+			frameworks: ["Discord.py"],
+		},
+		{
+			title: "Spatial",
+			description:
+				"Fictitious video editor company I created over the span of two weeks. I built a design language around the idea, and designed a series of logos and wordmarks for the project that I later used on a showcase website.",
+			href: "https://3vorp.github.io/spatial",
+			image: "https://github.com/user-attachments/assets/445fcc85-ae14-47ef-8e54-cfbc632d7972",
+			langs: ["JavaScript", "HTML", "SCSS"],
+			frameworks: ["Vue 3"],
 		},
 	],
 };
@@ -172,8 +201,7 @@ const categories: Record<string, ProjectCategory[]> = {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-top: 40px;
-	padding-bottom: 40px;
+	padding: 32px 16px;
 	gap: 40px;
 
 	@media screen and (max-width: 576px) {
@@ -192,7 +220,7 @@ const categories: Record<string, ProjectCategory[]> = {
 }
 
 .project-image {
-	height: 256px;
+	width: 256px;
 	transition: all 0.5s ease;
 	&:hover {
 		transform: scale(1.1);
