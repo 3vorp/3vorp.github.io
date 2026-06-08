@@ -20,6 +20,7 @@
 	<meta property="twitter:image" content={banner} />
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin="anonymous" />
 	<link href="https://fonts.cdnfonts.com/css/whitney-2" rel="stylesheet" />
 
 	<!-- Google tag (gtag.js) -->
@@ -30,14 +31,15 @@
 		dataLayer.push(arguments);
 	}
 	gtag("js", new Date());
-
 	gtag("config", "G-4S0HBS7SEE");
 	</script>
 </svelte:head>
 
 <div class="site-container">
 	<Navbar items={navItems} />
-	<slot />
+	<main>
+		<slot />
+	</main>
 	<Footer items={footerItems} />
 </div>
 

@@ -1,5 +1,5 @@
 <div class="main-banner">
-	<img src="banner/hero.jpg" alt="Evorp's Website" />
+	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" />
 </div>
 
 {#each Object.entries(categories) as [key, category]}
@@ -22,7 +22,7 @@
 					</ul>
 				</div>
 				<a {href} target="_blank" rel="noopener noreferrer">
-					<img class="project-image" src={image} alt={`${title} logo`} loading="lazy" />
+					<img class="project-image" src={image} alt={`${title} logo`} width="256" loading="lazy" />
 				</a>
 			</div>
 		</div>
@@ -220,12 +220,11 @@ const categories: Record<string, ProjectCategory[]> = {
 }
 
 .project-image {
-	width: 256px;
+	filter: drop-shadow($drop-shadow);
 	transition: all 0.5s ease;
 	&:hover {
 		transform: scale(1.1);
 	}
-	filter: drop-shadow($drop-shadow);
 }
 
 .secondary-background {
