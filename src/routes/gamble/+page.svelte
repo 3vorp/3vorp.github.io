@@ -2,9 +2,9 @@
 	<h1>Gambling Simulator</h1>
 	<h2>
 		{#if cycler.current === "numbers"}
-			Random number: {numberChoice}
+			Random number: <code>{numberChoice}</code>
 		{:else if cycler.current === "cards"}
-			You drew a {cardChoice}
+			You drew a <code>{cardChoice}</code>
 		{/if}
 	</h2>
 	<div class="button-row my-3">

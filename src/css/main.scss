@@ -84,6 +84,14 @@ ol {
 	padding-left: 40px;
 }
 
+code {
+	color: $content-light;
+	background: $fg-light;
+	padding: 4px 8px;
+	margin: 0 8px;
+	border-radius: $border-radius;
+}
+
 canvas {
 	image-rendering: pixelated;
 }
