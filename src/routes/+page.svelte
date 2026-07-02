@@ -90,10 +90,10 @@ const categories: Record<string, ProjectCategory[]> = {
 			langs: ["JavaScript", "PHP"],
 		},
 		{
-			title: "Faithful Web Application",
+			title: "Faithful Studio",
 			description:
-				"Official web application for the Faithful Resource Pack project. Features a Minecraft texture gallery with detailed information about contributions, texture uses, and more, add-on submission with an in-built review system and file hosting, and an administrator panel to safely edit the texture, user, and contribution databases directly.",
-			href: "https://webapp.faithfulpack.net",
+				"Web application for managing Faithful user-created content and profiles with ease. Features a Minecraft texture gallery with detailed information about contributions, texture uses, and more, add-on submission with an in-built review system and file hosting, and an administrator panel to safely edit the texture, user, and contribution databases directly.",
+			href: "https://studio.faithfulpack.net",
 			image:
 				"https://database.faithfulpack.net/images/branding/logos/transparent/hd/dev_logo.png?w=128",
 			langs: ["JavaScript", "HTML", "SCSS"],
