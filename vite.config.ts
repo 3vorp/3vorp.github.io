@@ -1,17 +1,14 @@
+import { defineConfig } from "vite";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
-import adapter from "@sveltejs/adapter-static";
+import staticAdapter from "@sveltejs/adapter-static";
 
-import type { UserConfig } from "vite";
-
-export default {
+export default defineConfig({
 	plugins: [
 		sveltekit({
 			preprocess: vitePreprocess({ script: true }),
-			adapter: adapter(),
-			alias: {
-				"~": "./src",
-			},
+			adapter: staticAdapter(),
+			alias: { "~": "./src" },
 		}),
 	],
-} as UserConfig;
+});
