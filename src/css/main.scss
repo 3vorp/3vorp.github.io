@@ -102,6 +102,12 @@ canvas {
 	image-rendering: pixelated;
 }
 
+
+// why is this an issue
+button {
+	font-family: inherit;
+}
+
 textarea {
 	font-family: inherit;
 	overflow-wrap: anywhere;
