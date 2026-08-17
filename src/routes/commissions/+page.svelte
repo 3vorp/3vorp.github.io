@@ -30,6 +30,11 @@
 			</Card>
 		{/each}
 	</div>
+	<br /><br />
+	<div class="text-center" style="display: flex; flex-flow: column nowrap; align-items: center">
+		<h2>Looking for my programming work?</h2>
+		<a href="/skills" class="widget btn btn-primary">Check out my recent projects</a>
+	</div>
 </div>
 
 <script lang="ts">
