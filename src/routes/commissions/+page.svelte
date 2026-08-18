@@ -23,8 +23,8 @@
 	<div class="grid-3">
 		{#each commissions as { src, alt, type, date }}
 			<Card image={`commission/${src}`} {alt} title={type}>
-				<Fa icon={faClockRotateLeft} size="xs" />
-				<span title={date.toDateString()}>
+				<Fa icon={faCalendar} size="xs" />
+				<span class="ml-1" title={date.toDateString()}>
 					{date.toLocaleString("en-us", { month: "short", year: "numeric" })}
 				</span>
 			</Card>
@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import Fa from "svelte-fa";
-import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import Card from "~/components/Card.svelte";
 import Alert from "~/components/Alert.svelte";
 

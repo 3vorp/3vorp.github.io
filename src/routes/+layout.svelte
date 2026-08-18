@@ -21,9 +21,13 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin="anonymous" />
-	<link href="https://fonts.cdnfonts.com/css/whitney-2" rel="stylesheet" />
+	<!-- this is really stupid but does work -->
+	<link
+		href="https://cdn.jsdelivr.net/gh/Overimagine1/old-discord-font/source.css"
+		rel="stylesheet"
+	/>
 
-	<!-- Google tag (gtag.js) -->
+	<!-- basic analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4S0HBS7SEE"></script>
 	<script>
 	window.dataLayer = window.dataLayer || [];

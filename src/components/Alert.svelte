@@ -11,7 +11,6 @@ import type { Snippet } from "svelte";
 import Fa from "svelte-fa";
 
 let { children }: { children: Snippet } = $props();
-let innerWidth = $state(0);
 </script>
 
 <style lang="scss">

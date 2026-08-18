@@ -4,12 +4,14 @@
 	<div class="skill-container">
 		<div class="skill-list">
 			{#each Object.entries(groupedKeys) as [type, keys]}
-				<h3 class="skill-group-title ma-2">
-					{type}
-					<button class="toggler-button" onclick={() => collapseGroup(type)}>
-						<Fa icon={collapsedGroups[type] ? faChevronRight : faChevronDown} />
-					</button>
-				</h3>
+				<button class="skill-group-title ma-2" onclick={() => collapseGroup(type)}>
+					<h3 class="my-0">{type}</h3>
+					<Fa
+						class="mx-2"
+						icon={collapsedGroups[type] ? faChevronRight : faChevronDown}
+						size="0.8x"
+					/>
+				</button>
 				{#if !collapsedGroups[type]}
 					<div class="skill-group-list">
 						{#each keys as key}
@@ -115,6 +117,8 @@ function collapseGroup(group: string) {
 }
 
 .skill-list {
+	display: flex;
+	flex-flow: column nowrap;
 	background: $fg-light;
 	border-radius: $border-radius;
 	padding: 0.5rem;
@@ -126,15 +130,14 @@ function collapseGroup(group: string) {
 }
 
 .skill-group-title {
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
 	justify-content: space-between;
-}
-
-.toggler-button {
-	background: none;
-	border: none;
 }
 
 .skill-group-list {
@@ -176,7 +179,7 @@ function collapseGroup(group: string) {
 
 .project-count-badge {
 	color: white !important;
-	font-weight: bold;
+	font-weight: $weight-bold;
 	background: $bg-light;
 	border-radius: $border-radius;
 	padding: 2px 8px;
@@ -185,6 +188,7 @@ function collapseGroup(group: string) {
 }
 
 .skill-selector {
+	cursor: pointer;
 	padding: 0.5rem;
 	display: flex;
 	border-radius: $border-radius;
@@ -195,15 +199,16 @@ function collapseGroup(group: string) {
 	color: $content-mid;
 	border: none;
 	text-align: left;
-	&:not(.selected-skill-selector):hover {
-		color: $accent-light;
-	}
 	transition: all 0.25s ease;
+
+	&:not(.selected-skill-selector):hover {
+		background-color: $bg-mid;
+	}
 }
 
 .selected-skill-selector {
 	color: white;
-	font-weight: bold;
+	font-weight: $weight-bold;
 	background: $accent-dark;
 	filter: drop-shadow($drop-shadow);
 

@@ -6,7 +6,7 @@
 @font-face {
 	font-family: "Bebas Neue";
 	font-style: normal;
-	font-weight: 400;
+	font-weight: $weight-normal;
 	font-display: swap;
 	src: url(https://fonts.gstatic.com/s/bebasneue/v15/JTUSjIg69CK48gW7PXoo9WlhyyTh89Y.woff2)
 		format("woff2");
@@ -50,7 +50,7 @@ h1,
 .h1 {
 	font-family: $font-title;
 	// bebas neue bold is really ugly
-	font-weight: normal;
+	font-weight: $weight-normal;
 	font-size: 80px;
 	// more title-y tracking (also closer to wordmark)
 	letter-spacing: 0.2rem;
@@ -63,15 +63,13 @@ h1,
 
 h2,
 .h2 {
-	font-family: $font-subtitle;
-	font-weight: 600;
+	font-weight: $weight-bold;
 	font-size: 32px;
 }
 
 h3,
 .h3 {
-	font-family: $font-subtitle;
-	font-weight: 400;
+	font-weight: $weight-bold;
 	font-size: 24px;
 }
 
@@ -101,7 +99,6 @@ code {
 canvas {
 	image-rendering: pixelated;
 }
-
 
 // why is this an issue
 button {
@@ -164,7 +161,7 @@ a:hover,
 
 // generic class for both navbar and footer
 .navigation-link {
-	font-family: $font-subtitle;
+	font-weight: $weight-bold;
 	color: $content-light;
 	font-size: 20px;
 	transition: all 0.25s ease;

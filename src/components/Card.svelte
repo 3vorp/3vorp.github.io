@@ -4,12 +4,12 @@
 			<img class="card-img" src={image} alt={alt || "commission image"} />
 		</div>
 	{/if}
-	<div class="card-text">
+	<div class="card-body">
 		{#if title}
 			<h3 class="card-title mt-0 mb-1">{title}</h3>
 		{/if}
 		{#if children}
-			<p class="my-0">
+			<p class="card-text my-0">
 				{@render children()}
 			</p>
 		{/if}
@@ -42,13 +42,18 @@ let {
 	filter: drop-shadow($drop-shadow);
 }
 
-.card-text {
+.card-body {
 	padding: 1rem;
 }
 
 .card-title {
-	font-family: $font-subtitle;
+	font-family: $font-body;
+	font-weight: $weight-bold;
 	font-size: 24px;
+}
+
+.card-text {
+	font-size: 18px;
 }
 
 .card-img-container {
