@@ -1,3 +1,5 @@
+<svelte:window bind:innerWidth />
+
 <div class="main-banner">
 	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" />
 </div>
@@ -8,22 +10,41 @@
 		<div class={i % 2 === 0 ? "" : "secondary-background"}>
 			<div class="container project-container">
 				<div class="project-info">
-					<a class="h2" {href} target="_blank" rel="noopener noreferrer">
-						{title}
-					</a>
+					<div class="project-header">
+						{#if isMobile}
+							<img class="project-image" src={image} alt={`${title} logo`} width="96" />
+						{/if}
+						<div>
+							<a class={isMobile ? "h3" : "h2"} {href} target="_blank" rel="noopener noreferrer">
+								{title}
+							</a>
+							<div class="skill-container">
+								{#if langs?.length}
+									<div class="chip-container mr-2">
+										<Fa icon={faCode} title="Languages" />
+										{#each langs || [] as lang}
+											<a class="chip" href={`/skills?skill=${lang}`}>{lang}</a>
+										{/each}
+									</div>
+								{/if}
+								{#if frameworks?.length}
+									<div class="chip-container mr-2">
+										<Fa icon={faLayerGroup} title="Frameworks" />
+										{#each frameworks || [] as framework}
+											<a class="chip" href={`/skills?skill=${framework}`}>{framework}</a>
+										{/each}
+									</div>
+								{/if}
+							</div>
+						</div>
+					</div>
 					<p class="project-description">{description}</p>
-					<ul>
-						{#if langs}
-							<li>Languages: {langs.join(", ")}</li>
-						{/if}
-						{#if frameworks}
-							<li>Frameworks: {frameworks.join(", ")}</li>
-						{/if}
-					</ul>
 				</div>
-				<a {href} target="_blank" rel="noopener noreferrer">
-					<img class="project-image" src={image} alt={`${title} logo`} width="256" loading="lazy" />
-				</a>
+				{#if !isMobile}
+					<a {href} target="_blank" rel="noopener noreferrer" tabindex="-1">
+						<img class="project-image" src={image} alt={`${title} logo`} width="256" />
+					</a>
+				{/if}
 			</div>
 		</div>
 	{/each}
@@ -35,6 +56,11 @@
 
 <script lang="ts">
 import projects from "../data/projects.json";
+import Fa from "svelte-fa";
+import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+
+let innerWidth = $state(0);
+const isMobile = $derived(innerWidth <= 760);
 </script>
 
 <style lang="scss">
@@ -65,23 +91,31 @@ import projects from "../data/projects.json";
 	width: 100%;
 	display: flex;
 	align-items: center;
+	// fixes short descriptions not pushing the images to the right
+	// remove this if putting images on left
 	justify-content: space-between;
 	padding: 32px 16px;
-	gap: 40px;
-
-	@media screen and (max-width: 576px) {
-		// center content and display vertically on mobile
-		flex-direction: column;
-		justify-content: center;
-		text-align: center;
-	}
+	min-height: 256px;
+	gap: 32px;
 }
 
-@media screen and (max-width: 576px) {
-	.project-description {
-		margin-left: 30px;
-		margin-right: 30px;
-	}
+.project-header {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.skill-container {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	margin: 4px 0;
+}
+
+.project-description {
+	margin: 0;
 }
 
 .project-image {
@@ -94,5 +128,14 @@ import projects from "../data/projects.json";
 
 .secondary-background {
 	background: $bg-mid;
+}
+
+@media screen and (max-width: 760px) {
+	.project-container {
+		min-height: auto;
+	}
+	.project-image:hover {
+		transform: inherit;
+	}
 }
 </style>
