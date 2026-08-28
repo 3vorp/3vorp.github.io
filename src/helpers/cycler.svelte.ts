@@ -7,6 +7,7 @@ export interface Cycler<T> {
 
 export function makeCycler<T>(opts: T[]): Cycler<T> {
 	let index = $state(0);
+
 	// iterate through modes and looping back on complete
 	const currentIndex = $derived(index % opts.length);
 	const nextIndex = $derived((index + 1) % opts.length);

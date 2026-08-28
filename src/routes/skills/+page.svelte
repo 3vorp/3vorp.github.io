@@ -53,48 +53,21 @@
 <script lang="ts">
 import Fa from "svelte-fa";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import projects from "../../data/projects.json";
+import projectSkills from "~/helpers/projectSkills";
 import { onMount } from "svelte";
 
-// this is all constant so we don't need to use $derived at all
-const projectList = Object.values(projects).flat();
+const URL_PARAM = "skill";
 
-const groupedProjects = projectList.reduce<Record<string, any>>((acc, cur) => {
-	for (const lang of cur.langs || []) {
-		acc[lang] ||= [];
-		acc[lang].push(cur);
-	}
-	for (const framework of cur.frameworks || []) {
-		acc[framework] ||= [];
-		acc[framework].push(cur);
-	}
-	return acc;
-}, {});
-
-const availableKeys = Object.keys(groupedProjects).sort((a, b) =>
-	// sort alphabetically if tied, otherwise most used goes first
-	groupedProjects[b].length === groupedProjects[a].length
-		? a.localeCompare(b)
-		: groupedProjects[b].length - groupedProjects[a].length,
-);
-
-const groupedKeys = availableKeys.reduce<Record<string, any>>(
-	(acc, cur) => {
-		if (projectList.some((p) => (p.langs || []).includes(cur))) acc.Languages.push(cur);
-		if (projectList.some((p) => (p.frameworks || []).includes(cur))) acc.Frameworks.push(cur);
-		return acc;
-	},
-	{ Languages: [], Frameworks: [] },
-);
+const { availableKeys, groupedKeys, groupedProjects } = projectSkills();
 
 let selectedCategory = $state(availableKeys[0]);
-let collapsedGroups: Record<string, boolean> = $state({});
+const collapsedGroups: Record<string, boolean> = $state({});
 
 function selectCategory(category: string) {
 	if (!availableKeys.includes(category)) return;
 	selectedCategory = category;
 	const url = new URL(location.toString());
-	url.searchParams.set("skill", category);
+	url.searchParams.set(URL_PARAM, category);
 	history.replaceState({}, "", url);
 
 	// scroll down on mobile to view projects
@@ -108,13 +81,13 @@ function collapseGroup(group: string) {
 
 onMount(() => {
 	const url = new URL(location.toString());
-	const skillParam = url.searchParams.get("skill");
+	const skillParam = url.searchParams.get(URL_PARAM);
 	if (!skillParam || !availableKeys.includes(skillParam)) {
-		url.searchParams.set("skill", availableKeys[0]);
+		url.searchParams.set(URL_PARAM, availableKeys[0]);
 		history.replaceState({}, "", url);
 	}
 
-	selectedCategory = url.searchParams.get("skill") || availableKeys[0];
+	selectedCategory = url.searchParams.get(URL_PARAM) || availableKeys[0];
 });
 </script>
 
