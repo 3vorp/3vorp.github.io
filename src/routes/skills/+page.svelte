@@ -54,6 +54,7 @@
 import Fa from "svelte-fa";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import projects from "../../data/projects.json";
+import { onMount } from "svelte";
 
 // this is all constant so we don't need to use $derived at all
 const projectList = Object.values(projects).flat();
@@ -92,9 +93,11 @@ let collapsedGroups: Record<string, boolean> = $state({});
 function selectCategory(category: string) {
 	if (!availableKeys.includes(category)) return;
 	selectedCategory = category;
+	const url = new URL(location.toString());
+	url.searchParams.set("skill", category);
+	history.replaceState({}, "", url);
 
 	// scroll down on mobile to view projects
-	console.log(window.innerWidth);
 	if (window.innerWidth < 960)
 		document.querySelector(".skill-preview")?.scrollIntoView({ behavior: "smooth" });
 }
@@ -102,6 +105,17 @@ function selectCategory(category: string) {
 function collapseGroup(group: string) {
 	collapsedGroups[group] = !collapsedGroups[group];
 }
+
+onMount(() => {
+	const url = new URL(location.toString());
+	const skillParam = url.searchParams.get("skill");
+	if (!skillParam || !availableKeys.includes(skillParam)) {
+		url.searchParams.set("skill", availableKeys[0]);
+		history.replaceState({}, "", url);
+	}
+
+	selectedCategory = url.searchParams.get("skill") || availableKeys[0];
+});
 </script>
 
 <style lang="scss">
