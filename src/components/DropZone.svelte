@@ -138,7 +138,7 @@ function click() {
 }
 .drop-zone .dropzone-border {
 	opacity: 0.7;
-	transition: opacity 250ms ease;
+	transition: opacity 0.25s ease;
 }
 .drop-zone:not(.disabled):hover .dropzone-border {
 	opacity: 1;
