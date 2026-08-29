@@ -20,7 +20,7 @@ const { children }: { children: Snippet } = $props();
 	display: flex;
 	flex-flow: row nowrap;
 	gap: 16px;
-	padding: 16px;
+	padding: $padding-container;
 	background-color: rgba($danger-dark, 0.1);
 	border-radius: $border-radius;
 }

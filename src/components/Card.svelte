@@ -43,7 +43,7 @@ const {
 }
 
 .card-body {
-	padding: 1rem;
+	padding: $padding-container;
 }
 
 .card-title {
@@ -64,7 +64,7 @@ const {
 	justify-content: center;
 	background: $fg-light;
 	border-radius: $border-radius;
-	padding: 1rem;
+	padding: $padding-container;
 }
 
 .card-img {

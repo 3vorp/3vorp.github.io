@@ -19,6 +19,7 @@ $danger-light: #ffaa9d;
 // material-style drop shadow
 $drop-shadow: 0 3px 5px rgba(#000, 0.3);
 $border-radius: 4px;
+$padding-container: 16px;
 
 // fonts
 $font-title: "Bebas Neue", sans-serif;
@@ -28,3 +29,9 @@ $font-body: "Whitney", sans-serif;
 $weight-bold: 600;
 $weight-semibold: 500;
 $weight-normal: normal;
+
+// breakpoints
+$breakpoint-xs: 576px;
+$breakpoint-sm: 760px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1140px;

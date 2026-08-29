@@ -41,7 +41,7 @@ const { title, description, image, href, langs = [], frameworks = [] }: Project 
 	color: $content-light;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $breakpoint-md) {
 	// align with image to have more available space
 	.project-description {
 		margin-left: -64px;

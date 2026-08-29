@@ -39,7 +39,7 @@ footer {
 .footer-bar {
 	display: flex;
 	flex-flow: row nowrap;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	align-items: center;
 	padding: 0 10%;
 	height: 64px;
@@ -53,7 +53,13 @@ footer {
 	font-size: 16px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: $breakpoint-lg) {
+	.footer-bar {
+		justify-content: space-between;
+	}
+}
+
+@media screen and (max-width: $breakpoint-md) {
 	.footer-bar {
 		display: grid;
 		// two columns
@@ -70,8 +76,9 @@ footer {
 	}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: $breakpoint-sm) {
 	.footer-bar {
+		// three columns
 		grid-template-columns: repeat(2, 1fr);
 	}
 }

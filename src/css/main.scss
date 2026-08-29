@@ -57,7 +57,7 @@ h1,
 	letter-spacing: 0.2rem;
 	text-transform: uppercase;
 	text-align: center;
-	@media screen and (max-width: 760px) {
+	@media screen and (max-width: $breakpoint-md) {
 		font-size: 60px;
 	}
 }
@@ -146,17 +146,21 @@ a:hover,
 	padding-bottom: 0px;
 	margin-right: auto;
 	margin-left: auto;
-	@media screen and (min-width: 576px) {
-		max-width: 540px;
+
+	max-width: $breakpoint-lg;
+	// this is a bit ugly but it's way less annoying
+	@media screen and (max-width: $breakpoint-lg) {
+		max-width: $breakpoint-md;
 	}
-	@media screen and (min-width: 760px) {
-		max-width: 720px;
+	@media screen and (max-width: $breakpoint-md) {
+		max-width: calc($breakpoint-sm - $padding-container);
 	}
-	@media screen and (min-width: 960px) {
-		max-width: 960px;
-	}
-	@media screen and (min-width: 1280px) {
-		max-width: 1140px;
+	@media screen and (max-width: $breakpoint-sm) {
+		max-width: calc($breakpoint-xs - $padding-container);
+
+		// less mobile padding
+		padding-top: $padding-container;
+		padding-bottom: $padding-container;
 	}
 }
 

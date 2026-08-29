@@ -73,11 +73,11 @@ onMount(() => {
 
 	background: $bg-mid;
 	border-radius: $border-radius;
-	padding: 1rem;
+	padding: $padding-container;
 	filter: drop-shadow($drop-shadow);
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $breakpoint-md) {
 	.skill-container {
 		flex-flow: column nowrap;
 	}

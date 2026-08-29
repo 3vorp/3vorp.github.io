@@ -1,6 +1,6 @@
 <div class="skill-list">
 	{#each Object.entries(groupedSkills) as [type, skills] (type)}
-		<button class="skill-group-title ma-2" onclick={() => collapseGroup(type)}>
+		<button class="skill-group-title" onclick={() => collapseGroup(type)}>
 			<h3 class="my-0">{type}</h3>
 			<Fa icon={collapsedGroups[type] ? faChevronRight : faChevronDown} size="0.8x" class="mx-2" />
 		</button>
@@ -45,7 +45,7 @@ function collapseGroup(group: string) {
 	flex-flow: column nowrap;
 	background: $fg-light;
 	border-radius: $border-radius;
-	padding: 0.5rem;
+	padding: calc($padding-container / 2);
 	position: sticky;
 	// 64px navbar + 8px padding
 	top: 72px;
@@ -55,9 +55,9 @@ function collapseGroup(group: string) {
 
 .skill-group-title {
 	cursor: pointer;
+	padding: calc($padding-container / 2);
 	background: none;
 	border: none;
-	padding: 0;
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
@@ -69,7 +69,7 @@ function collapseGroup(group: string) {
 	flex-flow: column nowrap;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $breakpoint-md) {
 	.skill-list {
 		position: static;
 		width: 100%;
@@ -80,7 +80,7 @@ function collapseGroup(group: string) {
 	}
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: $breakpoint-xs) {
 	.skill-group-list {
 		display: flex;
 		flex-flow: column nowrap;

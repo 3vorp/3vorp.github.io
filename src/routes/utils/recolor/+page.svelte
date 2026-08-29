@@ -192,12 +192,14 @@ function clearImages() {
 </script>
 
 <style lang="scss">
+@use "~/css/variables.scss" as *;
+
 .flex-row {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
-	@media screen and (max-width: 900px) {
+	@media screen and (max-width: $breakpoint-sm) {
 		grid-template-columns: 1fr;
 	}
 }

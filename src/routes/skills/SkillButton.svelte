@@ -24,7 +24,7 @@ const {
 
 .skill-selector {
 	cursor: pointer;
-	padding: 0.5rem;
+	padding: calc($padding-container / 2);
 	display: flex;
 	border-radius: $border-radius;
 	flex-flow: row nowrap;

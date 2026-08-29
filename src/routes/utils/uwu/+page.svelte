@@ -37,7 +37,7 @@ function copyText() {
 	width: 75%;
 	min-height: 5rem;
 	margin-top: 2rem;
-	padding: 16px;
+	padding: $padding-container;
 	border-radius: $border-radius;
 	overflow-wrap: break-word;
 }

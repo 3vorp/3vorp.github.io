@@ -40,7 +40,7 @@ let innerWidth = $state(0);
 let isOpen = $state(false);
 
 const icon = $derived(isOpen ? faX : faBars);
-const isMobile = $derived(innerWidth <= 900);
+const isMobile = $derived(innerWidth <= 760);
 </script>
 
 <style lang="scss">
@@ -80,7 +80,14 @@ header {
 	font-size: 24px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: $breakpoint-lg) {
+	// reduce margin calculation on side
+	.navbar-item-container {
+		justify-content: space-between;
+	}
+}
+
+@media screen and (max-width: $breakpoint-sm) {
 	// show mobile navbar
 	.mobile-navbar {
 		display: flex;

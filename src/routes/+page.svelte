@@ -60,6 +60,7 @@ const isMobile = $derived(innerWidth <= 760);
 		-khtml-user-drag: none;
 		-moz-user-drag: none;
 		-o-user-drag: none;
+		// specifically based on image margins, unique breakpoints are fine
 		@media screen and (max-width: 1200px) {
 			max-width: 130%;
 		}
@@ -76,7 +77,7 @@ const isMobile = $derived(innerWidth <= 760);
 	// fixes short descriptions not pushing the images to the right
 	// remove this if putting images on left
 	justify-content: space-between;
-	padding: 16px;
+	padding: $padding-container;
 	min-height: 256px;
 	gap: 32px;
 }
@@ -105,7 +106,7 @@ const isMobile = $derived(innerWidth <= 760);
 	background: $bg-mid;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: $breakpoint-md) {
 	.project-container {
 		min-height: auto;
 		padding: 32px 16px;
