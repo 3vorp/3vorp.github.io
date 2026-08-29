@@ -101,7 +101,7 @@ const isMobile = $derived(innerWidth <= 760);
 	// fixes short descriptions not pushing the images to the right
 	// remove this if putting images on left
 	justify-content: space-between;
-	padding: 32px 16px;
+	padding: 16px;
 	min-height: 256px;
 	gap: 32px;
 }
@@ -140,6 +140,7 @@ const isMobile = $derived(innerWidth <= 760);
 @media screen and (max-width: 760px) {
 	.project-container {
 		min-height: auto;
+		padding: 32px 16px;
 	}
 	.project-image:hover {
 		transform: inherit;
