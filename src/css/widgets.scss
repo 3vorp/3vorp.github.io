@@ -31,17 +31,17 @@
 		cursor: pointer;
 	}
 	&:active {
-		background-color: $bg-light;
+		background-color: $content-mid;
 	}
 }
 
 .btn-primary {
 	background-color: $accent-dark;
 	&:hover {
-		background-color: $accent-light;
+		background-color: $accent-mid;
 	}
 	&:active {
-		background-color: $accent-dark;
+		background-color: $accent-light;
 	}
 }
 

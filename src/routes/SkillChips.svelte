@@ -53,13 +53,18 @@ const { langs = [], frameworks = [] }: { langs?: string[]; frameworks?: string[]
 .chip {
 	padding: 4px 8px;
 	background-color: rgba($accent-dark, 0.2);
-	color: $accent-light;
+	color: $accent-mid;
 	border-radius: $border-radius;
 	transition: all 0.25s ease;
 }
 
 a.chip:hover,
 a.chip:focus {
+	background-color: rgba($accent-dark, 0.5);
+	color: $accent-light;
+}
+
+a.chip:active {
 	background-color: $accent-dark;
 	color: white;
 }

@@ -128,14 +128,14 @@ textarea {
 
 a,
 .text-link {
-	color: $accent-light;
+	color: $accent-mid;
 	text-decoration: none;
 	transition: all 0.25s ease;
 }
 
 a:hover,
 .text-link:hover {
-	color: $accent-dark;
+	color: $accent-light;
 }
 
 .container {
@@ -171,7 +171,7 @@ a:hover,
 	font-size: 20px;
 	transition: all 0.25s ease;
 	&:hover {
-		color: $accent-light;
+		color: $accent-mid;
 		transform: scale(0.95);
 		cursor: pointer;
 	}

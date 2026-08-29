@@ -48,7 +48,7 @@ const {
 	filter: drop-shadow($drop-shadow);
 
 	.project-count-badge {
-		background: $accent-light;
+		background: $accent-mid;
 	}
 }
 
