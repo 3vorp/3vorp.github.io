@@ -3,7 +3,7 @@
 
 	<div class="skill-container">
 		<div class="skill-list">
-			{#each Object.entries(groupedKeys) as [type, keys]}
+			{#each Object.entries(groupedKeys) as [type, keys] (type)}
 				<button class="skill-group-title ma-2" onclick={() => collapseGroup(type)}>
 					<h3 class="my-0">{type}</h3>
 					<Fa
@@ -14,7 +14,7 @@
 				</button>
 				{#if !collapsedGroups[type]}
 					<div class="skill-group-list">
-						{#each keys as key}
+						{#each keys as key (key)}
 							<button
 								class={["skill-selector", selectedCategory === key && "selected-skill-selector"]}
 								onclick={() => selectCategory(key)}
@@ -27,7 +27,7 @@
 			{/each}
 		</div>
 		<div class="skill-preview">
-			{#each groupedProjects[selectedCategory] as { title, description, href, image, langs, frameworks }}
+			{#each groupedProjects[selectedCategory] as { title, description, href, image, langs, frameworks } (title)}
 				<div class="project-container">
 					<img class="project-image" src={image} alt={`${title} icon`} width="64" loading="lazy" />
 					<div>

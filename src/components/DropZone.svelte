@@ -46,19 +46,17 @@ let {
 	children: Snippet<[boolean]>;
 	onchange?: (f: File | File[]) => void;
 } = $props();
+
 let isDragging = $state(false);
-// I hate typescript
-let fileRef: HTMLInputElement = undefined as any;
+let fileRef: HTMLInputElement;
 
 async function onChange(rawFiles: FileList | File[] | null) {
 	if (!rawFiles) return;
 	for (const file of rawFiles) {
-		if (!accept.includes(file.type)) {
-			alert(
+		if (!accept.includes(file.type))
+			return alert(
 				`file type ${file.type} not allowed (must be ${accept})\n\n(too lazy for a real tooltip)`,
 			);
-			return;
-		}
 	}
 
 	if (multiple && rawFiles[0].type === "application/zip") {

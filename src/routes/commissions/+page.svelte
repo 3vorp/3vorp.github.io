@@ -21,7 +21,7 @@
 	<h2>Previous Commissions</h2>
 
 	<div class="grid-3">
-		{#each commissions as { src, alt, type, date }}
+		{#each commissions as { src, alt, type, date } (src)}
 			<Card image={`commission/${src}`} {alt} title={type}>
 				<span title={new Date(date).toDateString()}>
 					<Fa icon={faCalendar} size="sm" class="mr-1" />

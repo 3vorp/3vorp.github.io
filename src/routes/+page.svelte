@@ -4,9 +4,9 @@
 	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" />
 </div>
 
-{#each Object.entries(projects) as [key, category]}
+{#each Object.entries(projects) as [key, category] (key)}
 	<h1 class="container text-center">{key}</h1>
-	{#each category as { title, description, href, image, langs, frameworks }, i}
+	{#each category as { title, description, href, image, langs, frameworks }, i (title)}
 		<div class={i % 2 === 0 ? "" : "secondary-background"}>
 			<div class="container project-container">
 				<div class="project-info">
@@ -25,7 +25,7 @@
 											<Fa icon={faCode} />
 											{#snippet tooltip()}Languages{/snippet}
 										</Tooltip>
-										{#each langs || [] as lang}
+										{#each langs || [] as lang (lang)}
 											<a class="chip" href={`/skills?skill=${lang}`}>{lang}</a>
 										{/each}
 									</div>
@@ -36,7 +36,7 @@
 											<Fa icon={faLayerGroup} />
 											{#snippet tooltip()}Frameworks{/snippet}
 										</Tooltip>
-										{#each frameworks || [] as framework}
+										{#each frameworks || [] as framework (framework)}
 											<a class="chip" href={`/skills?skill=${framework}`}>{framework}</a>
 										{/each}
 									</div>

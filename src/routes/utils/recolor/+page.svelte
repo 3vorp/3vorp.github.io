@@ -56,8 +56,8 @@
 			onchange={(file) => onFileInput("template", file)}
 		>
 			{#snippet children(isDragging)}
-				{#each templates as template}
-					<img src={template.src} class="image-preview" alt={template.alt} />
+				{#each templates as { src, alt } (src)}
+					<img {src} class="image-preview" {alt} />
 				{/each}
 				{#if isDragging}
 					<Fa icon={faArrowUpFromBracket} />&nbsp; Release to Drop Template(s)

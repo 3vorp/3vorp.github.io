@@ -1,6 +1,6 @@
 <footer>
 	<div class="footer-bar">
-		{#each items as { href, icon, title }}
+		{#each items as { href, icon, title } (title)}
 			<a class="navigation-link footer-link" target="_blank" rel="noopener noreferrer" {href}>
 				<Fa {icon} class="mr-2" />
 				{title}

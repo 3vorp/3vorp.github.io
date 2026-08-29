@@ -18,7 +18,7 @@
 		<!-- always show if desktop layout -->
 		{#if isOpen || !isMobile}
 			<div class="navbar-item-container">
-				{#each items as { href, title, icon }}
+				{#each items as { href, title, icon } (title)}
 					<a class="navigation-link navbar-link" {href}>
 						<Fa {icon} class="mr-2" />
 						{title}
