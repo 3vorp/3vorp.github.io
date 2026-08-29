@@ -90,7 +90,7 @@
 	"Past Projects": [
 		{
 			"title": "spunch bot",
-			"description": "General-purpose Discord bot, featuring per-server custom prefixes, a fully featured feedback ticket system, a customizable announcement system, and Wordle.",
+			"description": "General-purpose Discord bot, featuring per-server custom prefixes, a fully featured feedback ticket system, a customizable announcement system, and an interactive Wordle command.",
 			"href": "https://github.com/3vorp/spunch-bot",
 			"image": "https://raw.githubusercontent.com/3vorp/Spunch-Bot/main/assets/bot_pfp.png",
 			"langs": ["Python"],
@@ -98,9 +98,9 @@
 		},
 		{
 			"title": "Spatial",
-			"description": "Fictitious video editor company I created over the span of two weeks. I built a design language around the idea, and designed a series of logos and wordmarks for the project that I later used on a showcase website.",
+			"description": "Fictitious video editing company I created over the span of two weeks. I built a design language around the idea of a spatially-oriented editing product and designed a series of logos and wordmarks for the project that I later used on a showcase website.",
 			"href": "https://3vorp.github.io/spatial",
-			"image": "https://github.com/user-attachments/assets/445fcc85-ae14-47ef-8e54-cfbc632d7972",
+			"image": "https://github.com/user-attachments/assets/ce4c4e47-72ae-45f9-ae75-39588a53eb38",
 			"langs": ["JavaScript", "HTML", "SCSS"],
 			"frameworks": ["Vue"]
 		}
