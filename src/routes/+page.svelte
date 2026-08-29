@@ -21,7 +21,10 @@
 							<div class="skill-container">
 								{#if langs?.length}
 									<div class="chip-container mr-2">
-										<Fa icon={faCode} title="Languages" />
+										<Tooltip>
+											<Fa icon={faCode} />
+											{#snippet tooltip()}Languages{/snippet}
+										</Tooltip>
 										{#each langs || [] as lang}
 											<a class="chip" href={`/skills?skill=${lang}`}>{lang}</a>
 										{/each}
@@ -29,7 +32,10 @@
 								{/if}
 								{#if frameworks?.length}
 									<div class="chip-container mr-2">
-										<Fa icon={faLayerGroup} title="Frameworks" />
+										<Tooltip>
+											<Fa icon={faLayerGroup} />
+											{#snippet tooltip()}Frameworks{/snippet}
+										</Tooltip>
 										{#each frameworks || [] as framework}
 											<a class="chip" href={`/skills?skill=${framework}`}>{framework}</a>
 										{/each}
@@ -58,6 +64,7 @@
 import projects from "../data/projects.json";
 import Fa from "svelte-fa";
 import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+import Tooltip from "~/components/Tooltip.svelte";
 
 let innerWidth = $state(0);
 const isMobile = $derived(innerWidth <= 760);
