@@ -20,7 +20,6 @@
 	<meta property="twitter:image" content={banner} />
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin="anonymous" />
 	<!-- this is really stupid but does work -->
 	<link
 		href="https://cdn.jsdelivr.net/gh/Overimagine1/old-discord-font/source.css"
