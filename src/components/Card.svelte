@@ -1,7 +1,7 @@
 <div class="card">
 	{#if image}
 		<div class="card-img-container">
-			<img class="card-img" src={image} alt={alt || "commission image"} />
+			<img src={image} {alt} class="card-img" />
 		</div>
 	{/if}
 	<div class="card-body">
@@ -19,9 +19,9 @@
 <script lang="ts">
 import type { Snippet } from "svelte";
 
-let {
+const {
 	image,
-	alt,
+	alt = "commission image",
 	title,
 	children,
 }: {

@@ -23,7 +23,7 @@
 		<DropZone accept="image/png" onchange={(file) => onFileInput("image", file)}>
 			{#snippet children(isDragging)}
 				{#if image}
-					<img src={image.src} class="image-preview" alt={image.alt} />
+					<img src={image.src} alt={image.alt} class="image-preview" />
 				{/if}
 				{#if isDragging}
 					<Fa icon={faArrowUpFromBracket} />&nbsp; Release to Drop Base Image
@@ -37,7 +37,7 @@
 		<DropZone accept="image/png" onchange={(file) => onFileInput("reference", file)}>
 			{#snippet children(isDragging)}
 				{#if reference}
-					<img src={reference.src} class="image-preview" alt={reference.alt} />
+					<img src={reference.src} alt={reference.alt} class="image-preview" />
 				{/if}
 				{#if isDragging}
 					<Fa icon={faArrowUpFromBracket} />&nbsp; Release to Drop Reference
@@ -57,7 +57,7 @@
 		>
 			{#snippet children(isDragging)}
 				{#each templates as { src, alt } (src)}
-					<img {src} class="image-preview" {alt} />
+					<img {src} {alt} class="image-preview" />
 				{/each}
 				{#if isDragging}
 					<Fa icon={faArrowUpFromBracket} />&nbsp; Release to Drop Template(s)
@@ -95,8 +95,8 @@
 			Fun Fact: The tooling browsers give you to do client-side color manipulation is so broken that
 			<a
 				href="https://stackoverflow.com/a/23501676/20327257"
-				target="_blank"
 				rel="noopener noreferrer"
+				target="_blank"
 			>
 				pretty much all browsers randomly change color values you just set
 			</a> due to premultiplied alpha rounding issues, so I had to use two third-party libraries to make
@@ -181,7 +181,7 @@ function clearImages() {
 	// prevent massive memory leaks if the user doesn't close the tab
 	if (image) URL.revokeObjectURL(image.src);
 	if (reference) URL.revokeObjectURL(reference.src);
-	templates.forEach((t) => URL.revokeObjectURL(t.src));
+	templates.forEach((template) => URL.revokeObjectURL(template.src));
 
 	zipUrl = undefined;
 	image = undefined;

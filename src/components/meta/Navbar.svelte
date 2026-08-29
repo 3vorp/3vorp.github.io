@@ -4,7 +4,7 @@
 	<nav>
 		{#if isMobile}
 			<div class="mobile-navbar">
-				<a class="mobile-title navigation-link" href="/">Evorp's Website</a>
+				<a href="/" class="mobile-title navigation-link">Evorp's Website</a>
 				<button
 					class="mobile-navbar-toggle navigation-link"
 					type="button"
@@ -19,7 +19,7 @@
 		{#if isOpen || !isMobile}
 			<div class="navbar-item-container">
 				{#each items as { href, title, icon } (title)}
-					<a class="navigation-link navbar-link" {href}>
+					<a {href} class="navigation-link navbar-link">
 						<Fa {icon} class="mr-2" />
 						{title}
 					</a>
@@ -31,11 +31,14 @@
 
 <script lang="ts">
 import Fa from "svelte-fa";
-import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import type { NavigationItem } from "./types";
 
-const { items }: { items: Url[] } = $props();
+const { items }: { items: NavigationItem[] } = $props();
+
 let innerWidth = $state(0);
 let isOpen = $state(false);
+
 const icon = $derived(isOpen ? faX : faBars);
 const isMobile = $derived(innerWidth <= 900);
 </script>

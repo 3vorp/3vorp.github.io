@@ -21,17 +21,17 @@
 	<h2>Previous Commissions</h2>
 
 	<div class="grid-3">
-		{#each commissions as { src, alt, type, date } (src)}
-			<Card image={`commission/${src}`} {alt} title={type}>
+		{#each commissions as { src, alt, title, date } (src)}
+			<Card image={`commission/${src}`} {alt} {title}>
 				<span title={new Date(date).toDateString()}>
-					<Fa icon={faCalendar} size="sm" class="mr-1" />
+					<Fa icon={faCalendar} class="mr-1" size="sm" />
 					{new Date(date).toLocaleString("en-us", { month: "short", year: "numeric" })}
 				</span>
 			</Card>
 		{/each}
 	</div>
 	<br /><br />
-	<div class="text-center" style="display: flex; flex-flow: column nowrap; align-items: center">
+	<div class="cta-container">
 		<h2>Looking for my programming work?</h2>
 		<a href="/skills" class="widget btn btn-primary">Check out my recent projects</a>
 	</div>

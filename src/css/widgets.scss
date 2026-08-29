@@ -64,26 +64,3 @@
 		background-color: $bg-mid;
 	}
 }
-
-// these aren't really widgets but whatever they still count
-.chip-container {
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	gap: 8px;
-	margin: 4px 0;
-}
-
-.chip {
-	padding: 4px 8px;
-	background-color: rgba($accent-dark, 0.2);
-	color: $accent-light;
-	border-radius: $border-radius;
-	transition: all 0.25s ease;
-}
-
-a.chip:hover,
-a.chip:focus {
-	background-color: $accent-dark;
-	color: white;
-}

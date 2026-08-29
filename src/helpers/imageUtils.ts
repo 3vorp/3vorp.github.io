@@ -10,11 +10,11 @@ export type ColorTuple = [number, number, number, number];
  * @returns Array of [r, g, b, a] tuples
  */
 export const getImageDataAsTuples = (canvas: WebGL2RenderingContext): ColorTuple[] =>
-	getImageDataAccurate(canvas).data.reduce((acc, cur, i) => {
-		if (i % 4 === 0) acc.push([]);
+	getImageDataAccurate(canvas).data.reduce<ColorTuple[]>((acc, cur, i) => {
+		if (i % 4 === 0) acc.push([] as any);
 		acc.at(-1)?.push(cur);
 		return acc;
-	}, [] as any[]);
+	}, []);
 
 /**
  * Helper method to load directly as a Canvas rather than as an Image

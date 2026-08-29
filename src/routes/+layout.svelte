@@ -47,26 +47,28 @@
 </div>
 
 <script lang="ts">
-import Navbar from "~/components/Navbar.svelte";
-import Footer from "~/components/Footer.svelte";
+import "~/css/main.scss";
+
+import Navbar from "~/components/meta/Navbar.svelte";
+import Footer from "~/components/meta/Footer.svelte";
+import type { NavigationItem } from "~/components/meta/types";
 import {
 	faGithub,
-	faTwitter,
 	faReddit,
-	faTumblr,
-	faYoutube,
 	faSteam,
+	faTumblr,
+	faTwitter,
+	faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import "~/css/main.scss";
 import { faChartColumn, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
 
-const navItems: Url[] = [
+const navItems: NavigationItem[] = [
 	{ title: "Home", href: "/", icon: faHome },
 	{ title: "Commissions", href: "/commissions", icon: faPalette },
 	{ title: "Skills", href: "/skills", icon: faChartColumn },
 ];
 
-const footerItems: Url[] = [
+const footerItems: NavigationItem[] = [
 	{ title: "GitHub", href: "https://github.com/3vorp", icon: faGithub },
 	{ title: "Twitter", href: "https://twitter.com/3vorp", icon: faTwitter },
 	{ title: "Reddit", href: "https://reddit.com/u/3vorp", icon: faReddit },

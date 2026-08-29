@@ -1,7 +1,7 @@
 <footer>
 	<div class="footer-bar">
 		{#each items as { href, icon, title } (title)}
-			<a class="navigation-link footer-link" target="_blank" rel="noopener noreferrer" {href}>
+			<a {href} class="navigation-link footer-link" target="_blank" rel="noopener noreferrer">
 				<Fa {icon} class="mr-2" />
 				{title}
 			</a>
@@ -24,7 +24,8 @@
 
 <script lang="ts">
 import Fa from "svelte-fa";
-const { items }: { items: Required<Url>[] } = $props();
+import type { NavigationItem } from "./types";
+const { items }: { items: NavigationItem[] } = $props();
 </script>
 
 <style lang="scss">

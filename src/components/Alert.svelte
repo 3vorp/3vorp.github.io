@@ -10,7 +10,7 @@ import { faWarning } from "@fortawesome/free-solid-svg-icons";
 import type { Snippet } from "svelte";
 import Fa from "svelte-fa";
 
-let { children }: { children: Snippet } = $props();
+const { children }: { children: Snippet } = $props();
 </script>
 
 <style lang="scss">

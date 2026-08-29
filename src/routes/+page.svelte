@@ -7,48 +7,25 @@
 {#each Object.entries(projects) as [key, category] (key)}
 	<h1 class="container text-center">{key}</h1>
 	{#each category as { title, description, href, image, langs, frameworks }, i (title)}
-		<div class={i % 2 === 0 ? "" : "secondary-background"}>
+		<div class={{ "secondary-background": i % 2 !== 0 }}>
 			<div class="container project-container">
 				<div class="project-info">
 					<div class="project-header">
 						{#if isMobile}
-							<img class="project-image" src={image} alt={`${title} icon`} width="96" />
+							<img src={image} alt={`${title} icon`} width="96" class="project-image" />
 						{/if}
 						<div>
-							<a class={isMobile ? "h3" : "h2"} {href} target="_blank" rel="noopener noreferrer">
+							<a {href} class={isMobile ? "h3" : "h2"} target="_blank" rel="noopener noreferrer">
 								{title}
 							</a>
-							<div class="skill-container">
-								{#if langs?.length}
-									<div class="chip-container mr-2">
-										<Tooltip>
-											<Fa icon={faCode} />
-											{#snippet tooltip()}Languages{/snippet}
-										</Tooltip>
-										{#each langs || [] as lang (lang)}
-											<a class="chip" href={`/skills?skill=${lang}`}>{lang}</a>
-										{/each}
-									</div>
-								{/if}
-								{#if frameworks?.length}
-									<div class="chip-container mr-2">
-										<Tooltip>
-											<Fa icon={faLayerGroup} />
-											{#snippet tooltip()}Frameworks{/snippet}
-										</Tooltip>
-										{#each frameworks || [] as framework (framework)}
-											<a class="chip" href={`/skills?skill=${framework}`}>{framework}</a>
-										{/each}
-									</div>
-								{/if}
-							</div>
+							<SkillChips {frameworks} {langs} />
 						</div>
 					</div>
 					<p class="project-description">{description}</p>
 				</div>
 				{#if !isMobile}
 					<a {href} target="_blank" rel="noopener noreferrer" tabindex="-1">
-						<img class="project-image" src={image} alt={`${title} icon`} width="256" />
+						<img src={image} alt={`${title} icon`} width="256" class="project-image" />
 					</a>
 				{/if}
 			</div>
@@ -62,9 +39,7 @@
 
 <script lang="ts">
 import projects from "~/data/projects.json";
-import Fa from "svelte-fa";
-import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import Tooltip from "~/components/Tooltip.svelte";
+import SkillChips from "./SkillChips.svelte";
 
 let innerWidth = $state(0);
 const isMobile = $derived(innerWidth <= 760);
@@ -112,13 +87,6 @@ const isMobile = $derived(innerWidth <= 760);
 	align-items: center;
 	gap: 8px;
 	margin-bottom: 16px;
-}
-
-.skill-container {
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	margin: 4px 0;
 }
 
 .project-description {

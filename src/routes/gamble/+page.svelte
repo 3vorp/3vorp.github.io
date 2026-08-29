@@ -25,9 +25,9 @@
 import { onMount } from "svelte";
 
 import Fa from "svelte-fa";
-import { faRotateRight, faRepeat } from "@fortawesome/free-solid-svg-icons";
+import { faRepeat, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
-import { randint, choice } from "~/helpers/random";
+import { choice, randint } from "~/helpers/random";
 import { makeCycler } from "~/helpers/cycler.svelte";
 import cards from "./cards";
 

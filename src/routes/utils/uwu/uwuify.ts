@@ -16,4 +16,4 @@ export default (input: string) =>
 			Math.floor(Math.random() * 5) == 0 ? `${char}-${char}` : char,
 		)
 		// punctuation
-		.replace(/\,|\.|\!|\?/g, (char) => punctuation[char][Math.floor(Math.random() * 5)] ?? char);
+		.replace(/,|\.|!|\?/g, (char) => punctuation[char][Math.floor(Math.random() * 5)] ?? char);

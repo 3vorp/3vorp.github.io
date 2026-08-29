@@ -1,12 +1,12 @@
 import JSZip from "jszip";
 
 import {
+	type ColorTuple,
+	createGL,
 	getImageDataAccurate,
 	getImageDataAsTuples,
 	imageDataToPng,
-	createGL,
 	loadToGL,
-	type ColorTuple,
 } from "./imageUtils";
 
 interface ReplacementData {

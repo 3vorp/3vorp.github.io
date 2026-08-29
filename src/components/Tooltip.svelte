@@ -6,7 +6,7 @@
 <script lang="ts">
 import type { Snippet } from "svelte";
 
-let { tooltip, children }: { tooltip: Snippet; children: Snippet } = $props();
+const { tooltip, children }: { tooltip: Snippet; children: Snippet } = $props();
 </script>
 
 <style lang="scss">

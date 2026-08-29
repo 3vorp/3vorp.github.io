@@ -9,6 +9,11 @@ export interface Project {
 	frameworks?: string[];
 }
 
+export interface SkillRecord {
+	name: string;
+	count: number;
+}
+
 export default function projectSkills() {
 	// this is all constant so we don't need to use $derived at all
 	const projectList = Object.values(projects).flat();
@@ -25,21 +30,23 @@ export default function projectSkills() {
 		return acc;
 	}, {});
 
-	const availableKeys = Object.keys(groupedProjects).sort((a, b) =>
+	const availableSkills = Object.keys(groupedProjects).sort((a, b) =>
 		// sort alphabetically if tied, otherwise most used goes first
 		groupedProjects[b].length === groupedProjects[a].length
 			? a.localeCompare(b)
 			: groupedProjects[b].length - groupedProjects[a].length,
 	);
 
-	const groupedKeys = availableKeys.reduce<Record<string, string[]>>(
+	// use availableKeys so the record is already sorted
+	const groupedSkills = availableSkills.reduce<Record<string, SkillRecord[]>>(
 		(acc, cur) => {
-			if (projectList.some((p) => (p.langs || []).includes(cur))) acc.Languages.push(cur);
-			if (projectList.some((p) => (p.frameworks || []).includes(cur))) acc.Frameworks.push(cur);
+			const record: SkillRecord = { name: cur, count: groupedProjects[cur].length };
+			if (projectList.some((p) => (p.langs || []).includes(cur))) acc.Languages.push(record);
+			if (projectList.some((p) => (p.frameworks || []).includes(cur))) acc.Frameworks.push(record);
 			return acc;
 		},
 		{ Languages: [], Frameworks: [] },
 	);
 
-	return { availableKeys, groupedKeys, groupedProjects };
+	return { availableSkills, groupedSkills, groupedProjects };
 }
