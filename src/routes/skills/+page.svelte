@@ -29,7 +29,7 @@
 		<div class="skill-preview">
 			{#each groupedProjects[selectedCategory] as { title, description, href, image, langs, frameworks }}
 				<div class="project-container">
-					<img class="project-image" src={image} alt={`${title} logo`} width="64" loading="lazy" />
+					<img class="project-image" src={image} alt={`${title} icon`} width="64" loading="lazy" />
 					<div>
 						<a class="h3" {href} target="_blank" rel="noopener noreferrer">
 							{title}

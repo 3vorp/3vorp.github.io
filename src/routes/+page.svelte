@@ -12,7 +12,7 @@
 				<div class="project-info">
 					<div class="project-header">
 						{#if isMobile}
-							<img class="project-image" src={image} alt={`${title} logo`} width="96" />
+							<img class="project-image" src={image} alt={`${title} icon`} width="96" />
 						{/if}
 						<div>
 							<a class={isMobile ? "h3" : "h2"} {href} target="_blank" rel="noopener noreferrer">
@@ -42,7 +42,7 @@
 				</div>
 				{#if !isMobile}
 					<a {href} target="_blank" rel="noopener noreferrer" tabindex="-1">
-						<img class="project-image" src={image} alt={`${title} logo`} width="256" />
+						<img class="project-image" src={image} alt={`${title} icon`} width="256" />
 					</a>
 				{/if}
 			</div>
