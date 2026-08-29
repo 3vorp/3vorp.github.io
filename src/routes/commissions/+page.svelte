@@ -23,9 +23,9 @@
 	<div class="grid-3">
 		{#each commissions as { src, alt, type, date }}
 			<Card image={`commission/${src}`} {alt} title={type}>
-				<Fa icon={faCalendar} size="xs" />
-				<span class="ml-1" title={date.toDateString()}>
-					{date.toLocaleString("en-us", { month: "short", year: "numeric" })}
+				<span title={new Date(date).toDateString()}>
+					<Fa icon={faCalendar} size="sm" class="mr-1" />
+					{new Date(date).toLocaleString("en-us", { month: "short", year: "numeric" })}
 				</span>
 			</Card>
 		{/each}
@@ -42,38 +42,5 @@ import Fa from "svelte-fa";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import Card from "~/components/Card.svelte";
 import Alert from "~/components/Alert.svelte";
-
-// me when data driven code
-const commissions: Commission[] = [
-	{
-		src: "cat.gif",
-		alt: "cat",
-		type: "Texture Collection",
-		date: new Date("2023-12-13"),
-	},
-	{
-		src: "skull.gif",
-		alt: "skull",
-		type: "Profile Picture",
-		date: new Date("2023-10-30"),
-	},
-	{
-		src: "zombie.png",
-		alt: "zombie",
-		type: "Video Game Texture",
-		date: new Date("2022-11-15"),
-	},
-	{
-		src: "computer.png",
-		alt: "computer",
-		type: "Video Game Avatar",
-		date: new Date("2022-04-10"),
-	},
-	{
-		src: "dragon.png",
-		alt: "dragon",
-		type: "Video Game Avatar",
-		date: new Date("2022-04-10"),
-	},
-];
+import commissions from "~/data/commissions.json";
 </script>

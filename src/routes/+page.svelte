@@ -61,7 +61,7 @@
 </p>
 
 <script lang="ts">
-import projects from "../data/projects.json";
+import projects from "~/data/projects.json";
 import Fa from "svelte-fa";
 import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import Tooltip from "~/components/Tooltip.svelte";
