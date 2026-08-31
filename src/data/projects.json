@@ -66,7 +66,7 @@
 			"title": "Faithful Docs",
 			"description": "Guides for texture making, submitting add-ons, and more. Powered by the VitePress framework, which converts markdown files into rendered HTML along with custom styling.",
 			"href": "https://docs.faithfulpack.net",
-			"image": "https://github.com/user-attachments/assets/71700b2f-62ec-4e33-83cb-89bf44f8ea22",
+			"image": "https://database.faithfulpack.net/images/branding/logos/transparent/hd/docs_logo.png?w=128",
 			"langs": ["TypeScript", "CSS", "Markdown"],
 			"frameworks": ["VitePress", "Vue"]
 		},
