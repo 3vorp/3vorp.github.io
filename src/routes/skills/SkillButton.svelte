@@ -36,8 +36,12 @@ const {
 	text-align: left;
 	transition: all 0.25s ease;
 
-	&:not(.selected-skill-selector):hover {
+	&:not(.selected-skill-selector):hover,
+	&:not(.selected-skill-selector):focus {
 		background-color: $bg-mid;
+	}
+	&:not(.selected-skill-selector):active {
+		background-color: $bg-light;
 	}
 }
 

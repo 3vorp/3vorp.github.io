@@ -71,9 +71,7 @@ header {
 .mobile-navbar-toggle {
 	background-color: transparent;
 	border: none;
-	&:hover {
-		cursor: pointer;
-	}
+	cursor: pointer;
 }
 
 .mobile-title {
