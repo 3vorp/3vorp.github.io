@@ -56,6 +56,11 @@
 	filter: brightness(0.8) saturate(0.5);
 }
 
+.btn-lg {
+	font-size: 40px;
+	padding: 12px 48px;
+}
+
 .widget-textarea {
 	padding: $padding-container;
 	filter: drop-shadow($drop-shadow);
