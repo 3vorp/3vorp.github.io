@@ -1,18 +1,10 @@
 <div class="container">
 	<div class="all-center">
 		<h1>Timesheet Manager</h1>
-		<button class="widget btn btn-primary btn-lg mb-3" onclick={toggleTime}>
+		<h2>Total time working: <code>{timer}</code></h2>
+		<button class="widget btn btn-primary btn-lg my-3" onclick={toggleTime}>
 			{buttonTitle}
 		</button>
-		<h2>Total time: <code>{timer}</code></h2>
-		<div class="button-row my-3">
-			<button class="widget btn" onclick={importSession}>
-				<Fa icon={faArrowUpFromBracket} />&nbsp; Upload Session
-			</button>
-			<button class="widget btn" onclick={exportSession}>
-				<Fa icon={faCopy} />&nbsp; Copy Session
-			</button>
-		</div>
 	</div>
 
 	<h2>Session Information</h2>
@@ -26,7 +18,7 @@
 					</h3>
 					<div class="my-0">
 						{#each records as record (record.start)}
-							<p class="mx-5 my-1">
+							<p class="record my-1">
 								Worked for <code>{fmtInterval(record.stop - record.start, true)}</code> between {fmtDate(
 									record.start,
 								)} and
@@ -44,14 +36,26 @@
 			</h3>
 		{/if}
 	</div>
+	<div class="button-row my-5">
+		<button class="widget btn" onclick={importSession}>
+			<Fa icon={faArrowUpFromBracket} />&nbsp; Upload Session
+		</button>
+		<button class={["widget", "btn", { disabled: !records.length }]} onclick={exportSession}>
+			<Fa icon={faSave} />&nbsp; Save Session
+		</button>
+		<button class={["widget", "btn", { disabled: !records.length }]} onclick={resetSession}>
+			<Fa icon={faRotateLeft} />&nbsp; Reset Session
+		</button>
+	</div>
 </div>
 
 <script lang="ts">
 import Fa from "svelte-fa";
 import {
 	faArrowUpFromBracket,
-	faCopy,
 	faExclamationCircle,
+	faRotateLeft,
+	faSave,
 } from "@fortawesome/free-solid-svg-icons";
 
 const UPDATE_INTERVAL_MS = 10;
@@ -109,16 +113,16 @@ function fmtInterval(ms: number, truncate = false) {
 	const minutes = Math.floor((ms % 3600) / 60);
 	const seconds = (ms % 3600) % 60;
 
-	if (!truncate)
-		return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${seconds
-			.toFixed(N_DECIMALS)
-			.padStart(
-				// add one for decimal point itself
-				3 + N_DECIMALS,
-				"0",
-			)}`;
+	if (!truncate) {
+		const withMinutes = `${String(minutes).padStart(2, "0")}:${seconds.toFixed(N_DECIMALS).padStart(
+			// add one for decimal point itself
+			3 + N_DECIMALS,
+			"0",
+		)}`;
+		return hours ? `${String(hours).padStart(2, "0")}:${withMinutes}` : withMinutes;
+	}
 	if (!hours && !minutes) return `${seconds.toFixed(3)}s`;
-	if (!hours) return `${minutes}m$${Math.round(seconds)}s`;
+	if (!hours) return `${minutes}m${Math.round(seconds)}s`;
 	return `${hours}h${minutes}${Math.round(seconds)}s`;
 }
 function fmtDate(ms: number) {
@@ -143,6 +147,12 @@ function exportSession() {
 	navigator.clipboard.writeText(JSON.stringify(records));
 	alert("Session data copied to clipboard!");
 }
+
+function resetSession() {
+	if (!confirm("Are you sure you want to reset your session?")) return;
+	records = [];
+	timer = fmtInterval(accurateTimer);
+}
 </script>
 
 <style lang="scss">
@@ -158,5 +168,20 @@ function exportSession() {
 	background-color: $bg-light;
 	color: $content-light;
 	filter: drop-shadow($drop-shadow);
+
+	// less intense codeblock backgrounds
+	code {
+		background-color: $bg-dark;
+	}
+}
+
+.record {
+	margin: 3rem;
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+	.record {
+		margin: 0;
+	}
 }
 </style>
