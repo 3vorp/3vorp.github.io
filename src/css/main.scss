@@ -93,7 +93,7 @@ code {
 	color: $content-light;
 	background: $fg-light;
 	padding: 4px 8px;
-	margin: 0 8px;
+	margin: 0 4px;
 	border-radius: $border-radius;
 }
 
@@ -181,4 +181,11 @@ a {
 	flex-flow: column nowrap;
 	align-items: center;
 	text-align: center;
+}
+
+.button-row {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	gap: 1rem;
 }

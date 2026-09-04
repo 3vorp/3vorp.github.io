@@ -51,14 +51,3 @@ function regenerate() {
 let generateBtn: HTMLButtonElement;
 onMount(() => generateBtn.focus());
 </script>
-
-<style lang="scss">
-@use "~/css/variables.scss" as *;
-
-.button-row {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	gap: 1rem;
-}
-</style>
