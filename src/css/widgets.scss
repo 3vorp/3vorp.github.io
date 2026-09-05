@@ -26,10 +26,10 @@
 	font-size: 18px;
 	letter-spacing: 0.0892857143em;
 	text-transform: uppercase;
+	cursor: pointer;
 	&:hover,
 	&:focus {
 		background-color: $content-dark;
-		cursor: pointer;
 	}
 	&:active {
 		background-color: $content-mid;

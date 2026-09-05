@@ -9,7 +9,7 @@
 	</h2>
 	<div class="button-row my-3">
 		<button bind:this={generateBtn} class="widget btn btn-primary" onclick={regenerate}>
-			<Fa icon={faRotateRight} />&nbsp; Try Again
+			<Fa icon={faRotateLeft} />&nbsp; Try Again
 		</button>
 		<button class="widget btn" onclick={cycler.cycle}>
 			<Fa icon={faRepeat} />&nbsp; Switch to {cycler.next}
@@ -25,7 +25,7 @@
 import { onMount } from "svelte";
 
 import Fa from "svelte-fa";
-import { faRepeat, faRotateRight } from "@fortawesome/free-solid-svg-icons";
+import { faRepeat, faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { choice, randint } from "~/helpers/random";
 import { makeCycler } from "~/helpers/cycler.svelte";

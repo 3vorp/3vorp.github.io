@@ -1,7 +1,8 @@
 <div class="container">
 	<div class="all-center">
 		<h1>Timesheet Manager</h1>
-		<h2>Total time working: <code>{timer}</code></h2>
+		<!-- text wrapping gets weird on mobile without line height -->
+		<h2 class="text-center" style="line-height: 1.5">Total time working: <code>{timer}</code></h2>
 		<button class="widget btn btn-primary btn-lg my-3" onclick={toggleTime}>
 			{buttonTitle}
 		</button>
