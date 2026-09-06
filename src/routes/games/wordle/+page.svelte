@@ -94,7 +94,7 @@ function shakeGuess() {
 }
 
 function copyResults() {
-	const header = `Evorp's Wordle #${choices.indexOf(target)}: ${hasLost ? "X" : guesses.length}/${ALLOWED_GUESSES}`;
+	const header = `Evorp's Wordle #${answers.indexOf(target)}: ${hasLost ? "X" : guesses.length}/${ALLOWED_GUESSES}`;
 	const emoji = generateEmojiBoard(guesses.map((g) => getWordState(target, g)));
 	navigator.clipboard.writeText(`${header}\n${emoji}`);
 	alert("Copied results to clipboard!");
