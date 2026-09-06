@@ -22,13 +22,13 @@
 	text-align: center;
 	font-weight: $weight-semibold;
 	padding: 4px 20px;
+	gap: 12px;
 	min-height: 44px;
 	font-size: 18px;
 	letter-spacing: 0.0892857143em;
 	text-transform: uppercase;
 	cursor: pointer;
-	&:hover,
-	&:focus {
+	&:hover {
 		background-color: $content-dark;
 	}
 	&:active {
@@ -38,8 +38,7 @@
 
 .btn-primary {
 	background-color: $accent-dark;
-	&:hover,
-	&:focus {
+	&:hover {
 		background-color: $accent-mid;
 	}
 	&:active {

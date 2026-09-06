@@ -26,11 +26,11 @@
 					<img src={image.src} alt={image.alt} class="image-preview" />
 				{/if}
 				{#if isDragging}
-					<Fa icon={faArrowUpFromBracket} />&nbsp; Release to Drop Base Image
+					<Fa icon={faArrowUpFromBracket} /> Release to Drop Base Image
 				{:else if image}
-					<Fa icon={faPen} />&nbsp; Replace Base Image
+					<Fa icon={faPen} /> Replace Base Image
 				{:else}
-					<Fa icon={faPlus} />&nbsp; Upload Base Image
+					<Fa icon={faPlus} /> Upload Base Image
 				{/if}
 			{/snippet}
 		</DropZone>
@@ -40,11 +40,11 @@
 					<img src={reference.src} alt={reference.alt} class="image-preview" />
 				{/if}
 				{#if isDragging}
-					<Fa icon={faArrowUpFromBracket} />&nbsp; Release to Drop Reference
+					<Fa icon={faArrowUpFromBracket} /> Release to Drop Reference
 				{:else if reference}
-					<Fa icon={faPen} />&nbsp; Replace Reference
+					<Fa icon={faPen} /> Replace Reference
 				{:else}
-					<Fa icon={faPlus} />&nbsp; Upload Reference
+					<Fa icon={faPlus} /> Upload Reference
 				{/if}
 			{/snippet}
 		</DropZone>
@@ -60,9 +60,9 @@
 					<img {src} {alt} class="image-preview" />
 				{/each}
 				{#if isDragging}
-					<Fa icon={faArrowUpFromBracket} />&nbsp; Release to Drop Template(s)
+					<Fa icon={faArrowUpFromBracket} /> Release to Drop Template(s)
 				{:else}
-					<Fa icon={faPlus} />&nbsp; Upload Templates ({templates.length}
+					<Fa icon={faPlus} /> Upload Templates ({templates.length}
 					uploaded)
 				{/if}
 			{/snippet}
@@ -73,13 +73,13 @@
 			class={["widget", "btn", { disabled: !image && !reference && !templates.length }]}
 			onclick={clearImages}
 		>
-			<Fa icon={faTrash} />&nbsp; Clear All Inputs
+			<Fa icon={faTrash} /> Clear All Inputs
 		</button>
 		<button
 			class={["widget", "btn", { disabled: !templates.length }]}
 			onclick={() => templates.pop()}
 		>
-			<Fa icon={faDeleteLeft} />&nbsp; Remove Last Added Template
+			<Fa icon={faDeleteLeft} /> Remove Last Added Template
 		</button>
 	</div>
 	<div class="my-3">
@@ -87,7 +87,7 @@
 			class={["widget", "btn", "btn-primary", "block", { disabled: !isValid }]}
 			onclick={generate}
 		>
-			<Fa icon={loading ? faSpinner : faArrowUpFromBracket} />&nbsp; Recolor Images
+			<Fa icon={loading ? faSpinner : faArrowUpFromBracket} /> Recolor Images
 		</button>
 	</div>
 	<span class="text-center all-center">

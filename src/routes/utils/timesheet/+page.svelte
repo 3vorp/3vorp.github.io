@@ -39,13 +39,13 @@
 	</div>
 	<div class="button-row my-5">
 		<button class="widget btn" onclick={importSession}>
-			<Fa icon={faArrowUpFromBracket} />&nbsp; Upload Session
+			<Fa icon={faArrowUpFromBracket} /> Upload Session
 		</button>
 		<button class={["widget", "btn", { disabled: !records.length }]} onclick={exportSession}>
-			<Fa icon={faSave} />&nbsp; Save Session
+			<Fa icon={faSave} /> Save Session
 		</button>
 		<button class={["widget", "btn", { disabled: !records.length }]} onclick={resetSession}>
-			<Fa icon={faRotateLeft} />&nbsp; Reset Session
+			<Fa icon={faRotateLeft} /> Reset Session
 		</button>
 	</div>
 </div>
@@ -71,9 +71,9 @@ interface TimeRecord {
 let isRunning = $state(false);
 let lastStart = $state(0);
 let timer = $state(fmtInterval(0));
-let records: TimeRecord[] = $state([]);
+let records = $state<TimeRecord[]>([]);
 
-const groupedRecords: Partial<Record<string, TimeRecord[]>> = $derived(
+const groupedRecords = $derived(
 	Object.groupBy(records, ({ start }) => new Date(start).toLocaleDateString()),
 );
 
@@ -146,7 +146,7 @@ function importSession() {
 
 function exportSession() {
 	navigator.clipboard.writeText(JSON.stringify(records));
-	alert("Session data copied to clipboard!");
+	alert("Copied session data to clipboard!");
 }
 
 function resetSession() {

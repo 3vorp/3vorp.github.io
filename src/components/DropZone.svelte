@@ -55,7 +55,7 @@ async function onChange(rawFiles: FileList | File[] | null) {
 	for (const file of rawFiles) {
 		if (!accept.includes(file.type))
 			return alert(
-				`file type ${file.type} not allowed (must be ${accept})\n\n(too lazy for a real tooltip)`,
+				`File type ${file.type} not allowed (must be ${accept})\n\n(too lazy for a real tooltip)`,
 			);
 	}
 
@@ -153,6 +153,7 @@ function click() {
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: center;
+	gap: 8px;
 	min-height: 5rem;
 	padding: 0.5rem;
 }

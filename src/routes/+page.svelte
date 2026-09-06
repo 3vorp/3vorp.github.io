@@ -34,7 +34,7 @@
 {/each}
 
 <p class="container text-center pt-0">
-	<a href="/gamble">Gamble your savings away until I add more content to this site!</a>
+	<a href="/games/gamble">Gamble your savings away until I add more content to this site!</a>
 </p>
 
 <script lang="ts">

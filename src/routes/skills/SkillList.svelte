@@ -30,7 +30,7 @@ const {
 	onselect: (key: string) => void;
 } = $props();
 
-const collapsedGroups: Record<string, boolean> = $state({});
+const collapsedGroups = $state<Record<string, boolean>>({});
 
 function collapseGroup(group: string) {
 	collapsedGroups[group] = !collapsedGroups[group];
