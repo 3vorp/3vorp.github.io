@@ -58,6 +58,7 @@ import {
 	faRotateLeft,
 	faSave,
 } from "@fortawesome/free-solid-svg-icons";
+import { onMount } from "svelte";
 
 const UPDATE_INTERVAL_MS = 10;
 const N_DECIMALS = 3;
@@ -154,6 +155,12 @@ function resetSession() {
 	records = [];
 	timer = fmtInterval(accurateTimer);
 }
+
+onMount(() => {
+	window.addEventListener("beforeunload", (ev) => {
+		if (isRunning) ev.preventDefault();
+	});
+});
 </script>
 
 <style lang="scss">
