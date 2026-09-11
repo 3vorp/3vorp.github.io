@@ -125,7 +125,7 @@ function fmtInterval(ms: number, truncate = false) {
 	}
 	if (!hours && !minutes) return `${seconds.toFixed(3)}s`;
 	if (!hours) return `${minutes}m${Math.round(seconds)}s`;
-	return `${hours}h${minutes}${Math.round(seconds)}s`;
+	return `${hours}h${minutes}m${Math.round(seconds)}s`;
 }
 function fmtDate(ms: number) {
 	return new Date(ms).toLocaleTimeString();
