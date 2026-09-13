@@ -21,7 +21,7 @@
 	justify-content: center;
 	text-align: center;
 	font-weight: $weight-semibold;
-	padding: 4px 20px;
+	padding: 8px 24px;
 	gap: 12px;
 	min-height: 44px;
 	font-size: 18px;
@@ -46,6 +46,16 @@
 	}
 }
 
+.btn-destructive {
+	background-color: $danger-dark;
+	&:hover {
+		background-color: $danger-mid;
+	}
+	&:active {
+		background-color: $danger-light;
+	}
+}
+
 .disabled {
 	pointer-events: none;
 	transition: all 0.25s ease;
@@ -60,13 +70,52 @@
 	padding: 16px 64px;
 }
 
-.widget-textarea {
+.btn-text {
+	filter: none;
+	background: none;
+}
+
+.btn-text {
+	color: white;
+	&:hover {
+		background-color: rgba($content-dark, 0.3);
+	}
+	&:active {
+		background-color: rgba($content-mid, 0.5);
+	}
+}
+
+.btn-text.btn-primary {
+	color: $accent-mid !important;
+	&:hover {
+		background-color: rgba($accent-dark, 0.3);
+	}
+	&:active {
+		background-color: rgba($accent-mid, 0.5);
+	}
+}
+
+.btn-text.btn-destructive {
+	color: $danger-mid !important;
+	&:hover {
+		background-color: rgba($danger-dark, 0.3);
+	}
+	&:active {
+		background-color: rgba($danger-mid, 0.5);
+	}
+}
+
+.text-field {
+	background-color: $fg-light;
 	padding: $padding-container;
-	filter: drop-shadow($drop-shadow);
+	filter: none;
 	text-align: left;
+	&::placeholder {
+		color: $content-dark;
+	}
 
 	transition: background-color 0.25s ease;
 	&:focus {
-		background-color: $bg-mid;
+		background-color: $bg-dark;
 	}
 }

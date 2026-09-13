@@ -1,10 +1,17 @@
 <div class="container all-center">
 	<h1>The UwUificator</h1>
 	<p class="caption text-center">I'm genuinely sorry for making this.</p>
-	<textarea class="widget widget-textarea wide" bind:value={input} name="UwU Entry Box"></textarea>
-	<br />
+
 	<div class="card">
-		<p class="output">{output}</p>
+		<textarea class="widget text-field" style="width: 100%;" bind:value={input} name="UwU Entry Box"
+		></textarea>
+		<p class="output mt-5 mb-0">
+			{#if output}
+				{output}
+			{:else}
+				<i>No input provided</i>
+			{/if}
+		</p>
 	</div>
 	<br />
 	<button class="widget btn my-3" onclick={copyText}>
@@ -29,24 +36,20 @@ function copyText() {
 <style lang="scss">
 @use "~/css/variables.scss" as *;
 
-.wide {
-	min-width: 75%;
-}
-
 .card {
-	background-color: $fg-light;
+	background-color: $bg-light;
+	color: $content-light;
 	width: 75%;
 	min-height: 5rem;
 	padding: $padding-container;
 	border-radius: $border-radius;
 	overflow-wrap: break-word;
+	filter: drop-shadow($drop-shadow);
 }
 
 .output {
-	margin-top: 0px;
-	margin-bottom: 0px;
 	text-align: left;
 	// don't collapse newlines
-	white-space: pre-wrap;
+	white-space: pre-line;
 }
 </style>

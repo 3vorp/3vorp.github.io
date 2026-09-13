@@ -126,6 +126,10 @@ textarea {
 	width: 100%;
 }
 
+.spacer {
+	flex-grow: 1;
+}
+
 a {
 	color: $accent-mid;
 	text-decoration: none;

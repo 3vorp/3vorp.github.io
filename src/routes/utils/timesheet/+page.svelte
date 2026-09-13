@@ -38,17 +38,50 @@
 		{/if}
 	</div>
 	<div class="button-row my-5">
-		<button class="widget btn" onclick={importSession}>
+		<button class="widget btn" onclick={openImportDialog}>
 			<Fa icon={faArrowUpFromBracket} /> Upload Session
 		</button>
 		<button class={["widget", "btn", { disabled: !records.length }]} onclick={exportSession}>
 			<Fa icon={faSave} /> Save Session
 		</button>
-		<button class={["widget", "btn", { disabled: !records.length }]} onclick={resetSession}>
+		<button
+			class={["widget", "btn", { disabled: !records.length }]}
+			onclick={() => (confirmDialogOpen = true)}
+		>
 			<Fa icon={faRotateLeft} /> Reset Session
 		</button>
 	</div>
 </div>
+
+<!-- add no matter what -->
+<Dialog
+	bind:open={nameDialogOpen}
+	title={`Name Record (${fmtInterval(lastStop - lastStart, true)})`}
+	oncancel={addRecord}
+	onconfirm={addRecord}
+>
+	<input
+		type="text"
+		bind:value={recordName}
+		class="block widget text-field"
+		placeholder="Optional record name"
+		bind:this={nameField}
+	/>
+</Dialog>
+
+<Dialog bind:open={importDialogOpen} title="Upload Session" onconfirm={importSession}>
+	<input
+		type="text"
+		bind:value={importedSession}
+		class="block widget text-field import-text"
+		placeholder="Paste your previous session JSON here…"
+		bind:this={importField}
+	/>
+</Dialog>
+
+<Dialog bind:open={confirmDialogOpen} title="Confirm Reset" destructive onconfirm={resetSession}>
+	<p class="my-0">Do you really want to reset your session?</p>
+</Dialog>
 
 <script lang="ts">
 import Fa from "svelte-fa";
@@ -58,7 +91,8 @@ import {
 	faRotateLeft,
 	faSave,
 } from "@fortawesome/free-solid-svg-icons";
-import { onMount } from "svelte";
+import { onMount, tick } from "svelte";
+import Dialog from "~/components/Dialog.svelte";
 
 const UPDATE_INTERVAL_MS = 10;
 const N_DECIMALS = 3;
@@ -71,8 +105,18 @@ interface TimeRecord {
 
 let isRunning = $state(false);
 let lastStart = $state(0);
+let lastStop = $state(0);
 let timer = $state(fmtInterval(0));
 let records = $state<TimeRecord[]>([]);
+let confirmDialogOpen = $state(false);
+
+let importDialogOpen = $state(false);
+let importedSession = $state("");
+let importField: HTMLInputElement;
+
+let nameDialogOpen = $state(false);
+let recordName = $state("");
+let nameField: HTMLInputElement;
 
 const groupedRecords = $derived(
 	Object.groupBy(records, ({ start }) => new Date(start).toLocaleDateString()),
@@ -80,22 +124,31 @@ const groupedRecords = $derived(
 
 const buttonTitle = $derived(isRunning ? "Stop" : "Start");
 
-function toggleTime() {
+async function toggleTime() {
 	isRunning = !isRunning;
 	if (isRunning) {
 		lastStart = Date.now();
 		startTimer();
 	} else {
-		const stop = Date.now();
-		const label = prompt("Give this record a name (optional):") || "";
-		records.push({
-			start: lastStart,
-			stop,
-			label,
-		});
-		// force set to accurate time based on record accumulation
-		timer = fmtInterval(accurateTimer);
+		lastStop = Date.now();
+		nameDialogOpen = true;
+		await tick();
+		nameField.focus();
 	}
+}
+
+function addRecord() {
+	records.push({
+		start: lastStart,
+		stop: lastStop,
+		label: recordName,
+	});
+
+	// force set to accurate time based on record accumulation
+	timer = fmtInterval(accurateTimer);
+
+	// reset
+	recordName = "";
 }
 
 const accurateTimer = $derived(records.reduce((acc, cur) => acc + (cur.stop - cur.start), 0));
@@ -131,10 +184,15 @@ function fmtDate(ms: number) {
 	return new Date(ms).toLocaleTimeString();
 }
 
+async function openImportDialog() {
+	importDialogOpen = true;
+	await tick();
+	importField.focus();
+}
+
 function importSession() {
-	const value = prompt("Paste your previously-copied session here:") || "[]";
 	try {
-		const parsed = JSON.parse(value);
+		const parsed = JSON.parse(importedSession);
 		if (!Array.isArray(parsed) || !parsed.every((p) => p && "start" in p && "stop" in p))
 			throw new Error("Invalid session format");
 
@@ -142,6 +200,9 @@ function importSession() {
 		timer = fmtInterval(accurateTimer);
 	} catch (err) {
 		alert(err);
+	} finally {
+		// reset
+		importedSession = "";
 	}
 }
 
@@ -151,7 +212,6 @@ function exportSession() {
 }
 
 function resetSession() {
-	if (!confirm("Are you sure you want to reset your session?")) return;
 	records = [];
 	timer = fmtInterval(accurateTimer);
 }
@@ -185,6 +245,10 @@ onMount(() => {
 
 .record {
 	margin: 3rem;
+}
+
+.import-text {
+	font-family: monospace;
 }
 
 @media screen and (max-width: $breakpoint-sm) {

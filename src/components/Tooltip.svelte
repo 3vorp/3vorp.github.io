@@ -29,7 +29,7 @@ const { tooltip, children }: { tooltip: Snippet; children: Snippet } = $props();
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, 100%);
-	z-index: 999;
+	z-index: 4;
 
 	padding: 4px 8px;
 	background-color: $fg-dark;
