@@ -118,12 +118,13 @@ function handleKey(ev: KeyboardEvent) {
 
 .dialog {
 	width: 100%;
+	max-height: 80vh;
 	background-color: $bg-mid;
 	padding: $padding-container;
 	border-radius: $border-radius;
+	// don't touch edges on small screens
+	margin: $padding-container;
 	filter: drop-shadow($drop-shadow);
-	max-height: 80vh;
-
 	display: flex;
 	flex-flow: column nowrap;
 }
