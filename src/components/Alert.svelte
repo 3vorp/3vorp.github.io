@@ -21,12 +21,12 @@ const { children }: { children: Snippet } = $props();
 	flex-flow: row nowrap;
 	gap: 16px;
 	padding: $padding-container;
-	background-color: rgba($danger-dark, 0.1);
+	background-color: rgba($danger-mid, 0.1);
 	border-radius: $border-radius;
 }
 
 :global(.alert p) {
-	color: $danger-dark;
+	color: $danger-mid;
 }
 
 :global(.alert :not(p)) {
