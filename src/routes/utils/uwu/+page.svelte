@@ -23,13 +23,14 @@
 import Fa from "svelte-fa";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import uwuify from "./uwuify";
+import { showSuccess } from "~/helpers/snackbar.svelte";
 
 let input = $state("");
 const output = $derived(uwuify(input));
 
 function copyText() {
 	navigator.clipboard.writeText(output);
-	alert("Copied text to clipboard!)");
+	showSuccess("Copied text to clipboard!");
 }
 </script>
 

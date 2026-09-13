@@ -43,6 +43,11 @@
 	<main>
 		<slot />
 	</main>
+	<div class="snackbar-container">
+		{#each Object.entries(snackbars) as [id, snackbar] (id)}
+			<Snackbar {...snackbar} ondestroy={() => popSnackbar(id)} />
+		{/each}
+	</div>
 	<Footer items={footerItems} />
 </div>
 
@@ -61,6 +66,8 @@ import {
 	faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faChartColumn, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
+import Snackbar from "~/components/Snackbar.svelte";
+import { popSnackbar, snackbars } from "~/helpers/snackbar.svelte";
 
 const navItems: NavigationItem[] = [
 	{ title: "Home", href: "/", icon: faHome },
@@ -85,11 +92,25 @@ const banner =
 </script>
 
 <style lang="scss">
+@use "~/css/variables.scss" as *;
+
 // make sure the entire screen is 100% height
 .site-container {
 	display: flex;
 	min-height: 100vh;
 	flex-flow: column nowrap;
 	justify-content: space-between;
+}
+
+.snackbar-container {
+	position: fixed;
+	bottom: $padding-container;
+	right: $padding-container;
+
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: end;
+	gap: $padding-container;
+	width: 100%;
 }
 </style>

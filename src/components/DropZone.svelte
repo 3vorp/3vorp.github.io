@@ -31,8 +31,10 @@
 <script lang="ts">
 import JSZip from "jszip";
 import type { Snippet } from "svelte";
+import { showError } from "~/helpers/snackbar.svelte";
 
-let {
+const {
+	// should be formatted in a comma-separated list (easier to type)
 	accept,
 	multiple = false,
 	disabled = false,
@@ -54,9 +56,7 @@ async function onChange(rawFiles: FileList | File[] | null) {
 	if (!rawFiles) return;
 	for (const file of rawFiles) {
 		if (!accept.includes(file.type))
-			return alert(
-				`File type ${file.type} not allowed (must be ${accept})\n\n(too lazy for a real tooltip)`,
-			);
+			return showError(`File type ${file.type} not allowed!`, `Allowed: ${accept}`);
 	}
 
 	if (multiple && rawFiles[0].type === "application/zip") {
@@ -64,6 +64,8 @@ async function onChange(rawFiles: FileList | File[] | null) {
 		const files = await Promise.all(
 			Object.values(jz.files).map(async (f) => new File([await f.async("blob")], f.name)),
 		);
+		// jszip doesn't add media types so we can't use mime based validation
+		// todo: figure this out properly https://github.com/Stuk/jszip/issues/626
 		notifyParent?.(files);
 	}
 	const files = multiple ? Array.from(rawFiles) : rawFiles[0];

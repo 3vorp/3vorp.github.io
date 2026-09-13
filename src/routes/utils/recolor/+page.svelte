@@ -118,6 +118,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import DropZone from "~/components/DropZone.svelte";
 import batchRecolor from "~/helpers/batchRecolor";
+import { showError } from "~/helpers/snackbar.svelte";
 
 // svelte doesn't work with enums (why does anyone like this framework)
 type FileType = "image" | "reference" | "template";
@@ -139,7 +140,10 @@ const downloadName = $derived.by(() => {
 async function generate() {
 	// can't use isValid due to typescript weirdness (death)
 	if (!image || !reference || !templates.length)
-		return alert("At least one image is missing (how did you do this)");
+		return showError(
+			"At least one image is missing",
+			"This shouldn't be possible to see, so something has probably gone very wrong",
+		);
 	loading = true;
 	try {
 		const blob = await batchRecolor({ reference, image, templates });
@@ -149,7 +153,7 @@ async function generate() {
 		download.download = downloadName;
 		download.click();
 	} catch (err) {
-		alert(`Something went wrong when batch recoloring:\n${err}`);
+		showError("Failed to recolor images", String(err), true);
 	} finally {
 		loading = false;
 	}

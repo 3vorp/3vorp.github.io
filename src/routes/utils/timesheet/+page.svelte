@@ -93,6 +93,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { onMount, tick } from "svelte";
 import Dialog from "~/components/Dialog.svelte";
+import { showError, showSuccess } from "~/helpers/snackbar.svelte";
 
 const UPDATE_INTERVAL_MS = 10;
 const N_DECIMALS = 3;
@@ -194,12 +195,12 @@ function importSession() {
 	try {
 		const parsed = JSON.parse(importedSession);
 		if (!Array.isArray(parsed) || !parsed.every((p) => p && "start" in p && "stop" in p))
-			throw new Error("Invalid session format");
+			throw new Error("Invalid session format!");
 
 		records = parsed;
 		timer = fmtInterval(accurateTimer);
 	} catch (err) {
-		alert(err);
+		showError("Failed to parse session", String(err));
 	} finally {
 		// reset
 		importedSession = "";
@@ -208,7 +209,10 @@ function importSession() {
 
 function exportSession() {
 	navigator.clipboard.writeText(JSON.stringify(records));
-	alert("Copied session data to clipboard!");
+	showSuccess(
+		"Copied session data to clipboard!",
+		'You can upload this data again later using the "Upload Session" button.',
+	);
 }
 
 function resetSession() {

@@ -50,6 +50,7 @@ import Fa from "svelte-fa";
 import { faShareNodes, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
 import { choice } from "~/helpers/random";
+import { showSuccess } from "~/helpers/snackbar.svelte";
 
 const ALLOWED_GUESSES = 6;
 
@@ -97,7 +98,7 @@ function copyResults() {
 	const header = `Evorp's Wordle #${answers.indexOf(target)}: ${hasLost ? "X" : guesses.length}/${ALLOWED_GUESSES}`;
 	const emoji = generateEmojiBoard(guesses.map((g) => getWordState(target, g)));
 	navigator.clipboard.writeText(`${header}\n${emoji}`);
-	alert("Copied results to clipboard!");
+	showSuccess("Copied results to clipboard!");
 }
 
 function startGame() {

@@ -12,7 +12,7 @@
 				<h2 class="h3 my-0">{title}</h2>
 			{/if}
 			<div class="spacer"></div>
-			<button class="close" onclick={() => handleClick(false)}>
+			<button class="btn-icon" onclick={() => handleClick(false)}>
 				<Fa icon={faClose} size="lg" />
 			</button>
 		</div>
@@ -132,15 +132,6 @@ function handleKey(ev: KeyboardEvent) {
 	animation: open 0.25s;
 }
 
-@keyframes open {
-	from {
-		transform: scale(0.25);
-	}
-	to {
-		transform: scale(1);
-	}
-}
-
 .header {
 	display: flex;
 	flex-flow: row nowrap;
@@ -164,22 +155,6 @@ function handleKey(ev: KeyboardEvent) {
 		font-size: 16px;
 		padding: 8px 16px;
 		min-height: auto;
-	}
-}
-
-.close {
-	color: $content-mid;
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 8px;
-	transition: all 0.25s ease;
-
-	&:hover {
-		color: $content-light;
-	}
-	&:active {
-		color: white;
 	}
 }
 </style>
