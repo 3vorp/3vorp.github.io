@@ -1,0 +1,1 @@
+import{J as e}from"./wWkPrYNd.js";var t=e({});function n(e){t[crypto.randomUUID()]=e}function r(e){delete t[e]}var i=(e,t)=>n({title:e,description:t,type:`success`}),a=(e,t,r)=>n({title:e,description:t,type:`error`,delay:r?-1:void 0});export{t as i,a as n,i as r,r as t};
