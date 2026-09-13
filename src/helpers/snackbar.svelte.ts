@@ -1,5 +1,5 @@
 // can add more later
-type SnackbarType = "success" | "error";
+export type SnackbarType = "success" | "error";
 
 export interface Snackbar {
 	type: SnackbarType;

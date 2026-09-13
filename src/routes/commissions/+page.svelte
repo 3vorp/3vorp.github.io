@@ -1,8 +1,7 @@
 <div class="container">
 	<h1>Commissions</h1>
 
-	<Alert>
-		<h3 class="mt-0 mb-2">I am currently on hiatus!</h3>
+	<Alert type="danger" title="I am currently on hiatus!">
 		<p class="my-0">
 			If you're interested in commissioning me, let me know using any of the socials at the bottom
 			of this site and I'll let you know if/when I reopen paid work.

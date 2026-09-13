@@ -1,16 +1,25 @@
-<div class="alert">
-	<Fa icon={faWarning} size="1.5x" class="my-1" />
-	<div>
+<div class={["alert", type]}>
+	{#if title}
+		<h3 class="title my-0">
+			<Fa {icon} class="mr-2" />
+			{title}
+		</h3>
+	{/if}
+	<div class="description">
 		{@render children()}
 	</div>
 </div>
 
 <script lang="ts">
-import { faWarning } from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import type { Snippet } from "svelte";
 import Fa from "svelte-fa";
 
-const { children }: { children: Snippet } = $props();
+type AlertType = "info" | "danger";
+
+const { type, title, children }: { type: AlertType; title?: string; children: Snippet } = $props();
+
+const icon = $derived(type === "info" ? faCircleInfo : faCircleExclamation);
 </script>
 
 <style lang="scss">
@@ -18,18 +27,30 @@ const { children }: { children: Snippet } = $props();
 
 .alert {
 	display: flex;
-	flex-flow: row nowrap;
-	gap: 16px;
+	flex-flow: column nowrap;
 	padding: $padding-container;
-	background-color: rgba($danger-mid, 0.1);
 	border-radius: $border-radius;
+	gap: 8px;
+	background-color: $fg-light;
 }
 
-:global(.alert p) {
-	color: $danger-mid;
+.title {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
 }
 
-:global(.alert :not(p)) {
-	color: $danger-light;
+.alert.info {
+	border-left: 4px solid $accent-mid;
+	.description {
+		color: $accent-light;
+	}
+}
+
+.alert.danger {
+	border-left: 4px solid $danger-mid;
+	.description {
+		color: $danger-light;
+	}
 }
 </style>
