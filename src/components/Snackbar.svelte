@@ -13,7 +13,8 @@
 </div>
 
 <script lang="ts">
-import { faCancel, faCheck, faClose } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { onMount } from "svelte";
 import Fa from "svelte-fa";
 import type { Snackbar } from "~/helpers/snackbar.svelte";
@@ -26,7 +27,7 @@ const {
 	ondestroy = () => {},
 }: Snackbar & { ondestroy: () => void } = $props();
 
-const icon = $derived(type === "success" ? faCheck : faCancel);
+const icon = $derived(type === "success" ? faCircleCheck : faCircleXmark);
 
 onMount(() => {
 	// have to cancel with x with persistent
@@ -38,6 +39,8 @@ onMount(() => {
 @use "~/css/variables.scss" as *;
 
 .snackbar {
+	// fixes snackbar-container issue
+	pointer-events: all;
 	padding: calc($padding-container / 2) $padding-container;
 	border-radius: $border-radius;
 	background: $fg-light;

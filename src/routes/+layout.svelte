@@ -112,5 +112,8 @@ const banner =
 	align-items: end;
 	gap: $padding-container;
 	width: 100%;
+
+	// otherwise width 100% makes the bottom of the screen unusable
+	pointer-events: none;
 }
 </style>
