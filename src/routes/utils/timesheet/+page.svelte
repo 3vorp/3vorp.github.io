@@ -14,7 +14,11 @@
 			<div class="card mb-4">
 				<div class="record-header">
 					<div class="record-header-title">
-						<button class="btn-icon btn-toggle" onclick={() => toggleRecord(title)}>
+						<button
+							class="btn-icon btn-toggle"
+							title={hiddenRecords[title] ? "Open Records" : "Close Records"}
+							onclick={() => toggleRecord(title)}
+						>
 							<Fa icon={hiddenRecords[title] ? faChevronRight : faChevronDown} size="lg" />
 						</button>
 						<h3 class="my-0 ml-n2">

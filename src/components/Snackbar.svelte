@@ -3,7 +3,7 @@
 		<Fa {icon} class="mr-2" />
 		{title}
 		<div class="spacer"></div>
-		<button class="btn-icon" onclick={ondestroy}>
+		<button class="btn-icon" title="Close Snackbar" onclick={ondestroy}>
 			<Fa icon={faClose} size="lg" />
 		</button>
 	</h3>

@@ -12,7 +12,7 @@
 				<h2 class="h3 my-0">{title}</h2>
 			{/if}
 			<div class="spacer"></div>
-			<button class="btn-icon" onclick={() => handleClick(false)}>
+			<button class="btn-icon" title="Close Dialog" onclick={() => handleClick(false)}>
 				<Fa icon={faClose} size="lg" />
 			</button>
 		</div>

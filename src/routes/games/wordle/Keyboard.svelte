@@ -2,10 +2,14 @@
 	{#each groupedLetters as row (row[0].letter)}
 		<div class="row">
 			{#each row as key (key.letter + key.type)}
-				<button class={["key", key.type]} onclick={(ev) => onclick(ev, key.letter)}>
+				<button
+					class={["key", key.type]}
+					title={key.letter}
+					onclick={(ev) => onclick(ev, key.letter)}
+				>
 					<!-- too big to fit on keys on mobile, use icons-->
 					{#if key.letter === "Enter"}
-						<Fa icon={faCheck} />
+						<Fa icon={faCheck} title="Enter" />
 					{:else if key.letter === "Backspace"}
 						<Fa icon={faDeleteLeft} />
 					{:else}
