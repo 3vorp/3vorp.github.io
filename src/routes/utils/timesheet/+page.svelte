@@ -9,34 +9,52 @@
 	</div>
 
 	<h2>Session Information</h2>
-	<div class="card">
-		{#if records.length}
-			{#each Object.entries(groupedRecords) as [title, records] (title)}
-				<div>
-					<h3 class="my-0">
-						{title} ({records?.length || 0}
-						{records?.length === 1 ? "record" : "records"})
-					</h3>
-					<div class="my-0">
-						{#each records as record (record.start)}
-							<p class="record my-1">
-								Worked for <code>{fmtInterval(record.stop - record.start, true)}</code> between {fmtDate(
-									record.start,
-								)} and
-								{fmtDate(record.stop)}
-								{#if record.label}on "{record.label}"{/if}
-							</p>
-						{/each}
+	{#if records.length}
+		{#each Object.entries(groupedRecords) as [title, records] (title)}
+			<div class="card mb-4">
+				<div class="record-header">
+					<div class="record-header-title">
+						<button class="btn-icon btn-toggle" onclick={() => toggleRecord(title)}>
+							<Fa icon={hiddenRecords[title] ? faChevronRight : faChevronDown} size="lg" />
+						</button>
+						<h3 class="my-0 ml-n2">
+							<code>{fmtInterval(reduceTotalTime(records), true)}</code>
+							on
+							{title}
+						</h3>
 					</div>
+					<div class="spacer"></div>
+					<p class="record-header-subtitle my-0">
+						{records.length}
+						{records.length === 1 ? "record" : "records"}
+					</p>
 				</div>
-			{/each}
-		{:else}
+				{#if !hiddenRecords[title]}
+					<hr style="width: 100%" />
+					<ul class="record-container my-0">
+						{#each records as record (record.start)}
+							<li class="record my-1">
+								<p class="record-title my-0 ml-n2">
+									<code>{fmtInterval(record.stop - record.start, true)}</code>
+									{#if record.label}{record.label}{:else}<i>Nameless</i>{/if}
+								</p>
+								<p class="record-subtitle my-0">
+									{fmtDate(record.start)} – {fmtDate(record.stop)}
+								</p>
+							</li>
+						{/each}
+					</ul>
+				{/if}
+			</div>
+		{/each}
+	{:else}
+		<div class="card">
 			<h3 class="my-0 text-center">
 				<Fa icon={faExclamationCircle} class="mr-2" />
 				No records added yet
 			</h3>
-		{/if}
-	</div>
+		</div>
+	{/if}
 	<div class="button-row my-5">
 		<button class="widget btn" onclick={openImportDialog}>
 			<Fa icon={faArrowUpFromBracket} /> Upload Session
@@ -87,6 +105,8 @@
 import Fa from "svelte-fa";
 import {
 	faArrowUpFromBracket,
+	faChevronDown,
+	faChevronRight,
 	faExclamationCircle,
 	faRotateLeft,
 	faSave,
@@ -119,8 +139,13 @@ let nameDialogOpen = $state(false);
 let recordName = $state("");
 let nameField: HTMLInputElement;
 
+const hiddenRecords: Record<string, boolean> = $state({});
+
 const groupedRecords = $derived(
-	Object.groupBy(records, ({ start }) => new Date(start).toLocaleDateString()),
+	// have to cast away Partial which is stupid
+	Object.groupBy(Array.from(records).reverse(), ({ start }) =>
+		new Date(start).toLocaleDateString(),
+	) as Record<string, TimeRecord[]>,
 );
 
 const buttonTitle = $derived(isRunning ? "Stop" : "Start");
@@ -152,7 +177,10 @@ function addRecord() {
 	recordName = "";
 }
 
-const accurateTimer = $derived(records.reduce((acc, cur) => acc + (cur.stop - cur.start), 0));
+const reduceTotalTime = (records: TimeRecord[]) =>
+	records.reduce((acc, cur) => acc + (cur.stop - cur.start), 0);
+
+const accurateTimer = $derived(reduceTotalTime(records));
 
 function startTimer() {
 	if (!isRunning) return;
@@ -183,6 +211,10 @@ function fmtInterval(ms: number, truncate = false) {
 }
 function fmtDate(ms: number) {
 	return new Date(ms).toLocaleTimeString();
+}
+
+function toggleRecord(title: string) {
+	hiddenRecords[title] = !hiddenRecords[title];
 }
 
 async function openImportDialog() {
@@ -233,7 +265,6 @@ onMount(() => {
 .card {
 	display: flex;
 	flex-flow: column nowrap;
-	gap: 1rem;
 	width: 100%;
 	padding: $padding-container;
 	border-radius: $border-radius;
@@ -247,17 +278,62 @@ onMount(() => {
 	}
 }
 
+.record-header {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.record-header-title {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.btn-toggle {
+	// 40px gap - 8px gap
+	width: 32px;
+}
+
+.record-container {
+	flex-grow: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 8px;
+}
+
 .record {
-	margin: 3rem;
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 4px;
+}
+
+// not quite title weight but like the next closest thing
+.record-title {
+	font-weight: $weight-semibold;
+	font-size: 20px;
+}
+
+.record-subtitle,
+.record-header-subtitle {
+	color: $content-mid;
 }
 
 .import-text {
 	font-family: monospace;
 }
 
-@media screen and (max-width: $breakpoint-sm) {
-	.record {
-		margin: 0;
+@media screen and (max-width: $breakpoint-xs) {
+	.record-header {
+		flex-flow: column nowrap;
+		align-items: start;
+	}
+	.record-header-subtitle {
+		// match <ul /> offset
+		margin-left: 40px;
 	}
 }
 </style>
