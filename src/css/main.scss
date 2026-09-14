@@ -89,6 +89,12 @@ ol {
 	padding-left: 40px;
 }
 
+hr {
+	border: 1px solid $content-dark;
+	// stupid trick to make outline thinner
+	border-bottom: none;
+}
+
 code {
 	color: $content-light;
 	background: $fg-light;

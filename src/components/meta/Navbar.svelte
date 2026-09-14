@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import Fa from "svelte-fa";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import type { NavigationItem } from "./types";
 
 const { items }: { items: NavigationItem[] } = $props();
@@ -39,7 +39,7 @@ const { items }: { items: NavigationItem[] } = $props();
 let innerWidth = $state(0);
 let isOpen = $state(false);
 
-const icon = $derived(isOpen ? faX : faBars);
+const icon = $derived(isOpen ? faClose : faBars);
 const isMobile = $derived(innerWidth <= 760);
 </script>
 
