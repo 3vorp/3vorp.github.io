@@ -12,15 +12,14 @@
 	{#if records.length}
 		{#each Object.entries(groupedRecords) as [title, records] (title)}
 			<div class="card mb-4">
-				<div class="record-header">
+				<button class="record-header" onclick={() => toggleRecord(title)}>
 					<div class="record-header-title">
-						<button
+						<span
 							class="btn-icon btn-toggle"
 							title={hiddenRecords[title] ? "Open Records" : "Close Records"}
-							onclick={() => toggleRecord(title)}
 						>
 							<Fa icon={hiddenRecords[title] ? faChevronRight : faChevronDown} size="lg" />
-						</button>
+						</span>
 						<h3 class="my-0 ml-n2">
 							<code>{fmtInterval(reduceTotalTime(records), true)}</code>
 							on
@@ -32,9 +31,9 @@
 						{records.length}
 						{records.length === 1 ? "record" : "records"}
 					</p>
-				</div>
+				</button>
 				{#if !hiddenRecords[title]}
-					<hr style="width: 100%" />
+					<hr class="mx-4 my-0" />
 					<ul class="record-container my-0">
 						{#each records as record (record.start)}
 							<li class="record my-1">
@@ -52,7 +51,7 @@
 			</div>
 		{/each}
 	{:else}
-		<div class="card">
+		<div class="card pa-4">
 			<h3 class="my-0 text-center">
 				<Fa icon={faExclamationCircle} class="mr-2" />
 				No records added yet
@@ -266,11 +265,12 @@ onMount(() => {
 <style lang="scss">
 @use "~/css/variables.scss" as *;
 
+$list-indent: 64px;
+
 .card {
 	display: flex;
 	flex-flow: column nowrap;
 	width: 100%;
-	padding: $padding-container;
 	border-radius: $border-radius;
 	background-color: $bg-light;
 	color: $content-light;
@@ -283,27 +283,49 @@ onMount(() => {
 }
 
 .record-header {
+	// entire header is clickable
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: $padding-container;
+	border-radius: $border-radius;
+
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row wrap;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+
+	transition: all 0.25s ease;
+
+	&:hover {
+		background-color: rgba($content-mid, 0.2);
+	}
+
+	&:active {
+		background-color: rgba($content-mid, 0.5);
+	}
 }
 
 .record-header-title {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	gap: 8px;
+	gap: $padding-container;
+}
+
+.record-header-subtitle {
+	margin-left: $list-indent;
 }
 
 .btn-toggle {
-	// 40px gap - 8px gap
-	width: 32px;
+	// subtract gap for real size
+	width: calc($list-indent - $padding-container);
 }
 
 .record-container {
-	flex-grow: 1;
+	padding: $padding-container $padding-container $padding-container
+		calc($padding-container + $list-indent);
 	display: flex;
 	flex-flow: column nowrap;
 	gap: 8px;
@@ -328,16 +350,5 @@ onMount(() => {
 
 .import-text {
 	font-family: monospace;
-}
-
-@media screen and (max-width: $breakpoint-xs) {
-	.record-header {
-		flex-flow: column nowrap;
-		align-items: start;
-	}
-	.record-header-subtitle {
-		// match <ul /> offset
-		margin-left: 40px;
-	}
 }
 </style>
