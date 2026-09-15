@@ -28,8 +28,13 @@
 	letter-spacing: 0.0892857143em;
 	text-transform: uppercase;
 	cursor: pointer;
+
 	&:hover {
 		background-color: $content-dark;
+	}
+	&:focus {
+		// nice outline
+		box-shadow: 0 0 2px 2px $accent-mid;
 	}
 	&:active {
 		background-color: $content-mid;
