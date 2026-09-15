@@ -2,15 +2,17 @@
 	<div class="all-center">
 		<h1>Timesheet Manager</h1>
 		<!-- text wrapping gets weird on mobile without line height -->
-		<h2 class="text-center" style="line-height: 1.5">Total time working: <code>{timer}</code></h2>
+		<h2 class="text-center" style="line-height: 1.5">
+			Total time working: <code>{fmtInterval(timer.live)}</code>
+		</h2>
 		<button class="widget btn btn-primary btn-lg my-3" onclick={toggleTime}>
 			{buttonTitle}
 		</button>
 	</div>
 
 	<h2>Session Information</h2>
-	{#if records.length}
-		{#each Object.entries(groupedRecords) as [title, records] (title)}
+	{#if timer.hasRecords}
+		{#each Object.entries(recordsByDay) as [title, records] (title)}
 			<div class="card mb-4">
 				<button class="record-header" onclick={() => toggleRecord(title)}>
 					<div class="record-header-title">
@@ -21,7 +23,7 @@
 							<Fa icon={hiddenRecords[title] ? faChevronRight : faChevronDown} size="lg" />
 						</span>
 						<h3 class="my-0 ml-n2">
-							<code>{fmtInterval(reduceTotalTime(records), true)}</code>
+							<code>{fmtInterval(sumDuration(records), true)}</code>
 							on
 							{title}
 						</h3>
@@ -58,15 +60,15 @@
 			</h3>
 		</div>
 	{/if}
-	<div class="button-row my-5">
-		<button class="widget btn" onclick={openImportDialog}>
+	<div class="grid-3 my-4">
+		<button class="widget btn block" onclick={openImportDialog}>
 			<Fa icon={faArrowUpFromBracket} /> Upload Session
 		</button>
-		<button class={["widget", "btn", { disabled: !records.length }]} onclick={exportSession}>
+		<button class={["widget", "btn", "block", { disabled: !timer.hasRecords }]} onclick={exportSession}>
 			<Fa icon={faSave} /> Save Session
 		</button>
 		<button
-			class={["widget", "btn", { disabled: !records.length }]}
+			class={["widget", "btn", "block", { disabled: !timer.hasRecords }]}
 			onclick={() => (confirmDialogOpen = true)}
 		>
 			<Fa icon={faRotateLeft} /> Reset Session
@@ -77,7 +79,7 @@
 <!-- add no matter what -->
 <Dialog
 	bind:open={nameDialogOpen}
-	title={`Name Record (${fmtInterval(lastStop - lastStart, true)})`}
+	title={`Name Record (${fmtInterval(timer.uncommittedDelta, true)})`}
 	oncancel={addRecord}
 	onconfirm={addRecord}
 >
@@ -100,11 +102,18 @@
 	/>
 </Dialog>
 
-<Dialog bind:open={confirmDialogOpen} title="Confirm Reset" destructive onconfirm={resetSession}>
+<Dialog
+	bind:open={confirmDialogOpen}
+	title="Confirm Reset"
+	destructive
+	onconfirm={() => timer.resetRecords()}
+>
 	<p class="my-0">Do you really want to reset your session?</p>
 </Dialog>
 
 <script lang="ts">
+import { onMount, tick } from "svelte";
+
 import Fa from "svelte-fa";
 import {
 	faArrowUpFromBracket,
@@ -114,24 +123,17 @@ import {
 	faRotateLeft,
 	faSave,
 } from "@fortawesome/free-solid-svg-icons";
-import { onMount, tick } from "svelte";
+
 import Dialog from "~/components/Dialog.svelte";
 import { showError, showSuccess } from "~/helpers/snackbar.svelte";
+import { makeTimer, sumDuration, type TimeRecord } from "~/helpers/timer.svelte";
+import { fmtDate, fmtInterval } from "~/helpers/dateTime";
 
-const UPDATE_INTERVAL_MS = 10;
-const N_DECIMALS = 3;
+const timer = makeTimer();
 
-interface TimeRecord {
-	start: number;
-	stop: number;
-	label?: string;
-}
+const hiddenRecords: Record<string, boolean> = $state({});
 
-let isRunning = $state(false);
-let lastStart = $state(0);
-let lastStop = $state(0);
-let timer = $state(fmtInterval(0));
-let records = $state<TimeRecord[]>([]);
+// basically all of this state is just for the modals lol
 let confirmDialogOpen = $state(false);
 
 let importDialogOpen = $state(false);
@@ -142,78 +144,27 @@ let nameDialogOpen = $state(false);
 let recordName = $state("");
 let nameField: HTMLInputElement;
 
-const hiddenRecords: Record<string, boolean> = $state({});
+const buttonTitle = $derived(timer.isRunning ? "Stop" : "Start");
 
-const groupedRecords = $derived(
+const recordsByDay = $derived(
 	// have to cast away Partial which is stupid
-	Object.groupBy(Array.from(records).reverse(), ({ start }) =>
+	Object.groupBy(Array.from(timer.records).reverse(), ({ start }) =>
 		new Date(start).toLocaleDateString(),
 	) as Record<string, TimeRecord[]>,
 );
 
-const buttonTitle = $derived(isRunning ? "Stop" : "Start");
-
 async function toggleTime() {
-	isRunning = !isRunning;
-	if (isRunning) {
-		lastStart = Date.now();
-		startTimer();
-	} else {
-		lastStop = Date.now();
-		nameDialogOpen = true;
-		await tick();
-		nameField.focus();
-	}
+	if (!timer.isRunning) return timer.start();
+	timer.stop();
+	nameDialogOpen = true;
+	await tick();
+	nameField.focus();
 }
 
 function addRecord() {
-	records.push({
-		start: lastStart,
-		stop: lastStop,
-		label: recordName,
-	});
-
-	// force set to accurate time based on record accumulation
-	timer = fmtInterval(accurateTimer);
-
+	timer.addRecord(recordName);
 	// reset
 	recordName = "";
-}
-
-const reduceTotalTime = (records: TimeRecord[]) =>
-	records.reduce((acc, cur) => acc + (cur.stop - cur.start), 0);
-
-const accurateTimer = $derived(reduceTotalTime(records));
-
-function startTimer() {
-	if (!isRunning) return;
-	const latest = Date.now() - lastStart;
-	timer = fmtInterval(latest + accurateTimer);
-
-	setTimeout(startTimer, UPDATE_INTERVAL_MS);
-}
-
-// why is this not a default feature
-function fmtInterval(ms: number, truncate = false) {
-	ms /= 1000;
-	const hours = Math.floor(ms / 3600);
-	const minutes = Math.floor((ms % 3600) / 60);
-	const seconds = (ms % 3600) % 60;
-
-	if (!truncate) {
-		const withMinutes = `${String(minutes).padStart(2, "0")}:${seconds.toFixed(N_DECIMALS).padStart(
-			// add one for decimal point itself
-			3 + N_DECIMALS,
-			"0",
-		)}`;
-		return hours ? `${String(hours).padStart(2, "0")}:${withMinutes}` : withMinutes;
-	}
-	if (!hours && !minutes) return `${seconds.toFixed(3)}s`;
-	if (!hours) return `${minutes}m${Math.round(seconds)}s`;
-	return `${hours}h${minutes}m${Math.round(seconds)}s`;
-}
-function fmtDate(ms: number) {
-	return new Date(ms).toLocaleTimeString();
 }
 
 function toggleRecord(title: string) {
@@ -228,12 +179,7 @@ async function openImportDialog() {
 
 function importSession() {
 	try {
-		const parsed = JSON.parse(importedSession);
-		if (!Array.isArray(parsed) || !parsed.every((p) => p && "start" in p && "stop" in p))
-			throw new Error("Invalid session format!");
-
-		records = parsed;
-		timer = fmtInterval(accurateTimer);
+		timer.importJSONRecords(importedSession);
 	} catch (err) {
 		showError("Failed to parse session", String(err));
 	} finally {
@@ -243,21 +189,16 @@ function importSession() {
 }
 
 function exportSession() {
-	navigator.clipboard.writeText(JSON.stringify(records));
+	navigator.clipboard.writeText(JSON.stringify(timer.records));
 	showSuccess(
 		"Copied session data to clipboard!",
 		'You can upload this data again later using the "Upload Session" button.',
 	);
 }
 
-function resetSession() {
-	records = [];
-	timer = fmtInterval(accurateTimer);
-}
-
 onMount(() => {
 	window.addEventListener("beforeunload", (ev) => {
-		if (isRunning) ev.preventDefault();
+		if (timer.isRunning) ev.preventDefault();
 	});
 });
 </script>
@@ -265,7 +206,7 @@ onMount(() => {
 <style lang="scss">
 @use "~/css/variables.scss" as *;
 
-$list-indent: 64px;
+$list-indent: 48px;
 
 .card {
 	display: flex;
