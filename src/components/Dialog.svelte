@@ -87,7 +87,12 @@ function handleClick(confirm: boolean) {
 }
 
 function handleKey(ev: KeyboardEvent) {
-	if (ev.key === "Enter") handleClick(true);
+	switch (ev.key) {
+		case "Escape":
+			return handleClick(false);
+		case "Enter":
+			return handleClick(true);
+	}
 }
 </script>
 

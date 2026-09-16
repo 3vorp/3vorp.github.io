@@ -34,7 +34,7 @@
 	}
 	&:focus {
 		// nice outline
-		box-shadow: 0 0 2px 2px $accent-mid;
+		box-shadow: 0 0 2px 4px rgba($accent-mid, 0.5);
 	}
 	&:active {
 		background-color: $content-mid;
