@@ -61,12 +61,12 @@
 	}
 }
 
-.disabled {
+:disabled {
 	pointer-events: none;
 	transition: all 0.25s ease;
 }
 
-.btn.disabled {
+.btn:disabled {
 	filter: brightness(0.8) saturate(0.5);
 }
 

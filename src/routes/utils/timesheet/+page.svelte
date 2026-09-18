@@ -64,11 +64,12 @@
 		<button class="widget btn block" onclick={openImportDialog}>
 			<Fa icon={faArrowUpFromBracket} /> Upload Session
 		</button>
-		<button class={["widget", "btn", "block", { disabled: !timer.hasRecords }]} onclick={exportSession}>
+		<button class="widget btn block" disabled={!timer.hasRecords} onclick={exportSession}>
 			<Fa icon={faSave} /> Save Session
 		</button>
 		<button
-			class={["widget", "btn", "block", { disabled: !timer.hasRecords }]}
+			class="widget btn block"
+			disabled={!timer.hasRecords}
 			onclick={() => (confirmDialogOpen = true)}
 		>
 			<Fa icon={faRotateLeft} /> Reset Session

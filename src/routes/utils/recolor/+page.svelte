@@ -70,23 +70,18 @@
 	</div>
 	<div class="flex-row my-3">
 		<button
-			class={["widget", "btn", { disabled: !image && !reference && !templates.length }]}
+			class="widget btn"
+			disabled={!image && !reference && !templates.length}
 			onclick={clearImages}
 		>
 			<Fa icon={faTrash} /> Clear All Inputs
 		</button>
-		<button
-			class={["widget", "btn", { disabled: !templates.length }]}
-			onclick={() => templates.pop()}
-		>
+		<button class="widget btn" disabled={!templates.length} onclick={() => templates.pop()}>
 			<Fa icon={faDeleteLeft} /> Remove Last Added Template
 		</button>
 	</div>
 	<div class="my-3">
-		<button
-			class={["widget", "btn", "btn-primary", "block", { disabled: !isValid }]}
-			onclick={generate}
-		>
+		<button class="widget btn btn-primary block" disabled={!isValid} onclick={generate}>
 			<Fa icon={loading ? faSpinner : faArrowUpFromBracket} /> Recolor Images
 		</button>
 	</div>
