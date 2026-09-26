@@ -1,0 +1,4 @@
+allowBuilds:
+  "@parcel/watcher": true
+  svelte-preprocess: true
+minimumReleaseAge: 0
