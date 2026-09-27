@@ -4,7 +4,7 @@
 		{#if !guesses.length}
 			{ALLOWED_GUESSES} chances to guess a 5-letter word.
 		{:else if hasWon}
-			You won in {guesses.length} guesses!
+			You won in {guesses.length} {guesses.length === 1 ? "guess" : "guesses"}!
 		{:else if hasLost}
 			The word was {target.toUpperCase()}.
 		{:else}
