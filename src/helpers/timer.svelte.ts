@@ -51,6 +51,7 @@ export function makeTimer() {
 		 * - Not attached to stop() so that hooks can run in between (name modal)
 		 */
 		addRecord(label?: string) {
+			if (isRunning) this.stop();
 			records.push({
 				start: lastStart,
 				stop: lastStop,

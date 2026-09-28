@@ -62,7 +62,7 @@ footer {
 @media screen and (max-width: $breakpoint-md) {
 	.footer-bar {
 		display: grid;
-		// two columns
+		// three columns
 		grid-template-columns: repeat(3, 1fr);
 		text-align: center;
 		height: auto;
@@ -78,7 +78,7 @@ footer {
 
 @media screen and (max-width: $breakpoint-sm) {
 	.footer-bar {
-		// three columns
+		// two columns
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
