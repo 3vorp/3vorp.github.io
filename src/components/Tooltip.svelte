@@ -10,7 +10,7 @@ const { tooltip, children }: { tooltip: Snippet; children: Snippet } = $props();
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .tooltip-container {
 	position: relative;

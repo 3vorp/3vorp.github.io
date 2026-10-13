@@ -44,7 +44,7 @@ const isMobile = $derived(innerWidth <= 760);
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 // entire header must be sticky (otherwise the text moves without the background)
 header {

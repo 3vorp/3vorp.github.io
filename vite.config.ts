@@ -8,7 +8,6 @@ export default defineConfig({
 		sveltekit({
 			preprocess: vitePreprocess({ script: true }),
 			adapter: staticAdapter(),
-			alias: { "~": "./src" },
 		}),
 	],
 });

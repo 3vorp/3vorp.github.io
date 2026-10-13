@@ -52,11 +52,11 @@
 </div>
 
 <script lang="ts">
-import "~/css/main.scss";
+import "#css/main.scss";
 
-import Navbar from "~/components/meta/Navbar.svelte";
-import Footer from "~/components/meta/Footer.svelte";
-import type { NavigationItem } from "~/components/meta/types";
+import Navbar from "#components/meta/Navbar.svelte";
+import Footer from "#components/meta/Footer.svelte";
+import type { NavigationItem } from "#components/meta/types";
 import {
 	faGithub,
 	faReddit,
@@ -66,8 +66,8 @@ import {
 	faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faChartColumn, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
-import Snackbar from "~/components/Snackbar.svelte";
-import { popSnackbar, snackbars } from "~/helpers/snackbar.svelte";
+import Snackbar from "#components/Snackbar.svelte";
+import { popSnackbar, snackbars } from "#helpers/snackbar.svelte";
 
 const navItems: NavigationItem[] = [
 	{ title: "Home", href: "/", icon: faHome },
@@ -92,7 +92,7 @@ const banner =
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 // make sure the entire screen is 100% height
 .site-container {

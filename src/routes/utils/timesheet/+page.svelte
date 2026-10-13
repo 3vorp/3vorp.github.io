@@ -125,10 +125,10 @@ import {
 	faSave,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Dialog from "~/components/Dialog.svelte";
-import { showError, showSuccess } from "~/helpers/snackbar.svelte";
-import { makeTimer, sumDuration, type TimeRecord } from "~/helpers/timer.svelte";
-import { fmtDate, fmtInterval } from "~/helpers/dateTime";
+import Dialog from "#components/Dialog.svelte";
+import { showError, showSuccess } from "#helpers/snackbar.svelte";
+import { makeTimer, sumDuration, type TimeRecord } from "#helpers/timer.svelte";
+import { fmtDate, fmtInterval } from "#helpers/dateTime";
 
 const timer = makeTimer();
 
@@ -205,7 +205,7 @@ onMount(() => {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 $list-indent: 48px;
 

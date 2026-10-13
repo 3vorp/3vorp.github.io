@@ -38,7 +38,7 @@
 </p>
 
 <script lang="ts">
-import projects from "~/data/projects.json";
+import projects from "#data/projects.json";
 import SkillChips from "./SkillChips.svelte";
 
 let innerWidth = $state(0);
@@ -46,7 +46,7 @@ const isMobile = $derived(innerWidth <= 760);
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .main-banner {
 	display: flex;

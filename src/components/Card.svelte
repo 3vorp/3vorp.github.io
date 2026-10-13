@@ -33,7 +33,7 @@ const {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .card {
 	max-width: 100%;

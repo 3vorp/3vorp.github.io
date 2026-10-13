@@ -23,7 +23,7 @@ const icon = $derived(type === "info" ? faCircleInfo : faCircleExclamation);
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .alert {
 	display: flex;

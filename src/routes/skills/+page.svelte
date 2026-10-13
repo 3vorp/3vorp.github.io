@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { onMount } from "svelte";
-import projectSkills from "~/helpers/projectSkills";
+import projectSkills from "#helpers/projectSkills";
 import SkillList from "./SkillList.svelte";
 import ProjectPreview from "./ProjectPreview.svelte";
 
@@ -54,7 +54,7 @@ onMount(() => {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .skill-container {
 	display: flex;

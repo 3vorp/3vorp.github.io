@@ -111,9 +111,9 @@ import {
 	faSpinner,
 	faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-import DropZone from "~/components/DropZone.svelte";
-import batchRecolor from "~/helpers/batchRecolor";
-import { showError } from "~/helpers/snackbar.svelte";
+import DropZone from "#components/DropZone.svelte";
+import batchRecolor from "#helpers/batchRecolor";
+import { showError } from "#helpers/snackbar.svelte";
 
 // svelte doesn't work with enums (why does anyone like this framework)
 type FileType = "image" | "reference" | "template";
@@ -191,7 +191,7 @@ function clearImages() {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .flex-row {
 	width: 100%;

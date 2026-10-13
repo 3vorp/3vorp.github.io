@@ -39,7 +39,7 @@
 <script lang="ts">
 import Fa from "svelte-fa";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-import Card from "~/components/Card.svelte";
-import Alert from "~/components/Alert.svelte";
-import commissions from "~/data/commissions.json";
+import Card from "#components/Card.svelte";
+import Alert from "#components/Alert.svelte";
+import commissions from "#data/commissions.json";
 </script>

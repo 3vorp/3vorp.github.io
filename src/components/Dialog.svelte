@@ -97,7 +97,7 @@ function handleKey(ev: KeyboardEvent) {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .overlay {
 	visibility: hidden;

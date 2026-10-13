@@ -42,15 +42,15 @@
 
 <script lang="ts">
 import { onMount } from "svelte";
-import { ALLOWED_CHARS, generateEmojiBoard, getWordState, loadWords } from "~/helpers/wordle";
+import { ALLOWED_CHARS, generateEmojiBoard, getWordState, loadWords } from "#helpers/wordle";
 
 import Word from "./Word.svelte";
 import Keyboard from "./Keyboard.svelte";
 import Fa from "svelte-fa";
 import { faShareNodes, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
-import { choice } from "~/helpers/random";
-import { showSuccess } from "~/helpers/snackbar.svelte";
+import { choice } from "#helpers/random";
+import { showSuccess } from "#helpers/snackbar.svelte";
 
 const ALLOWED_GUESSES = 6;
 

@@ -17,7 +17,7 @@
 <script lang="ts">
 import Fa from "svelte-fa";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import type { SkillRecord } from "~/helpers/projectSkills";
+import type { SkillRecord } from "#helpers/projectSkills";
 import SkillButton from "./SkillButton.svelte";
 
 const {
@@ -38,7 +38,7 @@ function collapseGroup(group: string) {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .skill-list {
 	display: flex;

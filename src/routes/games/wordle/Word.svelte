@@ -8,13 +8,13 @@
 </div>
 
 <script lang="ts">
-import type { LetterState } from "~/helpers/wordle";
+import type { LetterState } from "#helpers/wordle";
 
 const { word = [], isShaking = false }: { word?: LetterState[]; isShaking?: boolean } = $props();
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .word {
 	display: flex;

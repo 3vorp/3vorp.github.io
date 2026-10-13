@@ -17,7 +17,7 @@ import { faCircleCheck, faCircleXmark } from "@fortawesome/free-regular-svg-icon
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { onMount } from "svelte";
 import Fa from "svelte-fa";
-import type { Snackbar } from "~/helpers/snackbar.svelte";
+import type { Snackbar } from "#helpers/snackbar.svelte";
 
 const {
 	title,
@@ -36,7 +36,7 @@ onMount(() => {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .snackbar {
 	// fixes snackbar-container issue

@@ -24,7 +24,7 @@
 </div>
 
 <script lang="ts">
-import Tooltip from "~/components/Tooltip.svelte";
+import Tooltip from "#components/Tooltip.svelte";
 
 import Fa from "svelte-fa";
 import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
@@ -33,7 +33,7 @@ const { langs = [], frameworks = [] }: { langs?: string[]; frameworks?: string[]
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .skill-container {
 	display: flex;

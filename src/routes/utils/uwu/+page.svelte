@@ -23,7 +23,7 @@
 import Fa from "svelte-fa";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import uwuify from "./uwuify";
-import { showSuccess } from "~/helpers/snackbar.svelte";
+import { showSuccess } from "#helpers/snackbar.svelte";
 
 let input = $state("");
 const output = $derived(uwuify(input));
@@ -35,7 +35,7 @@ function copyText() {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .card {
 	background-color: $bg-light;

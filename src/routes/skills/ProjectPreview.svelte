@@ -12,14 +12,14 @@
 </div>
 
 <script lang="ts">
-import type { Project } from "~/helpers/projectSkills";
+import type { Project } from "#helpers/projectSkills";
 
 // spread entire project object
 const { title, description, image, href, langs = [], frameworks = [] }: Project = $props();
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .project-preview {
 	display: flex;

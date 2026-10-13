@@ -6,7 +6,7 @@
 </button>
 
 <script lang="ts">
-import type { SkillRecord } from "~/helpers/projectSkills";
+import type { SkillRecord } from "#helpers/projectSkills";
 
 const {
 	skill,
@@ -20,7 +20,7 @@ const {
 </script>
 
 <style lang="scss">
-@use "~/css/variables.scss" as *;
+@use "#css/variables.scss" as *;
 
 .skill-selector {
 	cursor: pointer;
