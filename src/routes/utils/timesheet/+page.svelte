@@ -11,6 +11,22 @@
 	</div>
 
 	<h2>Session Information</h2>
+
+	<div class="grid-3 my-4">
+		<button class="widget btn block" onclick={openImportDialog}>
+			<Fa icon={faArrowUpFromBracket} /> Upload Session
+		</button>
+		<button class="widget btn block" disabled={!timer.hasRecords} onclick={exportSession}>
+			<Fa icon={faSave} /> Save Session
+		</button>
+		<button
+			class="widget btn block"
+			disabled={!timer.hasRecords}
+			onclick={() => (confirmDialogOpen = true)}
+		>
+			<Fa icon={faRotateLeft} /> Reset Session
+		</button>
+	</div>
 	{#if timer.hasRecords}
 		{#each Object.entries(recordsByDay) as [title, records] (title)}
 			<div class="card mb-4">
@@ -60,21 +76,6 @@
 			</h3>
 		</div>
 	{/if}
-	<div class="grid-3 my-4">
-		<button class="widget btn block" onclick={openImportDialog}>
-			<Fa icon={faArrowUpFromBracket} /> Upload Session
-		</button>
-		<button class="widget btn block" disabled={!timer.hasRecords} onclick={exportSession}>
-			<Fa icon={faSave} /> Save Session
-		</button>
-		<button
-			class="widget btn block"
-			disabled={!timer.hasRecords}
-			onclick={() => (confirmDialogOpen = true)}
-		>
-			<Fa icon={faRotateLeft} /> Reset Session
-		</button>
-	</div>
 </div>
 
 <!-- add no matter what -->
