@@ -17,7 +17,7 @@
 <script lang="ts">
 import Fa from "svelte-fa";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import type { SkillRecord } from "#helpers/projectSkills";
+import type { SkillRecord } from "#helpers/projectSkills.ts";
 import SkillButton from "./SkillButton.svelte";
 
 const {

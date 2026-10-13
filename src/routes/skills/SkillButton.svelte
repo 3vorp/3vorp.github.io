@@ -6,7 +6,7 @@
 </button>
 
 <script lang="ts">
-import type { SkillRecord } from "#helpers/projectSkills";
+import type { SkillRecord } from "#helpers/projectSkills.ts";
 
 const {
 	skill,

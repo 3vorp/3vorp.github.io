@@ -127,9 +127,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import Dialog from "#components/Dialog.svelte";
-import { showError, showSuccess } from "#helpers/snackbar.svelte";
-import { makeTimer, sumDuration, type TimeRecord } from "#helpers/timer.svelte";
-import { fmtDate, fmtInterval } from "#helpers/dateTime";
+import { showError, showSuccess } from "#helpers/snackbar.svelte.ts";
+import { makeTimer, sumDuration, type TimeRecord } from "#helpers/timer.svelte.ts";
+import { fmtDate, fmtInterval } from "#helpers/dateTime.ts";
 
 const timer = makeTimer();
 

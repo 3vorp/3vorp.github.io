@@ -24,7 +24,7 @@
 <script lang="ts">
 import { faCheck, faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import Fa from "svelte-fa";
-import { ALLOWED_CHARS, getKeyColor, type LetterState } from "#helpers/wordle";
+import { ALLOWED_CHARS, getKeyColor, type LetterState } from "#helpers/wordle.ts";
 
 const { guesses, onkey }: { guesses: LetterState[]; onkey: (ev: string) => void } = $props();
 

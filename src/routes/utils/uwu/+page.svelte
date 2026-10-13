@@ -23,7 +23,7 @@
 import Fa from "svelte-fa";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import uwuify from "./uwuify";
-import { showSuccess } from "#helpers/snackbar.svelte";
+import { showSuccess } from "#helpers/snackbar.svelte.ts";
 
 let input = $state("");
 const output = $derived(uwuify(input));

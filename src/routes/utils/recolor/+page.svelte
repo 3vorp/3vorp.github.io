@@ -112,8 +112,8 @@ import {
 	faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import DropZone from "#components/DropZone.svelte";
-import batchRecolor from "#helpers/batchRecolor";
-import { showError } from "#helpers/snackbar.svelte";
+import batchRecolor from "#helpers/batchRecolor.ts";
+import { showError } from "#helpers/snackbar.svelte.ts";
 
 // svelte doesn't work with enums (why does anyone like this framework)
 type FileType = "image" | "reference" | "template";

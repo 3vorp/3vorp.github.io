@@ -8,7 +8,7 @@
 </div>
 
 <script lang="ts">
-import type { LetterState } from "#helpers/wordle";
+import type { LetterState } from "#helpers/wordle.ts";
 
 const { word = [], isShaking = false }: { word?: LetterState[]; isShaking?: boolean } = $props();
 </script>

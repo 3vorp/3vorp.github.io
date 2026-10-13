@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { onMount } from "svelte";
-import projectSkills from "#helpers/projectSkills";
+import projectSkills from "#helpers/projectSkills.ts";
 import SkillList from "./SkillList.svelte";
 import ProjectPreview from "./ProjectPreview.svelte";
 

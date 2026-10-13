@@ -12,7 +12,7 @@
 </div>
 
 <script lang="ts">
-import type { Project } from "#helpers/projectSkills";
+import type { Project } from "#helpers/projectSkills.ts";
 
 // spread entire project object
 const { title, description, image, href, langs = [], frameworks = [] }: Project = $props();
