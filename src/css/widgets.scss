@@ -128,6 +128,13 @@
 	}
 }
 
+.btn-image {
+	position: absolute;
+	top: $padding-container;
+	right: $padding-container;
+	background: rgba($fg-dark, 0.5);
+}
+
 .text-field {
 	background-color: $fg-light;
 	padding: $padding-container;

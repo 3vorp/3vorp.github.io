@@ -62,15 +62,17 @@
 			"description": "Quick drawing for a friend, based on their real-life cat. Intended for use as a profile picture at small scales.",
 			"title": "Cat Profile",
 			"date": "2026-09-11",
-			"tools": "Aseprite"
+			"tools": "Aseprite",
+			"pad": true
 		},
 		{
 			"src": "profiles/computer.png",
 			"alt": "computer",
-			"title": "Computer Profile",
+			"title": "TV Profile",
 			"description": "Profile picture for a user with a computer-themed online avatar. Designed several prototypes over the course of a few months, with each iteration focusing on eliminating unnecessary detail and ensuring maximum legibility at small scales despite the relatively low contrast of the reference design.",
 			"date": "2026-02-17",
-			"tools": "Aseprite"
+			"tools": "Aseprite",
+			"pad": true
 		},
 		{
 			"src": "profiles/ozy.png",
@@ -78,7 +80,8 @@
 			"title": "Lettered Profile",
 			"description": "Monogram modelled around high fashion logos and overlapping type. I intended it for use as a profile picture, but it can also function as a wordmark or banner by modifying the proportions.",
 			"date": "2025-02-10",
-			"tools": "Aseprite"
+			"tools": "Aseprite",
+			"pad": true
 		},
 		{
 			"src": "profiles/skull.gif",

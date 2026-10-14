@@ -4,31 +4,26 @@
 	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<div
 		class={["dialog", { open }]}
-		style={`max-width: ${maxWidth}px`}
+		style={`max-width: ${maxWidth}`}
 		onclick={(e) => e.stopPropagation()}
 		onkeydown={handleKey}
 		tabindex="0"
 		bind:this={ref}
 	>
+		<button class="btn-icon close-icon" title="Close Dialog" onclick={() => handleClick(false)}>
+			<Fa icon={faClose} size="lg" />
+		</button>
 		<div class="header">
-			<div>
-				{#if title}
-					<h2 class="h3 my-0">{title}</h2>
-				{/if}
-				{#if subtitle}
-					<small>{subtitle}</small>
-				{/if}
-			</div>
-			<div class="spacer"></div>
-			<button class="btn-icon" title="Close Dialog" onclick={() => handleClick(false)}>
-				<Fa icon={faClose} size="lg" />
-			</button>
+			{#if title}
+				<h2 class="h3 my-0">{title}</h2>
+			{/if}
+			{#if subtitle}
+				<small>{subtitle}</small>
+			{/if}
 		</div>
-		{#if children}
-			<div class="content">
-				{@render children()}
-			</div>
-		{/if}
+		<div class="content">
+			{@render children?.()}
+		</div>
 		{#if !hideActions}
 			<div class="footer">
 				{#each displayedActions as action (action.text)}
@@ -71,7 +66,7 @@ let {
 	destructive = false,
 	oncancel = () => {},
 	onconfirm = () => {},
-	maxWidth = 600,
+	maxWidth = "600px",
 	children,
 }: {
 	open: boolean;
@@ -81,7 +76,7 @@ let {
 	persistent?: boolean;
 	hideActions?: boolean;
 	destructive?: boolean;
-	maxWidth?: number;
+	maxWidth?: string;
 	oncancel?: () => void;
 	onconfirm?: () => void;
 	children?: Snippet;
@@ -128,17 +123,22 @@ $effect(() => {
 	filter: drop-shadow($drop-shadow);
 	display: flex;
 	flex-flow: column nowrap;
+	position: relative;
 }
 
 .dialog.open {
 	animation: open 0.25s;
 }
 
+.close-icon {
+	position: absolute;
+	top: $padding-container;
+	right: $padding-container;
+}
+
 .header {
 	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
-	// don't justify space-between to prevent titleless modals breaking
+	flex-flow: column nowrap;
 }
 
 .content {

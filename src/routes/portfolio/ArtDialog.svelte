@@ -1,15 +1,23 @@
-<Dialog bind:open maxWidth={1140} title={item.title} subtitle={category} hideActions>
-	<div class="split-panel mb-n4" bind:this={ref}>
+<Dialog bind:open maxWidth="80vw" hideActions>
+	<!-- compensate for card padding by negating top/bottom padding -->
+	<div class="split-panel my-n4" bind:this={ref}>
 		<div class="image-display">
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-			<img src={`/portfolio/${item.src}`} alt={item.alt} class="image" onclick={onfullscreen} />
-			<button class="widget btn btn-icon fullscreen-icon" onclick={onfullscreen}>
+			<img
+				src={`/portfolio/${item.src}`}
+				alt={item.alt}
+				class={["image", { "pa-4": item.pad }]}
+				onclick={onfullscreen}
+			/>
+			<button class="widget btn btn-icon btn-image" onclick={onfullscreen}>
 				<Fa icon={faExpand} />
 			</button>
 		</div>
 		<div class="text-display">
-			<p class="my-0" style="white-space: pre-line">{item.description}</p>
+			<h3 class="my-0">{item.title}</h3>
+			<small>{category}</small>
+			<p class="mb-0" style="white-space: pre-line">{item.description}</p>
 			<ul class="icon-list">
 				<li>
 					<Fa icon={faCalendar} class="mr-2" />
@@ -86,7 +94,7 @@ $effect(() => {
 
 .split-panel {
 	display: grid;
-	gap: 1rem;
+	gap: $padding-container;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -96,13 +104,13 @@ $effect(() => {
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
+	background-color: $fg-light;
 	border-radius: $border-radius;
 	position: relative;
-	background-color: $fg-light;
 }
 
 .image {
-	max-height: 60vh;
+	max-height: 70vh;
 	filter: drop-shadow($drop-shadow);
 	border-radius: $border-radius;
 	cursor: pointer;
@@ -122,13 +130,6 @@ $effect(() => {
 	display: flex;
 	flex-flow: row nowrap;
 	gap: 1rem;
-}
-
-.fullscreen-icon {
-	position: absolute;
-	top: $padding-container;
-	right: $padding-container;
-	background: rgba($fg-dark, 0.5);
 }
 
 @media screen and (max-width: $breakpoint-md) {

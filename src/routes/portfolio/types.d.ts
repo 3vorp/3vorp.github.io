@@ -7,4 +7,5 @@ export interface PortfolioItem {
 	date: string;
 	tools: string;
 	show_download?: boolean;
+	pad?: boolean;
 }

@@ -1,10 +1,14 @@
-<!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-<div role="article" tabindex="0" class={["card", onclick && "clickable-card"]} {onclick}>
+<article
+	tabindex="0"
+	class={["card", onclick && "clickable-card"]}
+	{onclick}
+	onkeydown={({ key }) => ["Enter", " "].includes(key) && onclick?.()}
+>
 	{#if image}
 		<div class="card-img-container">
-			<img src={image} {alt} class="card-img" />
+			<img src={image} {alt} class={["card-img", { "pa-4": padImage }]} />
 		</div>
 	{/if}
 	<div class="card-body">
@@ -18,7 +22,7 @@
 			</p>
 		{/if}
 	</div>
-</div>
+</article>
 
 <script lang="ts">
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
@@ -29,12 +33,14 @@ const {
 	alt,
 	title,
 	date,
+	padImage = false,
 	onclick,
 }: {
 	image: string;
 	alt?: string;
 	title?: string;
 	date?: Date;
+	padImage?: boolean;
 	onclick?: () => void;
 } = $props();
 </script>

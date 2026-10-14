@@ -13,6 +13,7 @@
 					alt={item.alt}
 					title={item.title}
 					date={new Date(item.date)}
+					padImage={"pad" in item ? item.pad : false}
 					onclick={() => openModal(category, item as any)}
 				/>
 			{/each}
@@ -35,16 +36,18 @@
 />
 
 <Overlay open={fullscreenOpen} onclickoff={() => closeFullscreen(undefined)}>
-	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-	<img
+	<div
+		role="dialog"
+		class={["preview-container", { open: fullscreenOpen }]}
 		tabindex="0"
-		src={`/portfolio/${fullscreenImage}`}
-		alt="Fullscreen preview"
-		class={["fullscreen-preview", { open: fullscreenOpen }]}
-		onkeydown={({ key }) => closeFullscreen(key)}
 		bind:this={fullscreenRef}
-	/>
+		onkeydown={({ key }) => closeFullscreen(key)}
+	>
+		<img src={`/portfolio/${fullscreenImage}`} alt="Fullscreen preview" class="preview" />
+		<button class="widget btn btn-icon btn-image" onclick={() => closeFullscreen(undefined)}>
+			<Fa icon={faClose} />
+		</button>
+	</div>
 </Overlay>
 
 <script lang="ts">
@@ -54,6 +57,8 @@ import portfolio from "#data/portfolio.json";
 import type { PortfolioItem } from "./types.d.ts";
 import Overlay from "#components/Overlay.svelte";
 import { tick } from "svelte";
+import Fa from "svelte-fa";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 let modalOpen = $state(false);
 let modalCategory = $state("");
@@ -68,7 +73,7 @@ function openModal(category: string, item: PortfolioItem) {
 
 let fullscreenOpen = $state(false);
 let fullscreenImage = $state("");
-let fullscreenRef: HTMLImageElement | undefined = $state();
+let fullscreenRef: HTMLDivElement | undefined = $state();
 
 async function openFullscreen(image: string) {
 	fullscreenOpen = true;
@@ -84,15 +89,19 @@ function closeFullscreen(key: string | undefined) {
 </script>
 
 <style lang="scss">
-.fullscreen-preview {
+.preview-container {
+	position: relative;
+}
+
+.preview-container.open {
+	animation: open 0.25s;
+}
+
+.preview {
 	max-width: 90vw;
 	max-height: 90vh;
 	width: auto;
 	height: auto;
 	object-fit: contain;
-}
-
-.fullscreen-preview.open {
-	animation: open 0.25s;
 }
 </style>
