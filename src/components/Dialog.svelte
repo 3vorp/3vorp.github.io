@@ -1,8 +1,9 @@
-<!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class={["overlay", { open }]} onclick={() => handleClick(false)}>
+<!-- dialogs are non-persistent by default (modal) -->
+<Overlay {open} onclickoff={() => persistent && handleClick(false)}>
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
-		class="dialog"
+		class={["dialog", { open }]}
 		style={`max-width: ${maxWidth}px`}
 		onclick={(e) => e.stopPropagation()}
 		onkeydown={handleKey}
@@ -39,12 +40,13 @@
 			</div>
 		{/if}
 	</div>
-</div>
+</Overlay>
 
 <script lang="ts">
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import type { Snippet } from "svelte";
 import Fa from "svelte-fa";
+import Overlay from "./Overlay.svelte";
 
 interface Action {
 	text: string;
@@ -56,6 +58,7 @@ let {
 	open = $bindable(),
 	title,
 	actions,
+	persistent = true,
 	hideActions = false,
 	destructive = false,
 	oncancel = () => {},
@@ -66,6 +69,7 @@ let {
 	open: boolean;
 	title?: string;
 	actions?: Action[];
+	persistent?: boolean;
 	hideActions?: boolean;
 	destructive?: boolean;
 	maxWidth?: number;
@@ -99,28 +103,6 @@ function handleKey(ev: KeyboardEvent) {
 <style lang="scss">
 @use "#css/variables.scss" as *;
 
-.overlay {
-	visibility: hidden;
-	opacity: 0;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	height: 100%;
-	width: 100%;
-	background: rgba($fg-dark, 0.8);
-	z-index: 998;
-	transition: opacity 0.25s ease;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.overlay.open {
-	visibility: visible;
-	opacity: 1;
-}
-
 .dialog {
 	width: 100%;
 	max-height: 80vh;
@@ -134,7 +116,7 @@ function handleKey(ev: KeyboardEvent) {
 	flex-flow: column nowrap;
 }
 
-.open .dialog {
+.dialog.open {
 	animation: open 0.25s;
 }
 
