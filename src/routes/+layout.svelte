@@ -56,7 +56,7 @@ import "#css/main.scss";
 
 import Navbar from "#components/meta/Navbar.svelte";
 import Footer from "#components/meta/Footer.svelte";
-import type { NavigationItem } from "#components/meta/types";
+import type { NavigationItem } from "#components/meta/types.d.ts";
 import {
 	faGithub,
 	faReddit,
@@ -65,14 +65,14 @@ import {
 	faTwitter,
 	faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import { faChartColumn, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
 import Snackbar from "#components/Snackbar.svelte";
-import { popSnackbar, snackbars } from "#helpers/snackbar.svelte";
+import { popSnackbar, snackbars } from "#helpers/snackbar.svelte.ts";
 
 const navItems: NavigationItem[] = [
 	{ title: "Home", href: "/", icon: faHome },
-	{ title: "Commissions", href: "/commissions", icon: faPalette },
-	{ title: "Skills", href: "/skills", icon: faChartColumn },
+	{ title: "Portfolio", href: "/portfolio", icon: faPalette },
+	{ title: "Code", href: "/skills", icon: faCode },
 ];
 
 const footerItems: NavigationItem[] = [

@@ -2,31 +2,25 @@
 	{
 		"src": "cat.gif",
 		"alt": "cat",
-		"title": "Texture Collection",
+		"title": "Cat Render",
 		"date": "2023-12-13"
-	},
-	{
-		"src": "skull.gif",
-		"alt": "skull",
-		"title": "Profile Picture",
-		"date": "2023-10-30"
 	},
 	{
 		"src": "zombie.png",
 		"alt": "zombie",
-		"title": "Video Game Texture",
+		"title": "Zombie Texture",
 		"date": "2022-11-15"
 	},
 	{
 		"src": "computer.png",
 		"alt": "computer",
-		"title": "Video Game Avatar",
+		"title": "Computer Avatar",
 		"date": "2022-04-10"
 	},
 	{
 		"src": "dragon.png",
 		"alt": "dragon",
-		"title": "Video Game Avatar",
+		"title": "Dragon Avatar",
 		"date": "2022-04-10"
 	}
 ]
