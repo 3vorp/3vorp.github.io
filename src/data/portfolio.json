@@ -1,0 +1,94 @@
+{
+	"Wallpapers": [
+		{
+			"src": "wallpapers/my_name_is_fred.png",
+			"alt": "fred",
+			"title": "My Name is Fred (Collage)",
+			"date": "2026-03-24"
+		},
+		{
+			"src": "wallpapers/quantize.png",
+			"alt": "quantize",
+			"title": "Quantize",
+			"date": "2024-01-22"
+		}
+	],
+	"Brand Design": [
+		{
+			"src": "branding/spatial.png",
+			"alt": "Spatial",
+			"title": "Spatial",
+			"date": "2026-05-09"
+		},
+		{
+			"src": "branding/evorp.png",
+			"alt": "Evorp",
+			"title": "Personal Brand",
+			"date": "2025-04-17"
+		},
+		{
+			"src": "branding/faithful.png",
+			"alt": "Faithful",
+			"title": "Faithful Resource Pack",
+			"date": "2025-01-01"
+		}
+	],
+	"Profile Pictures": [
+		{
+			"src": "profiles/cat.png",
+			"alt": "cat",
+			"title": "Cat Profile",
+			"date": "2026-09-11"
+		},
+		{
+			"src": "profiles/computer.png",
+			"alt": "computer",
+			"title": "Computer Profile",
+			"date": "2026-02-17"
+		},
+		{
+			"src": "profiles/ozy.png",
+			"alt": "ozy",
+			"title": "Lettered Profile",
+			"date": "2025-02-10"
+		},
+		{
+			"src": "profiles/skull.gif",
+			"alt": "skull",
+			"title": "Skull Profile",
+			"date": "2023-10-30"
+		}
+	],
+	"Rendered Models": [
+		{
+			"src": "renders/cat.gif",
+			"alt": "cat",
+			"title": "Cat Render",
+			"date": "2023-12-13"
+		},
+		{
+			"src": "renders/zombie.png",
+			"alt": "zombie",
+			"title": "Zombie Texture",
+			"date": "2022-11-15"
+		},
+		{
+			"src": "renders/computer.png",
+			"alt": "computer",
+			"title": "Computer Avatar",
+			"date": "2022-04-10"
+		},
+		{
+			"src": "renders/dragon.png",
+			"alt": "dragon",
+			"title": "Dragon Avatar",
+			"date": "2022-04-10"
+		},
+		{
+			"src": "renders/enderman.png",
+			"alt": "enderman",
+			"title": "Character Avatar",
+			"date": "2022-04-05"
+		}
+	]
+}
