@@ -4,13 +4,19 @@
 			"src": "wallpapers/my_name_is_fred.png",
 			"alt": "fred",
 			"title": "My Name is Fred (Collage)",
-			"date": "2026-03-24"
+			"description": "A slightly absurdist collage of several discrete images photobashed and composited together. Centered around the mid-late 90s, I incorporated popular 90s anime iconography, classic operating system GUI design, and real futurism art from the time period, and employed posterization and noise filters to emulate limited-color screen dithering.",
+			"date": "2026-03-24",
+			"tools": "Adobe Photoshop",
+			"show_download": true
 		},
 		{
 			"src": "wallpapers/quantize.png",
 			"alt": "quantize",
 			"title": "Quantize",
-			"date": "2024-01-22"
+			"description": "A vaporwave aesthetic-inspired scene, which I constructed entirely from scratch purely using Photoshop. No external resources were used in the making of the project, and all three-dimensional work was done using perspective warping tools by hand.",
+			"date": "2024-01-22",
+			"tools": "Adobe Photoshop",
+			"show_download": true
 		}
 	],
 	"Brand Design": [
@@ -18,77 +24,111 @@
 			"src": "branding/spatial.png",
 			"alt": "Spatial",
 			"title": "Spatial",
-			"date": "2026-05-09"
+			"description": "Fictitious video editing company I created over the span of two weeks. I built a design language around the idea of a spatially-oriented editing product and designed a series of logos and wordmarks for the project that I later used on a showcase website.",
+			"date": "2026-05-09",
+			"tools": "Adobe Illustrator",
+			"links": {
+				"Project Showcase": "https://3vorp.github.io/spatial",
+				"Website Repository": "https://github.com/3vorp/spatial"
+			}
 		},
 		{
 			"src": "branding/evorp.png",
 			"alt": "Evorp",
 			"title": "Personal Brand",
-			"date": "2025-04-17"
+			"description": "I fully redesigned my personal logo, wordmark, color palette, and typography in early 2025 to build a cohesive brand identity, which I have since incorporated throughout both this website and my other online media.",
+			"date": "2025-04-17",
+			"tools": "Aseprite, Adobe Photoshop",
+			"links": {
+				"Full Media Kit": "https://github.com/3vorp/media-kit"
+			}
 		},
 		{
 			"src": "branding/faithful.png",
 			"alt": "Faithful",
 			"title": "Faithful Resource Pack",
-			"date": "2025-01-01"
+			"description": "Worked with the Faithful Resource Pack staff team to refresh their branding throughout late 2024 and early 2025 by modernizing their logo set, naming scheme, and website design.",
+			"date": "2025-01-01",
+			"tools": "Aseprite",
+			"links": {
+				"Faithful Website": "https://faithfulpack.net"
+			}
 		}
 	],
 	"Profile Pictures": [
 		{
 			"src": "profiles/cat.png",
 			"alt": "cat",
+			"description": "Quick drawing for a friend, based on their real-life cat. Intended for use as a profile picture at small scales.",
 			"title": "Cat Profile",
-			"date": "2026-09-11"
+			"date": "2026-09-11",
+			"tools": "Aseprite"
 		},
 		{
 			"src": "profiles/computer.png",
 			"alt": "computer",
 			"title": "Computer Profile",
-			"date": "2026-02-17"
+			"description": "Profile picture for a user with a computer-themed online avatar. Designed several prototypes over the course of a few months, with each iteration focusing on eliminating unnecessary detail and ensuring maximum legibility at small scales despite the relatively low contrast of the reference design.",
+			"date": "2026-02-17",
+			"tools": "Aseprite"
 		},
 		{
 			"src": "profiles/ozy.png",
 			"alt": "ozy",
 			"title": "Lettered Profile",
-			"date": "2025-02-10"
+			"description": "Monogram modelled around high fashion logos and overlapping type. I intended it for use as a profile picture, but it can also function as a wordmark or banner by modifying the proportions.",
+			"date": "2025-02-10",
+			"tools": "Aseprite"
 		},
 		{
 			"src": "profiles/skull.gif",
 			"alt": "skull",
 			"title": "Skull Profile",
-			"date": "2023-10-30"
+			"description": "Commission for a chef-themed skull avatar. I hand-animated each frame to build a seamless GIF loop using Aseprite, and used procedural image manipulation techniques to generate a dynamic rainbow effect.",
+			"date": "2023-10-30",
+			"tools": "Aseprite"
 		}
 	],
 	"Rendered Models": [
 		{
 			"src": "renders/cat.gif",
 			"alt": "cat",
-			"title": "Cat Render",
-			"date": "2023-12-13"
+			"title": "Cat Renders",
+			"description": "Commission for a series of custom cat textures to match the client's real-life pet. I built an initial model and design in a low resolution and upscaled it in two iterations to both 2x and 4x the original resolution, respectively.",
+			"date": "2023-12-13",
+			"tools": "Aseprite, Blockbench"
 		},
 		{
 			"src": "renders/zombie.png",
 			"alt": "zombie",
 			"title": "Zombie Texture",
-			"date": "2022-11-15"
+			"description": "Commission for a hand-upscaled zombie texture based on low-resolution reference work.",
+			"date": "2022-11-15",
+			"tools": "Aseprite, Blockbench"
 		},
 		{
 			"src": "renders/computer.png",
 			"alt": "computer",
 			"title": "Computer Avatar",
-			"date": "2022-04-10"
+			"description": "Commission to rework a client's existing avatar to follow pixel art convention and overall modernize its design.",
+			"date": "2022-04-10",
+			"tools": "Aseprite, Blockbench"
 		},
 		{
 			"src": "renders/dragon.png",
 			"alt": "dragon",
 			"title": "Dragon Avatar",
-			"date": "2022-04-10"
+			"description": "Commission to translate a client's existing original character into a video game avatar, stylizing the design in the process to match convention.",
+			"date": "2022-04-10",
+			"tools": "Aseprite, Blockbench"
 		},
 		{
 			"src": "renders/enderman.png",
 			"alt": "enderman",
 			"title": "Character Avatar",
-			"date": "2022-04-05"
+			"description": "Remake of an old avatar of mine to follow pixel art convention and improve the color dynamics.",
+			"date": "2022-04-05",
+			"tools": "Aseprite, Blockbench"
 		}
 	]
 }

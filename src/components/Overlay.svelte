@@ -1,7 +1,9 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class={["overlay", { open }]} onclick={() => onclickoff?.()}>
-	{#if children}{@render children()}{/if}
+	{#if children}
+		{@render children()}
+	{/if}
 </div>
 
 <script lang="ts">

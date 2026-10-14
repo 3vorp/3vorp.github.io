@@ -1,17 +1,24 @@
 <!-- dialogs are non-persistent by default (modal) -->
 <Overlay {open} onclickoff={() => persistent && handleClick(false)}>
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<div
 		class={["dialog", { open }]}
 		style={`max-width: ${maxWidth}px`}
 		onclick={(e) => e.stopPropagation()}
 		onkeydown={handleKey}
+		tabindex="0"
+		bind:this={ref}
 	>
 		<div class="header">
-			{#if title}
-				<h2 class="h3 my-0">{title}</h2>
-			{/if}
+			<div>
+				{#if title}
+					<h2 class="h3 my-0">{title}</h2>
+				{/if}
+				{#if subtitle}
+					<small>{subtitle}</small>
+				{/if}
+			</div>
 			<div class="spacer"></div>
 			<button class="btn-icon" title="Close Dialog" onclick={() => handleClick(false)}>
 				<Fa icon={faClose} size="lg" />
@@ -57,6 +64,7 @@ interface Action {
 let {
 	open = $bindable(),
 	title,
+	subtitle,
 	actions,
 	persistent = true,
 	hideActions = false,
@@ -68,6 +76,7 @@ let {
 }: {
 	open: boolean;
 	title?: string;
+	subtitle?: string;
 	actions?: Action[];
 	persistent?: boolean;
 	hideActions?: boolean;
@@ -98,6 +107,11 @@ function handleKey(ev: KeyboardEvent) {
 			return handleClick(true);
 	}
 }
+
+let ref: HTMLDivElement | undefined = $state();
+$effect(() => {
+	if (open) ref?.focus();
+});
 </script>
 
 <style lang="scss">

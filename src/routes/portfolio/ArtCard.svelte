@@ -1,37 +1,27 @@
-<div class="card">
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+<div role="article" tabindex="0" class={["card", onclick && "clickable-card"]} {onclick}>
 	{#if image}
 		<div class="card-img-container">
 			<img src={image} {alt} class="card-img" />
 		</div>
 	{/if}
-	<div class="card-body-container">
-		<div class="card-body">
-			{#if title}
-				<h3 class="card-title mt-0 mb-1">{title}</h3>
-			{/if}
-			{#if date}
-				<p class="card-text my-0" title={new Date(date).toDateString()}>
-					<Fa icon={faCalendar} class="mr-2" size="sm" />
-					{new Date(date).toLocaleString("en-us", { month: "short", year: "numeric" })}
-				</p>
-			{/if}
-		</div>
-		{#if showDownload}
-			<span class="spacer"></span>
-			<a
-				class="widget btn btn-icon"
-				style="height: 32px"
-				href={image}
-				download={image.split("/").at(-1)}
-			>
-				<Fa icon={faDownload} />
-			</a>
+	<div class="card-body">
+		{#if title}
+			<h3 class="card-title mt-0 mb-1">{title}</h3>
+		{/if}
+		{#if date}
+			<p class="card-text my-0" title={new Date(date).toDateString()}>
+				<Fa icon={faCalendar} class="mr-2" size="sm" />
+				{new Date(date).toLocaleString("en-us", { month: "short", year: "numeric" })}
+			</p>
 		{/if}
 	</div>
 </div>
 
 <script lang="ts">
-import { faCalendar, faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import Fa from "svelte-fa";
 
 const {
@@ -39,13 +29,13 @@ const {
 	alt,
 	title,
 	date,
-	showDownload = false,
+	onclick,
 }: {
 	image: string;
 	alt?: string;
 	title?: string;
 	date?: Date;
-	showDownload?: boolean;
+	onclick?: () => void;
 } = $props();
 </script>
 
@@ -60,10 +50,21 @@ const {
 	overflow: hidden;
 }
 
-.card-body-container {
+.clickable-card {
+	transition: all 0.25s ease;
+	cursor: pointer;
+	&:hover,
+	&:focus {
+		transform: scale(1.05);
+	}
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+.card-body {
 	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
+	flex-flow: column nowrap;
 	padding: $padding-container;
 }
 
@@ -72,6 +73,13 @@ const {
 	font-weight: $weight-bold;
 	font-size: 24px;
 }
+
+.card-text {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
 .card-img-container {
 	width: 100%;
 	aspect-ratio: 16 / 9;
@@ -80,12 +88,7 @@ const {
 	justify-content: center;
 	background: $fg-light;
 	border-radius: $border-radius;
-}
-
-.card-text {
-	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
+	position: relative;
 }
 
 .card-img {
