@@ -1,4 +1,6 @@
-<Dialog bind:open maxWidth="80vw" hideActions>
+<svelte:window bind:innerWidth />
+
+<Dialog bind:open maxWidth={innerWidth > 760 ? "80vw" : "100%"} hideActions>
 	<!-- compensate for card padding by negating top/bottom padding -->
 	<div class="split-panel my-n4" bind:this={ref}>
 		<div class="image-display">
@@ -74,8 +76,6 @@ let {
 	onfullscreen = () => {},
 }: { open: boolean; category?: string; item?: PortfolioItem; onfullscreen: () => void } = $props();
 
-let ref: any = $state();
-
 const humanDate = $derived(
 	new Date(item.date).toLocaleString("en-us", {
 		day: "numeric",
@@ -84,6 +84,8 @@ const humanDate = $derived(
 	}),
 );
 
+let innerWidth = $state(0);
+let ref: any = $state();
 $effect(() => {
 	if (open) ref?.focus();
 });
