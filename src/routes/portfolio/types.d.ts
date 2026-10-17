@@ -3,7 +3,7 @@ export interface PortfolioItem {
 	alt?: string;
 	title: string;
 	description: string;
-	links?: { text: string, href: string }[];
+	links?: { text: string; href: string }[];
 	date: string;
 	tools: string;
 	show_download?: boolean;

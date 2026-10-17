@@ -72,7 +72,7 @@ import { popSnackbar, snackbars } from "#helpers/snackbar.svelte.ts";
 const navItems: NavigationItem[] = [
 	{ title: "Home", href: "/", icon: faHome },
 	{ title: "Portfolio", href: "/portfolio", icon: faPalette },
-	{ title: "Code", href: "/skills", icon: faCode },
+	{ title: "Projects", href: "/projects", icon: faCode },
 ];
 
 const footerItems: NavigationItem[] = [

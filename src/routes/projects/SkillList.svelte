@@ -1,5 +1,10 @@
 <div class="skill-list">
-	{#each Object.entries(groupedSkills) as [type, skills] (type)}
+	<SkillButton
+		selected={selectedSkill === undefined}
+		skill={{ name: "All Projects", count: total }}
+		onselect={() => onselect(undefined)}
+	/>
+	{#each Object.entries(skillData) as [type, skills] (type)}
 		<button class="skill-group-title" onclick={() => collapseGroup(type)}>
 			<h3 class="my-0">{type}</h3>
 			<Fa icon={collapsedGroups[type] ? faChevronRight : faChevronDown} size="0.8x" class="mx-2" />
@@ -19,15 +24,18 @@ import Fa from "svelte-fa";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import type { SkillRecord } from "#helpers/projectSkills.ts";
 import SkillButton from "./SkillButton.svelte";
+import { onMount } from "svelte";
 
 const {
 	selectedSkill,
-	groupedSkills,
+	skillData,
+	total,
 	onselect,
 }: {
-	selectedSkill: string;
-	groupedSkills: Record<string, SkillRecord[]>;
-	onselect: (key: string) => void;
+	selectedSkill: string | undefined;
+	skillData: Record<string, SkillRecord[]>;
+	total: number;
+	onselect: (skill: string | undefined) => void;
 } = $props();
 
 const collapsedGroups = $state<Record<string, boolean>>({});
@@ -35,6 +43,13 @@ const collapsedGroups = $state<Record<string, boolean>>({});
 function collapseGroup(group: string) {
 	collapsedGroups[group] = !collapsedGroups[group];
 }
+
+// collapse filters on mobile by default (doesn't update on resize so can be onMount)
+onMount(() => {
+	if (window.innerWidth < 576) {
+		for (const type of Object.keys(skillData)) collapsedGroups[type] = true;
+	}
+});
 </script>
 
 <style lang="scss">
@@ -49,6 +64,7 @@ function collapseGroup(group: string) {
 	position: sticky;
 	// 64px navbar + 8px padding
 	top: 72px;
+	min-width: 256px;
 	width: 256px;
 	filter: drop-shadow($drop-shadow);
 }

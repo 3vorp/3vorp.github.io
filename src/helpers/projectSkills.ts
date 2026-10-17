@@ -1,5 +1,3 @@
-import projects from "#data/projects.json";
-
 export interface Project {
 	title: string;
 	description: string;
@@ -7,6 +5,7 @@ export interface Project {
 	image: string;
 	langs?: string[];
 	frameworks?: string[];
+	category: string;
 }
 
 export interface SkillRecord {
@@ -14,11 +13,9 @@ export interface SkillRecord {
 	count: number;
 }
 
-export default function projectSkills() {
-	// this is all constant so we don't need to use $derived at all
-	const projectList = Object.values(projects).flat();
-
-	const groupedProjects = projectList.reduce<Record<string, Project[]>>((acc, cur) => {
+export default function projectSkills(projects: Project[]) {
+	// this is all constant so we don't need to use $derived
+	const groupedBySkill = projects.reduce<Record<string, Project[]>>((acc, cur) => {
 		for (const lang of cur.langs || []) {
 			acc[lang] ||= [];
 			acc[lang].push(cur);
@@ -30,23 +27,23 @@ export default function projectSkills() {
 		return acc;
 	}, {});
 
-	const availableSkills = Object.keys(groupedProjects).sort((a, b) =>
+	const availableSkills = Object.keys(groupedBySkill).sort((a, b) =>
 		// sort alphabetically if tied, otherwise most used goes first
-		groupedProjects[b].length === groupedProjects[a].length
+		groupedBySkill[b].length === groupedBySkill[a].length
 			? a.localeCompare(b)
-			: groupedProjects[b].length - groupedProjects[a].length,
+			: groupedBySkill[b].length - groupedBySkill[a].length,
 	);
 
 	// use availableKeys so the record is already sorted
-	const groupedSkills = availableSkills.reduce<Record<string, SkillRecord[]>>(
+	const skillData = availableSkills.reduce<Record<string, SkillRecord[]>>(
 		(acc, cur) => {
-			const record: SkillRecord = { name: cur, count: groupedProjects[cur].length };
-			if (projectList.some((p) => (p.langs || []).includes(cur))) acc.Languages.push(record);
-			if (projectList.some((p) => (p.frameworks || []).includes(cur))) acc.Frameworks.push(record);
+			const record: SkillRecord = { name: cur, count: groupedBySkill[cur].length };
+			if (projects.some((p) => (p.langs || []).includes(cur))) acc.Languages.push(record);
+			if (projects.some((p) => (p.frameworks || []).includes(cur))) acc.Frameworks.push(record);
 			return acc;
 		},
 		{ Languages: [], Frameworks: [] },
 	);
 
-	return { availableSkills, groupedSkills, groupedProjects };
+	return { availableSkills, skillData, groupedBySkill };
 }

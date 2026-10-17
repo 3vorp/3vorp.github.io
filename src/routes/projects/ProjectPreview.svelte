@@ -4,18 +4,27 @@
 		<a {href} class="h3" rel="noopener noreferrer" target="_blank">
 			{title}
 		</a>
-		<p class="project-subtitle mt-0 mb-2">
-			<small>{[...langs, ...frameworks].join(" • ")}</small>
-		</p>
+		<small class="project-subtitle mt-0 mb-2">
+			<SkillChips {langs} {frameworks} {onselect} />
+		</small>
 		<p class="project-description my-0">{description}</p>
 	</div>
 </div>
 
 <script lang="ts">
 import type { Project } from "#helpers/projectSkills.ts";
+import SkillChips from "./SkillChips.svelte";
 
 // spread entire project object
-const { title, description, image, href, langs = [], frameworks = [] }: Project = $props();
+const {
+	title,
+	description,
+	image,
+	href,
+	langs = [],
+	frameworks = [],
+	onselect,
+}: Project & { onselect: (skill: string) => void } = $props();
 </script>
 
 <style lang="scss">

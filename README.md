@@ -8,8 +8,9 @@ slightly better formatted version of my github readme with like three useful too
 - mediocre mobile support
 - [batch recolorer](https://3vorp.github.io/utils/recolor) which may or may not randomly break depending on whether your browser can handle images properly ([why is this a thing](https://stackoverflow.com/a/23501676/20327257))
 - [discount wordle](https://3vorp.github.io/games/wordle) for no reason in particular
-- [extremely overengineered skills page](https://3vorp.github.io/skills) nobody will ever look at
+- [extremely overengineered projects page](https://3vorp.github.io/projects) nobody will ever look at
 - [text uwuifier](https://3vorp.github.io/utils/uwu) (I'm sorry)
+- [my art portfolio](https://3vorp.github.io/portfolio) (the only remotely serious looking page)
 - ???
 - profit
 

@@ -4,7 +4,7 @@
 	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" class="hero-image" />
 </div>
 
-{#each Object.entries(projects) as [key, category] (key)}
+{#each Object.entries(groupedProjects) as [key, category] (key)}
 	<h1 class="container text-center">{key}</h1>
 	{#each category as { title, description, href, image, langs, frameworks }, i (title)}
 		<div class={{ "secondary-background": i % 2 !== 0 }}>
@@ -39,7 +39,12 @@
 
 <script lang="ts">
 import projects from "#data/projects.json";
-import SkillChips from "./SkillChips.svelte";
+import type { Project } from "#helpers/projectSkills.ts";
+import SkillChips from "#routes/projects/SkillChips.svelte";
+
+const groupedProjects = $derived(
+	Object.groupBy(projects, ({ category }) => category) as Record<string, Project[]>,
+);
 
 let innerWidth = $state(0);
 const isMobile = $derived(innerWidth <= 760);

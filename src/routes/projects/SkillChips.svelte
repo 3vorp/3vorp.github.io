@@ -6,7 +6,9 @@
 				{#snippet tooltip()}Languages{/snippet}
 			</Tooltip>
 			{#each langs as lang (lang)}
-				<a href={`/skills?skill=${lang}`} class="chip">{lang}</a>
+				<a href={`/projects?skill=${lang}`} class="chip" onclick={() => onselect?.(lang)}>
+					{lang}
+				</a>
 			{/each}
 		</div>
 	{/if}
@@ -17,7 +19,9 @@
 				{#snippet tooltip()}Frameworks{/snippet}
 			</Tooltip>
 			{#each frameworks as framework (framework)}
-				<a href={`/skills?skill=${framework}`} class="chip">{framework}</a>
+				<a href={`/projects?skill=${framework}`} class="chip" onclick={() => onselect?.(framework)}>
+					{framework}
+				</a>
 			{/each}
 		</div>
 	{/if}
@@ -29,7 +33,11 @@ import Tooltip from "#components/Tooltip.svelte";
 import Fa from "svelte-fa";
 import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 
-const { langs = [], frameworks = [] }: { langs?: string[]; frameworks?: string[] } = $props();
+const {
+	langs = [],
+	frameworks = [],
+	onselect,
+}: { langs?: string[]; frameworks?: string[]; onselect?: (skill: string) => void } = $props();
 </script>
 
 <style lang="scss">

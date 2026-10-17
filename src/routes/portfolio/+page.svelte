@@ -1,7 +1,7 @@
 <div class="container">
 	<h1>My Portfolio</h1>
 	<p class="text-center caption">
-		A non-exhaustive list of artwork I've made over the past 4+ years.
+		A non-exhaustive list of artwork I've made over roughly the past four years.
 	</p>
 
 	{#each Object.entries(groupedPortfolios) as [category, items] (category)}
@@ -23,7 +23,7 @@
 
 	<div class="cta-container">
 		<h2>Looking for my programming work?</h2>
-		<a href="/skills" class="btn btn-primary">Check out my recent projects</a>
+		<a href="/projects" class="btn btn-primary">Check out my recent projects</a>
 	</div>
 </div>
 

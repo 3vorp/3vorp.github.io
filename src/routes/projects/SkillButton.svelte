@@ -1,5 +1,8 @@
 <button
-	class={["skill-selector", { "selected-skill-selector": selected }]}
+	class={[
+		"skill-selector",
+		{ "selected-skill-selector": selected, "all-selector": skill.name === "All Projects" },
+	]}
 	onclick={() => onselect(skill.name)}
 >
 	{skill.name} <span class="project-count-badge">{skill.count}</span>
@@ -23,6 +26,7 @@ const {
 @use "#css/variables.scss" as *;
 
 .skill-selector {
+	font-size: $size-body-small;
 	cursor: pointer;
 	padding: calc($padding-container / 2);
 	display: flex;
@@ -56,7 +60,15 @@ const {
 	}
 }
 
+// style it like a header since it's basically its own category
+.all-selector {
+	color: white;
+	font-size: $size-title;
+	font-weight: $weight-bold;
+}
+
 .project-count-badge {
+	font-size: $size-body-small;
 	color: white !important;
 	font-weight: $weight-bold;
 	background: $bg-light;
