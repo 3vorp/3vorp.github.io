@@ -1,5 +1,5 @@
 <button
-	class={["skill-selector", selected && "selected-skill-selector"]}
+	class={["skill-selector", { "selected-skill-selector": selected }]}
 	onclick={() => onselect(skill.name)}
 >
 	{skill.name} <span class="project-count-badge">{skill.count}</span>

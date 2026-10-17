@@ -2,7 +2,7 @@
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <article
 	tabindex="0"
-	class={["card", onclick && "clickable-card"]}
+	class={["card", { "clickable-card": onclick }]}
 	{onclick}
 	onkeydown={({ key }) => ["Enter", " "].includes(key) && onclick?.()}
 >

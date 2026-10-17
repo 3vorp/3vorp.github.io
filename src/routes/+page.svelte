@@ -21,7 +21,7 @@
 							<SkillChips {frameworks} {langs} />
 						</div>
 					</div>
-					<p class="project-description">{description}</p>
+					<p class="my-0">{description}</p>
 				</div>
 				{#if !isMobile}
 					<a {href} target="_blank" rel="noopener noreferrer" tabindex="-1">
@@ -90,10 +90,6 @@ const isMobile = $derived(innerWidth <= 760);
 	align-items: center;
 	gap: 8px;
 	margin-bottom: 16px;
-}
-
-.project-description {
-	margin: 0;
 }
 
 .project-image {

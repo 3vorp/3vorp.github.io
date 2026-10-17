@@ -31,7 +31,7 @@
 <script lang="ts">
 import JSZip from "jszip";
 import type { Snippet } from "svelte";
-import { showError } from "#helpers/snackbar.svelte";
+import { showError } from "#helpers/snackbar.svelte.ts";
 
 const {
 	// should be formatted in a comma-separated list (easier to type)

@@ -23,7 +23,7 @@
 
 	<div class="cta-container">
 		<h2>Looking for my programming work?</h2>
-		<a href="/skills" class="widget btn btn-primary">Check out my recent projects</a>
+		<a href="/skills" class="btn btn-primary">Check out my recent projects</a>
 	</div>
 </div>
 
@@ -44,7 +44,7 @@
 		onkeydown={({ key }) => closeFullscreen(key)}
 	>
 		<img src={`/portfolio/${fullscreenImage}`} alt="Fullscreen preview" class="preview" />
-		<button class="widget btn btn-icon btn-image" onclick={() => closeFullscreen(undefined)}>
+		<button class="btn btn-image" onclick={() => closeFullscreen(undefined)}>
 			<Fa icon={faClose} />
 		</button>
 	</div>

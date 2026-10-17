@@ -25,10 +25,10 @@
 			<Keyboard guesses={guesses.flatMap((g) => getWordState(target, g))} {onkey} />
 		{:else}
 			<div class="button-row my-5">
-				<button class="widget btn btn-primary" onclick={copyResults}>
+				<button class="btn btn-primary" onclick={copyResults}>
 					<Fa icon={faShareNodes} /> Share Results
 				</button>
-				<button class="widget btn" onclick={startGame}>
+				<button class="btn" onclick={startGame}>
 					<Fa icon={faRotateRight} /> New Game
 				</button>
 			</div>

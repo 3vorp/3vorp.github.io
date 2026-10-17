@@ -1,33 +1,35 @@
 @use "./variables.scss" as *;
 
-// I didn't use a component library when first starting this site
-// and atp I'm too lazy to start lol
-// most of this is inspired by google design but not very well
+// loosely inspired by google's material ui and vuetify buttons
+// too lazy to use a real component framework at this point (lol)
 
-.widget {
-	color: #fff !important;
-	background-color: $bg-light;
-	border-radius: $border-radius;
-	font-size: 18px;
-	filter: drop-shadow($drop-shadow);
-	border: none;
-	outline: none;
-	transition: all 0.25s ease;
-}
-
+/** base button class (all buttons need to apply this) */
 .btn {
+	// centered content
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	font-weight: $weight-semibold;
+
+	// rounded background
+	border: none;
+	outline: none;
+	background-color: $bg-light;
+	border-radius: $border-radius;
+	filter: drop-shadow($drop-shadow);
 	padding: 8px 24px;
-	gap: 12px;
 	min-height: 44px;
-	font-size: 18px;
+
+	// semibold uppercase text with gap for icon
+	color: #fff;
+	font-size: $size-body;
 	letter-spacing: 0.0892857143em;
 	text-transform: uppercase;
+	font-weight: $weight-semibold;
+	gap: 12px;
+
 	cursor: pointer;
+	transition: all 0.25s ease;
 
 	&:hover {
 		background-color: $content-dark;
@@ -39,8 +41,14 @@
 	&:active {
 		background-color: $content-mid;
 	}
+
+	&:disabled {
+		// works on all button types (not perfect but good enough)
+		filter: brightness(0.8) saturate(0.5);
+	}
 }
 
+/** add accent color styling to an existing button */
 .btn-primary {
 	background-color: $accent-dark;
 	&:hover {
@@ -51,6 +59,7 @@
 	}
 }
 
+/* add destructive color styling to an existing button */
 .btn-destructive {
 	background-color: $danger-dark;
 	&:hover {
@@ -61,27 +70,17 @@
 	}
 }
 
-:disabled {
-	pointer-events: none;
-	transition: all 0.25s ease;
-}
-
-.btn:disabled {
-	filter: brightness(0.8) saturate(0.5);
-}
-
+/* make an existing button way bigger */
 .btn-lg {
 	font-size: 32px;
 	padding: 16px 64px;
 }
 
+/* text-styled button with no background */
 .btn-text {
-	filter: none;
 	background: none;
-}
+	filter: none;
 
-.btn-text {
-	color: white;
 	&:hover {
 		background-color: rgba($content-dark, 0.3);
 	}
@@ -90,6 +89,7 @@
 	}
 }
 
+/** primary action + text button */
 .btn-text.btn-primary {
 	color: $accent-mid !important;
 	&:hover {
@@ -100,6 +100,7 @@
 	}
 }
 
+/** destructive action + text button */
 .btn-text.btn-destructive {
 	color: $danger-mid !important;
 	&:hover {
@@ -110,7 +111,12 @@
 	}
 }
 
-.btn-icon {
+/**
+ * basic icon button setup for correct colors/animation
+ * note: using .btn with this will add a background but this works on its own too
+ */
+.btn-icon,
+.btn-image {
 	color: $content-mid;
 	background: none;
 	border: none;
@@ -128,24 +134,13 @@
 	}
 }
 
+/**
+ * button meant to be placed next to an image
+ * ! must be used with both .btn to work correctly
+ */
 .btn-image {
 	position: absolute;
 	top: $padding-container;
 	right: $padding-container;
 	background: rgba($fg-dark, 0.5);
-}
-
-.text-field {
-	background-color: $fg-light;
-	padding: $padding-container;
-	filter: none;
-	text-align: left;
-	&::placeholder {
-		color: $content-dark;
-	}
-
-	transition: background-color 0.25s ease;
-	&:focus {
-		background-color: $bg-dark;
-	}
 }

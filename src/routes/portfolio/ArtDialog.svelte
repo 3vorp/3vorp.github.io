@@ -12,7 +12,7 @@
 				class={["image", { "pa-4": item.pad }]}
 				onclick={onfullscreen}
 			/>
-			<button class="widget btn btn-icon btn-image" onclick={onfullscreen}>
+			<button class="btn btn-image" onclick={onfullscreen}>
 				<Fa icon={faExpand} />
 			</button>
 		</div>
@@ -35,7 +35,7 @@
 			<div class="flex-row">
 				{#each Object.entries(item.links || {}) as [label, link] (link)}
 					<a
-						class="widget btn btn-text btn-primary block"
+						class="btn btn-text btn-primary block"
 						href={link}
 						target="_blank"
 						rel="noopener noreferrer"
@@ -45,7 +45,7 @@
 				{/each}
 				{#if item.show_download}
 					<a
-						class="widget btn btn-text btn-primary block"
+						class="btn btn-text btn-primary block"
 						href={item.src}
 						download={item.src.split("/").at(-1)}
 					>

@@ -1,0 +1,19 @@
+@use "./variables.scss" as *;
+
+.text-field {
+	border: none;
+	outline: none;
+	background-color: $fg-light;
+	padding: $padding-container;
+	border-radius: $border-radius;
+	font-size: $size-body;
+
+	&::placeholder {
+		color: $content-dark;
+	}
+
+	transition: background-color 0.25s ease;
+	&:focus {
+		background-color: $bg-dark;
+	}
+}

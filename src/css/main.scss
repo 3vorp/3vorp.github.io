@@ -1,6 +1,7 @@
 @use "./variables.scss" as *;
 @use "./scrollbar.scss" as *;
-@use "./widgets.scss" as *;
+@use "./buttons.scss" as *;
+@use "./text-fields.scss" as *;
 @use "./spacing.scss" as *;
 @use "./grid.scss" as *;
 
@@ -16,21 +17,22 @@
 		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+*,
+*::before,
+*::after {
+	// remove this line to die instantly
+	box-sizing: border-box;
+}
+
 :root {
 	font-family: $font-body;
 	color: rgba($content-light, 0.8);
-	// color: $content-mid; // bit too blue
+	// color: $content-mid; // bit too blue imo
 	background-color: $bg-dark;
 	color-scheme: dark;
 }
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
-// fix weird lip around edges
+// remove lip from edges
 body {
 	margin: 0;
 }
@@ -38,6 +40,10 @@ body {
 // make sure main content fills whole space
 main {
 	flex-grow: 1;
+}
+
+:disabled {
+	pointer-events: none;
 }
 
 h1,
@@ -76,7 +82,7 @@ h3,
 
 p,
 li {
-	font-size: 18px;
+	font-size: $size-body;
 	line-height: 1.5;
 }
 

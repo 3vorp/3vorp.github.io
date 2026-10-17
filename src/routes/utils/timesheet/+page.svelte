@@ -5,7 +5,7 @@
 		<h2 class="text-center" style="line-height: 1.5">
 			Total time working: <code>{fmtInterval(timer.live)}</code>
 		</h2>
-		<button class="widget btn btn-primary btn-lg my-3" onclick={toggleTime}>
+		<button class="btn btn-primary btn-lg my-3" onclick={toggleTime}>
 			{buttonTitle}
 		</button>
 	</div>
@@ -13,14 +13,14 @@
 	<h2>Session Information</h2>
 
 	<div class="grid-3 my-4">
-		<button class="widget btn block" onclick={openImportDialog}>
+		<button class="btn block" onclick={openImportDialog}>
 			<Fa icon={faArrowUpFromBracket} /> Upload Session
 		</button>
-		<button class="widget btn block" disabled={!timer.hasRecords} onclick={exportSession}>
+		<button class="btn block" disabled={!timer.hasRecords} onclick={exportSession}>
 			<Fa icon={faSave} /> Save Session
 		</button>
 		<button
-			class="widget btn block"
+			class="btn block"
 			disabled={!timer.hasRecords}
 			onclick={() => (confirmDialogOpen = true)}
 		>
@@ -88,7 +88,7 @@
 	<input
 		type="text"
 		bind:value={recordName}
-		class="block widget text-field"
+		class="text-field block"
 		placeholder="Optional record name"
 		bind:this={nameField}
 	/>
@@ -98,7 +98,7 @@
 	<input
 		type="text"
 		bind:value={importedSession}
-		class="block widget text-field import-text"
+		class="text-field import-text block"
 		placeholder="Paste your previous session JSON here…"
 		bind:this={importField}
 	/>

@@ -29,9 +29,7 @@
 				{#each displayedActions as action (action.text)}
 					<button
 						class={[
-							"widget",
-							"btn",
-							"btn-text",
+							"btn btn-text",
 							{ "btn-primary": action.primary, "btn-destructive": action.destructive },
 						]}
 						onclick={() => handleClick(action.primary || action.destructive || false)}

@@ -17,7 +17,7 @@ import { faCircleCheck, faCircleXmark } from "@fortawesome/free-regular-svg-icon
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { onMount } from "svelte";
 import Fa from "svelte-fa";
-import type { Snackbar } from "#helpers/snackbar.svelte";
+import type { Snackbar } from "#helpers/snackbar.svelte.ts";
 
 const {
 	title,

@@ -3,7 +3,7 @@
 	<p class="caption text-center">I'm genuinely sorry for making this.</p>
 
 	<div class="card">
-		<textarea class="widget text-field" style="width: 100%;" bind:value={input} name="UwU Entry Box"
+		<textarea class="text-field" style="width: 100%;" bind:value={input} name="UwU Entry Box"
 		></textarea>
 		<p class="output mt-5 mb-0">
 			{#if output}
@@ -14,7 +14,7 @@
 		</p>
 	</div>
 	<br />
-	<button class="widget btn my-3" onclick={copyText}>
+	<button class="btn my-3" onclick={copyText}>
 		<Fa icon={faCopy} /> Copy Text
 	</button>
 </div>

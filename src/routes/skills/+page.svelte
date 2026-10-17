@@ -13,7 +13,7 @@
 
 	<div class="cta-container">
 		<h2>Looking for my artwork?</h2>
-		<a href="/portfolio" class="widget btn btn-primary">Check out my portfolio</a>
+		<a href="/portfolio" class="btn btn-primary">Check out my portfolio</a>
 	</div>
 </div>
 

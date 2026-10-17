@@ -8,10 +8,10 @@
 		{/if}
 	</h2>
 	<div class="button-row my-3">
-		<button bind:this={generateBtn} class="widget btn btn-primary" onclick={regenerate}>
+		<button bind:this={generateBtn} class="btn btn-primary" onclick={regenerate}>
 			<Fa icon={faRotateRight} /> Try Again
 		</button>
-		<button class="widget btn" onclick={cycler.cycle}>
+		<button class="btn" onclick={cycler.cycle}>
 			<Fa icon={faRepeat} /> Switch to {cycler.next}
 		</button>
 	</div>
