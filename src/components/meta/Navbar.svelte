@@ -75,7 +75,7 @@ header {
 }
 
 .mobile-title {
-	font-size: 24px;
+	font-size: $size-title;
 }
 
 @media screen and (max-width: $breakpoint-lg) {

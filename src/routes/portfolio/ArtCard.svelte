@@ -49,7 +49,7 @@ const {
 @use "#css/variables.scss" as *;
 
 .clickable-card {
-	transition: all 0.25s ease;
+	transition: all $transition;
 	cursor: pointer;
 	&:hover,
 	&:focus {

@@ -50,7 +50,7 @@ footer {
 	padding: 0 10% 20px 10%;
 	margin: 0;
 	color: $content-mid;
-	font-size: 16px;
+	font-size: $size-body-small;
 }
 
 @media screen and (max-width: $breakpoint-lg) {

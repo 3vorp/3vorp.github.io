@@ -110,7 +110,7 @@ function click() {
 	justify-content: center;
 	position: relative;
 	text-align: center;
-	padding: 0 10px;
+	padding: 0 calc($padding-container / 2);
 }
 .drop-zone,
 .drop-zone * {
@@ -138,7 +138,7 @@ function click() {
 }
 .drop-zone .dropzone-border {
 	opacity: 0.7;
-	transition: opacity 0.25s ease;
+	transition: opacity $transition;
 }
 .drop-zone:not(.disabled):hover .dropzone-border {
 	opacity: 1;
@@ -157,6 +157,5 @@ function click() {
 	justify-content: center;
 	gap: 8px;
 	min-height: 5rem;
-	padding: 0.5rem;
 }
 </style>

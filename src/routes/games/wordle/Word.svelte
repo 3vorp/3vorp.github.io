@@ -31,7 +31,7 @@ const { word = [], isShaking = false }: { word?: LetterState[]; isShaking?: bool
 	text-transform: uppercase;
 	color: $content-light;
 	font-weight: $weight-bold;
-	font-size: 36px;
+	font-size: $size-section-heading;
 	width: 64px;
 	height: 64px;
 	background-color: $bg-light;

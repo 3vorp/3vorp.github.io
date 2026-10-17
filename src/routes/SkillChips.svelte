@@ -55,7 +55,7 @@ const { langs = [], frameworks = [] }: { langs?: string[]; frameworks?: string[]
 	background-color: rgba($accent-dark, 0.2);
 	color: $accent-mid;
 	border-radius: $border-radius;
-	transition: all 0.25s ease;
+	transition: all $transition;
 }
 
 a.chip:hover,

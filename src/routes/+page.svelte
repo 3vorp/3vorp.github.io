@@ -94,9 +94,9 @@ const isMobile = $derived(innerWidth <= 760);
 
 .project-image {
 	filter: drop-shadow($drop-shadow);
-	transition: all 0.5s ease;
+	transition: all $transition;
 	&:hover {
-		transform: scale(1.1);
+		transform: scale(1.05);
 	}
 }
 

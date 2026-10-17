@@ -38,19 +38,21 @@ onMount(() => {
 <style lang="scss">
 @use "#css/variables.scss" as *;
 
+$snackbar-width: 384px;
+
 .snackbar {
 	// fixes snackbar-container issue
 	pointer-events: all;
 	padding: calc($padding-container / 2) $padding-container;
 	border-radius: $border-radius;
 	background: $fg-light;
-	width: 384px;
+	width: $snackbar-width;
 	filter: drop-shadow($drop-shadow);
-	animation: open 0.25s;
+	animation: open $transition;
 }
 
 .title {
-	font-size: 20px;
+	font-size: $size-title-small;
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
@@ -58,7 +60,7 @@ onMount(() => {
 }
 
 .description {
-	font-size: 16px;
+	font-size: $size-body-small;
 }
 
 .snackbar.success {

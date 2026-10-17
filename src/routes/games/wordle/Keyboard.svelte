@@ -63,7 +63,7 @@ function onclick(ev: MouseEvent, key: string) {
 	align-items: center;
 	justify-content: center;
 	padding: 0.5rem 1rem;
-	font-size: 24px;
+	font-size: $size-title;
 	text-transform: uppercase;
 	font-weight: $weight-bold;
 	min-width: 45px;
@@ -73,7 +73,7 @@ function onclick(ev: MouseEvent, key: string) {
 	border: none;
 	cursor: pointer;
 
-	transition: all 0.25s ease;
+	transition: all $transition;
 	&:hover {
 		background-color: $content-dark;
 	}

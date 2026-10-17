@@ -37,7 +37,7 @@ const { tooltip, children }: { tooltip: Snippet; children: Snippet } = $props();
 	color: $content-light;
 	font-weight: $weight-semibold;
 
-	transition: all 0.25s ease;
+	transition: all $transition;
 }
 
 .tooltip-container:hover .tooltip,

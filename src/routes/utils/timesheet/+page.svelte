@@ -224,7 +224,7 @@ $list-indent: 48px;
 	justify-content: space-between;
 	width: 100%;
 
-	transition: all 0.25s ease;
+	transition: all $transition;
 
 	&:hover {
 		background-color: $bg-light;
@@ -269,7 +269,7 @@ $list-indent: 48px;
 .record-title {
 	color: $content-light;
 	font-weight: $weight-semibold;
-	font-size: 20px;
+	font-size: $size-title-small;
 }
 
 .record-subtitle,

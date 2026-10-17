@@ -29,7 +29,7 @@ const {
 	width: 100%;
 	background: rgba($fg-dark, 0.8);
 	z-index: 998;
-	transition: opacity 0.25s ease;
+	transition: opacity $transition;
 
 	display: flex;
 	align-items: center;

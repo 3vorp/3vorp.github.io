@@ -34,7 +34,7 @@ const {
 	color: $content-mid;
 	border: none;
 	text-align: left;
-	transition: all 0.25s ease;
+	transition: all $transition;
 
 	&:not(.selected-skill-selector):hover,
 	&:not(.selected-skill-selector):focus {
@@ -63,6 +63,6 @@ const {
 	border-radius: $border-radius;
 	padding: 2px 8px;
 	filter: drop-shadow($drop-shadow);
-	transition: all 0.25s ease;
+	transition: all $transition;
 }
 </style>

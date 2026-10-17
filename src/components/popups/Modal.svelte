@@ -104,7 +104,7 @@ const displayedActions = $derived.by<Action[]>(() => {
 	justify-content: end;
 
 	.btn {
-		font-size: 16px;
+		font-size: $size-body-small;
 		padding: 8px 16px;
 		min-height: auto;
 	}
