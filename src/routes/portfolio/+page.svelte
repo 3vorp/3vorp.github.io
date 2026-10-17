@@ -4,7 +4,7 @@
 		A non-exhaustive list of artwork I've made over the past 4+ years.
 	</p>
 
-	{#each Object.entries(portfolio) as [category, items] (category)}
+	{#each Object.entries(groupedPortfolios) as [category, items] (category)}
 		<h2>{category}</h2>
 		<div class={`grid-${items.length > 4 ? 3 : items.length} mt-4`}>
 			{#each items as item (item.src)}
@@ -14,7 +14,7 @@
 					title={item.title}
 					date={new Date(item.date)}
 					padImage={"pad" in item ? item.pad : false}
-					onclick={() => openModal(category, item as any)}
+					onclick={() => openModal(category, item)}
 				/>
 			{/each}
 		</div>
@@ -32,7 +32,6 @@
 	category={modalCategory}
 	item={modalItem}
 	onfullscreen={() => openFullscreen(modalItem?.src || "")}
-	bind:this={modalRef}
 />
 
 <Overlay open={fullscreenOpen} onclickoff={() => closeFullscreen(undefined)}>
@@ -53,17 +52,22 @@
 <script lang="ts">
 import ArtCard from "./ArtCard.svelte";
 import ArtDialog from "./ArtDialog.svelte";
-import portfolio from "#data/portfolio.json";
-import type { PortfolioItem } from "./types.d.ts";
 import Overlay from "#components/popups/Overlay.svelte";
+
 import { tick } from "svelte";
 import Fa from "svelte-fa";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 
+import portfolio from "#data/portfolio.json";
+import type { PortfolioItem } from "./types.d.ts";
+
+const groupedPortfolios = $derived(
+	Object.groupBy(portfolio, ({ category }) => category) as Record<string, PortfolioItem[]>,
+);
+
 let modalOpen = $state(false);
 let modalCategory = $state("");
 let modalItem: PortfolioItem | undefined = $state(undefined);
-let modalRef: any = $state();
 
 function openModal(category: string, item: PortfolioItem) {
 	modalOpen = true;

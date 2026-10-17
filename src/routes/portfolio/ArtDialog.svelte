@@ -41,14 +41,14 @@
 				<div class="spacer"></div>
 
 				<div class="flex-row">
-					{#each Object.entries(item.links || {}) as [label, link] (link)}
+					{#each item.links || [] as { text, href } (href)}
 						<a
 							class="btn btn-text btn-primary block"
-							href={link}
+							{href}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							{label}
+							{text}
 						</a>
 					{/each}
 					{#if item.show_download}
