@@ -1,7 +1,7 @@
 <svelte:window bind:innerWidth />
 
-<div class="main-banner">
-	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" />
+<div class="hero-container">
+	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" class="hero-image" />
 </div>
 
 {#each Object.entries(projects) as [key, category] (key)}
@@ -48,27 +48,29 @@ const isMobile = $derived(innerWidth <= 760);
 <style lang="scss">
 @use "#css/variables.scss" as *;
 
-.main-banner {
+.hero-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow-x: hidden;
-	img {
-		max-width: 100%;
-		max-height: 50vw;
-		-webkit-user-drag: none;
-		-khtml-user-drag: none;
-		-moz-user-drag: none;
-		-o-user-drag: none;
-		// specifically based on image margins, unique breakpoints are fine
-		@media screen and (max-width: 1200px) {
-			max-width: 130%;
-		}
-		@media screen and (max-width: 800px) {
-			max-width: 160%;
-		}
+}
+
+.hero-image {
+	width: 100%;
+	max-height: 50vw;
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+	// specifically based on image margins, unique breakpoints are fine
+	@media screen and (max-width: 1200px) {
+		width: 130%;
+	}
+	@media screen and (max-width: 800px) {
+		width: 160%;
 	}
 }
+
 // override container class for flex content
 .project-container {
 	width: 100%;
