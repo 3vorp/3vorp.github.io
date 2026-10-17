@@ -3,6 +3,7 @@
 @use "./buttons.scss" as *;
 @use "./text-fields.scss" as *;
 @use "./spacing.scss" as *;
+@use "./cards.scss" as *;
 @use "./grid.scss" as *;
 
 @font-face {
@@ -96,7 +97,7 @@ ol {
 }
 
 hr {
-	border: 1px solid $content-dark;
+	border: 1px solid rgba($content-dark, 0.5);
 	// stupid trick to make outline thinner
 	border-bottom: none;
 }
@@ -155,7 +156,7 @@ a {
 .container {
 	width: 100%;
 	flex-grow: 1;
-	padding: 48px 16px;
+	padding: calc($padding-container * 3) $padding-container;
 	// footer already has padding
 	padding-bottom: 0px;
 	margin-right: auto;
@@ -172,9 +173,8 @@ a {
 	@media screen and (max-width: $breakpoint-sm) {
 		max-width: calc($breakpoint-xs - $padding-container);
 
-		// less mobile padding
-		padding-top: $padding-container;
-		padding-bottom: $padding-container;
+		// less top/bottom padding on mobile
+		padding: $padding-container;
 	}
 }
 

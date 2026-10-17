@@ -55,7 +55,7 @@ import ArtCard from "./ArtCard.svelte";
 import ArtDialog from "./ArtDialog.svelte";
 import portfolio from "#data/portfolio.json";
 import type { PortfolioItem } from "./types.d.ts";
-import Overlay from "#components/Overlay.svelte";
+import Overlay from "#components/popups/Overlay.svelte";
 import { tick } from "svelte";
 import Fa from "svelte-fa";
 import { faClose } from "@fortawesome/free-solid-svg-icons";

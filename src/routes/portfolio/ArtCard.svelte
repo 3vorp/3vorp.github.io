@@ -13,10 +13,10 @@
 	{/if}
 	<div class="card-body">
 		{#if title}
-			<h3 class="card-title mt-0 mb-1">{title}</h3>
+			<h3 class="my-0">{title}</h3>
 		{/if}
 		{#if date}
-			<p class="card-text my-0" title={new Date(date).toDateString()}>
+			<p class="card-text mb-0 mt-1" title={new Date(date).toDateString()}>
 				<Fa icon={faCalendar} class="mr-2" size="sm" />
 				{new Date(date).toLocaleString("en-us", { month: "short", year: "numeric" })}
 			</p>
@@ -48,14 +48,6 @@ const {
 <style lang="scss">
 @use "#css/variables.scss" as *;
 
-.card {
-	max-width: 100%;
-	border-radius: $border-radius;
-	background: $bg-mid;
-	filter: drop-shadow($drop-shadow);
-	overflow: hidden;
-}
-
 .clickable-card {
 	transition: all 0.25s ease;
 	cursor: pointer;
@@ -66,18 +58,6 @@ const {
 	&:active {
 		transform: scale(0.95);
 	}
-}
-
-.card-body {
-	display: flex;
-	flex-flow: column nowrap;
-	padding: $padding-container;
-}
-
-.card-title {
-	font-family: $font-body;
-	font-weight: $weight-bold;
-	font-size: 24px;
 }
 
 .card-text {

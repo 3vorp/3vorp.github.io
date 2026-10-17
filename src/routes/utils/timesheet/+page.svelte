@@ -55,10 +55,10 @@
 					<ul class="record-container my-0">
 						{#each records as record (record.start)}
 							<li class="record my-1">
-								<p class="record-title my-0 ml-n2">
+								<h4 class="record-title my-0 ml-n2">
 									<code>{fmtInterval(record.stop - record.start, true)}</code>
 									{#if record.label}{record.label}{:else}<i>Nameless</i>{/if}
-								</p>
+								</h4>
 								<p class="record-subtitle my-0">
 									{fmtDate(record.start)} – {fmtDate(record.stop)}
 								</p>
@@ -79,7 +79,7 @@
 </div>
 
 <!-- add no matter what -->
-<Dialog
+<Modal
 	bind:open={nameDialogOpen}
 	title={`Name Record (${fmtInterval(timer.uncommittedDelta, true)})`}
 	oncancel={addRecord}
@@ -92,9 +92,9 @@
 		placeholder="Optional record name"
 		bind:this={nameField}
 	/>
-</Dialog>
+</Modal>
 
-<Dialog bind:open={importDialogOpen} title="Upload Session" onconfirm={importSession}>
+<Modal bind:open={importDialogOpen} title="Upload Session" onconfirm={importSession}>
 	<input
 		type="text"
 		bind:value={importedSession}
@@ -102,16 +102,16 @@
 		placeholder="Paste your previous session JSON here…"
 		bind:this={importField}
 	/>
-</Dialog>
+</Modal>
 
-<Dialog
+<Modal
 	bind:open={confirmDialogOpen}
 	title="Confirm Reset"
 	destructive
 	onconfirm={() => timer.resetRecords()}
 >
 	<p class="my-0">Do you really want to reset your session?</p>
-</Dialog>
+</Modal>
 
 <script lang="ts">
 import { onMount, tick } from "svelte";
@@ -126,7 +126,7 @@ import {
 	faSave,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Dialog from "#components/Dialog.svelte";
+import Modal from "#components/popups/Modal.svelte";
 import { showError, showSuccess } from "#helpers/snackbar.svelte.ts";
 import { makeTimer, sumDuration, type TimeRecord } from "#helpers/timer.svelte.ts";
 import { fmtDate, fmtInterval } from "#helpers/dateTime.ts";
@@ -210,21 +210,6 @@ onMount(() => {
 
 $list-indent: 48px;
 
-.card {
-	display: flex;
-	flex-flow: column nowrap;
-	width: 100%;
-	border-radius: $border-radius;
-	background-color: $bg-light;
-	color: $content-light;
-	filter: drop-shadow($drop-shadow);
-
-	// less intense codeblock backgrounds
-	code {
-		background-color: $bg-dark;
-	}
-}
-
 .record-header {
 	// entire header is clickable
 	background: transparent;
@@ -242,11 +227,11 @@ $list-indent: 48px;
 	transition: all 0.25s ease;
 
 	&:hover {
-		background-color: rgba($content-mid, 0.2);
+		background-color: $bg-light;
 	}
 
 	&:active {
-		background-color: rgba($content-mid, 0.5);
+		background-color: $content-dark;
 	}
 }
 
@@ -282,6 +267,7 @@ $list-indent: 48px;
 
 // not quite title weight but like the next closest thing
 .record-title {
+	color: $content-light;
 	font-weight: $weight-semibold;
 	font-size: 20px;
 }

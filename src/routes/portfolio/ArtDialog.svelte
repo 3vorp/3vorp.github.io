@@ -1,6 +1,6 @@
 <svelte:window bind:innerWidth />
 
-<Dialog bind:open maxWidth={innerWidth > 760 ? "80vw" : "100%"} hideActions>
+<Modal bind:open maxWidth={innerWidth > 760 ? "80vw" : "100%"} hideActions>
 	<!-- compensate for card padding by negating top/bottom padding -->
 	<div class="split-panel my-n4" bind:this={ref}>
 		<div class="image-display">
@@ -56,10 +56,10 @@
 			</div>
 		</div>
 	</div>
-</Dialog>
+</Modal>
 
 <script lang="ts">
-import Dialog from "#components/Dialog.svelte";
+import Modal from "#components/popups/Modal.svelte";
 import Fa from "svelte-fa";
 import type { PortfolioItem } from "./types.d.ts";
 import {

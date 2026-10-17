@@ -2,9 +2,12 @@
 	<h1>The UwUificator</h1>
 	<p class="caption text-center">I'm genuinely sorry for making this.</p>
 
-	<div class="card">
-		<textarea class="text-field" style="width: 100%;" bind:value={input} name="UwU Entry Box"
-		></textarea>
+	<div class="card card-body block">
+		<textarea
+			class="text-field uwu-input"
+			bind:value={input}
+			name="UwU Entry Box"
+			placeholder="Enter text to uwuify here…"></textarea>
 		<p class="output mt-5 mb-0">
 			{#if output}
 				{output}
@@ -14,7 +17,7 @@
 		</p>
 	</div>
 	<br />
-	<button class="btn my-3" onclick={copyText}>
+	<button class="btn block" onclick={copyText}>
 		<Fa icon={faCopy} /> Copy Text
 	</button>
 </div>
@@ -37,19 +40,11 @@ function copyText() {
 <style lang="scss">
 @use "#css/variables.scss" as *;
 
-.card {
-	background-color: $bg-light;
-	color: $content-light;
-	width: 75%;
-	min-height: 5rem;
-	padding: $padding-container;
-	border-radius: $border-radius;
-	overflow-wrap: break-word;
-	filter: drop-shadow($drop-shadow);
+.uwu-input {
+	min-height: 128px;
 }
 
 .output {
-	text-align: left;
 	// don't collapse newlines
 	white-space: pre-line;
 }

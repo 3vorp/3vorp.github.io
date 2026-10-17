@@ -1,0 +1,21 @@
+@use "./variables.scss" as *;
+
+.card {
+	background: $bg-mid;
+	border-radius: $border-radius;
+	filter: drop-shadow($drop-shadow);
+
+	// makes image clipping work more nicely
+	overflow: hidden;
+
+	// less intense codeblock backgrounds
+	code {
+		background-color: $bg-dark;
+	}
+}
+
+.card-body {
+	display: flex;
+	flex-flow: column nowrap;
+	padding: $padding-container;
+}

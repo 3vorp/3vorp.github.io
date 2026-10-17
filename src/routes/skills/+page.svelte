@@ -4,7 +4,8 @@
 	<div class="skill-container">
 		<!-- don't use bind:selectedSkill to correctly update query params -->
 		<SkillList {groupedSkills} {selectedSkill} onselect={selectSkill} />
-		<div class="project-preview-container">
+
+		<div class="card card-body project-preview-container">
 			{#each groupedProjects[selectedSkill] as project (project.title)}
 				<ProjectPreview {...project} />
 			{/each}
@@ -66,15 +67,8 @@ onMount(() => {
 }
 
 .project-preview-container {
-	display: flex;
-	flex-flow: column nowrap;
 	width: calc(100% - 256px);
 	gap: 32px;
-
-	background: $bg-mid;
-	border-radius: $border-radius;
-	padding: $padding-container;
-	filter: drop-shadow($drop-shadow);
 }
 
 @media screen and (max-width: $breakpoint-md) {
