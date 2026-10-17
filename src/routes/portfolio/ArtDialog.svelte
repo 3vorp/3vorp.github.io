@@ -1,73 +1,83 @@
 <svelte:window bind:innerWidth />
 
-<Modal bind:open maxWidth={innerWidth > 760 ? "80vw" : "100%"} hideActions>
-	<!-- compensate for card padding by negating top/bottom padding -->
-	<div class="split-panel my-n4" bind:this={ref}>
-		<div class="image-display">
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-			<img
-				src={`/portfolio/${item.src}`}
-				alt={item.alt}
-				class={["image", { "pa-4": item.pad }]}
-				onclick={onfullscreen}
-			/>
-			<button class="btn btn-image" onclick={onfullscreen}>
-				<Fa icon={faExpand} />
-			</button>
-		</div>
-		<div class="text-display">
-			<h3 class="my-0">{item.title}</h3>
-			<small>{category}</small>
-			<p class="mb-0" style="white-space: pre-line">{item.description}</p>
-			<ul class="icon-list">
-				<li>
-					<Fa icon={faCalendar} class="mr-2" />
-					{humanDate}
-				</li>
-				<li>
-					<Fa icon={faScrewdriverWrench} class="mr-1" />
-					{item.tools}
-				</li>
-			</ul>
-			<div class="spacer"></div>
+<Dialog bind:open maxWidth={innerWidth > 760 ? "80vw" : "100%"}>
+	{#snippet children(handleClick)}
+		<!-- compensate for card padding by negating top/bottom padding -->
+		<div class="split-panel">
+			<div class="image-display">
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+				<img
+					src={`/portfolio/${item.src}`}
+					alt={item.alt}
+					class={["image", { "pa-4": item.pad }]}
+					onclick={onfullscreen}
+				/>
+				<button class="btn btn-image" onclick={onfullscreen}>
+					<Fa icon={faExpand} />
+				</button>
+			</div>
+			<div class="text-display card-body">
+				<div class="header">
+					<h3 class="my-0">{item.title}</h3>
+					<div class="spacer"></div>
+					<!-- on mobile the close button is kinda in the middle but oh well -->
+					<button class="btn-icon" title="Close Dialog" onclick={() => handleClick(false)}>
+						<Fa icon={faClose} size="lg" />
+					</button>
+				</div>
+				<small>{category}</small>
+				<p class="mb-0" style="white-space: pre-line">{item.description}</p>
+				<ul class="icon-list">
+					<li>
+						<Fa icon={faCalendar} class="mr-2" />
+						{humanDate}
+					</li>
+					<li>
+						<Fa icon={faScrewdriverWrench} class="mr-1" />
+						{item.tools}
+					</li>
+				</ul>
+				<div class="spacer"></div>
 
-			<div class="flex-row">
-				{#each Object.entries(item.links || {}) as [label, link] (link)}
-					<a
-						class="btn btn-text btn-primary block"
-						href={link}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						{label}
-					</a>
-				{/each}
-				{#if item.show_download}
-					<a
-						class="btn btn-text btn-primary block"
-						href={item.src}
-						download={item.src.split("/").at(-1)}
-					>
-						<Fa icon={faDownload} />
-						Download Image
-					</a>
-				{/if}
+				<div class="flex-row">
+					{#each Object.entries(item.links || {}) as [label, link] (link)}
+						<a
+							class="btn btn-text btn-primary block"
+							href={link}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{label}
+						</a>
+					{/each}
+					{#if item.show_download}
+						<a
+							class="btn btn-text btn-primary block"
+							href={item.src}
+							download={item.src.split("/").at(-1)}
+						>
+							<Fa icon={faDownload} />
+							Download Image
+						</a>
+					{/if}
+				</div>
 			</div>
 		</div>
-	</div>
-</Modal>
+	{/snippet}
+</Dialog>
 
 <script lang="ts">
-import Modal from "#components/popups/Modal.svelte";
 import Fa from "svelte-fa";
 import type { PortfolioItem } from "./types.d.ts";
 import {
 	faCalendar,
+	faClose,
 	faDownload,
 	faExpand,
 	faScrewdriverWrench,
 } from "@fortawesome/free-solid-svg-icons";
+import Dialog from "#components/popups/Dialog.svelte";
 
 let {
 	open = $bindable(),
@@ -85,10 +95,6 @@ const humanDate = $derived(
 );
 
 let innerWidth = $state(0);
-let ref: any = $state();
-$effect(() => {
-	if (open) ref?.focus();
-});
 </script>
 
 <style lang="scss">
@@ -96,7 +102,6 @@ $effect(() => {
 
 .split-panel {
 	display: grid;
-	gap: $padding-container;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -107,20 +112,24 @@ $effect(() => {
 	justify-content: center;
 	overflow: hidden;
 	background-color: $fg-light;
-	border-radius: $border-radius;
 	position: relative;
 }
 
 .image {
 	max-height: 70vh;
 	filter: drop-shadow($drop-shadow);
-	border-radius: $border-radius;
 	cursor: pointer;
 }
 
 .text-display {
 	display: flex;
 	flex-flow: column nowrap;
+}
+
+.header {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
 }
 
 .icon-list {

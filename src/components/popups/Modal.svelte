@@ -52,7 +52,6 @@ let {
 	title,
 	subtitle,
 	actions,
-	persistent = true,
 	hideActions = false,
 	destructive = false,
 	...args

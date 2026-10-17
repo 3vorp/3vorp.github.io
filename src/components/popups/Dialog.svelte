@@ -62,6 +62,7 @@ $effect(() => {
 	max-height: 80vh;
 	// don't touch edges on small screens
 	margin: $padding-container;
+	overflow-y: auto;
 }
 
 .dialog.open {
