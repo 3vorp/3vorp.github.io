@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>My Portfolio</h1>
-	<p class="text-center caption">
+	<p class="caption">
 		A non-exhaustive list of artwork I've made over roughly the past four years.
 	</p>
 

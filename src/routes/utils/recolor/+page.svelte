@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Batch Recolorer</h1>
-	<p class="caption text-center">Batch recolor an image to match a series of provided templates.</p>
+	<p class="caption">Batch recolor an image to match a series of provided templates.</p>
 	<h2 class="mt-5">Instructions</h2>
 	<p>
 		Batch recoloring operates on three different image types: the base image, the reference image,

@@ -1,5 +1,9 @@
 <div class="container all-center">
 	<h1>Gambling Simulator</h1>
+	<p class="caption text-center">
+		I do not take responsibility for any losses you may suffer as a result of this page.
+	</p>
+
 	<h2>
 		{#if cycler.current === "numbers"}
 			Random number: <code>{numberChoice}</code>
@@ -15,10 +19,6 @@
 			<Fa icon={faRepeat} /> Switch to {cycler.next}
 		</button>
 	</div>
-
-	<small class="mt-3">
-		I do not take responsibility for any losses you may suffer as a result of this page.
-	</small>
 </div>
 
 <script lang="ts">

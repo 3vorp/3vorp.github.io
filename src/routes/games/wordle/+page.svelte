@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Wordle</h1>
-	<p class="caption text-center">
+	<p class="caption">
 		{#if !guesses.length}
 			{ALLOWED_GUESSES} chances to guess a 5-letter word.
 		{:else if hasWon}

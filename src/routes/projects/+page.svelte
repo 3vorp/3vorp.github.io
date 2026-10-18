@@ -1,7 +1,7 @@
 <div class="container">
 	<h1>Programming Work</h1>
 	<!-- god I hate html link formatting this is so ugly -->
-	<p class="text-center caption">
+	<p class="caption text-center">
 		More projects can also be found on my <a
 			href="https://github.com/3vorp?tab=repositories"
 			target="_blank"

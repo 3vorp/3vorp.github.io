@@ -1,6 +1,6 @@
 <div class="container all-center">
 	<h1>The UwUificator</h1>
-	<p class="caption text-center">I'm genuinely sorry for making this.</p>
+	<p class="caption">I'm genuinely sorry for making this.</p>
 
 	<div class="card card-body block">
 		<textarea
