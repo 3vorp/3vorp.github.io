@@ -108,7 +108,7 @@ header {
 
 	.navbar-link {
 		// now the page title (Evorp's Website) serves as the subtitle
-		font-family: $font-body;
+		font-weight: $weight-semibold;
 		color: $content-mid;
 		margin-bottom: 16px;
 	}
