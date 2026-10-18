@@ -102,15 +102,16 @@ header {
 		flex-flow: column nowrap;
 		justify-content: center;
 		align-items: start;
-		padding: 10px 10%;
+		padding: 0 10% $padding-container 10%;
+		gap: 12px;
 		height: auto;
 	}
 
 	.navbar-link {
 		// now the page title (Evorp's Website) serves as the subtitle
 		font-weight: $weight-semibold;
+		font-size: $size-body;
 		color: $content-mid;
-		margin-bottom: 16px;
 	}
 }
 </style>

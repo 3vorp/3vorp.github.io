@@ -66,13 +66,11 @@ footer {
 		grid-template-columns: repeat(3, 1fr);
 		text-align: center;
 		height: auto;
-		padding: 10px 10%;
-	}
-	.footer-link {
-		margin-top: 16px;
+		padding: $padding-container 10% 0 10%;
+		gap: 12px;
 	}
 	.footer-info-text {
-		padding: 20px 10%;
+		padding: $padding-container 10%;
 	}
 }
 
