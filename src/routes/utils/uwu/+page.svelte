@@ -17,14 +17,20 @@
 		</p>
 	</div>
 	<br />
-	<button class="btn block" onclick={copyText}>
-		<Fa icon={faCopy} /> Copy Text
-	</button>
+	<div class="grid-2 block">
+		<button class="btn block" disabled={!input} onclick={copyText}>
+			<Fa icon={faCopy} /> Copy Text
+		</button>
+		<!-- don't use an anchor download so we can lazy load the blob data -->
+		<button class="btn block" disabled={!input} onclick={downloadText}>
+			<Fa icon={faDownload} /> Download Text
+		</button>
+	</div>
 </div>
 
 <script lang="ts">
 import Fa from "svelte-fa";
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faCopy, faDownload } from "@fortawesome/free-solid-svg-icons";
 import uwuify from "./uwuify";
 import { showSuccess } from "#helpers/snackbar.svelte.ts";
 
@@ -33,7 +39,20 @@ const output = $derived(uwuify(input));
 
 function copyText() {
 	navigator.clipboard.writeText(output);
-	showSuccess("Copied text to clipboard!");
+	showSuccess("Copied text to clipboard!", "You should probably feel mildly ashamed right now.");
+}
+
+function downloadText() {
+	const blob = new Blob([output]);
+	const zipUrl = URL.createObjectURL(blob);
+	const download = document.createElement("a");
+	download.href = zipUrl;
+	download.download = "uwuified.txt";
+	download.click();
+	showSuccess(
+		"Downloaded text file!",
+		"Should I even ask what you're using this for at this point?",
+	);
 }
 </script>
 
