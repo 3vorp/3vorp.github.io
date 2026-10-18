@@ -1,19 +1,17 @@
-<div class="hero-container">
+<h1 class="hero-container">
 	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" class="hero-image" />
-</div>
+</h1>
 
 <div class="container">
-	<h1>Featured Projects</h1>
+	<h2>Featured Projects</h2>
 	<div class="grid-3-reel">
 		{#each featuredProjects as { image, title, description, href, langs, frameworks } (title)}
-			<div class="card">
+			<a {href} class="card clickable-card" target="_blank" rel="noopener noreferrer">
 				<div class="card-img-container">
 					<img src={image} alt={`${title} icon`} class="card-img pa-4" />
 				</div>
 				<div class="card-body">
-					<h3 class="my-0">
-						<a {href}>{title}</a>
-					</h3>
+					<h3 class="my-0">{title}</h3>
 					<small class="subtitle-container mt-2 mb-4">
 						{#if langs}
 							<div class="subtitle-container mr-2">
@@ -30,7 +28,7 @@
 					</small>
 					<p class="text-preview my-0">{description}</p>
 				</div>
-			</div>
+			</a>
 		{/each}
 	</div>
 	<br />
@@ -42,10 +40,10 @@
 	</div>
 	<br /><br />
 
-	<h1>Featured Artwork</h1>
+	<h2>Featured Artwork</h2>
 	<div class="grid-3-reel">
 		{#each featuredPortfolio as { src, alt, pad, title, date, description } (src)}
-			<div class="card">
+			<a class="card clickable-card" href={`/portfolio?show=${title}`}>
 				<div class="card-img-container">
 					<img src={`/portfolio/${src}`} {alt} class={["card-img", { "pa-4": pad }]} />
 				</div>
@@ -57,7 +55,7 @@
 					</small>
 					<p class="text-preview my-0">{description}</p>
 				</div>
-			</div>
+			</a>
 		{/each}
 	</div>
 	<br />
@@ -96,6 +94,7 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
 	justify-content: center;
 	align-items: center;
 	overflow-x: hidden;
+	margin: 0;
 }
 
 .hero-image {

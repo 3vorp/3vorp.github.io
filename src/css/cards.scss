@@ -30,6 +30,7 @@
 	display: flex;
 	flex-flow: column nowrap;
 	padding: $padding-container;
+	color: rgba($content-light, 0.8);
 }
 
 .card-img-container {
