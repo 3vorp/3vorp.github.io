@@ -95,6 +95,13 @@
 </Modal>
 
 <Modal bind:open={importDialogOpen} title="Upload Session" onconfirm={importSession}>
+	{#if timer.hasRecords}
+		<div class="mb-4">
+			<Alert type="danger" title="This will override your existing session!" small>
+				Did you want to save your session first?
+			</Alert>
+		</div>
+	{/if}
 	<input
 		type="text"
 		bind:value={importedSession}
@@ -126,6 +133,7 @@ import {
 	faSave,
 } from "@fortawesome/free-solid-svg-icons";
 
+import Alert from "#components/Alert.svelte";
 import Modal from "#components/popups/Modal.svelte";
 import { showError, showSuccess } from "#helpers/snackbar.svelte.ts";
 import { makeTimer, sumDuration, type TimeRecord } from "#helpers/timer.svelte.ts";
