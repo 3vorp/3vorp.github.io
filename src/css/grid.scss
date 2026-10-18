@@ -4,6 +4,7 @@
 
 .grid-4,
 .grid-3,
+.grid-3-reel,
 .grid-2 {
 	display: grid;
 	gap: $grid-gap;
@@ -14,7 +15,8 @@
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.grid-3 {
+.grid-3,
+.grid-3-reel {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -30,6 +32,7 @@
 }
 
 @media screen and (max-width: $breakpoint-sm) {
+	.grid-3-reel,
 	.grid-3,
 	.grid-2 {
 		grid-template-columns: repeat(1, minmax(0, 1fr));

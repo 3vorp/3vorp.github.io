@@ -12,7 +12,7 @@
 
 	<h2>Session Information</h2>
 
-	<div class="grid-3 my-4">
+	<div class="grid-3-reel my-4">
 		<button class="btn block" onclick={openImportDialog}>
 			<Fa icon={faArrowUpFromBracket} /> Upload Session
 		</button>

@@ -7,6 +7,7 @@
 		"date": "2026-03-24",
 		"tools": "Adobe Photoshop",
 		"show_download": true,
+		"featured": true,
 		"category": "Wallpapers"
 	},
 	{
@@ -17,6 +18,7 @@
 		"date": "2024-01-22",
 		"tools": "Adobe Photoshop",
 		"show_download": true,
+		"featured": true,
 		"category": "Wallpapers"
 	},
 	{
@@ -36,6 +38,7 @@
 				"href": "https://github.com/3vorp/spatial"
 			}
 		],
+		"featured": true,
 		"category": "Brand Design"
 	},
 	{

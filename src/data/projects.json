@@ -5,6 +5,7 @@
 		"href": "https://npmjs.com/package/vdom-mini",
 		"image": "https://github.com/user-attachments/assets/996af12d-bbc6-44dc-a108-2712e4b38714",
 		"langs": ["JavaScript"],
+		"featured": true,
 		"category": "My Projects"
 	},
 	{
@@ -38,6 +39,7 @@
 		"href": "https://npmjs.com/package/firestorm-db",
 		"image": "https://raw.githubusercontent.com/TheRolfFR/firestorm-db/refs/heads/main/img/firestorm-512.png",
 		"langs": ["JavaScript", "PHP"],
+		"featured": true,
 		"category": "Contributed Work"
 	},
 	{
@@ -47,6 +49,7 @@
 		"image": "https://database.faithfulpack.net/images/branding/logos/transparent/hd/dev_logo.png?w=128",
 		"langs": ["JavaScript", "HTML", "SCSS"],
 		"frameworks": ["Vue", "Vuetify"],
+		"featured": true,
 		"category": "Contributed Work"
 	},
 	{

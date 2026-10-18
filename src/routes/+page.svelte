@@ -1,53 +1,90 @@
-<svelte:window bind:innerWidth />
-
 <div class="hero-container">
 	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" class="hero-image" />
 </div>
 
-{#each Object.entries(groupedProjects) as [key, category] (key)}
-	<h1 class="container text-center">{key}</h1>
-	{#each category as { title, description, href, image, langs, frameworks }, i (title)}
-		<div class={{ "secondary-background": i % 2 !== 0 }}>
-			<div class="container project-container">
-				<div class="project-info">
-					<div class="project-header">
-						{#if isMobile}
-							<img src={image} alt={`${title} icon`} width="96" class="project-image" />
-						{/if}
-						<div>
-							<a {href} class={isMobile ? "h3" : "h2"} target="_blank" rel="noopener noreferrer">
-								{title}
-							</a>
-							<SkillChips {frameworks} {langs} />
-						</div>
-					</div>
-					<p class="my-0">{description}</p>
+<div class="container">
+	<h1>Featured Projects</h1>
+	<div class="grid-3-reel">
+		{#each featuredProjects as { image, title, description, href, langs, frameworks } (title)}
+			<div class="card">
+				<div class="card-img-container">
+					<img src={image} alt={`${title} icon`} class="card-img pa-4" />
 				</div>
-				{#if !isMobile}
-					<a {href} target="_blank" rel="noopener noreferrer" tabindex="-1">
-						<img src={image} alt={`${title} icon`} width="256" class="project-image" />
-					</a>
-				{/if}
+				<div class="card-body">
+					<h3 class="my-0">
+						<a {href}>{title}</a>
+					</h3>
+					<small class="subtitle-container mt-2 mb-4">
+						{#if langs}
+							<div class="subtitle-container mr-2">
+								<Fa icon={faCode} />
+								{langs.join(", ")}
+							</div>
+						{/if}
+						{#if frameworks}
+							<div class="subtitle-container">
+								<Fa icon={faLayerGroup} />
+								{frameworks.join(", ")}
+							</div>
+						{/if}
+					</small>
+					<p class="text-preview my-0">{description}</p>
+				</div>
 			</div>
-		</div>
-	{/each}
-{/each}
+		{/each}
+	</div>
+	<br />
 
-<p class="container text-center pt-0">
-	<a href="/games/gamble">Gamble your savings away until I add more content to this site!</a>
-</p>
+	<div class="cta-container">
+		<a class="btn btn-more" href="/projects">
+			See all projects <Fa icon={faChevronRight} size="xs" />
+		</a>
+	</div>
+	<br /><br />
+
+	<h1>Featured Artwork</h1>
+	<div class="grid-3-reel">
+		{#each featuredPortfolio as { src, alt, pad, title, date, description } (src)}
+			<div class="card">
+				<div class="card-img-container">
+					<img src={`/portfolio/${src}`} {alt} class={["card-img", { "pa-4": pad }]} />
+				</div>
+				<div class="card-body">
+					<h3 class="my-0">{title}</h3>
+					<small class="subtitle-container mt-2 mb-4">
+						<Fa icon={faCalendar} />
+						{new Date(date).toLocaleString("en-us", { month: "short", year: "numeric" })}
+					</small>
+					<p class="text-preview my-0">{description}</p>
+				</div>
+			</div>
+		{/each}
+	</div>
+	<br />
+	<div class="cta-container">
+		<a class="btn btn-more" href="/portfolio">
+			See full portfolio <Fa icon={faChevronRight} size="xs" />
+		</a>
+	</div>
+	<br /><br />
+	<p class="text-center">
+		<a href="/games/gamble">Gamble your savings away until I add more content to this site!</a>
+	</p>
+</div>
 
 <script lang="ts">
 import projects from "#data/projects.json";
-import type { Project } from "#helpers/projectSkills.ts";
-import SkillChips from "#routes/projects/SkillChips.svelte";
+import portfolio from "#data/portfolio.json";
+import Fa from "svelte-fa";
+import {
+	faCalendar,
+	faChevronRight,
+	faCode,
+	faLayerGroup,
+} from "@fortawesome/free-solid-svg-icons";
 
-const groupedProjects = $derived(
-	Object.groupBy(projects, ({ category }) => category) as Record<string, Project[]>,
-);
-
-let innerWidth = $state(0);
-const isMobile = $derived(innerWidth <= 760);
+const featuredProjects = projects.filter((p) => p.featured);
+const featuredPortfolio = portfolio.filter((p) => p.featured);
 </script>
 
 <style lang="scss">
@@ -76,46 +113,26 @@ const isMobile = $derived(innerWidth <= 760);
 	}
 }
 
-// override container class for flex content
-.project-container {
-	width: 100%;
+.subtitle-container {
 	display: flex;
-	align-items: center;
-	// fixes short descriptions not pushing the images to the right
-	// remove this if putting images on left
-	justify-content: space-between;
-	padding: $padding-container;
-	min-height: 256px;
-	gap: 32px;
-}
-
-.project-header {
-	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row wrap;
 	align-items: center;
 	gap: 8px;
-	margin-bottom: 16px;
 }
 
-.project-image {
-	filter: drop-shadow($drop-shadow);
-	transition: all $transition;
-	&:hover {
-		transform: scale(1.05);
-	}
-}
-
-.secondary-background {
-	background: $bg-mid;
+// https://css-tricks.com/line-clampin/
+.text-preview {
+	display: -webkit-box;
+	overflow: hidden;
+	line-clamp: 3;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 @media screen and (max-width: $breakpoint-md) {
-	.project-container {
-		min-height: auto;
-		padding: 32px 16px;
-	}
-	.project-image:hover {
-		transform: inherit;
+	.text-preview {
+		line-clamp: 2;
+		-webkit-line-clamp: 2;
 	}
 }
 </style>

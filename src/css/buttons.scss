@@ -77,6 +77,13 @@
 	padding: 16px 64px;
 }
 
+/* for ctas, etc */
+.btn-more {
+	font-size: $size-body-small;
+	min-height: 36px;
+	min-width: 50%;
+}
+
 /* text-styled button with no background */
 .btn-text {
 	background: none;
