@@ -33,6 +33,7 @@
 
 <script lang="ts">
 import { onMount } from "svelte";
+import { goto } from "$app/navigation";
 import projectSkills from "#helpers/projectSkills.ts";
 import SkillList from "./SkillList.svelte";
 import ProjectList from "./ProjectList.svelte";
@@ -50,8 +51,7 @@ function selectSkill(skill: string | undefined) {
 	const url = new URL(location.toString());
 	if (skill === undefined) url.searchParams.delete(URL_PARAM);
 	else url.searchParams.set(URL_PARAM, skill);
-	// assigning to window.location causes sveltekit to freak out
-	history.replaceState({}, "", url);
+	goto(url, { replace: true })
 
 	if (window.innerWidth < 960)
 		document.getElementById("project-list")?.scrollIntoView({ behavior: "smooth" });
@@ -64,7 +64,7 @@ onMount(() => {
 	// invalid skill, reset
 	if (skillParam && !availableSkills.includes(skillParam)) {
 		url.searchParams.delete(URL_PARAM);
-		history.replaceState({}, "", url);
+		goto(url, { replace: true });
 	}
 	selectedSkill = url.searchParams.get(URL_PARAM) || undefined;
 });
