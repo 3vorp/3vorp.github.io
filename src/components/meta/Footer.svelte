@@ -98,6 +98,7 @@ footer {
 	text-align: center;
 	display: flex;
 	flex-flow: column nowrap;
+	box-shadow: inset $drop-shadow;
 }
 
 // container for left column as well as the others for better wrapping

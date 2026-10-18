@@ -85,7 +85,7 @@
 		"src": "profiles/computer.png",
 		"alt": "computer",
 		"title": "TV Profile",
-		"description": "Profile picture for a user with a computer-themed online avatar. Designed several prototypes over the course of a few months, with each iteration focusing on eliminating unnecessary detail and ensuring maximum legibility at small scales despite the relatively low contrast of the reference design.",
+		"description": "Profile picture for a user with a TV-themed online avatar. Designed several prototypes over the course of a few months, with each iteration focusing on eliminating unnecessary detail and ensuring maximum legibility at small scales despite the relatively low contrast of the reference design.",
 		"date": "2026-02-17",
 		"tools": "Aseprite",
 		"pad": true,
