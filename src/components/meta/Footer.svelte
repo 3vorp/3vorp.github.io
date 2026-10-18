@@ -52,7 +52,7 @@
 		>
 			SvelteKit
 		</a>
-		framework. View the source
+		framework. View the source code
 		<a href="https://github.com/3vorp/3vorp.github.io" target="_blank" rel="noopener noreferrer"
 			>here</a
 		>!
