@@ -1,13 +1,15 @@
-<div class={["alert", type]}>
+<div class={["alert", type, { small }]}>
 	{#if title}
 		<h3 class="title my-0">
 			<Fa {icon} class="mr-2" />
 			{title}
 		</h3>
 	{/if}
-	<div class="description">
-		{@render children()}
-	</div>
+	{#if children}
+		<div class="description">
+			{@render children()}
+		</div>
+	{/if}
 </div>
 
 <script lang="ts">
@@ -18,7 +20,12 @@ import { faCircleExclamation, faCircleInfo } from "@fortawesome/free-solid-svg-i
 
 type AlertType = "info" | "danger";
 
-const { type, title, children }: { type: AlertType; title?: string; children: Snippet } = $props();
+const {
+	type,
+	title,
+	children,
+	small = false,
+}: { type: AlertType; title?: string; children?: Snippet; small?: boolean } = $props();
 
 const icon = $derived(type === "info" ? faCircleInfo : faCircleExclamation);
 </script>
@@ -52,6 +59,15 @@ const icon = $derived(type === "info" ? faCircleInfo : faCircleExclamation);
 	border-left: 4px solid $danger-mid;
 	.description {
 		color: $danger-light;
+	}
+}
+
+.alert.small {
+	.title {
+		font-size: $size-title-small;
+	}
+	.description {
+		font-size: $size-body-small;
 	}
 }
 </style>
