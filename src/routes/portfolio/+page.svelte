@@ -50,7 +50,8 @@
 </Overlay>
 
 <script lang="ts">
-import { tick } from "svelte";
+import { onMount, tick } from "svelte";
+import { goto } from "$app/navigation";
 
 import Fa from "svelte-fa";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
@@ -61,6 +62,8 @@ import Overlay from "#components/popups/Overlay.svelte";
 
 import portfolio from "#data/portfolio.json";
 import type { PortfolioItem } from "./types.d.ts";
+
+const URL_PARAM = "show";
 
 const groupedPortfolios = $derived(
 	Object.groupBy(portfolio, ({ category }) => category) as Record<string, PortfolioItem[]>,
@@ -91,6 +94,32 @@ function closeFullscreen(key: string | undefined) {
 	if (key !== undefined && key !== "Escape" && key !== "Enter") return;
 	fullscreenOpen = false;
 }
+
+$effect(() => {
+	const url = new URL(location.toString());
+	if (!modalOpen) url.searchParams.delete(URL_PARAM);
+	else url.searchParams.set(URL_PARAM, modalItem?.title || "");
+	goto(url, { replace: true });
+});
+
+onMount(() => {
+	const url = new URL(location.toString());
+	const showParam = url.searchParams.get(URL_PARAM);
+
+	if (!showParam) return;
+
+	const found = portfolio.find((p) => p.title === showParam);
+
+	// invalid show, reset
+	if (!found) {
+		url.searchParams.delete(URL_PARAM);
+		return goto(url, { replace: true });
+	}
+
+	modalOpen = true;
+	modalItem = found;
+	modalCategory = found.category;
+});
 </script>
 
 <style lang="scss">
