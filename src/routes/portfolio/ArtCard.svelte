@@ -65,21 +65,4 @@ const {
 	flex-flow: row nowrap;
 	align-items: center;
 }
-
-.card-img-container {
-	width: 100%;
-	aspect-ratio: 16 / 9;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: $fg-light;
-	border-radius: $border-radius;
-	position: relative;
-}
-
-.card-img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-}
 </style>
