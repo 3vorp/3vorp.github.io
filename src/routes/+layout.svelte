@@ -43,12 +43,13 @@
 	<main>
 		<slot />
 	</main>
-	<div class="snackbar-container">
-		{#each Object.entries(snackbars) as [id, snackbar] (id)}
-			<Snackbar {...snackbar} ondestroy={() => popSnackbar(id)} />
-		{/each}
-	</div>
 	<Footer items={footerItems} />
+</div>
+
+<div class="snackbar-container">
+	{#each Object.entries(snackbars) as [id, snackbar] (id)}
+		<Snackbar {...snackbar} ondestroy={() => popSnackbar(id)} />
+	{/each}
 </div>
 
 <script lang="ts">
