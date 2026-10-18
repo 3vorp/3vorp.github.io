@@ -48,18 +48,6 @@ const {
 <style lang="scss">
 @use "#css/variables.scss" as *;
 
-.clickable-card {
-	transition: all $transition;
-	cursor: pointer;
-	&:hover,
-	&:focus {
-		transform: scale(1.05);
-	}
-	&:active {
-		transform: scale(0.95);
-	}
-}
-
 .card-text {
 	display: flex;
 	flex-flow: row nowrap;
