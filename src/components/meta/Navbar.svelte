@@ -9,7 +9,7 @@
 					class="mobile-navbar-toggle navigation-link"
 					type="button"
 					title={isOpen ? "Close Menu" : "Open Menu"}
-					onclick={() => (isOpen = !isOpen)}
+					onclick={toggleOpen}
 				>
 					<Fa {icon} />
 				</button>
@@ -19,7 +19,7 @@
 		{#if isOpen || !isMobile}
 			<div class="navbar-item-container">
 				{#each items as { href, title, icon } (title)}
-					<a {href} class="navigation-link navbar-link">
+					<a {href} class="navigation-link navbar-link" onclick={toggleOpen}>
 						<Fa {icon} class="mr-2" />
 						{title}
 					</a>
@@ -42,6 +42,11 @@ let isOpen = $state(false);
 
 const icon = $derived(isOpen ? faClose : faBars);
 const isMobile = $derived(innerWidth <= 760);
+
+function toggleOpen() {
+	if (!isMobile) return;
+	isOpen = !isOpen;
+}
 </script>
 
 <style lang="scss">
