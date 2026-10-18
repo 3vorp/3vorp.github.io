@@ -6,7 +6,7 @@
 	/>
 	{#each Object.entries(skillData) as [type, skills] (type)}
 		<button class="skill-group-title" onclick={() => collapseGroup(type)}>
-			<h3 class="my-0">{type}</h3>
+			<h2 class="h3 my-0">{type}</h2>
 			<Fa icon={collapsedGroups[type] ? faChevronRight : faChevronDown} size="0.8x" class="mx-2" />
 		</button>
 		{#if !collapsedGroups[type]}
