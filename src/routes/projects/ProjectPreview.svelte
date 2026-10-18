@@ -12,8 +12,8 @@
 </div>
 
 <script lang="ts">
-import type { Project } from "#helpers/projectSkills.ts";
 import SkillChips from "./SkillChips.svelte";
+import type { Project } from "#helpers/projectSkills.ts";
 
 // spread entire project object
 const {

@@ -31,6 +31,7 @@
 <script lang="ts">
 import Fa from "svelte-fa";
 import { faCopy, faDownload } from "@fortawesome/free-solid-svg-icons";
+
 import uwuify from "./uwuify";
 import { showSuccess } from "#helpers/snackbar.svelte.ts";
 

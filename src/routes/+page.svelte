@@ -73,8 +73,6 @@
 </div>
 
 <script lang="ts">
-import projects from "#data/projects.json";
-import portfolio from "#data/portfolio.json";
 import Fa from "svelte-fa";
 import {
 	faCalendar,
@@ -82,6 +80,9 @@ import {
 	faCode,
 	faLayerGroup,
 } from "@fortawesome/free-solid-svg-icons";
+
+import projects from "#data/projects.json";
+import portfolio from "#data/portfolio.json";
 
 const featuredProjects = projects.filter((p) => p.featured);
 const featuredPortfolio = portfolio.filter((p) => p.featured);

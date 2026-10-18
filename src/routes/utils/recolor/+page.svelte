@@ -107,7 +107,9 @@ import {
 	faSpinner,
 	faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+
 import DropZone from "#components/DropZone.svelte";
+
 import batchRecolor from "#helpers/batchRecolor.ts";
 import { showError } from "#helpers/snackbar.svelte.ts";
 

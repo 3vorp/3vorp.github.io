@@ -34,10 +34,12 @@
 <script lang="ts">
 import { onMount } from "svelte";
 import { goto } from "$app/navigation";
-import projectSkills from "#helpers/projectSkills.ts";
+
 import SkillList from "./SkillList.svelte";
 import ProjectList from "./ProjectList.svelte";
+
 import projects from "#data/projects.json";
+import projectSkills from "#helpers/projectSkills.ts";
 
 const URL_PARAM = "skill";
 
@@ -51,7 +53,7 @@ function selectSkill(skill: string | undefined) {
 	const url = new URL(location.toString());
 	if (skill === undefined) url.searchParams.delete(URL_PARAM);
 	else url.searchParams.set(URL_PARAM, skill);
-	goto(url, { replace: true })
+	goto(url, { replace: true });
 
 	if (window.innerWidth < 960)
 		document.getElementById("project-list")?.scrollIntoView({ behavior: "smooth" });

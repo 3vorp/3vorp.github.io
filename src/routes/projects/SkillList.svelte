@@ -20,11 +20,13 @@
 </div>
 
 <script lang="ts">
+import { onMount } from "svelte";
+
 import Fa from "svelte-fa";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import type { SkillRecord } from "#helpers/projectSkills.ts";
+
 import SkillButton from "./SkillButton.svelte";
-import { onMount } from "svelte";
+import type { SkillRecord } from "#helpers/projectSkills.ts";
 
 const {
 	selectedSkill,

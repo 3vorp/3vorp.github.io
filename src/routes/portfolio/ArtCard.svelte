@@ -25,8 +25,8 @@
 </article>
 
 <script lang="ts">
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import Fa from "svelte-fa";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 const {
 	image,

@@ -54,10 +54,6 @@
 
 <script lang="ts">
 import "#css/main.scss";
-
-import Navbar from "#components/meta/Navbar.svelte";
-import Footer from "#components/meta/Footer.svelte";
-import type { NavigationItem } from "#components/meta/types.d.ts";
 import {
 	faGithub,
 	faReddit,
@@ -67,6 +63,11 @@ import {
 	faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCode, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
+
+import Navbar from "#components/meta/Navbar.svelte";
+import Footer from "#components/meta/Footer.svelte";
+import type { NavigationItem } from "#components/meta/types.d.ts";
+
 import Snackbar from "#components/Snackbar.svelte";
 import { popSnackbar, snackbars } from "#helpers/snackbar.svelte.ts";
 

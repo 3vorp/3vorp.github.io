@@ -7,7 +7,7 @@ import {
 	getImageDataAsTuples,
 	imageDataToPng,
 	loadToGL,
-} from "./imageUtils";
+} from "./imageUtils.ts";
 
 interface ReplacementData {
 	original: ColorTuple;

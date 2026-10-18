@@ -69,7 +69,6 @@
 
 <script lang="ts">
 import Fa from "svelte-fa";
-import type { PortfolioItem } from "./types.d.ts";
 import {
 	faCalendar,
 	faClose,
@@ -77,7 +76,10 @@ import {
 	faExpand,
 	faScrewdriverWrench,
 } from "@fortawesome/free-solid-svg-icons";
+
 import Dialog from "#components/popups/Dialog.svelte";
+
+import type { PortfolioItem } from "./types.d.ts";
 
 let {
 	open = $bindable(),

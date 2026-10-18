@@ -28,10 +28,10 @@
 </div>
 
 <script lang="ts">
-import Tooltip from "#components/Tooltip.svelte";
-
 import Fa from "svelte-fa";
 import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+
+import Tooltip from "#components/Tooltip.svelte";
 
 const {
 	langs = [],

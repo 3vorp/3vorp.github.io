@@ -13,10 +13,12 @@
 </div>
 
 <script lang="ts">
+import { onMount } from "svelte";
+
+import Fa from "svelte-fa";
 import { faCircleCheck, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { onMount } from "svelte";
-import Fa from "svelte-fa";
+
 import type { Snackbar } from "#helpers/snackbar.svelte.ts";
 
 const {

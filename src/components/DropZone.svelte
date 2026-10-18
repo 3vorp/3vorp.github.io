@@ -29,8 +29,9 @@
 </div>
 
 <script lang="ts">
-import JSZip from "jszip";
 import type { Snippet } from "svelte";
+
+import JSZip from "jszip";
 import { showError } from "#helpers/snackbar.svelte.ts";
 
 const {

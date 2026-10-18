@@ -11,9 +11,10 @@
 </div>
 
 <script lang="ts">
-import { faCircleExclamation, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import type { Snippet } from "svelte";
+
 import Fa from "svelte-fa";
+import { faCircleExclamation, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 type AlertType = "info" | "danger";
 

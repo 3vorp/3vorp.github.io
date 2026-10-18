@@ -14,8 +14,8 @@
 </div>
 
 <script lang="ts">
-import type { Project } from "#helpers/projectSkills.ts";
 import ProjectPreview from "./ProjectPreview.svelte";
+import type { Project } from "#helpers/projectSkills.ts";
 
 const { projects, onselect }: { projects: Project[]; onselect: (skill: string) => void } = $props();
 

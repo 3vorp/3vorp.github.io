@@ -149,7 +149,6 @@ let nameField: HTMLInputElement;
 const buttonTitle = $derived(timer.isRunning ? "Stop" : "Start");
 
 const recordsByDay = $derived(
-	// have to cast away Partial which is stupid
 	Object.groupBy(Array.from(timer.records).reverse(), ({ start }) =>
 		new Date(start).toLocaleDateString(),
 	) as Record<string, TimeRecord[]>,
