@@ -158,8 +158,6 @@ a {
 	width: 100%;
 	flex-grow: 1;
 	padding: calc($padding-container * 3) $padding-container;
-	// footer already has padding
-	padding-bottom: 0px;
 	margin-right: auto;
 	margin-left: auto;
 
@@ -181,13 +179,10 @@ a {
 
 // generic class for both navbar and footer
 .navigation-link {
-	font-weight: $weight-bold;
-	color: $content-light;
-	font-size: $size-title-small;
 	transition: all $transition;
 	&:hover,
 	&:focus {
-		color: $accent-mid;
+		color: $accent-mid !important;
 		transform: scale(0.95);
 		cursor: pointer;
 	}

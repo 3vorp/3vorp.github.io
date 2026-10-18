@@ -69,6 +69,14 @@ header {
 	display: none;
 }
 
+.navbar-link,
+.mobile-title,
+.mobile-navbar-toggle {
+	font-weight: $weight-bold;
+	color: $content-light;
+	font-size: $size-title-small;
+}
+
 .mobile-navbar-toggle {
 	background-color: transparent;
 	border: none;

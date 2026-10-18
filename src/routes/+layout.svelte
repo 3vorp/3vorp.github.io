@@ -43,7 +43,7 @@
 	<main>
 		<slot />
 	</main>
-	<Footer items={footerItems} />
+	<Footer />
 </div>
 
 <div class="snackbar-container">
@@ -54,14 +54,6 @@
 
 <script lang="ts">
 import "#css/main.scss";
-import {
-	faGithub,
-	faReddit,
-	faSteam,
-	faTumblr,
-	faTwitter,
-	faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
 import { faCode, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
 
 import Navbar from "#components/meta/Navbar.svelte";
@@ -75,15 +67,6 @@ const navItems: NavigationItem[] = [
 	{ title: "Home", href: "/", icon: faHome },
 	{ title: "Projects", href: "/projects", icon: faCode },
 	{ title: "Portfolio", href: "/portfolio", icon: faPalette },
-];
-
-const footerItems: NavigationItem[] = [
-	{ title: "GitHub", href: "https://github.com/3vorp", icon: faGithub },
-	{ title: "Twitter", href: "https://twitter.com/3vorp", icon: faTwitter },
-	{ title: "Reddit", href: "https://reddit.com/u/3vorp", icon: faReddit },
-	{ title: "Tumblr", href: "https://tumblr.com/evorp", icon: faTumblr },
-	{ title: "YouTube", href: "https://www.youtube.com/@evorp", icon: faYoutube },
-	{ title: "Steam", href: "https://steamcommunity.com/id/3vorp/", icon: faSteam },
 ];
 
 // shared meta tags

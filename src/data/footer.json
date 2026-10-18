@@ -1,0 +1,82 @@
+[
+	{
+		"title": "General",
+		"items": [
+			{
+				"name": "Projects",
+				"href": "/projects"
+			},
+			{
+				"name": "Portfolio",
+				"href": "/portfolio"
+			},
+			{
+				"name": "GitHub Profile",
+				"href": "https://github.com/3vorp"
+			},
+			{
+				"name": "Repositories",
+				"href": "https://github.com/3vorp?tab=repositories"
+			},
+			{
+				"name": "Gists",
+				"href": "https://gist.github.com/3vorp"
+			}
+		]
+	},
+	{
+		"title": "Tools",
+		"items": [
+			{
+				"name": "Autopull",
+				"href": "https://github.com/3vorp/autopull"
+			},
+			{
+				"name": "Batch Recolor",
+				"href": "/utils/recolor"
+			},
+			{
+				"name": "convert-pack",
+				"href": "https://npmjs.com/package/convert-pack"
+			},
+			{
+				"name": "Timesheet Manager",
+				"href": "/utils/timesheet"
+			}
+		]
+	},
+	{
+		"title": "Fun",
+		"items": [
+			{
+				"name": "Gambling Simulator",
+				"href": "/games/gamble"
+			},
+			{
+				"name": "Wordle",
+				"href": "/games/wordle"
+			},
+			{
+				"name": "The UwUificator",
+				"href": "/utils/uwu"
+			}
+		]
+	},
+	{
+		"title": "Miscellaneous",
+		"items": [
+			{
+				"name": "My Media Kit",
+				"href": "https://github.com/3vorp/media-kit"
+			},
+			{
+				"name": "Aseprite Theme",
+				"href": "https://github.com/3vorp/aseprite-theme"
+			},
+			{
+				"name": "WakaTime Profile",
+				"href": "https://wakatime.com/@Evorp"
+			}
+		]
+	}
+]
