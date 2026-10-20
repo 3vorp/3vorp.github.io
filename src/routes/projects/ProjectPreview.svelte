@@ -1,15 +1,17 @@
-<div class="project-preview">
-	<img src={image} alt={`${title} icon`} loading="lazy" width="64" class="project-image" />
-	<div>
-		<a {href} class="h3" rel="noopener noreferrer" target="_blank">
-			{title}
-		</a>
-		<small class="project-subtitle mt-0 mb-2">
-			<SkillChips {langs} {frameworks} {onselect} />
-		</small>
-		<p class="project-description my-0">{description}</p>
+<article>
+	<div class="project-header">
+		<img src={image} alt={`${title} icon`} loading="lazy" width="64" class="project-image" />
+		<div>
+			<a {href} class="h3" rel="noopener noreferrer" target="_blank">
+				{title}
+			</a>
+			<small class="project-subtitle my-0">
+				<SkillChips {langs} {frameworks} {onselect} />
+			</small>
+		</div>
 	</div>
-</div>
+	<p class="project-description my-0">{description}</p>
+</article>
 
 <script lang="ts">
 import SkillChips from "./SkillChips.svelte";
@@ -30,10 +32,10 @@ const {
 <style lang="scss">
 @use "#css/variables.scss" as *;
 
-.project-preview {
+.project-header {
 	display: flex;
 	flex-flow: row nowrap;
-	align-items: start;
+	align-items: center;
 	justify-content: start;
 	gap: 8px;
 }
@@ -48,12 +50,14 @@ const {
 
 .project-description {
 	color: $content-light;
+	// pad to line up with title (looks nice)
+	margin-left: calc(64px + 8px);
 }
 
-@media screen and (max-width: $breakpoint-md) {
-	// align with image to have more available space
+@media screen and (max-width: $breakpoint-sm) {
+	// win back indent space on mobile
 	.project-description {
-		margin-left: -64px;
+		margin-left: 0;
 	}
 }
 </style>
