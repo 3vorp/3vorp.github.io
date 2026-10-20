@@ -34,10 +34,15 @@
 						<a
 							class="navigation-link footer-link"
 							{href}
-							target={href.startsWith("http") ? "_blank" : ""}
-							rel={href.startsWith("http") ? "noopener noreferrer" : ""}
+							target={isExternal(href) ? "_blank" : ""}
+							rel={isExternal(href) ? "noopener noreferrer" : ""}
 						>
 							{name}
+							{#if isExternal(href)}
+								<sup class="footer-external-link">
+									<Fa icon={faArrowUpRightFromSquare} size="0.6x" />
+								</sup>
+							{/if}
 						</a>
 					{/each}
 				</div>
@@ -72,6 +77,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import categories from "#data/footer.json";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 interface SocialMedia {
 	href: string;
@@ -87,6 +93,8 @@ const socials: SocialMedia[] = [
 	{ href: "https://www.youtube.com/@evorp", alt: "YouTube", icon: faYoutube },
 	{ href: "https://steamcommunity.com/id/3vorp/", alt: "Steam", icon: faSteam },
 ];
+
+const isExternal = (link: string) => link.startsWith("http");
 </script>
 
 <style lang="scss">
@@ -136,6 +144,10 @@ footer {
 .footer-link {
 	color: $content-mid;
 	font-size: $size-body;
+}
+
+.footer-external-link {
+	color: $content-dark;
 }
 
 .footer-information {
