@@ -2,7 +2,7 @@
 	<h1>The UwUificator</h1>
 	<p class="caption">I'm genuinely sorry for making this.</p>
 
-	<div class="card card-body block">
+	<div class="card card-body block mb-5">
 		<textarea
 			class="text-field uwu-input"
 			bind:value={input}
@@ -16,7 +16,6 @@
 			{/if}
 		</p>
 	</div>
-	<br />
 	<div class="grid-2 block">
 		<button class="btn block" disabled={!input} onclick={copyText}>
 			<Fa icon={faCopy} /> Copy Text
