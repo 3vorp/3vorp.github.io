@@ -49,12 +49,16 @@
 		"title": "Fun",
 		"items": [
 			{
-				"name": "Gambling Simulator",
-				"href": "/games/gamble"
-			},
-			{
 				"name": "Wordle",
 				"href": "/games/wordle"
+			},
+			{
+				"name": "Minesweeper (Swing)",
+				"href": "https://github.com/3vorp/minesweeper"
+			},
+			{
+				"name": "Gambling Simulator",
+				"href": "/games/gamble"
 			},
 			{
 				"name": "The UwUificator",
