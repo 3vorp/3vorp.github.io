@@ -44,8 +44,8 @@
 	}
 
 	&:disabled {
-		// works on all button types (not perfect but good enough)
-		filter: brightness(0.8) saturate(0.5);
+		filter: none;
+		opacity: 0.5;
 	}
 }
 
