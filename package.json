@@ -30,11 +30,11 @@
 		"buffer": "^6.0.3",
 		"jszip": "^3.10.2",
 		"pngjs": "^7.0.0",
-		"sass": "^1.105.2",
+		"sass": "^1.106.1",
 		"svelte": "^5.57.2",
 		"svelte-fa": "^4.0.4",
 		"typescript": "^6.0.3",
-		"vite": "^8.3.4"
+		"vite": "^8.3.5"
 	},
 	"imports": {
 		"#components/*": "./src/components/*",

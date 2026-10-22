@@ -147,6 +147,9 @@ footer {
 }
 
 .footer-external-link {
+	vertical-align: top;
+	position: relative;
+	top: -0.25rem;
 	color: $content-dark;
 }
 
