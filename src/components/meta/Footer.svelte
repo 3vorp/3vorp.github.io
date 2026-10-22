@@ -32,7 +32,8 @@
 					<h3 class="my-0 mr-2">{title}</h3>
 					{#each items as { name, href } (href)}
 						<a
-							class="navigation-link footer-link"
+							// n1 doesn't perfectly offset <sup> height but it's close enough
+							class={["navigation-link footer-link", { "mt-n1": isExternal(href) }]}
 							{href}
 							target={isExternal(href) ? "_blank" : ""}
 							rel={isExternal(href) ? "noopener noreferrer" : ""}
