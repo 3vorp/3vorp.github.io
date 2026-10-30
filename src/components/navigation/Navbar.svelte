@@ -33,7 +33,7 @@
 import Fa from "svelte-fa";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 
-import type { NavigationItem } from "./types.d.ts";
+import type { NavigationItem } from "./types";
 
 const { items }: { items: NavigationItem[] } = $props();
 
