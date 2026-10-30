@@ -28,7 +28,7 @@ import Fa from "svelte-fa";
 import { faRepeat, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
 import { choice, randint } from "#helpers/random.ts";
-import cards from "#helpers/cards.ts";
+import cards from "#helpers/playingCards.ts";
 import { makeCycler } from "#helpers/cycler.svelte.ts";
 
 const modes = ["numbers", "cards"];

@@ -63,8 +63,8 @@
 import "#css/main.scss";
 import { faCode, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
 
-import Navbar from "#components/meta/Navbar.svelte";
-import Footer from "#components/meta/Footer.svelte";
+import Navbar from "#components/navigation/Navbar.svelte";
+import Footer from "#components/navigation/Footer.svelte";
 
 import Snackbar from "#components/Snackbar.svelte";
 import { popSnackbar, snackbars } from "#helpers/snackbar.svelte.ts";
