@@ -38,9 +38,19 @@ body {
 	margin: 0;
 }
 
-// make sure main content fills whole space
+$max-trim-height: 30vw;
+$top-swoosh: url("/bg/top.png") top / 100vw $max-trim-height no-repeat;
+$bottom-swoosh: url("/bg/bottom.png") bottom / 100vw $max-trim-height no-repeat;
+
 main {
 	flex-grow: 1;
+	// always show top swoosh
+	background: $top-swoosh;
+}
+
+.main-full {
+	// show bottom swoosh if there's enough space (class is set on svelte side with JS)
+	background: $top-swoosh, $bottom-swoosh;
 }
 
 :disabled {
@@ -172,8 +182,8 @@ a {
 	@media screen and (max-width: $breakpoint-sm) {
 		max-width: calc($breakpoint-xs - $padding-container);
 
-		// less top/bottom padding on mobile
-		padding: $padding-container;
+		// less top padding on mobile
+		padding-top: $padding-container;
 	}
 }
 

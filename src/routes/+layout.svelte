@@ -40,7 +40,7 @@
 
 <div class="site-container">
 	<Navbar items={navItems} />
-	<main>
+	<main bind:clientWidth bind:clientHeight class={{ "main-full": useFullBg }}>
 		{@render children()}
 	</main>
 	<Footer />
@@ -76,6 +76,13 @@ const title = "Evorp's Website";
 const description = "idk at this point either";
 const banner =
 	"https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/banner/embed.jpg";
+
+// height must be x greater than width to add full class
+const MIN_CONTAINER_RATIO = 1.4;
+
+let clientWidth = $state(0);
+let clientHeight = $state(0);
+const useFullBg = $derived(clientWidth / clientHeight < MIN_CONTAINER_RATIO);
 </script>
 
 <style lang="scss">

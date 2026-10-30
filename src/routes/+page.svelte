@@ -1,8 +1,7 @@
-<h1 class="hero-container">
-	<img src="banner/hero.jpg" alt="Evorp's Website" fetchpriority="high" class="hero-image" />
-</h1>
-
 <div class="container">
+	<div class="hero-container">
+		<img src="banner/main.png" alt="Evorp's Website" fetchpriority="high" class="hero-image" />
+	</div>
 	<h2>Featured Projects</h2>
 	<div class="grid-3-reel">
 		{#each featuredProjects as { image, title, description, href, langs, frameworks } (title)}
@@ -91,26 +90,17 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
 
 .hero-container {
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	overflow-x: hidden;
-	margin: 0;
+	justify-content: center;
+	margin-bottom: calc($padding-container * 3);
 }
 
 .hero-image {
+	margin: auto;
 	width: 100%;
-	max-height: 50vw;
-	-webkit-user-drag: none;
-	-khtml-user-drag: none;
-	-moz-user-drag: none;
-	-o-user-drag: none;
-	// specifically based on image margins, unique breakpoints are fine
-	@media screen and (max-width: 1200px) {
-		width: 130%;
-	}
-	@media screen and (max-width: 800px) {
-		width: 160%;
-	}
+
+	// full width on widescreen is a bit obnoxious
+	max-width: $breakpoint-md;
 }
 
 .subtitle-container {
