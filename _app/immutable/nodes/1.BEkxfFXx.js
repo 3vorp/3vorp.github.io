@@ -1,1 +1,0 @@
-import{C as e,D as t,H as n,J as r,K as i,T as a,nt as o,q as s,rt as c}from"../chunks/BIQRRele.js";import{t as l}from"../chunks/Bx7EiGyS.js";var u=t(`<h1> </h1> <p> </p>`,1);function d(t,d){c(d,!0);var f=u(),p=i(f),m=s(p,!0),h=r(p,2),g=s(h,!0);n(()=>{e(m,l.status),e(g,l.error?.message)}),a(t,f),o()}export{d as component};
