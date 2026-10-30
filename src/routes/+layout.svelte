@@ -41,7 +41,7 @@
 <div class="site-container">
 	<Navbar items={navItems} />
 	<main>
-		<slot />
+		{@render children()}
 	</main>
 	<Footer />
 </div>
@@ -62,6 +62,8 @@ import type { NavigationItem } from "#components/meta/types.d.ts";
 
 import Snackbar from "#components/Snackbar.svelte";
 import { popSnackbar, snackbars } from "#helpers/snackbar.svelte.ts";
+
+const { children } = $props();
 
 const navItems: NavigationItem[] = [
 	{ title: "Home", href: "/", icon: faHome },
