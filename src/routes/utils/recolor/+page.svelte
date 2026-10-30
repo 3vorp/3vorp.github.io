@@ -1,8 +1,9 @@
 <div class="container">
 	<h1>Batch Recolorer</h1>
 	<p class="caption">Batch recolor an image to match a series of provided templates.</p>
+
 	<h2 class="mt-5">Instructions</h2>
-	<p>
+	<p class="my-0">
 		Batch recoloring operates on three different image types: the base image, the reference image,
 		and a series of color templates.
 	</p>
@@ -14,10 +15,11 @@
 			colors will be based on.
 		</li>
 	</ul>
-	<p>
+	<p class="my-0">
 		Any colors that aren't shared between the reference and base images will be ignored, which is
 		handy if only part of an image needs recoloring.
 	</p>
+
 	<h2 class="mt-5">Upload Images</h2>
 	<div class="flex-row my-3">
 		<DropZone accept="image/png" onchange={(file) => onFileInput("image", file)}>

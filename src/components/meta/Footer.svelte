@@ -1,10 +1,10 @@
-<footer class="mt-4">
+<footer>
 	<div class="container footer-container">
 		<div class="footer-column footer-information">
 			<a href="/" class="navigation-link mb-2">
 				<img
 					class="footer-wordmark zoom-hitbox zoom-affected"
-					src="/banner/footer.png"
+					src="/banner/main.png"
 					loading="lazy"
 					alt="Evorp's Wordmark"
 					width="240"

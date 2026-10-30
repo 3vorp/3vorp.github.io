@@ -39,13 +39,20 @@
 </svelte:head>
 
 <div class="site-container">
-	<Navbar items={navItems} />
-	<main>
+	<Navbar
+		items={[
+			{ title: "Home", href: "/", icon: faHome },
+			{ title: "Projects", href: "/projects", icon: faCode },
+			{ title: "Portfolio", href: "/portfolio", icon: faPalette },
+		]}
+	/>
+	<main bind:clientHeight class={["top-trim", { "full-trim": useFullBg }]}>
 		{@render children()}
 	</main>
 	<Footer />
 </div>
 
+<!-- place out of main site flow to not mess with tab indexing -->
 <div class="snackbar-container">
 	{#each Object.entries(snackbars) as [id, snackbar] (id)}
 		<Snackbar {...snackbar} ondestroy={() => popSnackbar(id)} />
@@ -58,24 +65,23 @@ import { faCode, faHome, faPalette } from "@fortawesome/free-solid-svg-icons";
 
 import Navbar from "#components/meta/Navbar.svelte";
 import Footer from "#components/meta/Footer.svelte";
-import type { NavigationItem } from "#components/meta/types.d.ts";
 
 import Snackbar from "#components/Snackbar.svelte";
 import { popSnackbar, snackbars } from "#helpers/snackbar.svelte.ts";
 
 const { children } = $props();
 
-const navItems: NavigationItem[] = [
-	{ title: "Home", href: "/", icon: faHome },
-	{ title: "Projects", href: "/projects", icon: faCode },
-	{ title: "Portfolio", href: "/portfolio", icon: faPalette },
-];
-
 // shared meta tags
 const title = "Evorp's Website";
 const description = "idk at this point either";
 const banner =
 	"https://raw.githubusercontent.com/3vorp/3vorp.github.io/main/static/banner/embed.jpg";
+
+/** <main> has to be this many pixels tall to show both trims */
+const MIN_MAIN_HEIGHT = 768;
+
+let clientHeight = $state(0);
+const useFullBg = $derived(clientHeight > MIN_MAIN_HEIGHT);
 </script>
 
 <style lang="scss">
