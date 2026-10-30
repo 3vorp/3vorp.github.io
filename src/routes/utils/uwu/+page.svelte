@@ -2,18 +2,14 @@
 	<h1>The UwUificator</h1>
 	<p class="caption">I'm genuinely sorry for making this.</p>
 
-	<div class="card card-body block mb-5">
+	<div class="card card-body block grid-2 mb-5">
 		<textarea
-			class="text-field uwu-input"
+			class="text-field input block"
 			bind:value={input}
 			name="UwU Entry Box"
 			placeholder="Enter text to uwuify here…"></textarea>
-		<p class="output mt-5 mb-0">
-			{#if output}
-				{output}
-			{:else}
-				<i>No input provided</i>
-			{/if}
+		<p class="output-card my-0">
+			{output || "…to see the output here."}
 		</p>
 	</div>
 	<div class="grid-2 block">
@@ -59,11 +55,11 @@ function downloadText() {
 <style lang="scss">
 @use "#css/variables.scss" as *;
 
-.uwu-input {
-	min-height: 128px;
-}
-
-.output {
+.output-card {
+	flex-grow: 1;
+	background-color: $bg-light;
+	padding: $padding-container;
+	border-radius: $border-radius;
 	// don't collapse newlines
 	white-space: pre-line;
 }
