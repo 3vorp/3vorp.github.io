@@ -21,6 +21,8 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 import type { Snackbar } from "#helpers/snackbar.svelte.ts";
 
+const DEFAULT_DELAY_MS = 3000;
+
 const {
 	title,
 	description,
@@ -32,8 +34,8 @@ const {
 const icon = $derived(type === "success" ? faCircleCheck : faCircleXmark);
 
 onMount(() => {
-	// have to cancel with x with persistent
-	if (delay !== -1) setTimeout(ondestroy, delay || 3000);
+	// have to use x button to cancel with persistent snackbars
+	if (delay !== -1) setTimeout(ondestroy, delay || DEFAULT_DELAY_MS);
 });
 </script>
 

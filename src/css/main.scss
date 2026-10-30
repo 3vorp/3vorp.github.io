@@ -38,19 +38,21 @@ body {
 	margin: 0;
 }
 
-$max-trim-height: 30vw;
-$top-swoosh: url("/bg/top.png") top / 100vw $max-trim-height no-repeat;
-$bottom-swoosh: url("/bg/bottom.png") bottom / 100vw $max-trim-height no-repeat;
+$max-trim-height: 512px;
+$top-trim: url("/bg/top.png") top / 100vw $max-trim-height no-repeat;
+$bottom-trim: url("/bg/bottom.png") bottom / 100vw $max-trim-height no-repeat;
 
 main {
 	flex-grow: 1;
-	// always show top swoosh
-	background: $top-swoosh;
 }
 
-.main-full {
-	// show bottom swoosh if there's enough space (class is set on svelte side with JS)
-	background: $top-swoosh, $bottom-swoosh;
+.top-trim {
+	background: $top-trim;
+}
+
+.full-trim {
+	// can't stack backgrounds cross-class so we need to set $top-trim again
+	background: $top-trim, $bottom-trim;
 }
 
 :disabled {
