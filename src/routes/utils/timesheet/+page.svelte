@@ -111,17 +111,13 @@
 	/>
 </Modal>
 
-<Modal
-	bind:open={confirmDialogOpen}
-	title="Confirm Reset"
-	destructive
-	onconfirm={() => timer.resetRecords()}
->
+<Modal bind:open={confirmDialogOpen} title="Confirm Reset" destructive onconfirm={resetSession}>
 	<p class="my-0">Do you really want to reset your session?</p>
 </Modal>
 
 <script lang="ts">
 import { onMount, tick } from "svelte";
+import { beforeNavigate } from "$app/navigation";
 
 import Fa from "svelte-fa";
 import {
@@ -143,6 +139,8 @@ const timer = makeTimer();
 
 const hiddenRecords: Record<string, boolean> = $state({});
 
+let safeToExit = $state(true);
+
 // basically all of this state is just for the modals lol
 let confirmDialogOpen = $state(false);
 
@@ -163,7 +161,10 @@ const recordsByDay = $derived(
 );
 
 async function toggleTime() {
-	if (!timer.isRunning) return timer.start();
+	if (!timer.isRunning) {
+		safeToExit = false;
+		return timer.start();
+	}
 	timer.stop();
 	nameDialogOpen = true;
 	await tick();
@@ -189,6 +190,8 @@ async function openImportDialog() {
 function importSession() {
 	try {
 		timer.importJSONRecords(importedSession);
+		// we saved over anything existing so it's now safe
+		safeToExit = true;
 	} catch (err) {
 		showError("Failed to parse session", String(err));
 	} finally {
@@ -199,16 +202,35 @@ function importSession() {
 
 function exportSession() {
 	navigator.clipboard.writeText(JSON.stringify(timer.records));
+	safeToExit = true;
 	showSuccess(
 		"Copied session data to clipboard!",
 		'You can upload this data again later using the "Upload Session" button.',
 	);
 }
 
-onMount(() => {
-	window.addEventListener("beforeunload", (ev) => {
-		if (timer.isRunning) ev.preventDefault();
-	});
+function resetSession() {
+	timer.resetRecords();
+	safeToExit = true;
+	showSuccess("Reset session data!", "It is now safe to exit the page.");
+}
+
+function onbeforeunload(ev: BeforeUnloadEvent) {
+	if (!safeToExit) ev.preventDefault();
+}
+
+onMount(() => window.addEventListener("beforeunload", onbeforeunload));
+
+beforeNavigate(({ cancel }) => {
+	// need to use our own confirm dialog since it's an internal router (pain)
+	if (
+		!safeToExit &&
+		!confirm("You have an unsaved session. Are you sure you want to leave the page?")
+	)
+		return cancel();
+
+	// user confirmed it's fine, native warning propagates to the next page otherwise
+	window.removeEventListener("beforeunload", onbeforeunload);
 });
 </script>
 
