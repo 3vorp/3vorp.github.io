@@ -59,6 +59,7 @@ function onclick(ev: MouseEvent, key: string) {
 	gap: 0.5rem;
 }
 .key {
+	border: none;
 	flex-grow: 1;
 	display: flex;
 	align-items: center;
@@ -71,7 +72,7 @@ function onclick(ev: MouseEvent, key: string) {
 	background-color: $bg-light;
 	color: $content-light;
 	border-radius: $border-radius;
-	border: none;
+	filter: drop-shadow($drop-shadow);
 	cursor: pointer;
 
 	transition: all $transition;
