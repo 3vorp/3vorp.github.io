@@ -90,9 +90,13 @@ export function makeTimer() {
 		get records() {
 			return records;
 		},
-		/** Live timer that automatically updates with start/stop events */
-		get live() {
+		/** Live time for all sessions combined */
+		get totalLive() {
 			return liveTimer;
+		},
+		/** Live time for current session */
+		get currentLive() {
+			return liveTimer - accurateTimer;
 		},
 		/** stupid hack to be able to display new time before committing change */
 		get uncommittedDelta() {
