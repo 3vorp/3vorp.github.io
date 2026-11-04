@@ -2,9 +2,17 @@
 	<div class="all-center">
 		<h1>Timesheet Manager</h1>
 		<!-- text wrapping gets weird on mobile without line height -->
-		<h2 class="text-center" style="line-height: 1.5">
-			Total time working: <code>{fmtInterval(timer.live)}</code>
-		</h2>
+		<button
+			class="h2 my-2 py-2 px-4 timer-info text-center"
+			style="line-height: 1.5"
+			onclick={switchLiveView}
+		>
+			{#if showCurrent}
+				Time working this session: <code>{fmtInterval(timer.currentLive)}</code>
+			{:else}
+				Total time working: <code>{fmtInterval(timer.totalLive)}</code>
+			{/if}
+		</button>
 		<button class="btn btn-primary btn-lg my-3" onclick={toggleTime}>
 			{buttonTitle}
 		</button>
@@ -140,6 +148,7 @@ const timer = makeTimer();
 const hiddenRecords: Record<string, boolean> = $state({});
 
 let safeToExit = $state(true);
+let showCurrent = $state(false);
 
 // basically all of this state is just for the modals lol
 let confirmDialogOpen = $state(false);
@@ -175,6 +184,10 @@ function addRecord() {
 	timer.addRecord(recordName);
 	// reset
 	recordName = "";
+}
+
+function switchLiveView() {
+	showCurrent = !showCurrent;
 }
 
 function toggleRecord(title: string) {
@@ -238,6 +251,22 @@ beforeNavigate(({ cancel }) => {
 @use "#css/variables.scss" as *;
 
 $list-indent: 48px;
+
+.timer-info {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: $content-light;
+	border-radius: $border-radius;
+	transition: all $transition;
+
+	&:hover {
+		background: rgba($content-dark, 0.2);
+	}
+	&:active {
+		background: rgba($content-dark, 0.5);
+	}
+}
 
 .record-header {
 	// entire header is clickable
