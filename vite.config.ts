@@ -7,7 +7,7 @@ export default defineConfig({
 	plugins: [
 		sveltekit({
 			preprocess: vitePreprocess({ script: true }),
-			adapter: staticAdapter(),
+			adapter: staticAdapter({ fallback: "404.html" }),
 		}),
 	],
 });
