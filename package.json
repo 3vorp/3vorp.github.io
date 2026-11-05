@@ -34,7 +34,7 @@
 		"svelte": "^5.57.3",
 		"svelte-fa": "^4.0.4",
 		"typescript": "^6.0.3",
-		"vite": "^8.3.5"
+		"vite": "^8.3.6"
 	},
 	"imports": {
 		"#components/*": "./src/components/*",

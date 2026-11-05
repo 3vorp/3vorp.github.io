@@ -1,6 +1,6 @@
 # https://3vorp.github.io
 
-slightly better formatted version of my github readme with like three useful tools
+glorified readme page with like three useful tools
 
 ## currently featuring
 
