@@ -4,7 +4,7 @@
 
 	<div class="card card-body block grid-2 mb-5">
 		<textarea
-			class="text-field input block"
+			class="text-field block"
 			bind:value={input}
 			name="UwU Entry Box"
 			placeholder="Enter text to uwuify here…"></textarea>

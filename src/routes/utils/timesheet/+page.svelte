@@ -1,3 +1,5 @@
+<svelte:window {onbeforeunload} />
+
 <div class="container">
 	<div class="all-center">
 		<h1>Timesheet Manager</h1>
@@ -124,7 +126,7 @@
 </Modal>
 
 <script lang="ts">
-import { onMount, tick } from "svelte";
+import { tick } from "svelte";
 import { beforeNavigate } from "$app/navigation";
 
 import Fa from "svelte-fa";
@@ -232,8 +234,6 @@ function onbeforeunload(ev: BeforeUnloadEvent) {
 	if (!safeToExit) ev.preventDefault();
 }
 
-onMount(() => window.addEventListener("beforeunload", onbeforeunload));
-
 beforeNavigate(({ cancel }) => {
 	// need to use our own confirm dialog since it's an internal router (pain)
 	if (
@@ -242,8 +242,7 @@ beforeNavigate(({ cancel }) => {
 	)
 		return cancel();
 
-	// user confirmed it's fine, native warning propagates to the next page otherwise
-	window.removeEventListener("beforeunload", onbeforeunload);
+	safeToExit = true;
 });
 </script>
 

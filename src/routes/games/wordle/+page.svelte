@@ -1,3 +1,5 @@
+<svelte:window {onkeydown} />
+
 <div class="container">
 	<h1>Wordle</h1>
 	<p class="caption">
@@ -88,6 +90,11 @@ function onkey(key: string) {
 	}
 }
 
+function onkeydown(ev: KeyboardEvent) {
+	if (ev.ctrlKey || ev.altKey || ev.metaKey) return;
+	onkey(ev.key);
+}
+
 function shakeGuess() {
 	isShaking = true;
 	setTimeout(() => {
@@ -114,11 +121,6 @@ onMount(() => {
 		choices = words.choices;
 		answers = words.answers;
 		return startGame();
-	});
-
-	window.addEventListener("keydown", (ev) => {
-		if (ev.ctrlKey || ev.altKey || ev.metaKey) return;
-		onkey(ev.key);
 	});
 });
 </script>
