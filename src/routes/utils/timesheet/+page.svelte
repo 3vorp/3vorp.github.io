@@ -105,7 +105,7 @@
 </Modal>
 
 <Modal bind:open={importDialogOpen} title="Upload Session" onconfirm={importSession}>
-	{#if timer.hasRecords}
+	{#if !safeToExit}
 		<div class="mb-4">
 			<Alert type="danger" title="This will override your existing session!" small>
 				Did you want to save your session first?
